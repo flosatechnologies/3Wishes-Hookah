@@ -17,20 +17,26 @@ export class HeaderPage extends Component {
               style={{ maxHeight: "100px" }}
               navbarScroll
             >
+
+              <LinkContainer to="/login">
+                <Nav.Link className="mr-sm-5">Login</Nav.Link>
+
               <LinkContainer to="/home">
                 <Nav.Link className="mr-sm-5">Home</Nav.Link>
               </LinkContainer>
               <LinkContainer to="/contact">
                 <Nav.Link className="mr-sm-5">Contact</Nav.Link>
+
               </LinkContainer>
 
               <LinkContainer to="/shop">
                 <Nav.Link className="mr-sm-5">Shop</Nav.Link>
               </LinkContainer>
 
-              <LinkContainer to="/login">
-                <Nav.Link className="ml-sm-5">Login</Nav.Link>
+              <LinkContainer to="/contact">
+                <Nav.Link className="mr-sm-5">Contact</Nav.Link>
               </LinkContainer>
+
               <Nav.Link href="#action3" className="ml-sm-5">
                 <i className="bi-alarm"></i>
               </Nav.Link>

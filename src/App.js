@@ -4,11 +4,13 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import CarouselPage from "./pages/CarouselPage";
 import FooterPage from "./components/FooterPage";
 import HeaderPage from "./components/HeaderPage";
-import ShopPage from "./pages/ShopPage";
+import ShopPage from "./components/ShopPage";
+import LoginPage from "./components/LoginPage";
 import ContactPage from "./pages/ContactPage";
-import LoginPage from "./pages/LoginPage";
 
-function app() {
+
+
+function NavigationContainer() {
   return (
     <Router>
       <HeaderPage />
@@ -21,4 +23,4 @@ function app() {
   );
 }
 
-export default app;
+export default NavigationContainer;
