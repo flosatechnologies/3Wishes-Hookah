@@ -7,7 +7,7 @@ export class HeaderPage extends Component {
     return (
       <div>
         <Navbar bg="dark" variant="dark" expand="lg">
-          <LinkContainer to="/">
+          <LinkContainer to="">
             <Navbar.Brand>3WishesHookah</Navbar.Brand>
           </LinkContainer>
           <Navbar.Toggle aria-controls="navbarScroll" />
@@ -17,8 +17,16 @@ export class HeaderPage extends Component {
               style={{ maxHeight: "100px" }}
               navbarScroll
             >
+
               <LinkContainer to="/login">
                 <Nav.Link className="mr-sm-5">Login</Nav.Link>
+
+              <LinkContainer to="/home">
+                <Nav.Link className="mr-sm-5">Home</Nav.Link>
+              </LinkContainer>
+              <LinkContainer to="/contact">
+                <Nav.Link className="mr-sm-5">Contact</Nav.Link>
+
               </LinkContainer>
 
               <LinkContainer to="/shop">
