@@ -5,16 +5,18 @@ import CarouselPage from "./components/CarouselPage";
 import FooterPage from "./components/FooterPage";
 import HeaderPage from "./components/HeaderPage";
 import ShopPage from "./components/ShopPage";
+import LoginPage from "./components/LoginPage";
 
-function app() {
+function NavigationContainer() {
   return (
     <Router>
       <HeaderPage />
       <Route path="/" component={CarouselPage} exact />
       <Route path="/shop" component={ShopPage} />
+      <Route path="/login" component={LoginPage} />
       <FooterPage />
     </Router>
   );
 }
 
-export default app;
+export default NavigationContainer;
