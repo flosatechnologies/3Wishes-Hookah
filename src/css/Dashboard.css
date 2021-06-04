@@ -9,11 +9,20 @@
 }
 .profileSection {
   height: 12vh;
-  background-color: #aba7a7;
+  background-color: #cbcaca;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0px 5px;
 }
 
-.logo {
-}
+/* .logo {
+} */
+
+/* .profileImage {
+  height: 2vh;
+} */
 
 .dashboardButtons {
   width: 16vw;
@@ -22,15 +31,20 @@
   border-bottom-width: 1px;
   border-top-width: 1px;
   margin: 2px 5px;
-  color: white;
+  color: black;
   text-align: left;
   padding: 5px 0px 5px 10px;
 }
 .dashboardButtons:focus,
 .dashboardButtons:active,
 .dashboardButtons:hover {
-  color: #e31717;
+  background-color: #8b0000;
+  color: white;
   border-bottom-style: solid;
-  border-bottom-color: #e31717;
+  border-bottom-color: #8b0000;
   border-bottom-width: 1px;
+}
+
+.workspace {
+  background-color: #a7a7a7;
 }
