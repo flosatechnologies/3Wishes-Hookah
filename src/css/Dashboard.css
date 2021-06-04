@@ -1,0 +1,50 @@
+.menuBar {
+  height: 12vh;
+  background-color: black;
+}
+
+.dashboardButtonSection {
+  height: 78vh;
+  background-color: #838282;
+}
+.profileSection {
+  height: 12vh;
+  background-color: #cbcaca;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0px 5px;
+}
+
+/* .logo {
+} */
+
+/* .profileImage {
+  height: 2vh;
+} */
+
+.dashboardButtons {
+  width: 16vw;
+  background-color: transparent;
+  border-style: none;
+  border-bottom-width: 1px;
+  border-top-width: 1px;
+  margin: 2px 5px;
+  color: black;
+  text-align: left;
+  padding: 5px 0px 5px 10px;
+}
+.dashboardButtons:focus,
+.dashboardButtons:active,
+.dashboardButtons:hover {
+  background-color: #8b0000;
+  color: white;
+  border-bottom-style: solid;
+  border-bottom-color: #8b0000;
+  border-bottom-width: 1px;
+}
+
+.workspace {
+  background-color: #a7a7a7;
+}
