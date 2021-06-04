@@ -7,6 +7,7 @@ import HeaderPage from "./components/HeaderPage";
 import ShopPage from "./pages/ShopPage";
 import LoginPage from "./components/LoginPage";
 import ContactPage from "./pages/ContactPage";
+import Dashboard from "./pages/Dashboard";
 
 function NavigationContainer() {
   return (
@@ -16,6 +17,7 @@ function NavigationContainer() {
       <Route path="/shop" component={ShopPage} />
       <Route path="/contact" component={ContactPage} />
       <Route path="/login" component={LoginPage} />
+      <Route path="/Dashboard" component={Dashboard} />
       <FooterPage />
     </Router>
   );

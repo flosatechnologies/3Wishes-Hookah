@@ -1,0 +1,36 @@
+.menuBar {
+  height: 12vh;
+  background-color: black;
+}
+
+.dashboardButtonSection {
+  height: 78vh;
+  background-color: #838282;
+}
+.profileSection {
+  height: 12vh;
+  background-color: #aba7a7;
+}
+
+.logo {
+}
+
+.dashboardButtons {
+  width: 16vw;
+  background-color: transparent;
+  border-style: none;
+  border-bottom-width: 1px;
+  border-top-width: 1px;
+  margin: 2px 5px;
+  color: white;
+  text-align: left;
+  padding: 5px 0px 5px 10px;
+}
+.dashboardButtons:focus,
+.dashboardButtons:active,
+.dashboardButtons:hover {
+  color: #e31717;
+  border-bottom-style: solid;
+  border-bottom-color: #e31717;
+  border-bottom-width: 1px;
+}
