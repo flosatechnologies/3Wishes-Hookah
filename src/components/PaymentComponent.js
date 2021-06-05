@@ -3,14 +3,15 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "../css/PaymentComponent.css";
 import { AiOutlineEye } from "react-icons/ai";
 
-function PaymentComponent() {
+function PaymentComponent(props) {
   return (
     <div className="container">
-      <div className="row">
-        <div>{props.paymentId}</div>
-        <div>{props.customerName}</div>
-        <div> {props.amountPaid} </div>
-        <div> {props.time} </div>
+      <div className="row paymentComponent">
+        <div className="Index">{props.index}</div>
+        <div className="PaymentId">{props.paymentId}</div>
+        <div className="Customer">{props.customerName}</div>
+        <div className="Amount"> {props.amountPaid} </div>
+        <div className="Time"> {props.time} </div>
         <div>
           <AiOutlineEye />
         </div>

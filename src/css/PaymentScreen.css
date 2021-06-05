@@ -1,0 +1,57 @@
+.filterSection {
+  height: 12vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: black;
+}
+.dateFilter {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+.filterButton {
+  width: 5vw;
+  background-color: #40f167;
+  border-style: none;
+  color: black;
+  text-align: center;
+}
+.headerSection {
+  height: 7vh;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+.headerIndex {
+  width: 30px;
+  margin-right: 20px;
+  text-align: center;
+  font-weight: bold;
+  padding-left: 10px;
+}
+.headerPaymentId {
+  width: 100px;
+  margin-right: 70px;
+  font-weight: bold;
+}
+
+.headerCustomer {
+  width: 270px;
+  margin-right: 70px;
+  font-weight: bold;
+}
+
+.headerAmount {
+  width: 140px;
+  margin-right: 70px;
+  font-weight: bold;
+}
+.headerTime {
+  margin-right: 50px;
+  font-weight: bold;
+}

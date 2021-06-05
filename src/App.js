@@ -8,6 +8,7 @@ import ShopPage from "./pages/ShopPage";
 import LoginPage from "./components/LoginPage";
 import ContactPage from "./pages/ContactPage";
 import Dashboard from "./pages/Dashboard";
+import PaymentScreen from "./pages/PaymentScreen";
 
 function NavigationContainer() {
   return (
@@ -18,6 +19,7 @@ function NavigationContainer() {
       <Route path="/contact" component={ContactPage} />
       <Route path="/login" component={LoginPage} />
       <Route path="/Dashboard" component={Dashboard} />
+      <Route path="/payment" component={PaymentScreen} />
       <FooterPage />
     </Router>
   );
