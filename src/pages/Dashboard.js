@@ -15,17 +15,17 @@ class Dashboard extends Component {
     super(props);
     this.state = {
       buttonState: {
-        product: false,
-        payment: false,
-        delivery: false,
-        logout: false,
+        product: "inactive",
+        payment: "inactive",
+        delivery: "inactive",
+        logout: "inactive",
       },
     };
   }
 
   render() {
     const handleRenderScreen = () => {
-      if (this.state.buttonState.payment === true) {
+      if (this.state.buttonState.payment === "active") {
         return (
           <div>
             <PaymentScreen />
@@ -65,7 +65,20 @@ class Dashboard extends Component {
             </div>
 
             <div className="row">
-              <button className="dashboardButtons">
+              <button
+                onClick={() => {
+                  this.setState({
+                    buttonState: {
+                      product: "active",
+                      payment: "inactive",
+                      delivery: "inactive",
+                      logout: "inactive",
+                    },
+                  });
+                }}
+                id={this.state.buttonState.product}
+                className="dashboardButtons "
+              >
                 <BsArchive style={{ marginRight: 15 }} /> Product
               </button>
             </div>
@@ -74,13 +87,14 @@ class Dashboard extends Component {
                 onClick={() => {
                   this.setState({
                     buttonState: {
-                      product: false,
-                      payment: true,
-                      delivery: false,
-                      logout: false,
+                      product: "inactive",
+                      payment: "active",
+                      delivery: "inactive",
+                      logout: "inactive",
                     },
                   });
                 }}
+                id={this.state.buttonState.payment}
                 className="dashboardButtons"
               >
                 <BsCreditCard style={{ marginRight: 15 }} />
@@ -88,13 +102,39 @@ class Dashboard extends Component {
               </button>
             </div>
             <div className="row">
-              <button className="dashboardButtons">
+              <button
+                onClick={() => {
+                  this.setState({
+                    buttonState: {
+                      product: "inactive",
+                      payment: "inactive",
+                      delivery: "active",
+                      logout: "inactive",
+                    },
+                  });
+                }}
+                id={this.state.buttonState.delivery}
+                className="dashboardButtons"
+              >
                 <RiTruckLine style={{ marginRight: 15 }} />
                 Delivery
               </button>
             </div>
             <div className="row">
-              <button className="dashboardButtons">
+              <button
+                onClick={() => {
+                  this.setState({
+                    buttonState: {
+                      product: "inactive",
+                      payment: "inactive",
+                      delivery: "inactive",
+                      logout: "active",
+                    },
+                  });
+                }}
+                id={this.state.buttonState.logout}
+                className="dashboardButtons"
+              >
                 <AiOutlineLogout style={{ marginRight: 15 }} />
                 Logout
               </button>
