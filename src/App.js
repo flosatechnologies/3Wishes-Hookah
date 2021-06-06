@@ -8,16 +8,22 @@ import ShopPage from "./pages/ShopPage";
 import LoginPage from "./components/LoginPage";
 import ContactPage from "./pages/ContactPage";
 import Dashboard from "./pages/Dashboard";
+import { Container } from "react-bootstrap";
 
 function NavigationContainer() {
   return (
     <Router>
       <HeaderPage />
       <Route path="/home" component={CarouselPage} exact />
-      <Route path="/shop" component={ShopPage} />
-      <Route path="/contact" component={ContactPage} />
-      <Route path="/login" component={LoginPage} />
-      <Route path="/Dashboard" component={Dashboard} />
+
+      <main className="py-3">
+        <Container>
+          <Route path="/shop" component={ShopPage} />
+          <Route path="/contact" component={ContactPage} />
+          <Route path="/login" component={LoginPage} />
+          <Route path="/Dashboard" component={Dashboard} />
+        </Container>
+      </main>
       <FooterPage />
     </Router>
   );
