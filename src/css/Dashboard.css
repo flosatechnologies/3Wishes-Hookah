@@ -24,7 +24,8 @@
   height: 2vh;
 } */
 
-.dashboardButtons {
+.dashboardButtons,
+#inactive {
   width: 16vw;
   background-color: transparent;
   border-style: none;
@@ -37,7 +38,8 @@
 }
 .dashboardButtons:focus,
 .dashboardButtons:active,
-.dashboardButtons:hover {
+.dashboardButtons:hover,
+#active {
   background-color: #8b0000;
   color: white;
   border-bottom-style: solid;
