@@ -11,7 +11,8 @@ export class HeaderPage extends Component {
           {/* <Container> */}
           <LinkContainer to="/home">
             <Navbar.Brand>
-              <img width="70" height="70" src={logo} />
+              <img alt="" width="30" height="30" src={logo} />{" "}
+              <Navbar.Text className="text-light">3wisheslounge</Navbar.Text>
             </Navbar.Brand>
           </LinkContainer>
           <Navbar.Toggle aria-controls="navbarScroll" />
@@ -30,6 +31,30 @@ export class HeaderPage extends Component {
 
               <LinkContainer to="/contact">
                 <Nav.Link className="mr-sm-5">Contact</Nav.Link>
+              </LinkContainer>
+
+              <LinkContainer to="/cart">
+                <Nav.Link>
+                  <i className="fas fa-shopping-cart"></i>Cart
+                </Nav.Link>
+              </LinkContainer>
+
+              <LinkContainer to="">
+                <Nav.Link>
+                  <i className="fab fa-facebook-square text-primary"></i>
+                </Nav.Link>
+              </LinkContainer>
+
+              <LinkContainer to="">
+                <Nav.Link>
+                  <i className="fab fa-twitter-square text-primary"></i>
+                </Nav.Link>
+              </LinkContainer>
+
+              <LinkContainer to="">
+                <Nav.Link>
+                  <i className="fab fa-instagram-square text-primary"></i>
+                </Nav.Link>
               </LinkContainer>
               {/* <LinkContainer to="/Dashboard">
                 <Nav.Link className="mr-sm-5">Dashboard</Nav.Link>

@@ -17,7 +17,6 @@ import SecondaryHeader from "./components/SecondaryHeader";
 function NavigationContainer() {
   return (
     <Router>
-      <SecondaryHeader />
       <HeaderPage />
       <Route path="/home" component={CarouselPage} exact />
 
