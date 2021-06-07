@@ -37,7 +37,7 @@ class Dashboard extends Component {
       <div className="container-fluid">
         <div className="row menuBar">
           <div className="col-lg-2">
-            <img src={require("../assets/images/logo.jpeg")} alt="logo" />
+            <img src={logo} width="70" height="70" alt="logo" />
           </div>
         </div>
         <div className="row">
@@ -47,8 +47,8 @@ class Dashboard extends Component {
                 {/* <img
                 src={require("../assets/images/contact.jpg")}
                 alt="userImage"
-                width="100"
-                height="100"
+                width="70"
+                height="70"
               /> */}
                 <FaUserCircle
                   style={{

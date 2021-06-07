@@ -10,11 +10,23 @@ const CarouselPage = () => {
   return (
     <div>
       <Carousel fade>
-        <Carousel.Item className="img">
-          <img className="d-block w-100" src={image1} alt="First slide" />
+        <Carousel.Item>
+          <img
+            className="d-block w-100 carouselImage"
+            src={image1}
+            alt="First slide"
+          />
+          {/* <Carousel.Caption className="carousel-caption text-left ">
+            <h3>Highest Quality Hookah On The Market</h3>
+            <p>3WishesHookah</p>
+          </Carousel.Caption> */}
         </Carousel.Item>
         <Carousel.Item>
-          <img className="d-block w-100" src={image2} alt="Second slide" />
+          <img
+            className="d-block w-100 carouselImage"
+            src={image2}
+            alt="Second slide"
+          />
 
           <Carousel.Caption className="carousel-caption text-left ">
             <h3>Highest Quality Hookah On The Market</h3>
@@ -22,7 +34,11 @@ const CarouselPage = () => {
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
-          <img className="d-block w-100" src={image3} alt="Third slide" />
+          <img
+            className="d-block w-100 carouselImage"
+            src={image3}
+            alt="Third slide"
+          />
 
           <Carousel.Caption>
             <h3>Third slide label</h3>
@@ -32,7 +48,11 @@ const CarouselPage = () => {
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
-          <img className="d-block w-100" src={image4} alt="Third slide" />
+          <img
+            className="d-block w-100 carouselImage"
+            src={image4}
+            alt="Third slide"
+          />
 
           <Carousel.Caption>
             <h3>Forth slide label</h3>

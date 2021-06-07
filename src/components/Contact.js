@@ -11,14 +11,16 @@ import { FaTwitterSquare } from "react-icons/fa";
 
 export default function Contact() {
   return (
-    <Container className="container">
+    <div className="container mainContainer">
       <Col lg={12} sm={6}>
-        <h2>Contact Us</h2>
-        <p>For questions or enquires, just write us a message!</p>
+        <h2 className="contact-h2">Contact Us</h2>
+        <p className="contact-p">
+          For questions or enquires, just write us a message!
+        </p>
 
         <div id="contact-container">
           <div className="contact-info">
-            <h4>Contact Information</h4>
+            <h4 className="contact-h4">Contact Information</h4>
             <p>Fill out the form and we will get in touch with you</p>
             <div className="icon-text">
               <FaPhoneAlt className="Fa" />
@@ -139,6 +141,6 @@ export default function Contact() {
           </form>
         </div>
       </Col>
-    </Container>
+    </div>
   );
 }

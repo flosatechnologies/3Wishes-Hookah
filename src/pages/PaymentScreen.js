@@ -55,7 +55,7 @@ class PaymentScreen extends Component {
           <div className="headerAmount">AMOUNT (GHS)</div>
           <div className="headerTime">TIME</div>
         </div>
-        <div className="row">
+        <div className="">
           <PaymentComponent
             index="1"
             paymentId="PR-0000001"

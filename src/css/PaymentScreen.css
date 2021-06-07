@@ -35,23 +35,22 @@
   padding-left: 10px;
 }
 .headerPaymentId {
-  width: 100px;
+  width: 150px;
   margin-right: 70px;
   font-weight: bold;
 }
 
 .headerCustomer {
-  width: 270px;
-  margin-right: 70px;
+  width: 240px;
+  margin-right: 40px;
   font-weight: bold;
 }
 
 .headerAmount {
-  width: 140px;
+  width: 160px;
   margin-right: 70px;
   font-weight: bold;
 }
 .headerTime {
-  margin-right: 50px;
   font-weight: bold;
 }

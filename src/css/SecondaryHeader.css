@@ -1,0 +1,17 @@
+.secondaryHeaderContainer {
+  height: 5vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.socialMediaContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.socialMedia {
+  margin-right: 10px;
+}
