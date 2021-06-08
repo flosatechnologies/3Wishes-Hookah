@@ -1,0 +1,33 @@
+.paymentComponent {
+  height: 5vh;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: #b6b5b5;
+  margin-top: 3px;
+  margin-bottom: 3px;
+}
+.Index {
+  width: 30px;
+  margin-right: 20px;
+  text-align: center;
+  padding-left: 10px;
+}
+.PaymentId {
+  width: 150px;
+  margin-right: 70px;
+}
+
+.Customer {
+  width: 250px;
+  margin-right: 40px;
+}
+
+.Amount {
+  width: 140px;
+  margin-right: 70px;
+  text-align: center;
+}
+.Time {
+  margin-right: 50px;
+}

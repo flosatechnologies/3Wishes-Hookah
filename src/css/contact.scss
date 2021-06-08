@@ -16,10 +16,10 @@
   }
 }
 
-body {
-  background: #2b1bbc;
-}
-.container {
+// body {
+//   background: #2b1bbc;
+// }
+.mainContainer {
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -27,13 +27,13 @@ body {
   align-items: center;
 }
 
-h2 {
+.contact-h2 {
   text-align: center;
   color: #fff;
   padding-top: 20px;
   text-shadow: 5px 3px 6px rgba(0, 0, 0, 0.6);
 }
-p {
+.contact-p {
   color: #fff;
   font-size: 1.2rem;
   text-align: center;
@@ -64,7 +64,7 @@ p {
     color: white;
     display: flex;
     flex-direction: column;
-    h4 {
+    .contact-h4 {
       font-size: 2rem;
       font-weight: 500;
       //   margin-top: 0;
@@ -73,7 +73,7 @@ p {
       text-align: center;
     }
 
-    p {
+    .contact-p {
       font-size: 0.8rem;
       color: rgba(255, 255, 255, 0.7);
       margin-bottom: 2rem;

@@ -7,8 +7,13 @@ import { AiOutlineLogout } from "react-icons/ai";
 import { FaUserCircle } from "react-icons/fa";
 import logo from "../assets/images/logo.jpeg";
 import userImage from "../assets/images/contact.jpg";
+
 // import PaymentScreen from "./PaymentScreen";
 import AddProduct from "./AddProductScreen";
+
+import PaymentScreen from "./PaymentScreen";
+import { Component } from "react";
+
 
 class Dashboard extends Component {
   constructor(props) {
@@ -25,11 +30,21 @@ class Dashboard extends Component {
 
   render() {
     const handleRenderScreen = () => {
+
       // if (this.state.buttonState.payment === "active")
       if (this.state.buttonState.product === "active") {
         return (
           <div>
             <AddProduct />
+          </div>
+        )
+      }
+
+      if (this.state.buttonState.payment === "active") {
+        return (
+          <div>
+            <PaymentScreen />
+
           </div>
         );
       }

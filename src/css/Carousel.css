@@ -1,7 +1,8 @@
-img {
-  height: 88vh;
+.carouselImage {
+  height: 85vh;
   min-height: 270px;
   background: no-repeat center center scroll;
+  overflow: hidden;
 }
 
 .carousel-caption {
