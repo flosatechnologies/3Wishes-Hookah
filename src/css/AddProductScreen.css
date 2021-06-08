@@ -1,0 +1,87 @@
+/************************BODY*******************************/
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
+.main-container {
+  font-family: "Roboto", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+/************************INPUT FIELDS*******************************/
+.input {
+  margin-left: 50px;
+  display: flex;
+  flex-direction: column;
+}
+h3 {
+  color: blue;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+hr {
+  border-color: #1bbc1b;
+  border-bottom: 1rem;
+}
+h5 {
+  text-shadow: none;
+  color: blue;
+}
+input[type="text"],
+[type="number"],
+textarea {
+  width: 15rem;
+  border-radius: 0.3rem;
+  /* margin-bottom: 0.1rem; */
+}
+/************************PRODUCT IMAGE*******************************/
+.img-responsive {
+  width: 193px;
+  height: 5rem;
+  object-fit: cover;
+}
+
+.image-holder {
+  margin: auto;
+  width: 200px;
+  height: 270px;
+  border: 3px solid black;
+  border-radius: 5px;
+  margin-top: 1rem;
+}
+
+.heading {
+  text-align: center;
+  margin-top: 0.1rem;
+  font-weight: bold;
+}
+
+#input[type="file"] {
+  display: none;
+}
+.label {
+  width: 100%;
+  margin-top: 0.4rem;
+  display: flex;
+  justify-content: center;
+}
+.image-upload {
+  margin-left: 13px;
+  width: 200px;
+  height: 30px;
+  background-color: black;
+  border-radius: 10px;
+  color: white;
+  text-align: center;
+  cursor: pointer;
+}
+.image-upload:hover {
+  background: #1bbc1b;
+}
+/************************BUTTON*******************************/
+.btn {
+  width: 250px;
+  margin-top: 8px;
+  cursor: pointer;
+  font-weight: 600;
+}
+.btn:hover {
+  background: #1bbc1b;
+}
