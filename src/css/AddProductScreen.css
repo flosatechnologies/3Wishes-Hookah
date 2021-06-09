@@ -2,7 +2,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
 .main-container {
   font-family: "Roboto", sans-serif;
-  margin: 0;
+  margin: 10px;
   padding: 0;
 }
 /************************INPUT FIELDS*******************************/
@@ -33,16 +33,16 @@ textarea {
 }
 /************************PRODUCT IMAGE*******************************/
 .img-responsive {
-  width: 193px;
-  height: 5rem;
-  object-fit: cover;
+  width: inherit;
+  height: inherit;
+  /* object-fit: cover; */
 }
 
 .image-holder {
   margin: auto;
-  width: 200px;
-  height: 270px;
-  border: 3px solid black;
+  width: 250px;
+  height: 250px;
+
   border-radius: 5px;
   margin-top: 1rem;
 }

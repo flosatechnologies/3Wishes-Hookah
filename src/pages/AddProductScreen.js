@@ -30,7 +30,6 @@ class AddProduct extends Component {
     const { profileImg } = this.state;
     return (
       <Container className="main-container">
-        <h3>Add Product</h3>
         <Row className="form">
           <Col className="input">
             <h5>Details</h5>
