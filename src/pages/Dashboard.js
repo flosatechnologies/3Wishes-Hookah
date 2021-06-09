@@ -12,8 +12,6 @@ import userImage from "../assets/images/contact.jpg";
 import AddProduct from "./AddProductScreen";
 
 import PaymentScreen from "./PaymentScreen";
-import { Component } from "react";
-
 
 class Dashboard extends Component {
   constructor(props) {
@@ -30,21 +28,19 @@ class Dashboard extends Component {
 
   render() {
     const handleRenderScreen = () => {
-
       // if (this.state.buttonState.payment === "active")
       if (this.state.buttonState.product === "active") {
         return (
           <div>
             <AddProduct />
           </div>
-        )
+        );
       }
 
       if (this.state.buttonState.payment === "active") {
         return (
           <div>
             <PaymentScreen />
-
           </div>
         );
       }
@@ -58,25 +54,15 @@ class Dashboard extends Component {
         </div>
         <div className="row">
           <div className="col-lg-2 dashboardButtonSection">
-            <div className="row profileSection">
-              <div>
-                {/* <img
-                src={require("../assets/images/contact.jpg")}
-                alt="userImage"
-                width="70"
-                height="70"
-              /> */}
-                <FaUserCircle
-                  style={{
-                    width: 70,
-                    height: 70,
-                    marginRight: 20,
-                  }}
-                />
-              </div>
-              <div>
-                <h5>Welcome,</h5>
-                <div>User</div>
+            <div className="row profileSectionContainer">
+              <div className="profileSection">
+                <div>
+                  <img src={userImage} alt="userImage" className="userImage" />
+                </div>
+                <div className="profileWelcomeMessage">
+                  <div className="userWelcome">Welcome,</div>
+                  <div>User</div>
+                </div>
               </div>
             </div>
 

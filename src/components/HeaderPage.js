@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { Navbar, Nav, Container } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
-import logo from "../assets/images/logo.jpeg";
+import logo from "../assets/images/logo.png";
+import { IoMdCart } from "react-icons/io";
 
 export class HeaderPage extends Component {
   render() {
@@ -11,8 +12,8 @@ export class HeaderPage extends Component {
           {/* <Container> */}
           <LinkContainer to="/home">
             <Navbar.Brand>
-              <img alt="" width="30" height="30" src={logo} />{" "}
-              <Navbar.Text className="text-light">3wisheslounge</Navbar.Text>
+              <img alt="" width="100" height="69" src={logo} />{" "}
+              <Navbar.Text className="text-light"> </Navbar.Text>
             </Navbar.Brand>
           </LinkContainer>
           <Navbar.Toggle aria-controls="navbarScroll" />
