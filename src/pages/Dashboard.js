@@ -8,10 +8,8 @@ import { FaUserCircle } from "react-icons/fa";
 import logo from "../assets/images/logo1.png";
 import userImage from "../assets/images/contact.jpg";
 
-// import PaymentScreen from "./PaymentScreen";
-import AddProduct from "./AddProductScreen";
-
 import PaymentScreen from "./PaymentScreen";
+import ProductsScreenDashboard from "./ProductsScreenDashboard";
 
 class Dashboard extends Component {
   constructor(props) {
@@ -32,7 +30,7 @@ class Dashboard extends Component {
       if (this.state.buttonState.product === "active") {
         return (
           <div>
-            <AddProduct />
+            <ProductsScreenDashboard />
           </div>
         );
       }

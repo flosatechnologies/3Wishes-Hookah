@@ -1,0 +1,50 @@
+.productContainer {
+  width: fit-content;
+  height: fit-content;
+  background-color: white;
+  margin: 7px;
+}
+.productImageContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.productImage {
+  width: 200px;
+  height: 200px;
+  margin: 10px;
+}
+
+.editAndDeleteButtonContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  border-top-style: solid;
+  border-color: gray;
+  border-top-width: 1px;
+}
+.deleteButton,
+.editButton {
+  height: fit-content;
+
+  border-style: none;
+  background-color: transparent;
+}
+.deleteButton:hover {
+  color: tomato;
+}
+.editButton:hover {
+  color: #006400;
+}
+.nameAndPriceContainer {
+  width: 220px;
+  margin-left: 10px;
+}
+
+.productName {
+  font-size: 19px;
+}
+.productPrice {
+  font-size: 14px;
+  font-weight: bold;
+}
