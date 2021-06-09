@@ -18,7 +18,7 @@ class PaymentScreen extends Component {
     return (
       <div className="container">
         <div className="row filterSection">
-          <div className="dateFilter">
+          <div className="col-lg-11 dateFilter">
             <div style={{ marginRight: 50 }}>
               From{"   "}
               <DatePicker
@@ -32,7 +32,7 @@ class PaymentScreen extends Component {
               />
             </div>
             <div>
-              To{"   "}
+              To
               <DatePicker
                 selected={this.state.date2}
                 onChange={(date) => this.setState({ date2: date })}
@@ -44,11 +44,11 @@ class PaymentScreen extends Component {
               />
             </div>
           </div>
-          <div>
+          <div className="col-lg-1">
             <button className="filterButton">Filter</button>
           </div>
         </div>
-        <div className="row headerSection">
+        <div className="headerSection">
           <div className=" headerIndex">#</div>
           <div className=" headerPaymentId">PAYMENT ID</div>
           <div className="headerCustomer">CUSTOMER</div>

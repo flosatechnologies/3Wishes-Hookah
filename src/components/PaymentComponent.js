@@ -5,8 +5,8 @@ import { AiOutlineEye } from "react-icons/ai";
 
 function PaymentComponent(props) {
   return (
-    <div className="container">
-      <div className="row paymentComponent">
+    <div className="container componentContainer">
+      <div className="paymentComponent">
         <div className="Index">{props.index}</div>
         <div className="PaymentId">{props.paymentId}</div>
         <div className="Customer">{props.customerName}</div>
