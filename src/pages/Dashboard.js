@@ -5,7 +5,7 @@ import { BsArchive, BsCreditCard } from "react-icons/bs";
 import { RiTruckLine } from "react-icons/ri";
 import { AiOutlineLogout } from "react-icons/ai";
 import { FaUserCircle } from "react-icons/fa";
-import logo from "../assets/images/logo.jpeg";
+import logo from "../assets/images/logo1.png";
 import userImage from "../assets/images/contact.jpg";
 
 // import PaymentScreen from "./PaymentScreen";
@@ -49,7 +49,7 @@ class Dashboard extends Component {
       <div className="container-fluid">
         <div className="row menuBar">
           <div className="col-lg-2">
-            <img src={logo} width="70" height="70" alt="logo" />
+            <img src={logo} width="80" height="80" alt="logo" />
           </div>
         </div>
         <div className="row">

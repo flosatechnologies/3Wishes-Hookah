@@ -12,7 +12,7 @@ export class HeaderPage extends Component {
           {/* <Container> */}
           <LinkContainer to="/home">
             <Navbar.Brand>
-              <img alt="" width="100" height="69" src={logo} />{" "}
+              <img alt="" width="80" height="80" src={logo} />{" "}
               <Navbar.Text className="text-light"> </Navbar.Text>
             </Navbar.Brand>
           </LinkContainer>
