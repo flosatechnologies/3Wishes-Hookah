@@ -16,15 +16,15 @@ export default function Contact() {
         <h2 className="contact-h2">Contact Us</h2>
       </div>
       <div className="row">
-        <p className="contact-p">
-          For questions or enquires, just write us a message!
-        </p>
+        <p className="p">For questions or enquires, just write us a message!</p>
       </div>
 
       <div className="row" id="contact-container">
         <div className=" col-lg-4 contact-info">
           <h4 className="contact-h4">Contact Information</h4>
-          <p>Fill out the form and we will get in touch with you</p>
+          <p className="contact-p">
+            Fill out the form and we will get in touch with you
+          </p>
           <div className="icon-text">
             <FaPhoneAlt className="Fa" />
             <span>+233 507 442 694</span>

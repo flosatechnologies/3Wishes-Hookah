@@ -6,7 +6,7 @@ function FooterPage() {
     <div
       className="text-center"
       variant="light"
-      style={{ background: "#20D9D0" }}
+      style={{ background: "#20D9D0", height: 10 }}
     >
       <footer variant="white" style={{ color: "#000" }}>
         Copyright &copy; FLOSA Technologies
