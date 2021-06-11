@@ -33,7 +33,7 @@ class Edit extends Component {
 
               <label id="description">Product Description</label>
               <textarea></textarea>
-              <Button id="btn">Add</Button>
+              <Button id="btn">update</Button>
               <Button id="btn-btn">Cancel</Button>
             </div>
           </Col>
