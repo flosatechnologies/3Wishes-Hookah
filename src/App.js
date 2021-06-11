@@ -9,6 +9,7 @@ import LoginPage from "./components/LoginPage";
 import ContactPage from "./pages/ContactPage";
 import Dashboard from "./pages/Dashboard";
 import PaymentScreen from "./pages/PaymentScreen";
+import Edit from "./pages/EditScreen";
 
 function NavigationContainer() {
   return (
@@ -20,6 +21,7 @@ function NavigationContainer() {
       <Route path="/login" component={LoginPage} />
       <Route path="/Dashboard" component={Dashboard} />
       <Route path="/payment" component={PaymentScreen} />
+      <Route path="/edit" component={Edit} />
       <FooterPage />
     </Router>
   );
