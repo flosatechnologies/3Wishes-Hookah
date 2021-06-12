@@ -1,0 +1,45 @@
+.container-fluid {
+  /* background: gray; */
+  align-items: center;
+  margin-bottom: 3.5rem;
+}
+.form-input {
+  margin-top: 10px;
+  background: #1bbc1b;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 29rem;
+  width: 23rem;
+  text-align: start;
+}
+.form-input[type="text"],
+[type="number"],
+textarea {
+  background: rgb(204, 188, 188);
+}
+#pname {
+  background: rgb(204, 188, 188);
+}
+label {
+  margin-left: -80px;
+  padding-top: 15px;
+  color: rgb(41, 8, 230);
+}
+#name {
+  margin-left: -120px;
+}
+#price {
+  margin-left: -90px;
+}
+#quality {
+  margin-left: -100px;
+}
+.btn {
+  width: 240px;
+}
+.btn:hover {
+  background: #000;
+}
