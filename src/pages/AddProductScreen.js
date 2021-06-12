@@ -30,23 +30,23 @@ class AddProduct extends Component {
     const { profileImg } = this.state;
     return (
       <Container className="main-container">
-        <Row className="form">
+        <Row className="form subContainer">
           <Col className="input">
-            <h5>Details</h5>
-            <label>Product Name</label>
+            {/* <h5>Details</h5> */}
+            <label className="labelName">Product Name</label>
             <input type="text" id="product-name" />
 
-            <label>Product Price GH{"\u20B5"}</label>
+            <label className="labelName">Product Price GH{"\u20B5"}</label>
             <input type="number" id="product-price" />
 
-            <label>Product Quantity</label>
+            <label className="labelName">Product Quantity</label>
             <input type="number" id="product-quantity" />
 
-            <label>Product Description</label>
+            <label className="labelName">Product Description</label>
             <textarea></textarea>
           </Col>
-          <Col className="image">
-            <h5 className="heading">Image</h5>
+          <Col className="imageContainer">
+            <div className="image-heading">Product Image</div>
             <div className="image-holder">
               <img
                 src={profileImg}
@@ -65,13 +65,13 @@ class AddProduct extends Component {
             <div className="label">
               <label htmlFor="input" className="image-upload">
                 <FaRegImage />
-                Choose Product Image
+                Select
               </label>
             </div>
           </Col>
         </Row>
-        <Row className="button">
-          <Button id="btn">Add</Button>
+        <Row className="addButtonContainer">
+          <button className="button">Add</button>
         </Row>
       </Container>
     );
