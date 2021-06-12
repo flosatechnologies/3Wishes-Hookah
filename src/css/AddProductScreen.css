@@ -7,10 +7,32 @@
 }
 /************************INPUT FIELDS*******************************/
 .input {
-  margin-left: 50px;
+  padding: 20px;
+
   display: flex;
   flex-direction: column;
+  background-color: #84f39c;
 }
+
+.imageContainer {
+  background-color: #2d3551;
+}
+.labelName {
+  font-size: 14px;
+  font-weight: bolder;
+  margin-bottom: 0px;
+}
+.subContainer,
+.addButtonContainer {
+  margin: 0px 50px;
+}
+#product-name,
+#product-price,
+#product-quantity,
+#product-description {
+  margin-bottom: 15px;
+}
+
 h3 {
   color: blue;
   margin-bottom: 10px;
@@ -47,10 +69,12 @@ textarea {
   margin-top: 1rem;
 }
 
-.heading {
+.image-heading {
   text-align: center;
   margin-top: 0.1rem;
   font-weight: bold;
+  font-size: 20px;
+  color: antiquewhite;
 }
 
 #input[type="file"] {
@@ -64,10 +88,11 @@ textarea {
 }
 .image-upload {
   margin-left: 13px;
-  width: 200px;
-  height: 30px;
+  width: fit-content;
+  height: fit-content;
+  padding: 2px 20px;
   background-color: black;
-  border-radius: 10px;
+  border-radius: 5px;
   color: white;
   text-align: center;
   cursor: pointer;
@@ -76,12 +101,24 @@ textarea {
   background: #1bbc1b;
 }
 /************************BUTTON*******************************/
+.button {
+  font-size: 20px;
+  margin-top: 25px;
+  width: fit-content;
+  padding: 0px 70px;
+  border-style: none;
+  background-color: #1e90ff;
+  border-radius: 5px;
+  color: white;
+}
 .btn {
   width: 250px;
   margin-top: 8px;
   cursor: pointer;
+
   font-weight: 600;
 }
-.btn:hover {
+.btn:hover,
+.button:hover {
   background: #1bbc1b;
 }
