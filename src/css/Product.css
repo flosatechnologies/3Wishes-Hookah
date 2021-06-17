@@ -2,3 +2,13 @@
   width: 200px;
   height: 200px;
 }
+.addToCartButton {
+  background-color: #84f39c;
+  color: black;
+  border-style: none;
+  width: 100%;
+}
+.productImage {
+  width: 100px;
+  height: 100px;
+}

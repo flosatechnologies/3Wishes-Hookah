@@ -1,0 +1,12 @@
+.productImage {
+  width: 80px;
+  height: 80px;
+}
+.productAndNameSection {
+  background-color: "#eeeeee";
+}
+.unitPriceHeader,
+.subtotalHeader,
+.quantityHeader {
+  text-align: center;
+}

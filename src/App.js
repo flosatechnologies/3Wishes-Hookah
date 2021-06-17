@@ -10,6 +10,7 @@ import ContactPage from "./pages/ContactPage";
 import Dashboard from "./pages/Dashboard";
 import PaymentScreen from "./pages/PaymentScreen";
 import Edit from "./pages/EditScreen";
+import CartScreen from "./pages/CartScreen";
 
 function NavigationContainer() {
   return (
@@ -21,6 +22,7 @@ function NavigationContainer() {
         <Route path="/login" component={LoginPage} />
         <Route path="/Dashboard" component={Dashboard} />
         <Route path="/payment" component={PaymentScreen} />
+        <Route path="/cart" component={CartScreen} />
         <Route path="/edit" component={Edit} />
       </Router>
     </div>
