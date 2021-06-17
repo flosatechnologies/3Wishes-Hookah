@@ -5,7 +5,6 @@ import AddProduct from "./AddProductScreen.js";
 import "react-datepicker/dist/react-datepicker.css";
 import { Component } from "react";
 import ProductComponentDashboard from "../components/ProductComponentDashboard";
-import EditProductScreen from "./EditProductScreen";
 
 class ProductsScreenDashboard extends Component {
   constructor(props) {
@@ -13,7 +12,6 @@ class ProductsScreenDashboard extends Component {
     this.state = {
       button: {
         addProduct: "inactivebtn",
-        editProduct: "inactivebtn",
       },
     };
   }

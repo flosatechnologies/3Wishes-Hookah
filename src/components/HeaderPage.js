@@ -40,23 +40,6 @@ export class HeaderPage extends Component {
                 </Nav.Link>
               </LinkContainer>
 
-              <LinkContainer to="">
-                <Nav.Link>
-                  <i className="fab fa-facebook-square text-primary"></i>
-                </Nav.Link>
-              </LinkContainer>
-
-              <LinkContainer to="">
-                <Nav.Link>
-                  <i className="fab fa-twitter-square text-primary"></i>
-                </Nav.Link>
-              </LinkContainer>
-
-              <LinkContainer to="">
-                <Nav.Link>
-                  <i className="fab fa-instagram-square text-primary"></i>
-                </Nav.Link>
-              </LinkContainer>
               {/* <LinkContainer to="/Dashboard">
                 <Nav.Link className="mr-sm-5">Dashboard</Nav.Link>
               </LinkContainer> */}
