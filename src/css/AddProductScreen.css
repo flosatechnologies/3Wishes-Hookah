@@ -8,7 +8,6 @@
 /************************INPUT FIELDS*******************************/
 .input {
   padding: 20px;
-
   display: flex;
   flex-direction: column;
   background-color: #84f39c;
@@ -33,19 +32,19 @@
   margin-bottom: 15px;
 }
 
-h3 {
+/* h3 {
   color: blue;
   margin-bottom: 10px;
   font-weight: bold;
-}
+} */
 hr {
   border-color: #1bbc1b;
   border-bottom: 1rem;
 }
-h5 {
+/* h5 {
   text-shadow: none;
   color: blue;
-}
+} */
 input[type="text"],
 [type="number"],
 textarea {

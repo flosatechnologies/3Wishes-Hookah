@@ -13,17 +13,17 @@ import Edit from "./pages/EditScreen";
 
 function NavigationContainer() {
   return (
-    <Router>
-      <HeaderPage />
-      <Route path="/home" component={CarouselPage} exact />
-      <Route path="/shop" component={ShopPage} />
-      <Route path="/contact" component={ContactPage} />
-      <Route path="/login" component={LoginPage} />
-      <Route path="/Dashboard" component={Dashboard} />
-      <Route path="/payment" component={PaymentScreen} />
-      <Route path="/edit" component={Edit} />
-      <FooterPage />
-    </Router>
+    <div>
+      <Router>
+        <Route path="/home" component={CarouselPage} exact />
+        <Route path="/shop" component={ShopPage} />
+        <Route path="/contact" component={ContactPage} />
+        <Route path="/login" component={LoginPage} />
+        <Route path="/Dashboard" component={Dashboard} />
+        <Route path="/payment" component={PaymentScreen} />
+        <Route path="/edit" component={Edit} />
+      </Router>
+    </div>
   );
 }
 

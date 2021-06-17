@@ -1,3 +1,19 @@
 .text-center {
   height: 10px;
 }
+.secondaryHeaderContainer {
+  height: 5vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.socialMediaContainer {
+  display: flex;
+  flex-direction: row;
+}
+
+.socialMedia {
+  margin-right: 10px;
+}

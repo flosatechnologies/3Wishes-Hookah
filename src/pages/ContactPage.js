@@ -1,13 +1,19 @@
 import React from "react";
 import "../css/contact.scss";
 import Contact from "../components/Contact";
+import FooterPage from "../components/FooterPage";
+import HeaderPage from "../components/HeaderPage";
 // import { url } from "inspector";
 
 function ContactPage() {
   // let bg = require("../assets/images/awesome.jpg");
   return (
-    <div className="main-container">
-      <Contact />
+    <div>
+      <HeaderPage />
+      <div className="main-container">
+        <Contact />
+      </div>
+      <FooterPage />
     </div>
   );
 }
