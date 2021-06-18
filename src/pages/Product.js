@@ -21,6 +21,7 @@ const Product = ({ product }) => {
           <Card.Text as="h4">
             GH{"\u20B5"} {product.price}
           </Card.Text>
+          <button className="addToCartButton">Add to cart</button>
         </Card.Body>
       </Card>
     </div>

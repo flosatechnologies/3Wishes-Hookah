@@ -10,18 +10,20 @@ import ContactPage from "./pages/ContactPage";
 import Dashboard from "./pages/Dashboard";
 import PaymentScreen from "./pages/PaymentScreen";
 import Edit from "./pages/EditScreen";
+import CartScreen from "./pages/CartScreen";
 
 function NavigationContainer() {
   return (
     <div>
       <Router>
-        <Route path="/home" component={CarouselPage} exact />
-        <Route path="/shop" component={ShopPage} />
-        <Route path="/contact" component={ContactPage} />
-        <Route path="/login" component={LoginPage} />
-        <Route path="/Dashboard" component={Dashboard} />
-        <Route path="/payment" component={PaymentScreen} />
-        <Route path="/edit" component={Edit} />
+        <Route path="/" component={CarouselPage} exact={true} />
+        <Route path="/shop" component={ShopPage} exact={true} />
+        <Route path="/contact" component={ContactPage} exact={true} />
+        <Route path="/login" component={LoginPage} exact={true} />
+        <Route path="/Dashboard" component={Dashboard} exact={true} />
+        <Route path="/payment" component={PaymentScreen} exact={true} />
+        <Route path="/cart" component={CartScreen} exact={true} />
+        <Route path="/edit" component={Edit} exact={true} />
       </Router>
     </div>
   );

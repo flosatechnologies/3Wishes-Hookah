@@ -1,0 +1,67 @@
+.productQtyInput {
+  width: 80px;
+  background-color: transparent;
+  border-style: none;
+  border-bottom-style: solid;
+  border-bottom-color: gray;
+  border-bottom-width: 1px;
+  border-radius: unset;
+  text-align: center;
+}
+.cartComponentContainer {
+  margin-top: 15px;
+}
+.productUnitPriceContainer {
+  background-color: whitesmoke;
+  text-align: center;
+}
+.productSubtotalContainer {
+  background-color: whitesmoke;
+  border-left-style: solid;
+  border-left-width: 2px;
+  border-left-color: white;
+  text-align: center;
+}
+
+.productQtyContainer {
+  background-color: whitesmoke;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: white;
+  border-left-style: solid;
+  border-left-width: 2px;
+  border-left-color: white;
+  text-align: center;
+}
+.productAndNameSection {
+  background-color: whitesmoke;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: transparent;
+}
+.productName {
+  padding-top: 15px;
+}
+.productNameBox {
+  padding-left: 0px;
+  margin-left: 0px;
+}
+.productImageBox {
+  padding-right: 0px;
+  margin-right: 0px;
+}
+.removeButton {
+  color: #ff0000;
+  font-weight: bold;
+  border-style: none;
+  background-color: transparent;
+}
+.productUnitPrice,
+.productSubtotal,
+.productQtyInput {
+  margin-top: 35px;
+}
+.removeButtonContainer {
+  margin-top: 20px;
+  text-align: right;
+}
