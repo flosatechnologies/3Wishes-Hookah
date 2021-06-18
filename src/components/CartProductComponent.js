@@ -9,10 +9,10 @@ function CartProductComponent(props) {
       <div className="row cartComponentContainer">
         <div className="col-lg-6 productAndNameSection">
           <div className="row">
-            <div className="col-lg-4">
+            <div className="col-lg-4 productImageBox">
               <img src={productImage} className="productImage" />
             </div>
-            <div className="col-lg-8">
+            <div className="col-lg-8 productNameBox">
               <div className="row productName">{props.productName}</div>
               <div className="row removeButtonContainer">
                 <button className="removeButton">remove</button>

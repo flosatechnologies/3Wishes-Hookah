@@ -15,9 +15,9 @@ function CartScreen() {
       <HeaderPage />
       <div className="container background">
         <div className="row">
-          <div>Cart({0 + " item(s)"})</div>
+          <div>Cart({3 + " item(s)"})</div>
         </div>
-        <div className="row">
+        <div className="row cartHeaderSection">
           <div className="col-lg-6 itemHeader">ITEM</div>
           <div className="col-lg-2 quantityHeader">QUANTITY</div>
           <div className="col-lg-2 unitPriceHeader">UNIT PRICE</div>
@@ -25,7 +25,7 @@ function CartScreen() {
         </div>
         <div>
           <CartProductComponent
-            productName="iPhone 11 Pro 256GB Memory"
+            productName="iPhone 11 Pro 256GB ROM, 10GB RAM, 48MP"
             unitPrice="70"
             subTotal="70"
           />
@@ -42,17 +42,18 @@ function CartScreen() {
             subTotal="70"
           />
         </div>
-        <div className="row">
+        <div className="row theTotalSection">
           <div className="col-9"></div>
-          <div className="col-lg-3">Total: {" GHS 70"}</div>
+          <div className="col-lg-1 theTotalText">Total: </div>
+          <div className="col-lg-2 theTotalAmount"> {" GHS 70"}</div>
         </div>
-        <div className="row">
+        <div className="row bottomSection">
           <div className="col-lg-8"></div>
-          <div className="col-lg-2">
-            <button>Continue shopping</button>
+          <div className="col-lg-2 shoppingButtonContainer">
+            <button className="shoppingButton">Continue shopping</button>
           </div>
-          <div className="col-lg-2">
-            <button>Checkout</button>
+          <div className="col-lg-2 checkoutButtonContainer">
+            <button className="checkoutButton">Proceed to checkout</button>
           </div>
         </div>
       </div>

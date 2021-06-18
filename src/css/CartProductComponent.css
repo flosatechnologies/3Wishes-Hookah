@@ -42,6 +42,14 @@
 .productName {
   padding-top: 15px;
 }
+.productNameBox {
+  padding-left: 0px;
+  margin-left: 0px;
+}
+.productImageBox {
+  padding-right: 0px;
+  margin-right: 0px;
+}
 .removeButton {
   color: #ff0000;
   font-weight: bold;
