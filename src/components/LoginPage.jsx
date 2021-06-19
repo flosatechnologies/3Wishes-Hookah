@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import "../App.scss";
 import { Login, Register } from "../components/login/index";
+import FooterPage from "./FooterPage";
+import HeaderPage from "./HeaderPage";
 
 class LoginPage extends Component {
   constructor(props) {
@@ -35,23 +37,27 @@ class LoginPage extends Component {
     const current = isLogginActive ? "Register" : "Login";
     const currentActive = isLogginActive ? "login" : "register";
     return (
-      <div className="App">
-        <div className="login">
-          <div className="container" ref={(ref) => (this.container = ref)}>
-            {isLogginActive && (
-              <Login containerRef={(ref) => (this.current = ref)} />
-            )}
-            {!isLogginActive && (
-              <Register containerRef={(ref) => (this.current = ref)} />
-            )}
+      <div>
+        <HeaderPage />
+        <div className="App">
+          <div className="login">
+            <div className="container" ref={(ref) => (this.container = ref)}>
+              {isLogginActive && (
+                <Login containerRef={(ref) => (this.current = ref)} />
+              )}
+              {!isLogginActive && (
+                <Register containerRef={(ref) => (this.current = ref)} />
+              )}
+            </div>
+            <RightSide
+              current={current}
+              currentActive={currentActive}
+              containerRef={(ref) => (this.rightSide = ref)}
+              onClick={this.changeState.bind(this)}
+            />
           </div>
-          <RightSide
-            current={current}
-            currentActive={currentActive}
-            containerRef={(ref) => (this.rightSide = ref)}
-            onClick={this.changeState.bind(this)}
-          />
         </div>
+        <FooterPage />
       </div>
     );
   }

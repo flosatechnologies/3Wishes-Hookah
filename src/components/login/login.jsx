@@ -14,9 +14,9 @@ export class Login extends Component {
       <div className="base-container">
         <div className="header"></div>
         <div className="content">
-          <div className="image">
+          {/* <div className="image">
             <img src={loginImage} />
-          </div>
+          </div> */}
 
           <div className="form">
             <div className="form-group">

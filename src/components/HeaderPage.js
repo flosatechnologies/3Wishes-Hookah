@@ -40,9 +40,9 @@ export class HeaderPage extends Component {
                 </Nav.Link>
               </LinkContainer>
 
-              {/* <LinkContainer to="/Dashboard">
-                <Nav.Link className="mr-sm-5">Dashboard</Nav.Link>
-              </LinkContainer> */}
+              <LinkContainer to="/login">
+                <Nav.Link className="mr-sm-5">Login</Nav.Link>
+              </LinkContainer>
             </Nav>
           </Navbar.Collapse>
           {/* </Container> */}
