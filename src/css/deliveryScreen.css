@@ -1,0 +1,9 @@
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@300&family=Roboto:wght@100&display=swap");
+
+.container-fluid {
+  font-family: "Roboto", sans-serif;
+}
+
+#edit {
+  text-transform: capitalize;
+}
