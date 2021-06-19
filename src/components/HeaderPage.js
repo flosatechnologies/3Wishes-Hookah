@@ -10,7 +10,7 @@ export class HeaderPage extends Component {
       <div>
         <Navbar bg="dark" variant="dark" expand="lg">
           {/* <Container> */}
-          <LinkContainer to="/home">
+          <LinkContainer to="/" exact={true}>
             <Navbar.Brand>
               <img alt="" width="80" height="80" src={logo} />{" "}
               <Navbar.Text className="text-light"> </Navbar.Text>
@@ -23,7 +23,7 @@ export class HeaderPage extends Component {
               style={{ maxHeight: "100px" }}
               navbarScroll
             >
-              <LinkContainer to="/home">
+              <LinkContainer to="/" exact={true}>
                 <Nav.Link className="mr-sm-5">Home</Nav.Link>
               </LinkContainer>
               <LinkContainer to="/shop">

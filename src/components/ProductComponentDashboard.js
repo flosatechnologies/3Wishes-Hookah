@@ -5,15 +5,19 @@ import { MdEdit, MdDelete } from "react-icons/md";
 
 function ProductComponentDashboard(props) {
   return (
-    <div className="productContainer">
-      <div className="productImageContainer">
-        <img className="productImage" src={image1} alt="productImage" />
+    <div className="dashboardProductContainer">
+      <div className="dashboardProductImageContainer">
+        <img
+          className="dashboardProductImage"
+          src={image1}
+          alt="productImage"
+        />
       </div>
 
       <div className="nameAndPriceContainer">
-        <div className="productName">{props.productName}</div>
+        <div className="dashboardProductName">{props.productName}</div>
 
-        <div className="productPrice">
+        <div className="dashboardProductPrice">
           GH{"\u20B5"} {props.price}
         </div>
       </div>

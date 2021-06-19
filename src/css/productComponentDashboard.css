@@ -1,15 +1,15 @@
-.productContainer {
+.dashboardProductContainer {
   width: fit-content;
   height: fit-content;
   background-color: white;
   margin: 7px;
 }
-.productImageContainer {
+.dashboardProductImageContainer {
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.productImage {
+.dashboardProductImage {
   width: 200px;
   height: 200px;
   margin: 10px;
@@ -41,10 +41,10 @@
   margin-left: 10px;
 }
 
-.productName {
+.dashboardProductName {
   font-size: 19px;
 }
-.productPrice {
+.dashboardProductPrice {
   font-size: 14px;
   font-weight: bold;
 }
