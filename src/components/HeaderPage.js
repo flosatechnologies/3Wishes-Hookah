@@ -12,8 +12,10 @@ export class HeaderPage extends Component {
           {/* <Container> */}
           <LinkContainer to="/" exact={true}>
             <Navbar.Brand>
-              <img alt="" width="80" height="80" src={logo} />{" "}
-              <Navbar.Text className="text-light"> </Navbar.Text>
+              <img alt="" width="50" height="50" src={logo} />{" "}
+              <Navbar.Text className="text-light font-weight-bold">
+                3Wishes Hookah
+              </Navbar.Text>
             </Navbar.Brand>
           </LinkContainer>
           <Navbar.Toggle aria-controls="navbarScroll" />
@@ -36,7 +38,7 @@ export class HeaderPage extends Component {
 
               <LinkContainer to="/cart">
                 <Nav.Link>
-                  <i className="fas fa-shopping-cart"></i>Cart
+                  <i className="fas fa-shopping-cart"></i> Cart
                 </Nav.Link>
               </LinkContainer>
 

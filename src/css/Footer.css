@@ -2,7 +2,7 @@
   height: 10px;
 }
 .secondaryHeaderContainer {
-  height: 5vh;
+  height: 2vh;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
