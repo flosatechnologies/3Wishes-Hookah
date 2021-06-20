@@ -1,5 +1,5 @@
 import React from "react";
-import { Card } from "react-bootstrap";
+import { Button, Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "../css/Product.css";
 
@@ -21,7 +21,12 @@ const Product = ({ product }) => {
           <Card.Text as="h4">
             GH{"\u20B5"} {product.price}
           </Card.Text>
-          <button className="addToCartButton">Add to cart</button>
+          <Button
+            variant="primary"
+            className="w-75 text-capitalize text-nowrap ml-2 px-2 "
+          >
+            Add To cart
+          </Button>
         </Card.Body>
       </Card>
     </div>
