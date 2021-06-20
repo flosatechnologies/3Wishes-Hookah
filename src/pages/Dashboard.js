@@ -10,6 +10,7 @@ import userImage from "../assets/images/contact.jpg";
 
 import PaymentScreen from "./PaymentScreen";
 import ProductsScreenDashboard from "./ProductsScreenDashboard";
+import DeliveryScreen from "./DeliveryScreen";
 
 class Dashboard extends Component {
   constructor(props) {
@@ -39,6 +40,13 @@ class Dashboard extends Component {
         return (
           <div>
             <PaymentScreen />
+          </div>
+        );
+      }
+      if (this.state.buttonState.delivery === "active") {
+        return (
+          <div>
+            <DeliveryScreen />
           </div>
         );
       }
