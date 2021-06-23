@@ -12,12 +12,12 @@ import PaymentScreen from "./pages/PaymentScreen";
 import Edit from "./pages/EditScreen";
 import DeliveryScreen from "./pages/DeliveryScreen";
 import CartScreen from "./pages/CartScreen";
-
+import CheckoutScreen from "./pages/CheckoutScreen";
 
 function NavigationContainer() {
   return (
     <div>
-      <Router>     
+      <Router>
         <Route path="/" component={CarouselPage} exact={true} />
         <Route path="/shop" component={ShopPage} exact={true} />
         <Route path="/contact" component={ContactPage} exact={true} />
@@ -27,7 +27,7 @@ function NavigationContainer() {
         <Route path="/cart" component={CartScreen} exact={true} />
         <Route path="/edit" component={Edit} exact={true} />
         <Route path="/delivery" component={DeliveryScreen} exact={true} />
-
+        <Route path="/checkout" component={CheckoutScreen} exact={true} />
       </Router>
     </div>
   );
