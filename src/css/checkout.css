@@ -1,0 +1,52 @@
+.checkoutMainContainer {
+  margin: 2% 25%;
+}
+
+.addressDetailContainer,
+.deliveryMethodContainer {
+  /* box-shadow: 0px 0px 2px 1px; */
+  margin-bottom: 3%;
+  border-radius: 4px;
+  padding: 2%;
+  border-style: solid;
+  border-width: 1px;
+  border-color: gray;
+}
+.editButtonContainer {
+  text-align: right;
+}
+.editButton {
+  background-color: transparent;
+  color: forestgreen;
+  border-style: none;
+  font-weight: bold;
+}
+.addressDetailsHeader,
+.deliveryMethodHeader {
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-color: #eeeeee;
+  margin: 0% 0.5%;
+}
+.theAddressDetailsContainer,
+.deliveryMethodDetailsContainer {
+  margin-left: 2%;
+}
+.customerName {
+  font-weight: bold;
+}
+.methodOneSection {
+  margin: 1% 0%;
+}
+.methodDescription {
+  margin-left: 2%;
+  color: gray;
+}
+
+.confirmButton {
+  background-color: forestgreen;
+  color: white;
+  width: 27%;
+  border-radius: 5px;
+  border-style: none;
+}
