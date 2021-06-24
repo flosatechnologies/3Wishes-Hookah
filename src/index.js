@@ -7,12 +7,22 @@ import "../src/css/contact.scss";
 import reportWebVitals from "./reportWebVitals";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-import { createStore, applyMiddleware } from "redux";
+import { createStore, applyMiddleware, compose } from "redux";
 import thunk from "redux-thunk";
 import { Provider } from "react-redux";
 import allReducer from "./Store/Reducers";
+import { getFirebase, reduxReactFirebase } from "react-redux-firebase";
+import { getFirestore, reduxFirestore } from "redux-firestore";
+import firebase from "./firebase/config";
 
-const store = createStore(allReducer, applyMiddleware(thunk));
+const store = createStore(
+  allReducer,
+  compose(
+    applyMiddleware(thunk.withExtraArgument({ getFirebase, getFirestore })),
+    reduxFirestore(firebase),
+    reduxReactFirebase(firebase)
+  )
+);
 
 ReactDOM.render(
   <Provider store={store}>
