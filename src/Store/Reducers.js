@@ -1,5 +1,6 @@
 const initialState = {
-  users: "",
+  login: false,
+  user: null,
 };
 
 const allReducer = (state = initialState, action) => {
