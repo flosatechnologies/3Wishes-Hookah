@@ -6,24 +6,18 @@ import {
   FaTwitterSquare,
 } from "react-icons/fa";
 import { Container, Row, Col } from "react-bootstrap";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function FooterPage() {
   return (
-    <footer
-      variant="white"
-      className="bg-dark m-10"
-      /* style={{
-        display: "flex",
-        flexDirection: "row",
-        justifyContent: "space-between",
-        alignItems: "center",
-        padding: "0px 25px",
-        // background: "#343a40",
-        height: "31px",
-      }}*/
-    >
-      <Container>
-        <Row>
+    <footer variant="white" className="bg-dark m-10">
+      <div
+        className="container"
+        style={{
+          padding: "6px 0px",
+        }}
+      >
+        <div className="row">
           <div
             className="col-lg-4 col-md-3"
             style={{ fontSize: "12px", color: "#cccccc" }}
@@ -40,7 +34,7 @@ function FooterPage() {
             </span>
           </div>
 
-          <div className="col-lg-4 col-md-3">
+          <div className="col-lg-4 col-md-3" style={{ textAlign: "right" }}>
             <div className="socialMediaContainer">
               <div className="socialMedia">
                 <a href="#" target="_blank">
@@ -67,7 +61,11 @@ function FooterPage() {
 
           <div
             className="col-lg-4 col-md-3"
-            style={{ color: "whitesmoke", fontSize: "12px" }}
+            style={{
+              color: "whitesmoke",
+              fontSize: "12px",
+              textAlign: "right",
+            }}
           >
             Powered by
             <span
@@ -80,8 +78,8 @@ function FooterPage() {
               FLOSA Technologies
             </span>
           </div>
-        </Row>
-      </Container>
+        </div>
+      </div>
     </footer>
   );
 }
