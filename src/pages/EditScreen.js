@@ -4,7 +4,6 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
-import { Card } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import ProductComponentDashboard from "../components/ProductComponentDashboard";
 import { FaRegImage } from "react-icons/fa";
