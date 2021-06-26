@@ -4,13 +4,14 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { BsArchive, BsCreditCard } from "react-icons/bs";
 import { RiTruckLine } from "react-icons/ri";
 import { AiOutlineLogout } from "react-icons/ai";
-import { FaUserCircle } from "react-icons/fa";
 import logo from "../assets/images/logo1.png";
 import userImage from "../assets/images/contact.jpg";
 
 import PaymentScreen from "./PaymentScreen";
 import ProductsScreenDashboard from "./ProductsScreenDashboard";
 import DeliveryScreen from "./DeliveryScreen";
+import { connect } from "react-redux";
+import { logoutUser } from "../Store/authActions";
 
 class Dashboard extends Component {
   constructor(props) {
@@ -140,7 +141,7 @@ class Dashboard extends Component {
                     },
                   });
                 }}
-                id={this.state.buttonState.logout}
+                id={this.props.logoutUser}
                 className="dashboardButtons"
               >
                 <AiOutlineLogout style={{ marginRight: 15 }} />
@@ -155,4 +156,10 @@ class Dashboard extends Component {
   }
 }
 
-export default Dashboard;
+const mapStateToProps = (state) => {};
+
+const mapDispatchToProps = {
+  logoutUser,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);

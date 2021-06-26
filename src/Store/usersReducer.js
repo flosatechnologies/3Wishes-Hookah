@@ -1,9 +1,10 @@
 const initialState = {
   login: false,
   user: null,
+  users: "[]",
 };
 
-const allReducer = (state = initialState, action) => {
+const usersReducer = (state = initialState, action) => {
   switch (action.type) {
     case "ADD_USER":
       const newUser = {
@@ -18,4 +19,4 @@ const allReducer = (state = initialState, action) => {
   }
 };
 
-export default allReducer;
+export default usersReducer;

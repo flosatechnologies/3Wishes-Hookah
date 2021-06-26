@@ -10,13 +10,13 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { createStore, applyMiddleware, compose } from "redux";
 import thunk from "redux-thunk";
 import { Provider } from "react-redux";
-import allReducer from "./Store/Reducers";
+import reducer from "./Store/mainReducer";
 import { getFirebase, reduxReactFirebase } from "react-redux-firebase";
 import { getFirestore, reduxFirestore } from "redux-firestore";
 import firebase from "./firebase/config";
 
 const store = createStore(
-  allReducer,
+  reducer,
   compose(
     applyMiddleware(thunk.withExtraArgument({ getFirebase, getFirestore })),
     reduxFirestore(firebase),
