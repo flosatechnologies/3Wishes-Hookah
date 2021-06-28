@@ -7,6 +7,7 @@ import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { FaRegImage } from "react-icons/fa";
+import { v4 as uuid } from "uuid";
 
 class AddProduct extends Component {
   state = {
@@ -27,6 +28,16 @@ class AddProduct extends Component {
     reader.readAsDataURL(e.target.files[0]);
   };
   render() {
+    const handleAddProduct = (e) => {
+      e.preventDefault();
+      let productName = e.target.elements.productName.value;
+      let productPrice = e.target.elements.price.value;
+      let productDescription = e.target.elements.description.value;
+      let productQuantity = e.target.elements.quantity.value;
+      let Id = uuid();
+      // this.props.AddNewProduct(email, password);
+    };
+
     const { profileImg } = this.state;
     return (
       <Container className="main-container">
@@ -34,16 +45,16 @@ class AddProduct extends Component {
           <Col className="input">
             {/* <h5>Details</h5> */}
             <label className="labelName">Product Name</label>
-            <input type="text" id="product-name" />
+            <input type="text" id="product-name" name="productName" />
 
             <label className="labelName">Product Price GH{"\u20B5"}</label>
-            <input type="number" id="product-price" />
+            <input type="number" id="product-price" name="price" />
 
             <label className="labelName">Product Quantity</label>
-            <input type="number" id="product-quantity" />
+            <input type="number" id="product-quantity" name="quantity" />
 
             <label className="labelName">Product Description</label>
-            <textarea></textarea>
+            <textarea name="description"></textarea>
           </Col>
           <Col className="imageContainer">
             <div className="image-heading">Product Image</div>
@@ -64,14 +75,16 @@ class AddProduct extends Component {
             />
             <div className="label">
               <label htmlFor="input" className="image-upload">
-                <FaRegImage />
+                <FaRegImage style={{ marginRight: "10px" }} />
                 Select
               </label>
             </div>
           </Col>
         </Row>
         <Row className="addButtonContainer">
-          <button className="button">Add</button>
+          <button onClick={handleAddProduct} className="button">
+            Add
+          </button>
         </Row>
       </Container>
     );
