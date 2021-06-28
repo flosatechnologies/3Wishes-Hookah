@@ -25,6 +25,7 @@ export const loginWithEmail = (email, password) => {
       })
       .catch((err) => {
         console.log(err);
+        alert(err);
       });
   };
 };
@@ -40,6 +41,29 @@ export const logoutUser = () => {
       })
       .catch((err) => {
         console.log(err);
+      });
+  };
+};
+
+export const AddProduct = (Id, product, price, quantity, details, image) => {
+  return (dispatch, state, { getFirestore }) => {
+    let firestore = getFirestore();
+    firestore
+      .collection("products")
+      .doc("")
+      .set({
+        Id,
+        product,
+        price,
+        quantity,
+        details,
+        image,
+      })
+      .then(() => {
+        console.log("Product added successfully");
+      })
+      .catch((error) => {
+        console.error("Error writing document: ", error);
       });
   };
 };
