@@ -53,13 +53,14 @@ class Dashboard extends Component {
       }
     };
     return (
-      <div className="container-fluid">
+      <div className="container-fluid mainContainer">
         <div className="row menuBar">
           <div className="col-lg-2">
-            <img src={logo} width="80" height="80" alt="logo" />
+            <img src={logo} width="70" height="70" alt="logo" />
           </div>
         </div>
-        <div className="row">
+
+        <div className="row bodyArea">
           <div className="col-lg-2 dashboardButtonSection">
             <div className="row profileSectionContainer">
               <div className="profileSection">
@@ -86,7 +87,7 @@ class Dashboard extends Component {
                   });
                 }}
                 id={this.state.buttonState.product}
-                className="dashboardButtons "
+                className="dashboardButtons"
               >
                 <BsArchive style={{ marginRight: 15 }} /> Product
               </button>
@@ -140,6 +141,7 @@ class Dashboard extends Component {
                       logout: "active",
                     },
                   });
+                  this.props.logoutUser();
                 }}
                 id={this.props.logoutUser}
                 className="dashboardButtons"

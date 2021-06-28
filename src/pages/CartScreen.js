@@ -4,6 +4,7 @@ import HeaderPage from "../components/HeaderPage";
 import "bootstrap/dist/css/bootstrap.min.css";
 import div from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import { Link } from "react-router-dom";
 import Container from "react-bootstrap/Container";
 
 import "../css/CartScreen.css";
@@ -50,10 +51,14 @@ function CartScreen() {
         <div className="row bottomSection">
           <div className="col-lg-8"></div>
           <div className="col-lg-2 shoppingButtonContainer">
-            <button className="shoppingButton">Continue shopping</button>
+            <button onClick={() => {}} className="shoppingButton">
+              <Link to={"/shop"}> Continue shopping</Link>;
+            </button>
           </div>
           <div className="col-lg-2 checkoutButtonContainer">
-            <button className="checkoutButton">Proceed to checkout</button>
+            <button className="checkoutButton">
+              <Link to={"/checkout"}>Proceed to checkout </Link>
+            </button>
           </div>
         </div>
       </div>

@@ -1,10 +1,14 @@
 .menuBar {
   height: 12vh;
+  width: 100vw;
   background-color: black;
+}
+.bodyArea {
+  width: 100vw;
 }
 
 .dashboardButtonSection {
-  height: 88vh;
+  min-height: 88vh;
   background-color: #838282;
 }
 .profileSection {

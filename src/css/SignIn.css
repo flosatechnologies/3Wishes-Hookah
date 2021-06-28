@@ -4,15 +4,10 @@
   }
 }
 
-* {
-  margin: 0;
-  padding: 0;
-}
-
-.container-fluid {
+.loginBackground {
   background: linear-gradient(135deg, #98d8a6, #56be6c);
   width: 100%;
-  min-height: 100vh;
+  padding: 3%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -20,7 +15,7 @@
 .app-wrapper {
   background-color: rgb(44, 40, 40);
   min-width: 350px;
-  min-height: 600px;
+  min-height: 500px;
   padding: 30px;
   box-sizing: border-box;
   border-radius: 5px;
@@ -90,7 +85,7 @@
   cursor: pointer;
   transition: all 0.1s;
 }
-button:active {
+.loginButton:active {
   transform: translateY(2px);
 }
 
