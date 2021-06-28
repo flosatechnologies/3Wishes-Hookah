@@ -21,6 +21,7 @@ export const loginWithEmail = (email, password) => {
       .signInWithEmailAndPassword(email, password)
       .then((response) => {
         console.log(response);
+        dispatch(loggedIn(response));
       })
       .catch((err) => {
         console.log(err);
@@ -40,5 +41,18 @@ export const logoutUser = () => {
       .catch((err) => {
         console.log(err);
       });
+  };
+};
+
+export const loggedIn = (user) => {
+  return {
+    type: "LOGGED_IN",
+    payload: user,
+  };
+};
+
+export const logginOut = () => {
+  return {
+    type: "THE_LOGOUT",
   };
 };

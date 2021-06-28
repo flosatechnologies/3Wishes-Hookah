@@ -27,12 +27,14 @@ class ProductsScreenDashboard extends Component {
 
       if (this.state.button.addProduct === "inactivebtn") {
         return (
-          <div className="arrayOfProducts">
-            <ProductComponentDashboard productName="Airpods" price="1200" />
-            <ProductComponentDashboard productName="Airpods" price="1200" />
-            <ProductComponentDashboard productName="Airpods" price="1200" />
-            <ProductComponentDashboard productName="Airpods" price="1200" />
-            <ProductComponentDashboard productName="Airpods" price="1200" />
+          <div className="container arrayOfProducts">
+            <div className="row">
+              <ProductComponentDashboard productName="Airpods" price="1200" />
+              <ProductComponentDashboard productName="Airpods" price="1200" />
+              <ProductComponentDashboard productName="Airpods" price="1200" />
+              <ProductComponentDashboard productName="Airpods" price="1200" />
+              <ProductComponentDashboard productName="Airpods" price="1200" />
+            </div>
           </div>
         );
       }
