@@ -4,6 +4,8 @@ import { Route } from "react-router-dom";
 import ProtectedRoute from "./ProtectedRoute";
 
 import CarouselPage from "../pages/CarouselPage";
+import HeaderPage from "./HeaderPage";
+import FooterPage from "./FooterPage";
 
 import ShopPage from "../pages/ShopPage";
 import ContactPage from "../pages/ContactPage";
@@ -20,6 +22,7 @@ import { connect } from "react-redux";
 function RouterComponent(props) {
   return (
     <div>
+      <HeaderPage />
       <Route path="/" component={CarouselPage} exact={true} />
       <Route path="/shop" component={ShopPage} />
       <Route path="/contact" component={ContactPage} />
@@ -31,6 +34,7 @@ function RouterComponent(props) {
       <Route path="/signup" component={Register} />
       <Route path="/checkout" component={CheckoutScreen} />
       <ProtectedRoute path="/Dashboard" component={Dashboard} />
+      <FooterPage />
     </div>
   );
 }
