@@ -52,12 +52,22 @@ function CartScreen() {
           <div className="col-lg-8"></div>
           <div className="col-lg-2 shoppingButtonContainer">
             <button onClick={() => {}} className="shoppingButton">
-              <Link to={"/shop"}> Continue shopping</Link>;
+              <Link
+                style={{ textDecoration: "none", color: "black" }}
+                to={"/shop"}
+              >
+                Continue shopping
+              </Link>
             </button>
           </div>
           <div className="col-lg-2 checkoutButtonContainer">
             <button className="checkoutButton">
-              <Link to={"/checkout"}>Proceed to checkout </Link>
+              <Link
+                style={{ textDecoration: "none", color: "white" }}
+                to={"/checkout"}
+              >
+                Proceed to checkout
+              </Link>
             </button>
           </div>
         </div>
