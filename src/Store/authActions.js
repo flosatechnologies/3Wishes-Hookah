@@ -1,3 +1,5 @@
+import { BsImageFill } from "react-icons/bs";
+
 export const registerWithEmail = (email, password) => {
   return (dispatch, state, { getFirebase }) => {
     let firebase = getFirebase();
@@ -45,26 +47,84 @@ export const logoutUser = () => {
   };
 };
 
-export const AddProduct = (Id, product, price, quantity, details, image) => {
+export const AddNewProduct_obsolete = (
+  Id,
+  product,
+  price,
+  quantity,
+  description,
+  image
+) => {
   return (dispatch, state, { getFirestore }) => {
-    let firestore = getFirestore();
-    firestore
+    getFirestore()
       .collection("products")
-      .doc("")
+      .doc(Id)
       .set({
         Id,
         product,
         price,
         quantity,
-        details,
+        description,
         image,
       })
       .then(() => {
-        console.log("Product added successfully");
+        alert("Product added successfully");
       })
       .catch((error) => {
-        console.error("Error writing document: ", error);
+        alert(error);
       });
+  };
+};
+
+export const AddNewProduct = (
+  Id,
+  product,
+  price,
+  quantity,
+  description,
+  image
+) => {
+  return (dispatch, state, { getFirestore, getFirebase }) => {
+    const uploadTask = getFirebase()
+      .storage()
+      .ref(`images/${image.name}`)
+      .put(image);
+
+    uploadTask.on(
+      "state_changed",
+      (snapShot) => {
+        console.log(snapShot);
+      },
+      (error) => {
+        console.log(error);
+      },
+      () => {
+        getFirebase()
+          .storage()
+          .ref("images")
+          .child(image.name)
+          .getDownloadURL()
+          .then((url) => {
+            getFirestore()
+              .collection("products")
+              .doc(Id)
+              .set({
+                Id,
+                product,
+                price,
+                quantity,
+                description,
+                image: url,
+              })
+              .then(() => {
+                alert("Product added successfully");
+              })
+              .catch((error) => {
+                console.log(error);
+              });
+          });
+      }
+    );
   };
 };
 
