@@ -45,6 +45,10 @@ export class HeaderPage extends Component {
               <LinkContainer to="/login">
                 <Nav.Link className="mr-sm-5">Login</Nav.Link>
               </LinkContainer>
+
+              <LinkContainer to="/logOut">
+                <Nav.Link className="mr-sm-5">LogOut</Nav.Link>
+              </LinkContainer>
             </Nav>
           </Navbar.Collapse>
           {/* </Container> */}

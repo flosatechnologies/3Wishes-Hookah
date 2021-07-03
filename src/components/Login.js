@@ -14,7 +14,7 @@ class LogIn extends Component {
   }
   componentDidUpdate() {
     if (this.props.check.isLoaded) {
-      this.props.history.push("/dashboard");
+      this.props.history.push("/shop");
     }
   }
 
