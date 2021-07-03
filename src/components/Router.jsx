@@ -17,6 +17,7 @@ import CartScreen from "../pages/CartScreen";
 import CheckoutScreen from "../pages/CheckoutScreen";
 import Register from "../components/Register";
 import LogIn from "../components/Login";
+import LogOut from "../components/LogOut";
 import { connect } from "react-redux";
 
 function RouterComponent(props) {
@@ -33,6 +34,7 @@ function RouterComponent(props) {
       <Route path="/delivery" component={DeliveryScreen} />
       <Route path="/signup" component={Register} />
       <Route path="/checkout" component={CheckoutScreen} />
+      <Route path="/logOut" component={LogOut} />
       <ProtectedRoute path="/Dashboard" component={Dashboard} />
       <FooterPage />
     </div>
