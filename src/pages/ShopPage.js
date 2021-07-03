@@ -3,13 +3,13 @@ import { Col, Row } from "react-bootstrap";
 import Product from "../pages/Product";
 import products from "../products";
 import "bootstrap/dist/css/bootstrap.min.css";
-import HeaderPage from "../components/HeaderPage";
-import FooterPage from "../components/FooterPage";
+// import HeaderPage from "../components/HeaderPage";
+// import FooterPage from "../components/FooterPage";
 
 function ShopPage() {
   return (
     <div>
-      <HeaderPage />
+      {/*<HeaderPage />*/}
       <div className="container">
         <Row>
           {products.map((product) => (
@@ -19,7 +19,7 @@ function ShopPage() {
           ))}
         </Row>
       </div>
-      <FooterPage />
+      {/*<FooterPage />*/}
     </div>
   );
 }

@@ -9,35 +9,35 @@
   padding: 0;
 }
 
-.container-fluid {
+/* .container-fluid {
   background: linear-gradient(135deg, #98d8a6, #56be6c);
-  width: 100%;
+  width: 80%;
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-}
-.app-wrapper {
-  background-color: rgb(44, 40, 40);
-  min-width: 350px;
+} */
+/* .wrapper {
+  background-color: rgb(34, 29, 29) ;
+  width: 80%;
   min-height: 600px;
   padding: 30px;
   box-sizing: border-box;
   border-radius: 5px;
-}
+} */
 
 .title {
   color: #f80759;
   text-align: center;
   margin: 40px 0px 40px 0px;
 }
-.name,
+/* .name,
 .email,
 .password {
   margin: 20px;
   color: #bac3bc;
   font-size: 16px;
-}
+} */
 .label {
   width: 100%;
   margin-top: 0.4rem;
@@ -49,6 +49,7 @@
 }
 
 .inputt {
+  justify-content: center;
   height: 32px;
   font-size: 15px;
   outline: none;
@@ -59,7 +60,7 @@
   margin-bottom: 10px;
   color: #000;
 }
-.input1 {
+/* .input1 {
   height: 32px;
   font-size: 15px;
   outline: none;
@@ -69,7 +70,7 @@
   border-bottom-style: 2px solid #000;
   margin-bottom: 7px;
   color: #000;
-}
+} */
 .error {
   color: red;
 }
@@ -101,3 +102,9 @@ button:active {
   min-width: 370px;
   color: #dd1b6c;
 }
+
+/* .password-icon {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+} */

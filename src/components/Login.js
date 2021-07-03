@@ -5,8 +5,8 @@ import { Link, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import { loginWithEmail } from "../Store/authActions";
 import { Component } from "react";
-import HeaderPage from "./HeaderPage";
-import FooterPage from "./FooterPage";
+// import HeaderPage from "./HeaderPage";
+// import FooterPage from "./FooterPage";
 
 class LogIn extends Component {
   constructor(props) {
@@ -14,7 +14,7 @@ class LogIn extends Component {
   }
   componentDidUpdate() {
     if (this.props.check.isLoaded) {
-      this.props.history.push("/dashboard");
+      this.props.history.push("/shop");
     }
   }
 
@@ -28,8 +28,6 @@ class LogIn extends Component {
 
     return (
       <div>
-        <HeaderPage />
-
         <div className="container-fluid loginBackground">
           <div className="app-wrapper">
             <div>
@@ -83,7 +81,6 @@ class LogIn extends Component {
             </form>
           </div>
         </div>
-        <FooterPage />
       </div>
     );
   }

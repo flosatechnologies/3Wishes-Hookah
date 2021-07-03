@@ -20,7 +20,7 @@ function FooterPage() {
         <div className="row">
           <div
             className="col-lg-4 col-md-3"
-            style={{ fontSize: "12px", color: "#cccccc" }}
+            style={{ fontSize: "12px", color: "#cccccc", textAlign: "center" }}
           >
             Copyright &copy; 2021
             <span
@@ -64,14 +64,14 @@ function FooterPage() {
             style={{
               color: "whitesmoke",
               fontSize: "12px",
-              textAlign: "right",
+              textAlign: "center",
             }}
           >
             Powered by
             <span
               style={{
                 color: "#40f167",
-                marginLeft: "3px",
+                marginLeft: "1px",
                 fontSize: "12px",
               }}
             >

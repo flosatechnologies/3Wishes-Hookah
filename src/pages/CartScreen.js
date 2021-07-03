@@ -1,6 +1,6 @@
 import React from "react";
-import FooterPage from "../components/FooterPage";
-import HeaderPage from "../components/HeaderPage";
+// import FooterPage from "../components/FooterPage";
+// import HeaderPage from "../components/HeaderPage";
 import "bootstrap/dist/css/bootstrap.min.css";
 import div from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -13,7 +13,7 @@ import CartProductComponent from "../components/CartProductComponent";
 function CartScreen() {
   return (
     <div>
-      <HeaderPage />
+      {/*<HeaderPage />*/}
       <div className="container background">
         <div className="row">
           <div>Cart({3 + " item(s)"})</div>
@@ -52,18 +52,28 @@ function CartScreen() {
           <div className="col-lg-8"></div>
           <div className="col-lg-2 shoppingButtonContainer">
             <button onClick={() => {}} className="shoppingButton">
-              <Link to={"/shop"}> Continue shopping</Link>;
+              <Link
+                style={{ textDecoration: "none", color: "black" }}
+                to={"/shop"}
+              >
+                Continue shopping
+              </Link>
             </button>
           </div>
           <div className="col-lg-2 checkoutButtonContainer">
             <button className="checkoutButton">
-              <Link to={"/checkout"}>Proceed to checkout </Link>
+              <Link
+                style={{ textDecoration: "none", color: "white" }}
+                to={"/checkout"}
+              >
+                Proceed to checkout
+              </Link>
             </button>
           </div>
         </div>
       </div>
 
-      <FooterPage />
+      {/*<FooterPage />*/}
     </div>
   );
 }

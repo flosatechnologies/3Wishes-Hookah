@@ -1,16 +1,32 @@
+
 import { BsImageFill } from "react-icons/bs";
 
 export const registerWithEmail = (email, password) => {
   return (dispatch, state, { getFirebase }) => {
     let firebase = getFirebase();
+//=======
+export const registerWithEmail = (newUser) => {
+  return (dispatch, getState, { getFirebase, getFirestore }) => {
+    const firebase = getFirebase();
+    const firestore = getFirestore();
+    const timestamp = new Date();
+
     firebase
       .auth()
-      .createUserWithEmailAndPassword(email, password)
-      .then((response) => {
-        console.log(response);
+      .createUserWithEmailAndPassword(newUser.email, newUser.password)
+      .then((resp) => {
+        return firestore.collection("users").doc(resp.user.uid).set({
+          fullname: newUser.fullname,
+          email: newUser.email,
+          userRole: newUser.userRole,
+          createdDate: timestamp,
+        });
+      })
+      .then(() => {
+        dispatch({ type: "SIGNUP_SUCCESS" });
       })
       .catch((err) => {
-        console.log(err);
+        dispatch({ type: "SIGNUP_ERROR", err });
       });
   };
 };
