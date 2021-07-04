@@ -1,3 +1,5 @@
+import { BsImageFill } from "react-icons/bs";
+
 export const registerWithEmail = (newUser) => {
   return (dispatch, getState, { getFirebase, getFirestore }) => {
     const firebase = getFirebase();
@@ -35,6 +37,7 @@ export const loginWithEmail = (email, password) => {
       })
       .catch((err) => {
         console.log(err);
+        alert(err);
       });
   };
 };
@@ -51,6 +54,58 @@ export const logoutUser = () => {
       .catch((err) => {
         console.log(err);
       });
+  };
+};
+
+export const AddNewProduct = (
+  Id,
+  product,
+  price,
+  quantity,
+  description,
+  image
+) => {
+  return (dispatch, state, { getFirestore, getFirebase }) => {
+    const uploadTask = getFirebase()
+      .storage()
+      .ref(`images/${image.name}`)
+      .put(image);
+
+    uploadTask.on(
+      "state_changed",
+      (snapShot) => {
+        console.log(snapShot);
+      },
+      (error) => {
+        console.log(error);
+      },
+      () => {
+        getFirebase()
+          .storage()
+          .ref("images")
+          .child(image.name)
+          .getDownloadURL()
+          .then((url) => {
+            getFirestore()
+              .collection("products")
+              .doc(Id)
+              .set({
+                Id,
+                product,
+                price,
+                quantity,
+                description,
+                image: url,
+              })
+              .then(() => {
+                alert("Product added successfully");
+              })
+              .catch((error) => {
+                console.log(error);
+              });
+          });
+      }
+    );
   };
 };
 
