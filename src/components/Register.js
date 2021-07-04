@@ -9,7 +9,6 @@ import { combineReducers } from "../Store/mainReducer";
 
 class Register extends Component {
   state = {
-
     fullname: "",
     email: "",
     password: "",
@@ -19,8 +18,6 @@ class Register extends Component {
     this.setState({
       [e.target.id]: e.target.value,
     });
-//=======
-    isPasswordShown: false,
   };
 
   togglePasswordVisibility = () => {
@@ -36,6 +33,8 @@ class Register extends Component {
   };
   render() {
     const { isPasswordShown } = this.state;
+    const { auth } = this.props;
+    if (auth.uid) return <Redirect to="/" />;
     return (
       <div
         style={{
@@ -65,13 +64,12 @@ class Register extends Component {
               <h3 className="title">Create Account</h3>
             </div>
 
-
-  handleSubmit = (e) => {
+            {/* handleSubmit = (e) => {
     e.preventDefault();
     this.props.registerWithEmail(this.state);
-  };
+  }; */}
 
-  render() {
+            {/* render() {
     const { auth } = this.props;
     if (auth.uid) return <Redirect to="/" />;
     return (
@@ -101,8 +99,8 @@ class Register extends Component {
           >
             <div>
               <h3 className="title">Create Account</h3>
-            </div>
-//=======
+            </div> */}
+            {/*======= */}
             <form onSubmit={this.handleSubmit} className="form-wrapper">
               <div className="name">
                 <label className="label">Full Name</label>
@@ -194,6 +192,8 @@ class Register extends Component {
   }
 }
 
+{
+  /* 
             <form onSubmit={this.handleSubmit} className="form-wrapper">
               <div className="name">
                 <label className="label">Full Name</label>
@@ -259,13 +259,14 @@ class Register extends Component {
                   </li>
                 </button>
               </div>
-            </form>
-          </Col>
-        </Row>
-      </div>
-    );
-  }
+            </form> */
 }
+//           </Col>
+//         </Row>
+//       </div>
+//     );
+//   }
+// }
 
 const mapStateToProps = (state) => {
   return {
