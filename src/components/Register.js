@@ -53,22 +53,42 @@ class Register extends Component {
           <Col
             style={{
               backgroundColor: "rgb(44, 40, 40)",
-              width: "40% ",
+              width: "120% ",
               // height: "10%!important",
               // alignContent: "center",
               padding: "20px",
-              // boxSizing: " border-box",
+              boxSizing: " border-box",
               borderRadius: "5px",
             }}
             className=" wrapper"
           >
             <div>
-              <h3 className="title">Create Account</h3>
+              <h3
+                style={{
+                  color: "#f80759",
+                  textAlign: "center",
+                  margin: "40px 0px 40px 0px",
+                }}
+                className="title"
+              >
+                Create Account
+              </h3>
             </div>
 
             <form onSubmit={this.handleSubmit} className="form-wrapper">
               <div className="name">
-                <label className="label">Full Name</label>
+                <label
+                  style={{
+                    width: "100%",
+                    marginTop: " 0.4rem",
+                    display: " flex",
+                    justifyContent: "left !important",
+                    color: "#fff",
+                  }}
+                  className="label"
+                >
+                  Full Name
+                </label>
                 <input
                   style={{
                     color: "#000",
@@ -80,6 +100,7 @@ class Register extends Component {
                     borderRadius: "5px",
                     borderBottomStyle: "2px solid #000",
                     marginBottom: "7px",
+                    marginLeft: "0",
                   }}
                   className="inputt"
                   type="text"
@@ -89,9 +110,31 @@ class Register extends Component {
                 />
               </div>
               <div className="email">
-                <label className="label">Email</label>
+                <label
+                  style={{
+                    width: "100%",
+                    marginTop: " 0.4rem",
+                    display: " flex",
+                    justifyContent: "left !important",
+                    color: "#fff",
+                  }}
+                  className="label"
+                >
+                  Email
+                </label>
                 <input
-                  // style={{ margin: "20px", color: "#bac3bc", fontSize: " 16px" }}
+                  style={{
+                    color: "#000",
+                    fontSize: " 16px",
+                    height: "32px",
+                    outline: "none",
+                    width: "98%",
+                    background: "lightgray",
+                    borderRadius: "5px",
+                    borderBottomStyle: "2px solid #000",
+                    marginBottom: "7px",
+                    marginLeft: "0",
+                  }}
                   className="inputt"
                   type="email"
                   name="email"
@@ -100,8 +143,31 @@ class Register extends Component {
                 />
               </div>
               <div style={{}} className="password">
-                <label className="label">Password</label>
+                <label
+                  style={{
+                    width: "100%",
+                    marginTop: " 0.4rem",
+                    display: " flex",
+                    justifyContent: "left !important",
+                    color: "#fff",
+                  }}
+                  className="label"
+                >
+                  Password
+                </label>
                 <input
+                  style={{
+                    color: "#000",
+                    fontSize: " 16px",
+                    height: "32px",
+                    outline: "none",
+                    width: "98%",
+                    background: "lightgray",
+                    borderRadius: "5px",
+                    borderBottomStyle: "2px solid #000",
+                    marginBottom: "7px",
+                    marginLeft: "0",
+                  }}
                   className="inputt"
                   type={isPasswordShown ? "text" : "password"}
                   name="password"
@@ -112,7 +178,7 @@ class Register extends Component {
                 <i
                   style={{
                     position: "absolute",
-                    right: "10px",
+                    right: "8px",
                     cursor: "pointer",
                   }}
                   class={`fa ${
