@@ -9,7 +9,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { FaRegImage } from "react-icons/fa";
 import { v4 as uuid } from "uuid";
 import product from "../assets/images/productImage.png";
-import { Base64 } from "js-base64";
+
 import { AddNewProduct } from "../Store/authActions";
 import { connect } from "react-redux";
 
