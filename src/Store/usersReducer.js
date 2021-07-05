@@ -2,6 +2,7 @@ const initialState = {
   login: false,
   user: null,
   users: "[]",
+  products: [],
 };
 
 const usersReducer = (state = initialState, action) => {
@@ -25,6 +26,9 @@ const usersReducer = (state = initialState, action) => {
     case "SIGNUP_ERROR":
       console.log("signup error");
       return { ...state, authError: action.err.message };
+
+    case "GET_ALL_PRODUCTS":
+      return { products: action.payload };
 
     default:
       return state;

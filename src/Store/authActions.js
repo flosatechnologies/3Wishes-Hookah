@@ -1,4 +1,3 @@
-
 import { BsImageFill } from "react-icons/bs";
 export const registerWithEmail = (newUser) => {
   return (dispatch, getState, { getFirebase, getFirestore }) => {
@@ -58,7 +57,6 @@ export const logoutUser = () => {
   };
 };
 
-
 export const AddNewProduct = (
   Id,
   product,
@@ -108,6 +106,28 @@ export const AddNewProduct = (
           });
       }
     );
+  };
+};
+
+export const getAllProducts = () => {
+  return (dispatch, state, { getFirestore }) => {
+    getFirestore()
+      .collection("products")
+      .onSnapshot(
+        (snapshot) => {
+          let products = [];
+
+          snapshot.forEach((doc) => {
+            products.push(doc.data());
+          });
+          console.log(products);
+          dispatch({
+            type: "GET_ALL_PRODUCTS",
+            payload: products,
+          });
+        },
+        (error) => {}
+      );
   };
 };
 

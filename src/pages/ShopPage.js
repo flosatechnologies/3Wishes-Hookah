@@ -9,7 +9,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
 function ShopPage() {
   return (
     <div>
-      {/*<HeaderPage />*/}
       <div className="container">
         <Row>
           {products.map((product) => (
@@ -19,7 +18,6 @@ function ShopPage() {
           ))}
         </Row>
       </div>
-      {/*<FooterPage />*/}
     </div>
   );
 }
