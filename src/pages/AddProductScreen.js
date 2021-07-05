@@ -7,26 +7,67 @@ import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { FaRegImage } from "react-icons/fa";
+import { v4 as uuid } from "uuid";
+import product from "../assets/images/productImage.png";
+import { Base64 } from "js-base64";
+import { AddNewProduct } from "../Store/authActions";
+import { connect } from "react-redux";
 
 class AddProduct extends Component {
-  state = {
-    name: "",
-    price: "",
-    quantity: "",
-    description: "",
-    profileImg:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsJfdSVJ3Vi3Q_8wVTsa8lE6foFVOOFXiapNJB6SORmxKLOCi9hN1QgGO8saCXqfUhmkU&usqp=CAU",
-  };
-  imageHandler = (e) => {
-    const reader = new FileReader();
-    reader.onload = () => {
-      if (reader.readyState === 2) {
-        this.setState({ profileImg: reader.result });
-      }
+  constructor(props) {
+    super(props);
+    this.state = {
+      product: "",
+      price: "",
+      quantity: "",
+      description: "",
+      image: product,
+      imageTofirestore: { name: "noImage.png" },
     };
-    reader.readAsDataURL(e.target.files[0]);
+  }
+  imageHandler = (e) => {
+    // const reader = new FileReader();
+    // reader.onload = () => {
+    //   if (reader.readyState === 2) {
+    //     this.setState({ profileImg: reader.result });
+    //   }
+    // };
+    // reader.readAsDataURL(e.target.files[0]);
+    if (this.state.imageTofirestore === null) {
+      alert(" you must choose an image");
+    } else {
+      if (e.target.files[0]) {
+        this.setState({
+          image: URL.createObjectURL(e.target.files[0]),
+          imageTofirestore: e.target.files[0],
+        });
+      }
+    }
+    console.log(e.target.files[0]);
   };
+
   render() {
+    const handleAddProduct = (e) => {
+      e.preventDefault();
+      let product = this.state.product;
+      let price = this.state.price;
+      let description = this.state.description;
+      let quantity = this.state.quantity;
+      var Id = uuid();
+
+      var image = this.state.imageTofirestore;
+      console.log(image);
+
+      this.props.AddNewProduct(
+        Id,
+        product,
+        price,
+        quantity,
+        description,
+        image
+      );
+    };
+
     const { profileImg } = this.state;
     return (
       <Container className="main-container">
@@ -34,48 +75,88 @@ class AddProduct extends Component {
           <Col className="inputSection">
             {/* <h5>Details</h5> */}
             <label className="labelName">Product Name</label>
-            <input type="text" id="product-name" />
+            <input
+              type="text"
+              id="product-name"
+              value={this.state.product}
+              onChange={(event) => {
+                this.setState({ product: event.target.value });
+              }}
+            />
 
             <label className="labelName">Product Price GH{"\u20B5"}</label>
-            <input type="number" id="product-price" />
+            <input
+              type="number"
+              id="product-price"
+              value={this.state.price}
+              onChange={(event) => {
+                this.setState({ price: event.target.value });
+              }}
+            />
 
             <label className="labelName">Product Quantity</label>
-            <input type="number" id="product-quantity" />
+            <input
+              type="number"
+              id="product-quantity"
+              value={this.state.quantity}
+              onChange={(event) => {
+                this.setState({ quantity: event.target.value });
+              }}
+            />
 
             <label className="labelName">Product Description</label>
-            <textarea></textarea>
+            <textarea
+              value={this.state.description}
+              onChange={(event) => {
+                this.setState({ description: event.target.value });
+              }}
+            ></textarea>
           </Col>
           <Col className="imageContainer">
             <div className="image-heading">Product Image</div>
             <div className="image-holder">
               <img
-                src={profileImg}
+                src={this.state.image}
                 alt="image"
-                id=""
+                // id=""
                 className="img-responsive"
               />
             </div>
-            <input
-              type="file"
-              name="image-upload"
-              id="input"
-              accept="image/*"
-              onChange={this.imageHandler}
-            />
-            <div className="label">
-              <label htmlFor="input" className="image-upload">
-                <FaRegImage />
+
+            <label htmlFor="input" className="image-upload">
+              <div className="uploadButton">
+                <FaRegImage style={{ marginRight: "10px" }} />
                 Select
-              </label>
-            </div>
+              </div>
+              <input
+                type="file"
+                required="true"
+                name="image-upload"
+                id="input"
+                accept="image/*"
+                onChange={this.imageHandler}
+              />
+            </label>
           </Col>
         </Row>
         <Row className="addButtonContainer">
-          <button className="button">Add</button>
+          <button onClick={handleAddProduct} className="button">
+            Add
+          </button>
         </Row>
       </Container>
     );
   }
 }
 
-export default AddProduct;
+const mapStateToProps = (state) => {
+  return {};
+};
+
+const mapDispatchToProps = () => {
+  return {
+    AddNewProduct,
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps())(AddProduct);

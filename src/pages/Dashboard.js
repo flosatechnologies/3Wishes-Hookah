@@ -21,6 +21,7 @@ class Dashboard extends Component {
         product: "inactive",
         payment: "inactive",
         delivery: "inactive",
+        user: "inactive",
         logout: "inactive",
       },
     };
