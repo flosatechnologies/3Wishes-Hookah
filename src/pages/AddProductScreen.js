@@ -31,7 +31,7 @@ class AddProduct extends Component {
     return (
       <Container className="main-container">
         <Row className="form subContainer">
-          <Col className="input">
+          <Col className="inputSection">
             {/* <h5>Details</h5> */}
             <label className="labelName">Product Name</label>
             <input type="text" id="product-name" />
