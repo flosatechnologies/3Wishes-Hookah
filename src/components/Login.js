@@ -31,7 +31,16 @@ class LogIn extends Component {
         <div className="container-fluid loginBackground">
           <div className="app-wrapper">
             <div>
-              <h3 className="title">Login </h3>
+              <h3
+                style={{
+                  color: "#f80759",
+                  textAlign: "center",
+                  margin: "40px 0px 40px 0px",
+                }}
+                className="title"
+              >
+                Login{" "}
+              </h3>
             </div>
 
             <form onSubmit={handleSubmit} className="form-wrapper">
