@@ -14,17 +14,11 @@
 }
 .app-wrapper {
   background-color: rgb(44, 40, 40);
-  min-width: 350px;
-  min-height: 500px;
+  width: 28%;
+  /* min-height: 500px;  */
   padding: 30px;
   box-sizing: border-box;
   border-radius: 5px;
-}
-
-.title {
-  color: #f80759;
-  text-align: center;
-  margin: 40px 0px 40px 0px;
 }
 .name,
 .email,
@@ -37,6 +31,7 @@
   width: 100%;
   margin-top: 0.4rem;
   display: flex;
+  color: #fff !important;
   justify-content: left !important;
 }
 .password {
@@ -52,6 +47,7 @@
   border-radius: 5px;
   border-bottom-style: 2px solid #000;
   margin-bottom: 10px;
+  margin-left: 0 !important;
   color: #000;
 }
 .input1 {

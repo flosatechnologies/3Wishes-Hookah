@@ -40,7 +40,6 @@ function RouterComponent(props) {
       <Route path="/checkout" component={CheckoutScreen} />
 
       <Route path="/logOut" component={LogOut} />
-//=======
       <Route path="/customerDetails" component={CustomerDetails} />
 
       <ProtectedRoute path="/Dashboard" component={Dashboard} />

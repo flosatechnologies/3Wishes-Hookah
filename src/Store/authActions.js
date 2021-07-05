@@ -1,10 +1,5 @@
 
 import { BsImageFill } from "react-icons/bs";
-
-export const registerWithEmail = (email, password) => {
-  return (dispatch, state, { getFirebase }) => {
-    let firebase = getFirebase();
-//=======
 export const registerWithEmail = (newUser) => {
   return (dispatch, getState, { getFirebase, getFirestore }) => {
     const firebase = getFirebase();
@@ -63,34 +58,6 @@ export const logoutUser = () => {
   };
 };
 
-export const AddNewProduct_obsolete = (
-  Id,
-  product,
-  price,
-  quantity,
-  description,
-  image
-) => {
-  return (dispatch, state, { getFirestore }) => {
-    getFirestore()
-      .collection("products")
-      .doc(Id)
-      .set({
-        Id,
-        product,
-        price,
-        quantity,
-        description,
-        image,
-      })
-      .then(() => {
-        alert("Product added successfully");
-      })
-      .catch((error) => {
-        alert(error);
-      });
-  };
-};
 
 export const AddNewProduct = (
   Id,
