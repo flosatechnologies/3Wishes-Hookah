@@ -1,10 +1,11 @@
-import { BsImageFill } from "react-icons/bs";
 
+import { BsImageFill } from "react-icons/bs";
 export const registerWithEmail = (newUser) => {
   return (dispatch, getState, { getFirebase, getFirestore }) => {
     const firebase = getFirebase();
     const firestore = getFirestore();
     const timestamp = new Date();
+
     firebase
       .auth()
       .createUserWithEmailAndPassword(newUser.email, newUser.password)
@@ -56,6 +57,7 @@ export const logoutUser = () => {
       });
   };
 };
+
 
 export const AddNewProduct = (
   Id,
