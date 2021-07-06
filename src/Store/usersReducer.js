@@ -1,6 +1,6 @@
 const initialState = {
   login: false,
-  user: null,
+  user: "",
   users: "[]",
   products: [],
 };
@@ -14,10 +14,12 @@ const usersReducer = (state = initialState, action) => {
         password: action.payload.password,
       };
       return { ...state, users: [...state.users, newUser] };
+
     case "LOGGED_IN":
       return { ...state, login: true, user: action.payload };
-    case "THE_LOGOUT":
-      return { ...state, login: false };
+
+    case "LOGGED_OUT":
+      return { ...state, login: false, user: "" };
 
     case "SIGNUP_SUCCESS":
       console.log("signup success");

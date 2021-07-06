@@ -1,0 +1,30 @@
+.arrayOfUsers {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.addUserButton {
+  background-color: transparent;
+  border-style: solid;
+  padding: 2% 3%;
+  border-radius: 5px;
+  border-width: 1px;
+  border-color: black;
+}
+.userScreenBackButton {
+  background-color: transparent;
+  border-style: none;
+  padding: 2% 3%;
+  border-color: black;
+}
+.userScreenBackButtonContainer {
+  text-align: right;
+}
+.addUserButton:hover,
+.addUserButton:active,
+.addUserButton:focus,
+#activebtn {
+  color: white;
+  border-color: white;
+}

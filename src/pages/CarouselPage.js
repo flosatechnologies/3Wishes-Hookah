@@ -5,13 +5,13 @@ import image1 from "../assets/images/yuri.jpg";
 import image2 from "../assets/images/awesome.jpg";
 import image3 from "../assets/images/tobias-nii-kwatei-quartey.jpg";
 import image4 from "../assets/images/viktor1.jpg";
-// import HeaderPage from "../components/HeaderPage";
-// import FooterPage from "../components/FooterPage";
+import HeaderPage from "../components/HeaderPage";
+import FooterPage from "../components/FooterPage";
 
 const CarouselPage = () => {
   return (
     <div>
-      {/*<HeaderPage />*/}
+      <HeaderPage />
       <Carousel fade>
         <Carousel.Item>
           <img
@@ -65,7 +65,7 @@ const CarouselPage = () => {
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>
-      {/*<FooterPage />*/}
+      <FooterPage />
     </div>
   );
 };
