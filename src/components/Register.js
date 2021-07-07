@@ -5,7 +5,7 @@ import { Link, Redirect } from "react-router-dom";
 // import SignIn from "../components/SignIn";
 import { connect } from "react-redux";
 import { userRegistration } from "../Store/authActions";
-import { combineReducers } from "../Store/mainReducer";
+import "../css/register.css";
 import HeaderPage from "./HeaderPage";
 import FooterPage from "./FooterPage";
 
@@ -30,10 +30,6 @@ class Register extends Component {
   };
 
   handleSubmit = (e) => {
-    // e.preventDefault();
-    // let email = e.target.elements.email.value;
-    // let password = e.target.elements.password.value;
-    // this.props.userRegistration(email, password);
     e.preventDefault();
     this.props.userRegistration(this.state);
   };
@@ -61,8 +57,6 @@ class Register extends Component {
               style={{
                 backgroundColor: "rgb(44, 40, 40)",
                 width: "120% ",
-                // height: "10%!important",
-                // alignContent: "center",
                 padding: "20px",
                 boxSizing: " border-box",
                 borderRadius: "5px",
@@ -83,150 +77,64 @@ class Register extends Component {
               </div>
 
               <form onSubmit={this.handleSubmit} className="form-wrapper">
-                <div className="name">
-                  <label
-                    style={{
-                      width: "100%",
-                      marginTop: " 0.4rem",
-                      display: " flex",
-                      justifyContent: "left !important",
-                      color: "#fff",
-                    }}
-                    className="label"
-                  >
-                    First Name
-                  </label>
-                  <input
-                    style={{
-                      color: "#000",
-                      fontSize: " 16px",
-                      height: "32px",
-                      outline: "none",
-                      width: "98%",
-                      background: "lightgray",
-                      borderRadius: "5px",
-                      borderBottomStyle: "2px solid #000",
-                      marginBottom: "7px",
-                      marginLeft: "0",
-                    }}
-                    className="inputt"
-                    type="text"
-                    name="fullname"
-                    id="firstName"
-                    onChange={this.handleChange}
-                  />
-                </div>
-                <div>
-                  <label
-                    style={{
-                      width: "100%",
-                      marginTop: " 0.4rem",
-                      display: " flex",
-                      justifyContent: "left !important",
-                      color: "#fff",
-                    }}
-                    className="label"
-                  >
-                    Other Names
-                  </label>
-                  <input
-                    style={{
-                      color: "#000",
-                      fontSize: " 16px",
-                      height: "32px",
-                      outline: "none",
-                      width: "98%",
-                      background: "lightgray",
-                      borderRadius: "5px",
-                      borderBottomStyle: "2px solid #000",
-                      marginBottom: "7px",
-                      marginLeft: "0",
-                    }}
-                    className="inputt"
-                    type="text"
-                    name="fullname"
-                    id="otherNames"
-                    onChange={this.handleChange}
-                  />
+                <div className="firstAndOtherNamesBox">
+                  <div className="firstNameBox">
+                    <label className="label">First Name</label>
+                    <input
+                      className="firstName_Input"
+                      type="text"
+                      name="fullname"
+                      id="firstName"
+                      onChange={this.handleChange}
+                    />
+                  </div>
+                  <div className="otherNamesBox">
+                    <label className="label">Other Names</label>
+                    <input
+                      className="otherNames_Input"
+                      type="text"
+                      name="fullname"
+                      id="otherNames"
+                      onChange={this.handleChange}
+                    />
+                  </div>
                 </div>
 
-                <div className="email">
-                  <label
-                    style={{
-                      width: "100%",
-                      marginTop: " 0.4rem",
-                      display: " flex",
-                      justifyContent: "left !important",
-                      color: "#fff",
-                    }}
-                    className="label"
-                  >
-                    Email
-                  </label>
+                <div className="emailBox">
+                  <label className="label">Email</label>
                   <input
-                    style={{
-                      color: "#000",
-                      fontSize: " 16px",
-                      height: "32px",
-                      outline: "none",
-                      width: "98%",
-                      background: "lightgray",
-                      borderRadius: "5px",
-                      borderBottomStyle: "2px solid #000",
-                      marginBottom: "7px",
-                      marginLeft: "0",
-                    }}
-                    className="inputt"
+                    className="email_Input"
                     type="email"
                     name="email"
                     id="email"
                     onChange={this.handleChange}
                   />
                 </div>
-                <div style={{}} className="password">
-                  <label
-                    style={{
-                      width: "100%",
-                      marginTop: " 0.4rem",
-                      display: " flex",
-                      justifyContent: "left !important",
-                      color: "#fff",
-                    }}
-                    className="label"
-                  >
-                    Password
-                  </label>
-                  <input
-                    style={{
-                      color: "#000",
-                      fontSize: " 16px",
-                      height: "32px",
-                      outline: "none",
-                      width: "98%",
-                      background: "lightgray",
-                      borderRadius: "5px",
-                      borderBottomStyle: "2px solid #000",
-                      marginBottom: "7px",
-                      marginLeft: "0",
-                    }}
-                    className="inputt"
-                    type={isPasswordShown ? "text" : "password"}
-                    name="password"
-                    id="password"
-                    onChange={this.handleChange}
-                  />
+                <div className="passwordAndIconBox">
+                  <div className="passwordBox">
+                    <label className="label">Password</label>
+                    <input
+                      className="password_Input"
+                      type={isPasswordShown ? "text" : "password"}
+                      name="password"
+                      id="password"
+                      onChange={this.handleChange}
+                    />
+                  </div>
 
-                  <i
-                    style={{
-                      position: "absolute",
-                      right: "8px",
-                      cursor: "pointer",
-                    }}
-                    class={`fa ${
-                      isPasswordShown ? "fa-eye-slash" : "fa-eye"
-                    } password-icon`}
-                    onClick={this.togglePasswordVisibility}
-                  />
+                  <div className="iconBox">
+                    <i
+                      style={{
+                        margin: "35px 0px 0px 15px",
+                        cursor: "pointer",
+                        color: "gray",
+                      }}
+                      class={`fa ${
+                        isPasswordShown ? "fa-eye-slash" : "fa-eye"
+                      } password-icon`}
+                      onClick={this.togglePasswordVisibility}
+                    />
+                  </div>
                 </div>
 
                 <div>
