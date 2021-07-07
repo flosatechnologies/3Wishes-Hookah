@@ -110,9 +110,7 @@ class UsersScreenDashboard extends Component {
 }
 
 const mapStateToProps = (state) => {
-  return {
-    products: state.users.products,
-  };
+  return {};
 };
 
 const mapDispatchToProps = () => {

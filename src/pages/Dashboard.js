@@ -26,6 +26,7 @@ class Dashboard extends Component {
         users: "inactive",
         logout: "inactive",
       },
+      adminFirstName: "",
     };
   }
 
@@ -62,6 +63,7 @@ class Dashboard extends Component {
         );
       }
     };
+
     return (
       <div className="container-fluid mainContainer">
         <div className="row menuBar">
@@ -78,8 +80,8 @@ class Dashboard extends Component {
                   <img src={userImage} alt="userImage" className="userImage" />
                 </div>
                 <div className="profileWelcomeMessage">
-                  <div className="userWelcome">Welcome,</div>
-                  <div>{this.props.user.user.firstName}</div>
+                  <div className="userWelcome">Welcome</div>
+                  <div> {/*{this.props.adminUser.user.firstName}*/} </div>
                 </div>
               </div>
             </div>
@@ -179,7 +181,7 @@ class Dashboard extends Component {
                   });
                   this.props.logoutUser();
                 }}
-                id={this.props.logoutUser}
+                id={this.state.buttonState.logout}
                 className="dashboardButtons"
               >
                 <AiOutlineLogout style={{ marginRight: 15 }} />
@@ -197,7 +199,7 @@ class Dashboard extends Component {
 const mapStateToProps = (state) => {
   console.log(state.users);
   return {
-    user: state.users,
+    adminUser: state.users,
   };
 };
 
