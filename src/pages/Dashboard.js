@@ -79,7 +79,7 @@ class Dashboard extends Component {
                 </div>
                 <div className="profileWelcomeMessage">
                   <div className="userWelcome">Welcome,</div>
-                  <div>User</div>
+                  <div>{this.props.user.user.firstName}</div>
                 </div>
               </div>
             </div>
@@ -194,10 +194,15 @@ class Dashboard extends Component {
   }
 }
 
-const mapStateToProps = (state) => {};
-
-const mapDispatchToProps = {
-  logoutUser,
+const mapStateToProps = (state) => {
+  console.log(state.users);
+  return {
+    user: state.users,
+  };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);
+const mapDispatchToProps = () => {
+  return { logoutUser };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps())(Dashboard);
