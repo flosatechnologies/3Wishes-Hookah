@@ -1,5 +1,5 @@
 import React from "react";
-import image1 from "../assets/images/airpods.jpg";
+
 import "../css/productComponentDashboard.css";
 import { MdEdit, MdDelete } from "react-icons/md";
 
@@ -9,7 +9,7 @@ function ProductComponentDashboard(props) {
       <div className="dashboardProductImageContainer">
         <img
           className="dashboardProductImage"
-          src={image1}
+          src={props.image}
           alt="productImage"
         />
       </div>

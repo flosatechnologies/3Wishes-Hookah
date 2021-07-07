@@ -2,7 +2,8 @@
   width: fit-content;
   height: fit-content;
   background-color: white;
-  margin: 7px;
+  margin: 15px;
+  padding: 0px;
 }
 .dashboardProductImageContainer {
   display: flex;
@@ -12,7 +13,8 @@
 .dashboardProductImage {
   width: 200px;
   height: 200px;
-  margin: 10px;
+  padding: 0px;
+  margin-top: 8px;
 }
 
 .editAndDeleteButtonContainer {
@@ -26,7 +28,6 @@
 .deleteButton,
 .editButton {
   height: fit-content;
-
   border-style: none;
   background-color: transparent;
 }
@@ -42,9 +43,15 @@
 }
 
 .dashboardProductName {
-  font-size: 19px;
+  font-size: 15px;
+  font-weight: bold;
+  text-overflow: ellipsis;
+  width: 98%;
+
+  white-space: nowrap;
+  overflow: hidden;
 }
 .dashboardProductPrice {
   font-size: 14px;
-  font-weight: bold;
+  font-weight: bolder;
 }

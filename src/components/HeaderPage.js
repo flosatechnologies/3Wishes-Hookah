@@ -1,10 +1,15 @@
 import React, { Component } from "react";
-import { Navbar, Nav, Container } from "react-bootstrap";
+import { Navbar, Nav, NavDropdown } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
 import logo from "../assets/images/logo.png";
 import { IoMdCart } from "react-icons/io";
+import { connect } from "react-redux";
+import { logoutUser } from "../Store/authActions";
 
 export class HeaderPage extends Component {
+  constructor(props) {
+    super(props);
+  }
   render() {
     return (
       <div>
@@ -41,14 +46,40 @@ export class HeaderPage extends Component {
                   <i className="fas fa-shopping-cart"></i> Cart
                 </Nav.Link>
               </LinkContainer>
-
-              <LinkContainer to="/login">
-                <Nav.Link className="mr-sm-5">Login</Nav.Link>
-              </LinkContainer>
-
-              <LinkContainer to="/logOut">
+              {!this.props.user.login ? (
+                <LinkContainer to="/login">
+                  <Nav.Link className="mr-sm-5">Login</Nav.Link>
+                </LinkContainer>
+              ) : (
+                <NavDropdown
+                  title={this.props.user.user.firstName}
+                  id="collasible-nav-dropdown"
+                >
+                  <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
+                  <NavDropdown.Item href="#action/3.2">
+                    Profile
+                  </NavDropdown.Item>
+                  <NavDropdown.Item href="#action/3.3">
+                    Address Details
+                  </NavDropdown.Item>
+                  <NavDropdown.Divider />
+                  <NavDropdown.Item href="#">
+                    <button
+                      style={{
+                        borderStyle: "none",
+                        backgroundColor: "transparent",
+                        margin: "0px",
+                      }}
+                      onClick={() => this.props.logoutUser()}
+                    >
+                      logout
+                    </button>
+                  </NavDropdown.Item>
+                </NavDropdown>
+              )}
+              {/* <LinkContainer to="/logOut">
                 <Nav.Link className="mr-sm-5">LogOut</Nav.Link>
-              </LinkContainer>
+              </LinkContainer> */}
             </Nav>
           </Navbar.Collapse>
           {/* </Container> */}
@@ -58,4 +89,16 @@ export class HeaderPage extends Component {
   }
 }
 
-export default HeaderPage;
+const mapStateToProps = (state) => {
+  console.log(state.users.user);
+  return {
+    user: state.users,
+  };
+};
+const mapDispatchToProps = () => {
+  return {
+    logoutUser,
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps())(HeaderPage);

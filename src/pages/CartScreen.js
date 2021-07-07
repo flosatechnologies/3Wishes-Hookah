@@ -1,6 +1,6 @@
 import React from "react";
-// import FooterPage from "../components/FooterPage";
-// import HeaderPage from "../components/HeaderPage";
+import FooterPage from "../components/FooterPage";
+import HeaderPage from "../components/HeaderPage";
 import "bootstrap/dist/css/bootstrap.min.css";
 import div from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -13,7 +13,7 @@ import CartProductComponent from "../components/CartProductComponent";
 function CartScreen() {
   return (
     <div>
-      {/*<HeaderPage />*/}
+      <HeaderPage />
       <div className="container background">
         <div className="row">
           <div>Cart({3 + " item(s)"})</div>
@@ -73,7 +73,7 @@ function CartScreen() {
         </div>
       </div>
 
-      {/*<FooterPage />*/}
+      <FooterPage />
     </div>
   );
 }

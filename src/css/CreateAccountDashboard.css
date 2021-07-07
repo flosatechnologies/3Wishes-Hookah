@@ -1,0 +1,87 @@
+.theMainContainer {
+  margin: 5%;
+}
+.firstAndOtherNamesContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  margin-bottom: 2%;
+}
+input.firstNameInput {
+  border-style: solid;
+  border-color: "#eee";
+  border-radius: 5px;
+  border-width: 1px;
+  padding: 2px 4px;
+  margin: 0px 5px 0px 0px;
+  font-size: 15px;
+  width: 85px;
+}
+input.otherNamesInput {
+  border-style: solid;
+  border-color: "#eee";
+  border-radius: 5px;
+  border-width: 1px;
+  padding: 2px 4px;
+  font-size: 15px;
+  width: 220px;
+}
+
+.emailInput,
+.phoneNumberInput,
+.confirmPasswordInput,
+.passwordInput {
+  border-style: solid;
+  border-color: "#eee";
+  border-radius: 5px;
+  border-width: 1px;
+  padding: 2px 4px;
+  font-size: 15px;
+}
+
+.emailAndPhoneNumberContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  margin-bottom: 2%;
+}
+
+.emailContainer {
+  margin-right: 2%;
+  width: 15%;
+}
+#emailInputId {
+  width: 120%;
+}
+#phoneNumberInputId {
+  width: 75%;
+  margin-left: 10%;
+}
+.passwordContainer {
+  margin-bottom: 2%;
+}
+
+.confirmPasswordContainer {
+  margin-bottom: 2%;
+}
+
+.registerButtonContainer {
+  margin-top: 1%;
+}
+
+.registerButton {
+  padding: 0px 15px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #076f1d;
+  border-radius: 3px;
+  background-color: transparent;
+}
+.registerButton:hover,
+.registerButton:active,
+.registerButton:focus {
+  border-style: none;
+  border-radius: 3px;
+  background-color: #076f1d;
+  color: white;
+}

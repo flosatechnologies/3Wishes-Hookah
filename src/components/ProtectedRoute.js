@@ -29,7 +29,6 @@ function ProtectedRoute({ component: Component, auth, ...rest }) {
 const mapStateToProps = (state) => {
   return {
     auth: state.firebase.auth,
-    status: state.users.login,
   };
 };
 export default connect(mapStateToProps)(ProtectedRoute);

@@ -1,6 +1,5 @@
-
 import { BsImageFill } from "react-icons/bs";
-export const registerWithEmail = (newUser) => {
+export const userRegistration = (user) => {
   return (dispatch, getState, { getFirebase, getFirestore }) => {
     const firebase = getFirebase();
     const firestore = getFirestore();
@@ -8,12 +7,14 @@ export const registerWithEmail = (newUser) => {
 
     firebase
       .auth()
-      .createUserWithEmailAndPassword(newUser.email, newUser.password)
+      .createUserWithEmailAndPassword(user.email, user.password)
       .then((resp) => {
         return firestore.collection("users").doc(resp.user.uid).set({
-          fullname: newUser.fullname,
-          email: newUser.email,
-          userRole: newUser.userRole,
+          firstName: user.firstName,
+          otherNames: user.otherNames,
+          email: user.email,
+          phoneNumber: user.phoneNumber,
+          role: user.role,
           createdDate: timestamp,
         });
       })
@@ -22,19 +23,36 @@ export const registerWithEmail = (newUser) => {
       })
       .catch((err) => {
         dispatch({ type: "SIGNUP_ERROR", err });
+        alert(err.message);
       });
   };
 };
 
 export const loginWithEmail = (email, password) => {
-  return (dispatch, state, { getFirebase }) => {
+  return (dispatch, state, { getFirebase, getFirestore }) => {
     let firebase = getFirebase();
     firebase
       .auth()
       .signInWithEmailAndPassword(email, password)
       .then((response) => {
         console.log(response);
-        dispatch(loggedIn(response));
+
+        getFirestore()
+          .collection("users")
+          .doc(response.user.uid)
+          .get()
+          .then((doc) => {
+            if (doc.exists) {
+              console.log("Document data:", doc.data());
+              dispatch(loggedIn(doc.data()));
+            } else {
+              // doc.data() will be undefined in this case
+              console.log("No such document!");
+            }
+          })
+          .catch((error) => {
+            console.log("Error getting document:", error);
+          });
       })
       .catch((err) => {
         console.log(err);
@@ -51,13 +69,15 @@ export const logoutUser = () => {
       .signOut()
       .then((response) => {
         console.log(response);
+        dispatch({
+          type: "LOGGED_OUT",
+        });
       })
       .catch((err) => {
         console.log(err);
       });
   };
 };
-
 
 export const AddNewProduct = (
   Id,
@@ -108,6 +128,28 @@ export const AddNewProduct = (
           });
       }
     );
+  };
+};
+
+export const getAllProducts = () => {
+  return (dispatch, state, { getFirestore }) => {
+    getFirestore()
+      .collection("products")
+      .onSnapshot(
+        (snapshot) => {
+          let products = [];
+
+          snapshot.forEach((doc) => {
+            products.push(doc.data());
+          });
+          console.log(products);
+          dispatch({
+            type: "GET_ALL_PRODUCTS",
+            payload: products,
+          });
+        },
+        (error) => {}
+      );
   };
 };
 

@@ -34,21 +34,11 @@
   font-size: 16px;
 } */
 
-.password {
-  margin-bottom: 40px;
+.firstAndOtherNamesBox {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
 }
-
-/* .input1 {
-  height: 32px;
-  font-size: 15px;
-  outline: none;
-  width: 102%;
-  background: lightgray;
-  border-radius: 5px;
-  border-bottom-style: 2px solid #000;
-  margin-bottom: 7px;
-  color: #000;
-} */
 
 .submit {
   display: flex;
@@ -79,8 +69,60 @@ button:active {
   color: #dd1b6c;
 }
 
-/* .password-icon {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-} */
+label.label {
+  width: "100%";
+  margin-top: 0.4rem;
+  margin-left: 1%;
+  display: " flex";
+  margin-bottom: 0px;
+  justify-content: "left !important";
+  color: "#fff";
+}
+.firstNameBox {
+  width: 100px;
+  margin-right: 2%;
+}
+.otherNamesBox {
+  width: 195px;
+}
+.passwordBox {
+  width: 220px;
+}
+
+.firstName_Input,
+.otherNames_Input,
+.email_Input,
+.password_Input {
+  color: "#000";
+  font-size: 16px;
+  height: 32px;
+  outline: "none";
+  width: 100%;
+  background-color: lightgray;
+  border-width: 1px;
+  border-radius: 5px;
+  border-bottom-style: 2px solid #000;
+  margin-bottom: 8px;
+  margin-left: 0px;
+}
+
+input.firstName_Input {
+  width: 100px;
+  margin-right: 1%;
+}
+input.otherNames_Input {
+  width: 195px;
+}
+input.email_Input {
+  width: 300px;
+}
+input.password_Input {
+  width: 220px;
+}
+
+.passwordAndIconBox {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  margin-bottom: 40px;
+}

@@ -1,0 +1,73 @@
+.dashboardUserContainer {
+  display: flex;
+  flex-direction: row;
+  width: fit-content;
+  height: fit-content;
+  background-color: white;
+  margin: 10px;
+  padding: 0px;
+  border-radius: 5px;
+}
+.adminProfileImageContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.adminProfileImage {
+  width: 100px;
+  height: 100px;
+  padding: 0px;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+.adminUserEditAndDeleteButtonContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  padding: 0px;
+  margin-bottom: 0px;
+}
+
+.adminUserEditButton {
+  height: fit-content;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #006400;
+  background-color: transparent;
+  padding: 0px 15px;
+  margin-right: 5px;
+}
+.adminUserDeleteButton {
+  height: fit-content;
+  border-style: solid;
+  border-width: 1px;
+  border-color: tomato;
+  background-color: transparent;
+  padding: 0px 5px;
+}
+.adminUserDeleteButton:hover {
+  background-color: tomato;
+  color: white;
+}
+.adminUserEditButton:hover {
+  background-color: #006400;
+  color: white;
+}
+.userDetailsContainer {
+  width: 220px;
+  margin-left: 10px;
+}
+
+.dashboarduserName {
+  font-size: 15px;
+  font-weight: bold;
+}
+.dashboardUserEmail {
+  font-size: 15px;
+  font-weight: bolder;
+}
+.dashboardUserPhone {
+  font-size: 15px;
+  font-weight: bolder;
+}
