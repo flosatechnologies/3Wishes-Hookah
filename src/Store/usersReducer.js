@@ -1,8 +1,8 @@
 const initialState = {
   login: false,
-  user: "",
-  users: "[]",
+  user: {},
   products: [],
+  cart: [],
 };
 
 const usersReducer = (state = initialState, action) => {
@@ -13,10 +13,11 @@ const usersReducer = (state = initialState, action) => {
         email: action.payload.email,
         password: action.payload.password,
       };
-      return { ...state, users: [...state.users, newUser] };
+      return { ...state, users: [...state.user, newUser] };
 
     case "LOGGED_IN":
-      return { ...state, login: true, user: action.payload };
+      const loggedInUser = action.payload;
+      return { ...state, login: true, user: { loggedInUser } };
 
     case "LOGGED_OUT":
       return { ...state, login: false, user: "" };
@@ -31,6 +32,10 @@ const usersReducer = (state = initialState, action) => {
 
     case "GET_ALL_PRODUCTS":
       return { products: action.payload };
+
+    case "ADD_TO_CART":
+      const cartProduct = { qty: action.qty, product: action.product };
+      return { ...state, cart: [...state.cart, cartProduct] };
 
     default:
       return state;
