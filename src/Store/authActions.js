@@ -1,5 +1,3 @@
-
-import { BsImageFill } from "react-icons/bs";
 export const registerWithEmail = (newUser) => {
   return (dispatch, getState, { getFirebase, getFirestore }) => {
     const firebase = getFirebase();
@@ -58,7 +56,6 @@ export const logoutUser = () => {
   };
 };
 
-
 export const AddNewProduct = (
   Id,
   product,
@@ -111,6 +108,70 @@ export const AddNewProduct = (
   };
 };
 
+export const DeleteProduct = (product_Id) => {
+  return {
+    type: "DELETE_PRODUCT",
+    payload: product_Id,
+  };
+};
+
+export const getAllProducts = () => {
+  return (dispatch, state, { getFirestore }) => {
+    getFirestore()
+      .collection("products")
+      .onSnapshot(
+        (snapShot) => {
+          let products = [];
+          snapShot.forEach((doc) => {
+            products.push(doc.data());
+          });
+          console.log(products);
+          dispatch({
+            type: "SET_ALL_PRODUCTS",
+            payload: products,
+          });
+        },
+        (err) => {}
+      );
+  };
+};
+
+export const EditProduct = (
+  Id,
+  product,
+  price,
+  quantity,
+  description,
+  image
+) => {
+  return (dispatch, state, { getFirestore, getFirebase }) => {
+    getFirebase()
+      .storage()
+      .ref("images")
+      .child(image.name)
+      .getDownloadURL()
+      .then((url) => {
+        getFirestore()
+          .collection("products")
+          .doc(Id)
+          .set({
+            Id,
+            product,
+            price,
+            quantity,
+            description,
+            image: url,
+          })
+          .then(() => {
+            alert("Product updated successfully");
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      });
+  };
+};
+
 export const loggedIn = (user) => {
   return {
     type: "LOGGED_IN",
@@ -118,7 +179,7 @@ export const loggedIn = (user) => {
   };
 };
 
-export const logginOut = () => {
+export const loggedOut = () => {
   return {
     type: "THE_LOGOUT",
   };

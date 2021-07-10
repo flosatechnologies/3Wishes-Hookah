@@ -7,6 +7,10 @@ import Button from "react-bootstrap/Button";
 import "bootstrap/dist/css/bootstrap.min.css";
 import ProductComponentDashboard from "../components/ProductComponentDashboard";
 import { FaRegImage } from "react-icons/fa";
+import { v4 as uuid } from "uuid";
+import { EditProduct } from "../Store/authActions";
+
+import { connect } from "react-redux";
 
 class Edit extends Component {
   constructor(props) {
@@ -16,10 +20,15 @@ class Edit extends Component {
       price: "",
       quantity: "",
       description: "",
+      imageTofirestore: { name: "noImage.png" },
       profileImg:
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsJfdSVJ3Vi3Q_8wVTsa8lE6foFVOOFXiapNJB6SORmxKLOCi9hN1QgGO8saCXqfUhmkU&usqp=CAU",
     };
   }
+
+  // componentDidMount() {
+  //   console.log("mounted");
+  // }
 
   imageHandler = (e) => {
     const reader = new FileReader();
@@ -32,6 +41,21 @@ class Edit extends Component {
   };
 
   render() {
+    const handleEditProduct = (e) => {
+      e.preventDefault();
+      let name = this.state.name;
+      let price = this.state.price;
+      let description = this.state.description;
+      let quantity = this.state.quantity;
+      var Id = uuid();
+
+      var image = this.state.imageTofirestore;
+      console.log(image);
+
+      this.props.EditProduct(Id, name, price, quantity, description, image);
+    };
+
+    const { profileImg } = this.state;
     return (
       <Container className="container-fluid editContainer">
         <Row className="product-row">
@@ -88,11 +112,25 @@ class Edit extends Component {
           </Col>
         </Row>
         <Row className="addButtonContainer">
-          <Button id="btn">update</Button>
+          <Button onClick={handleEditProduct} id="btn">
+            update
+          </Button>
         </Row>
       </Container>
     );
   }
 }
 
-export default Edit;
+const mapStateToProps = (state) => {
+  return {
+    products: state.products,
+  };
+};
+
+const mapDispatchToProps = () => {
+  return {
+    EditProduct,
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps())(Edit);

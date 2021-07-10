@@ -5,6 +5,7 @@ import AddProduct from "./AddProductScreen.js";
 import "react-datepicker/dist/react-datepicker.css";
 import { Component } from "react";
 import ProductComponentDashboard from "../components/ProductComponentDashboard";
+import Edit from "./EditScreen";
 
 class ProductsScreenDashboard extends Component {
   constructor(props) {
@@ -12,9 +13,13 @@ class ProductsScreenDashboard extends Component {
     this.state = {
       button: {
         addProduct: "inactivebtn",
+        editProduct: "inactivebtn",
       },
     };
   }
+  handleButtonState = (trigger) => {
+    this.setState({ button: { addProduct: "inactive", editProduct: trigger } });
+  };
   render() {
     const handleRenderScreen = () => {
       if (this.state.button.addProduct === "activebtn") {
@@ -25,15 +30,43 @@ class ProductsScreenDashboard extends Component {
         );
       }
 
+      if (this.state.button.editProduct === "activebtn") {
+        return (
+          <div>
+            <Edit />
+          </div>
+        );
+      }
+
       if (this.state.button.addProduct === "inactivebtn") {
         return (
           <div className="container arrayOfProducts">
             <div className="row">
-              <ProductComponentDashboard productName="Airpods" price="1200" />
-              <ProductComponentDashboard productName="Airpods" price="1200" />
-              <ProductComponentDashboard productName="Airpods" price="1200" />
-              <ProductComponentDashboard productName="Airpods" price="1200" />
-              <ProductComponentDashboard productName="Airpods" price="1200" />
+              <ProductComponentDashboard
+                activatebtn={(tr) => this.handleButtonState(tr)}
+                productName="Airpods"
+                price="1200"
+              />
+              <ProductComponentDashboard
+                activatebtn={(tr) => this.handleButtonState(tr)}
+                productName="Airpods"
+                price="1200"
+              />
+              <ProductComponentDashboard
+                activatebtn={(tr) => this.handleButtonState(tr)}
+                productName="Airpods"
+                price="1200"
+              />
+              <ProductComponentDashboard
+                activatebtn={(tr) => this.handleButtonState(tr)}
+                productName="Airpods"
+                price="1200"
+              />
+              <ProductComponentDashboard
+                activatebtn={(tr) => this.handleButtonState(tr)}
+                productName="Airpods"
+                price="1200"
+              />
             </div>
           </div>
         );
