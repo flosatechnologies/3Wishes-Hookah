@@ -12,7 +12,6 @@ import { connect } from "react-redux";
 import { MdKeyboardBackspace } from "react-icons/md";
 import { getAllProducts } from "../Store/authActions.js";
 
-
 class ProductsScreenDashboard extends Component {
   constructor(props) {
     super(props);
