@@ -12,24 +12,31 @@ class LogIn extends Component {
   constructor(props) {
     super(props);
   }
-  componentDidUpdate() {
+  async componentDidUpdate() {
     console.log(this.props.auth);
-    if (this.props.auth.user.role === "admin") {
-      this.props.history.push("/dashboard");
-    }
-    if (this.props.auth.user.role === "customer") {
-      this.props.history.push("/shop");
+    const loaded = await this.props.state.users.user.login;
+
+    const fire = () => {
+      if (this.props.state.users.user.loggedInUser.role === "admin") {
+        this.props.history.push("/dashboard");
+      }
+      if (this.props.state.users.user.loggedInUser.role === "customer") {
+        this.props.history.push("/shop");
+      }
+    };
+    if (loaded) {
+      fire();
     }
   }
 
-  render() {
-    const handleSubmit = (e) => {
-      e.preventDefault();
-      let email = e.target.elements.email.value;
-      let password = e.target.elements.password.value;
-      this.props.loginWithEmail(email, password);
-    };
+  handleSubmit = (e) => {
+    e.preventDefault();
+    let email = e.target.elements.email.value;
+    let password = e.target.elements.password.value;
+    this.props.loginWithEmail(email, password);
+  };
 
+  render() {
     return (
       <div>
         <HeaderPage />
@@ -48,7 +55,7 @@ class LogIn extends Component {
               </h3>
             </div>
 
-            <form onSubmit={handleSubmit} className="form-wrapper">
+            <form onSubmit={this.handleSubmit} className="form-wrapper">
               <div className="email">
                 <label className="label">Email</label>
                 <input className="inputt" type="email" name="email" />
@@ -102,9 +109,9 @@ class LogIn extends Component {
 }
 
 const mapStateToProps = (state) => {
+  console.log(state.users);
   return {
-    auth: state.users,
-    check: state.firebase.auth,
+    state,
   };
 };
 

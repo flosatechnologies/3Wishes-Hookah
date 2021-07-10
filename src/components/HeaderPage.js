@@ -43,16 +43,38 @@ export class HeaderPage extends Component {
 
               <LinkContainer to="/cart">
                 <Nav.Link>
-                  <i className="fas fa-shopping-cart"></i> Cart
+                  <div style={{ display: "flex", flexDirection: "row" }}>
+                    <div>
+                      {true ? (
+                        ""
+                      ) : (
+                        <div
+                          style={{
+                            color: "black",
+                            textAlign: "center",
+                            fontSize: "11px",
+                            backgroundColor: "#007bff",
+                            borderRadius: "75px",
+                            width: "1.2vw",
+                          }}
+                        >
+                          10
+                        </div>
+                      )}
+                    </div>
+                    <div>
+                      <i className="fas fa-shopping-cart"></i> Cart
+                    </div>
+                  </div>
                 </Nav.Link>
               </LinkContainer>
-              {!this.props.user.login ? (
+              {!this.props.state.users.login ? (
                 <LinkContainer to="/login">
                   <Nav.Link className="mr-sm-5">Login</Nav.Link>
                 </LinkContainer>
               ) : (
                 <NavDropdown
-                  title={this.props.user.user.firstName}
+                  title={this.props.state.users.user.loggedInUser.firstName}
                   id="collasible-nav-dropdown"
                 >
                   <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
@@ -90,9 +112,9 @@ export class HeaderPage extends Component {
 }
 
 const mapStateToProps = (state) => {
-  console.log(state.users.user);
+  console.log(state.users);
   return {
-    user: state.users,
+    state,
   };
 };
 const mapDispatchToProps = () => {

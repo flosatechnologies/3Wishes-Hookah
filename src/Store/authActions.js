@@ -1,4 +1,3 @@
-import { BsImageFill } from "react-icons/bs";
 export const userRegistration = (user) => {
   return (dispatch, getState, { getFirebase, getFirestore }) => {
     const firebase = getFirebase();
@@ -44,11 +43,15 @@ export const loginWithEmail = (email, password) => {
           .then((doc) => {
             if (doc.exists) {
               console.log("Document data:", doc.data());
-              dispatch(loggedIn(doc.data()));
             } else {
               // doc.data() will be undefined in this case
               console.log("No such document!");
             }
+
+            dispatch({
+              type: "LOGGED_IN",
+              payload: doc.data(),
+            });
           })
           .catch((error) => {
             console.log("Error getting document:", error);
@@ -153,15 +156,10 @@ export const getAllProducts = () => {
   };
 };
 
-export const loggedIn = (user) => {
+export const AddToCart = (product, qty) => {
   return {
     type: "LOGGED_IN",
-    payload: user,
-  };
-};
-
-export const logginOut = () => {
-  return {
-    type: "THE_LOGOUT",
+    product,
+    qty,
   };
 };
