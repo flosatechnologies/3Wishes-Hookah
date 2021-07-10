@@ -1,5 +1,5 @@
 import React from "react";
-import { Route } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import ProtectedRoute from "./ProtectedRoute";
 import CarouselPage from "../pages/CarouselPage";
 import HeaderPage from "./HeaderPage";
@@ -21,7 +21,6 @@ import { connect } from "react-redux";
 function RouterComponent(props) {
   return (
     <div>
-      <HeaderPage />
       <Route path="/" component={CarouselPage} exact={true} />
       <Route path="/shop" component={ShopPage} />
       <Route path="/contact" component={ContactPage} />
@@ -34,8 +33,7 @@ function RouterComponent(props) {
       <Route path="/checkout" component={CheckoutScreen} />
       <Route path="/logOut" component={LogOut} />
       <Route path="/customerDetails" component={CustomerDetails} />
-      <FooterPage />
-      <ProtectedRoute path="/Dashboard" component={Dashboard} />
+      <ProtectedRoute path="/dashboard" component={Dashboard} />
     </div>
   );
 }
@@ -43,6 +41,7 @@ const mapStateToProps = (state) => {
   console.log(state);
   return {
     auth: state.firebase.auth,
+    user: state.users.login,
   };
 };
 export default connect(mapStateToProps)(RouterComponent);

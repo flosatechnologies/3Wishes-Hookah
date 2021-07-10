@@ -1,10 +1,10 @@
-.arrayOfProducts {
+.arrayOfUsers {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
 }
 
-.addProductButton {
+.addUserButton {
   background-color: transparent;
   border-style: solid;
   padding: 2% 3%;
@@ -12,16 +12,18 @@
   border-width: 1px;
   border-color: black;
 }
-.backButton {
+.userScreenBackButton {
   background-color: transparent;
   border-style: none;
   padding: 2% 3%;
   border-color: black;
 }
-.backButtonContainer {
+.userScreenBackButtonContainer {
   text-align: right;
 }
-.addProductButton:hover,
+.addUserButton:hover,
+.addUserButton:active,
+.addUserButton:focus,
 #activebtn {
   color: white;
   border-color: white;

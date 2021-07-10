@@ -55,6 +55,7 @@
 .dashboardButtons:focus,
 .dashboardButtons:active,
 .dashboardButtons:hover,
+#inactive:hover,
 #active {
   background-color: #8b0000;
   color: white;

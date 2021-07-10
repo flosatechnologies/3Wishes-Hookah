@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "../css/Dashboard.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { BsArchive, BsCreditCard } from "react-icons/bs";
+import { BsArchive, BsCreditCard, BsPerson } from "react-icons/bs";
 import { RiTruckLine } from "react-icons/ri";
 import { AiOutlineLogout } from "react-icons/ai";
 import logo from "../assets/images/logo1.png";
@@ -13,6 +13,8 @@ import DeliveryScreen from "./DeliveryScreen";
 import { connect } from "react-redux";
 import { logoutUser } from "../Store/authActions";
 
+import UsersScreenDashboard from "./UsersScreenDashboard";
+
 class Dashboard extends Component {
   constructor(props) {
     super(props);
@@ -21,9 +23,10 @@ class Dashboard extends Component {
         product: "inactive",
         payment: "inactive",
         delivery: "inactive",
-        user: "inactive",
+        users: "inactive",
         logout: "inactive",
       },
+      adminFirstName: "",
     };
   }
 
@@ -52,7 +55,15 @@ class Dashboard extends Component {
           </div>
         );
       }
+      if (this.state.buttonState.users === "active") {
+        return (
+          <div>
+            <UsersScreenDashboard />
+          </div>
+        );
+      }
     };
+
     return (
       <div className="container-fluid mainContainer">
         <div className="row menuBar">
@@ -69,8 +80,8 @@ class Dashboard extends Component {
                   <img src={userImage} alt="userImage" className="userImage" />
                 </div>
                 <div className="profileWelcomeMessage">
-                  <div className="userWelcome">Welcome,</div>
-                  <div>User</div>
+                  <div className="userWelcome">Welcome</div>
+                  <div> {/*{this.props.adminUser.user.firstName}*/} </div>
                 </div>
               </div>
             </div>
@@ -80,17 +91,18 @@ class Dashboard extends Component {
                 onClick={() => {
                   this.setState({
                     buttonState: {
-                      product: "active",
                       payment: "inactive",
                       delivery: "inactive",
                       logout: "inactive",
+                      product: "active",
+                      users: "inactive",
                     },
                   });
                 }}
                 id={this.state.buttonState.product}
                 className="dashboardButtons"
               >
-                <BsArchive style={{ marginRight: 15 }} /> Product
+                <BsArchive style={{ marginRight: 13 }} /> Product
               </button>
             </div>
             <div className="row">
@@ -99,9 +111,10 @@ class Dashboard extends Component {
                   this.setState({
                     buttonState: {
                       product: "inactive",
-                      payment: "active",
                       delivery: "inactive",
                       logout: "inactive",
+                      payment: "active",
+                      users: "inactive",
                     },
                   });
                 }}
@@ -119,8 +132,9 @@ class Dashboard extends Component {
                     buttonState: {
                       product: "inactive",
                       payment: "inactive",
-                      delivery: "active",
                       logout: "inactive",
+                      delivery: "active",
+                      users: "inactive",
                     },
                   });
                 }}
@@ -139,12 +153,35 @@ class Dashboard extends Component {
                       product: "inactive",
                       payment: "inactive",
                       delivery: "inactive",
+                      logout: "inactive",
+                      users: "active",
+                    },
+                  });
+                  // this.props.logoutUser();
+                }}
+                id={this.state.buttonState.users}
+                className="dashboardButtons"
+              >
+                <BsPerson style={{ marginRight: 15 }} />
+                Users
+              </button>
+            </div>
+
+            <div className="row">
+              <button
+                onClick={() => {
+                  this.setState({
+                    buttonState: {
+                      product: "inactive",
+                      payment: "inactive",
+                      delivery: "inactive",
+                      users: "inactive",
                       logout: "active",
                     },
                   });
                   this.props.logoutUser();
                 }}
-                id={this.props.logoutUser}
+                id={this.state.buttonState.logout}
                 className="dashboardButtons"
               >
                 <AiOutlineLogout style={{ marginRight: 15 }} />
@@ -159,10 +196,15 @@ class Dashboard extends Component {
   }
 }
 
-const mapStateToProps = (state) => {};
-
-const mapDispatchToProps = {
-  logoutUser,
+const mapStateToProps = (state) => {
+  console.log(state.users);
+  return {
+    adminUser: state.users,
+  };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);
+const mapDispatchToProps = () => {
+  return { logoutUser };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps())(Dashboard);

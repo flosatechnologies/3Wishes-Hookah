@@ -1,18 +1,10 @@
 const initialState = {
   login: false,
-  user: null,
-  users: "[]",
-  products: [
-    {
-      name: "",
-      price: "",
-      quantity: "",
-      description: "",
-      imageTofirestore: { name: "noImage.png" },
-      profileImg:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsJfdSVJ3Vi3Q_8wVTsa8lE6foFVOOFXiapNJB6SORmxKLOCi9hN1QgGO8saCXqfUhmkU&usqp=CAU",
-    },
-  ],
+
+  user: {},
+  products: [],
+  cart: [],
+
 };
 
 const usersReducer = (state = initialState, action) => {
@@ -23,11 +15,14 @@ const usersReducer = (state = initialState, action) => {
         email: action.payload.email,
         password: action.payload.password,
       };
-      return { ...state, users: [...state.users, newUser] };
+      return { ...state, users: [...state.user, newUser] };
+
     case "LOGGED_IN":
-      return { ...state, login: true, user: action.payload };
-    case "THE_LOGOUT":
-      return { ...state, login: false };
+      const loggedInUser = action.payload;
+      return { ...state, login: true, user: { loggedInUser } };
+
+    case "LOGGED_OUT":
+      return { ...state, login: false, user: "" };
 
       console.log("signup success");
       return { ...state, authError: null };
@@ -35,6 +30,7 @@ const usersReducer = (state = initialState, action) => {
     case "SIGNUP_ERROR":
       console.log("signup error");
       return { ...state, authError: action.err.message };
+
 
     case "SET_ALL_PRODUCTS":
       return { products: action.payload };
@@ -44,6 +40,15 @@ const usersReducer = (state = initialState, action) => {
         (product) => product.Id !== action.payload
       );
       return { ...state, products: filteredProducts };
+
+    case "GET_ALL_PRODUCTS":
+      return { products: action.payload };
+
+    case "ADD_TO_CART":
+      const cartProduct = { qty: action.qty, product: action.product };
+      return { ...state, cart: [...state.cart, cartProduct] };
+
+
     default:
       return state;
   }

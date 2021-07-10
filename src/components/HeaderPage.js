@@ -1,10 +1,15 @@
 import React, { Component } from "react";
-import { Navbar, Nav, Container } from "react-bootstrap";
+import { Navbar, Nav, NavDropdown } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
 import logo from "../assets/images/logo.png";
 import { IoMdCart } from "react-icons/io";
+import { connect } from "react-redux";
+import { logoutUser } from "../Store/authActions";
 
 export class HeaderPage extends Component {
+  constructor(props) {
+    super(props);
+  }
   render() {
     return (
       <div>
@@ -38,17 +43,65 @@ export class HeaderPage extends Component {
 
               <LinkContainer to="/cart">
                 <Nav.Link>
-                  <i className="fas fa-shopping-cart"></i> Cart
+                  <div style={{ display: "flex", flexDirection: "row" }}>
+                    <div>
+                      {true ? (
+                        ""
+                      ) : (
+                        <div
+                          style={{
+                            color: "black",
+                            textAlign: "center",
+                            fontSize: "11px",
+                            backgroundColor: "#007bff",
+                            borderRadius: "75px",
+                            width: "1.2vw",
+                          }}
+                        >
+                          10
+                        </div>
+                      )}
+                    </div>
+                    <div>
+                      <i className="fas fa-shopping-cart"></i> Cart
+                    </div>
+                  </div>
                 </Nav.Link>
               </LinkContainer>
-
-              <LinkContainer to="/login">
-                <Nav.Link className="mr-sm-5">Login</Nav.Link>
-              </LinkContainer>
-
-              <LinkContainer to="/logOut">
+              {!this.props.state.users.login ? (
+                <LinkContainer to="/login">
+                  <Nav.Link className="mr-sm-5">Login</Nav.Link>
+                </LinkContainer>
+              ) : (
+                <NavDropdown
+                  title={this.props.state.users.user.loggedInUser.firstName}
+                  id="collasible-nav-dropdown"
+                >
+                  <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
+                  <NavDropdown.Item href="#action/3.2">
+                    Profile
+                  </NavDropdown.Item>
+                  <NavDropdown.Item href="#action/3.3">
+                    Address Details
+                  </NavDropdown.Item>
+                  <NavDropdown.Divider />
+                  <NavDropdown.Item href="#">
+                    <button
+                      style={{
+                        borderStyle: "none",
+                        backgroundColor: "transparent",
+                        margin: "0px",
+                      }}
+                      onClick={() => this.props.logoutUser()}
+                    >
+                      logout
+                    </button>
+                  </NavDropdown.Item>
+                </NavDropdown>
+              )}
+              {/* <LinkContainer to="/logOut">
                 <Nav.Link className="mr-sm-5">LogOut</Nav.Link>
-              </LinkContainer>
+              </LinkContainer> */}
             </Nav>
           </Navbar.Collapse>
           {/* </Container> */}
@@ -58,4 +111,16 @@ export class HeaderPage extends Component {
   }
 }
 
-export default HeaderPage;
+const mapStateToProps = (state) => {
+  console.log(state.users);
+  return {
+    state,
+  };
+};
+const mapDispatchToProps = () => {
+  return {
+    logoutUser,
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps())(HeaderPage);

@@ -5,29 +5,41 @@ import { Link, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import { loginWithEmail } from "../Store/authActions";
 import { Component } from "react";
-// import HeaderPage from "./HeaderPage";
-// import FooterPage from "./FooterPage";
+import HeaderPage from "./HeaderPage";
+import FooterPage from "./FooterPage";
 
 class LogIn extends Component {
   constructor(props) {
     super(props);
   }
-  componentDidUpdate() {
-    if (this.props.check.isLoaded) {
-      this.props.history.push("/shop");
+  async componentDidUpdate() {
+    console.log(this.props.auth);
+    const loaded = await this.props.state.users.user.login;
+
+    const fire = () => {
+      if (this.props.state.users.user.loggedInUser.role === "admin") {
+        this.props.history.push("/dashboard");
+      }
+      if (this.props.state.users.user.loggedInUser.role === "customer") {
+        this.props.history.push("/shop");
+      }
+    };
+    if (loaded) {
+      fire();
     }
   }
 
-  render() {
-    const handleSubmit = (e) => {
-      e.preventDefault();
-      let email = e.target.elements.email.value;
-      let password = e.target.elements.password.value;
-      this.props.loginWithEmail(email, password);
-    };
+  handleSubmit = (e) => {
+    e.preventDefault();
+    let email = e.target.elements.email.value;
+    let password = e.target.elements.password.value;
+    this.props.loginWithEmail(email, password);
+  };
 
+  render() {
     return (
       <div>
+        <HeaderPage />
         <div className="container-fluid loginBackground">
           <div className="app-wrapper">
             <div>
@@ -43,7 +55,7 @@ class LogIn extends Component {
               </h3>
             </div>
 
-            <form onSubmit={handleSubmit} className="form-wrapper">
+            <form onSubmit={this.handleSubmit} className="form-wrapper">
               <div className="email">
                 <label className="label">Email</label>
                 <input className="inputt" type="email" name="email" />
@@ -90,15 +102,16 @@ class LogIn extends Component {
             </form>
           </div>
         </div>
+        <FooterPage />
       </div>
     );
   }
 }
 
 const mapStateToProps = (state) => {
+  console.log(state.users);
   return {
-    auth: state.users,
-    check: state.firebase.auth,
+    state,
   };
 };
 
