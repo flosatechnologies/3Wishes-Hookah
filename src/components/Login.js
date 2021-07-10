@@ -12,18 +12,22 @@ class LogIn extends Component {
   constructor(props) {
     super(props);
   }
+
   async componentDidUpdate() {
     console.log(this.props.auth);
-    const loaded = await this.props.state.users.user.login;
+    const loaded = await this.props.state.firebase.auth.isEmpty;
+    console.log(loaded);
 
-    const fire = () => {
+    if (loaded === false) {
       if (this.props.state.users.user.loggedInUser.role === "admin") {
         this.props.history.push("/dashboard");
+        // <Redirect to="/dashboard" />;
       }
       if (this.props.state.users.user.loggedInUser.role === "customer") {
         this.props.history.push("/shop");
+        // <Redirect to="/shop" />;
       }
-    };
+    }
     if (loaded) {
       fire();
     }
@@ -51,7 +55,7 @@ class LogIn extends Component {
                 }}
                 className="title"
               >
-                Login{" "}
+                Login
               </h3>
             </div>
 
