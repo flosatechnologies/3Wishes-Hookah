@@ -1,4 +1,6 @@
+
 export const userRegistration = (user) => {
+
   return (dispatch, getState, { getFirebase, getFirestore }) => {
     const firebase = getFirebase();
     const firestore = getFirestore();
@@ -134,19 +136,84 @@ export const AddNewProduct = (
   };
 };
 
+
+export const DeleteProduct = (product_Id) => {
+  return {
+    type: "DELETE_PRODUCT",
+    payload: product_Id,
+  };
+};
+
+
 export const getAllProducts = () => {
   return (dispatch, state, { getFirestore }) => {
     getFirestore()
       .collection("products")
       .onSnapshot(
+
         (snapshot) => {
           let products = [];
 
           snapshot.forEach((doc) => {
+
             products.push(doc.data());
           });
           console.log(products);
           dispatch({
+            type: "SET_ALL_PRODUCTS",
+            payload: products,
+          });
+        },
+        (err) => {}
+      );
+  };
+};
+
+export const EditProduct = (
+  Id,
+  product,
+  price,
+  quantity,
+  description,
+  image
+) => {
+  return (dispatch, state, { getFirestore, getFirebase }) => {
+    getFirebase()
+      .storage()
+      .ref("images")
+      .child(image.name)
+      .getDownloadURL()
+      .then((url) => {
+        getFirestore()
+          .collection("products")
+          .doc(Id)
+          .set({
+            Id,
+            product,
+            price,
+            quantity,
+            description,
+            image: url,
+          })
+          .then(() => {
+            alert("Product updated successfully");
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      });
+  };
+};
+
+export const loggedIn = (user) => {
+  return {
+    type: "LOGGED_IN",
+    payload: user,
+  };
+};
+
+export const loggedOut = () => {
+
             type: "GET_ALL_PRODUCTS",
             payload: products,
           });
