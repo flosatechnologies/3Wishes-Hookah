@@ -3,7 +3,8 @@ import { Col, Row } from "react-bootstrap";
 import Product from "../pages/Product";
 import products from "../products";
 import "bootstrap/dist/css/bootstrap.min.css";
-
+import HeaderPage from "../components/HeaderPage";
+import FooterPage from "../components/FooterPage";
 import { AddNewProduct, getAllProducts } from "../Store/authActions";
 import { connect } from "react-redux";
 
@@ -28,11 +29,6 @@ import { connect } from "react-redux";
 //           </Row>
 //         </div>
 //         {/*<FooterPage />*/}
-import HeaderPage from "../components/HeaderPage";
-import FooterPage from "../components/FooterPage";
-import { getAllProducts } from "../Store/authActions";
-import { connect } from "react-redux";
-import { Component } from "react";
 
 class ShopPage extends React.Component {
   constructor(props) {
@@ -90,23 +86,20 @@ class ShopPage extends React.Component {
           </div>
         </div>
         <FooterPage />
-
       </div>
     );
   }
 }
 
 const mapStateToProps = (state) => {
-
   return {
     products: state.users.products,
   };
 };
 const mapDispatchToProps = () => {
   return {
-
     getAllProducts,
-     AddNewProduct,
+    AddNewProduct,
   };
 };
 

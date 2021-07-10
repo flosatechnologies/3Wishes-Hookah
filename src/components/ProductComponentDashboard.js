@@ -1,10 +1,11 @@
-import React from "react";
+import React, { Component } from "react";
 import "../css/productComponentDashboard.css";
 import { MdEdit, MdDelete } from "react-icons/md";
 import { Link } from "react-router-dom";
 import { EditProduct, DeleteProduct } from "../Store/authActions";
 import { v4 as uuid } from "uuid";
-// import { connect } from "react-redux";
+import { connect } from "react-redux";
+import image1 from "../assets/images/productImage.png";
 // import { deleteProduct } from "./../Store/authActions";
 
 // function ProductComponentDashboard(props) {
@@ -31,7 +32,7 @@ class ProductComponentDashboard extends Component {
         <div className="dashboardProductImageContainer">
           <img
             className="dashboardProductImage"
-            src={image1}
+            src={this.props.image}
             alt="productImage"
           />
         </div>
@@ -50,6 +51,7 @@ class ProductComponentDashboard extends Component {
               className="editButton"
             >
               <MdEdit />
+              edit
             </button>
           </div>
           <div>

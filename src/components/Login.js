@@ -15,21 +15,22 @@ class LogIn extends Component {
 
   async componentDidUpdate() {
     console.log(this.props.auth);
-    const loaded = await this.props.state.firebase.auth.isEmpty;
+    const loaded = await this.props.state.firebase.auth.isLoaded;
     console.log(loaded);
 
-    if (loaded === false) {
-      if (this.props.state.users.user.loggedInUser.role === "admin") {
+    const role = this.props.state.users.user.loggedInUser.role;
+
+    if (loaded) {
+      if (role === "admin") {
         this.props.history.push("/dashboard");
         // <Redirect to="/dashboard" />;
       }
-      if (this.props.state.users.user.loggedInUser.role === "customer") {
+      if (role === "customer") {
         this.props.history.push("/shop");
         // <Redirect to="/shop" />;
+      } else {
+        return null;
       }
-    }
-    if (loaded) {
-      fire();
     }
   }
 
@@ -90,7 +91,6 @@ class LogIn extends Component {
                   style={{
                     display: "flex",
                     flexDirection: "row",
-                    // color: "#f80759",
                     background: "none",
                     border: "none",
                     paddingTop: "25px",

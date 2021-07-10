@@ -5,9 +5,7 @@ import AddProduct from "./AddProductScreen.js";
 import "react-datepicker/dist/react-datepicker.css";
 import { Component } from "react";
 import ProductComponentDashboard from "../components/ProductComponentDashboard";
-
 import Edit from "./EditScreen";
-
 import { connect } from "react-redux";
 import { MdKeyboardBackspace } from "react-icons/md";
 import { getAllProducts } from "../Store/authActions.js";
