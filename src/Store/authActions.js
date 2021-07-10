@@ -212,16 +212,16 @@ export const loggedIn = (user) => {
   };
 };
 
-export const loggedOut = () => {
+export const loggedOut = (products) => {
 
-            type: "GET_ALL_PRODUCTS",
-            payload: products,
-          });
-        },
-        (error) => {}
-      );
-  };
-};
+  return{
+    type: "GET_ALL_PRODUCTS",
+      payload: products,
+            
+          }
+        
+}
+   
 
 export const AddToCart = (product, qty) => {
   return {

@@ -31,7 +31,6 @@ class ProductsScreenDashboard extends Component {
     this.props.getAllProducts();
   }
 
-
   render() {
     console.log("productsStore ", this.props.products);
     const handleRenderScreen = () => {
@@ -55,44 +54,16 @@ class ProductsScreenDashboard extends Component {
         return (
           <div className="container arrayOfProducts">
             <div className="row">
-
-//               <ProductComponentDashboard
-//                 activatebtn={(tr) => this.handleButtonState(tr)}
-//                 productName="Airpods"
-//                 price="1200"
-//               />
-//               <ProductComponentDashboard
-//                 activatebtn={(tr) => this.handleButtonState(tr)}
-//                 productName="Airpods"
-//                 price="1200"
-//               />
-//               <ProductComponentDashboard
-//                 activatebtn={(tr) => this.handleButtonState(tr)}
-//                 productName="Airpods"
-//                 price="1200"
-//               />
-//               <ProductComponentDashboard
-//                 activatebtn={(tr) => this.handleButtonState(tr)}
-//                 productName="Airpods"
-//                 price="1200"
-//               />
-//               <ProductComponentDashboard
-//                 activatebtn={(tr) => this.handleButtonState(tr)}
-//                 productName="Airpods"
-//                 price="1200"
-//               />
-
               {this.props.products.map((products) => {
                 return (
                   <ProductComponentDashboard
                     productName={products.product}
                     price={products.price}
                     image={products.image}
-activatebtn={(tr) => this.handleButtonState(tr)
+                    activatebtn={(tr) => this.handleButtonState(tr)}
                   />
                 );
               })}
-
             </div>
           </div>
         );
