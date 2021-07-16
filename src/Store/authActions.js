@@ -1,6 +1,4 @@
-
 export const userRegistration = (user) => {
-
   return (dispatch, getState, { getFirebase, getFirestore }) => {
     const firebase = getFirebase();
     const firestore = getFirestore();
@@ -84,6 +82,8 @@ export const logoutUser = () => {
   };
 };
 
+// Create our initial doc
+
 export const AddNewProduct = (
   Id,
   product,
@@ -136,26 +136,25 @@ export const AddNewProduct = (
   };
 };
 
-
-export const DeleteProduct = (product_Id) => {
-  return {
-    type: "DELETE_PRODUCT",
-    payload: product_Id,
+export const DeleteProduct = (Id) => {
+  return (dispatch, state, { getFirestore }) => {
+    getFirestore()
+      .collection("products")
+      .doc(Id)
+      .delete()
+      .then(() => {});
   };
 };
-
 
 export const getAllProducts = () => {
   return (dispatch, state, { getFirestore }) => {
     getFirestore()
       .collection("products")
       .onSnapshot(
-
         (snapshot) => {
           let products = [];
 
           snapshot.forEach((doc) => {
-
             products.push(doc.data());
           });
           console.log(products);
@@ -213,15 +212,11 @@ export const loggedIn = (user) => {
 };
 
 export const loggedOut = (products) => {
-
-  return{
+  return {
     type: "GET_ALL_PRODUCTS",
-      payload: products,
-            
-          }
-        
-}
-   
+    payload: products,
+  };
+};
 
 export const AddToCart = (product, qty) => {
   return {
