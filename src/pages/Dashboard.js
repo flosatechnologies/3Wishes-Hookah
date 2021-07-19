@@ -201,8 +201,7 @@ class Dashboard extends Component {
 const mapStateToProps = (state) => {
   return {
     state,
-    products: state.users.products,
-    name: state.users.displayName,
+    products: state.products.products,
   };
 };
 

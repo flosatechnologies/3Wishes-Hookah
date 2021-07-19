@@ -103,9 +103,9 @@ class ShopPage extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-  console.log(state.users.cart);
+  console.log("theCartsContent: ", state.cart.cart);
   return {
-    products: state.users.products,
+    products: state.products.products,
   };
 };
 const mapDispatchToProps = () => {

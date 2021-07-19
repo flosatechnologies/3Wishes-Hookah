@@ -4,7 +4,6 @@ const initialState = {
   displayName: "",
   allUsers: {},
   user: {},
-  products: [],
 };
 
 const usersReducer = (state = initialState, action) => {
@@ -40,18 +39,6 @@ const usersReducer = (state = initialState, action) => {
     case "SIGNUP_ERROR":
       console.log("signup error");
       return { ...state, authError: action.err.message };
-
-    case "SET_ALL_PRODUCTS":
-      return { products: action.payload };
-
-    case "DELETE_PRODUCT":
-      const filteredProducts = state.products.filter(
-        (product) => product.Id !== action.payload
-      );
-      return { ...state, products: filteredProducts };
-
-    case "GET_ALL_PRODUCTS":
-      return { products: action.payload };
 
     default:
       return { ...state };

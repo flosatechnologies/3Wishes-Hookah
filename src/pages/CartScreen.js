@@ -14,7 +14,19 @@ import CartProductComponent from "../components/CartProductComponent";
 class CartScreen extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      total: 0,
+    };
   }
+
+  handleTotal = () => {
+    var total;
+    for (let i = 0; i < this.props.cart.length - 1; i++) {
+      total = total + Number(this.props.cart[i].product.price);
+    }
+
+    return total;
+  };
 
   render() {
     return (
@@ -64,7 +76,9 @@ class CartScreen extends React.Component {
           <div className="row theTotalSection">
             <div className="col-9"></div>
             <div className="col-lg-1 theTotalText">Total: </div>
-            <div className="col-lg-2 theTotalAmount"> {" GHS 70"}</div>
+            <div className="col-lg-2 theTotalAmount">
+              {(this.handleTotal(), console.log("total: ", this.handleTotal()))}
+            </div>
           </div>
           <div className="row bottomSection">
             <div className="col-lg-8"></div>
