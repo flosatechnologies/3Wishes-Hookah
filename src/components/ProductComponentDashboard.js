@@ -23,9 +23,13 @@ import image1 from "../assets/images/productImage.png";
 //         <div className="dashboardProductName">{props.productName}</div>
 
 class ProductComponentDashboard extends Component {
+  // eslint-disable-next-line no-useless-constructor
   constructor(props) {
     super(props);
   }
+  // handleDelete = () => {
+  //   // deleteProduct();
+  // };
   render() {
     return (
       <div className="dashboardProductContainer">
@@ -47,7 +51,11 @@ class ProductComponentDashboard extends Component {
         <div className="editAndDeleteButtonContainer">
           <div>
             <button
-              onClick={() => this.props.activatebtn("activebtn")}
+              onClick={() => {
+                this.props.activatebtn("activebtn");
+                this.props.selectedId(this.props.Id);
+                // this.handleProductFilter();
+              }}
               className="editButton"
             >
               <MdEdit />
@@ -55,7 +63,7 @@ class ProductComponentDashboard extends Component {
             </button>
           </div>
           <div>
-            <button onClick={this.deleteProduct} className="deleteButton">
+            <button className="deleteButton">
               <MdDelete />
               delete
             </button>

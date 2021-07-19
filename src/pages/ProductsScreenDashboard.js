@@ -18,12 +18,20 @@ class ProductsScreenDashboard extends Component {
         addProduct: "inactivebtn",
         editProduct: "inactivebtn",
       },
+
+      editId: "",
+
       storeProducts: this.props.reduxData,
+
     };
   }
 
   handleButtonState = (trigger) => {
     this.setState({ button: { addProduct: "inactive", editProduct: trigger } });
+  };
+
+  handleEditId = (Id) => {
+    this.setState({ editId: Id });
   };
 
   componentDidMount() {
@@ -44,7 +52,7 @@ class ProductsScreenDashboard extends Component {
       if (this.state.button.editProduct === "activebtn") {
         return (
           <div>
-            <Edit />
+            <Edit Id={this.state.editId} />
           </div>
         );
       }
@@ -60,6 +68,8 @@ class ProductsScreenDashboard extends Component {
                     price={products.price}
                     image={products.image}
                     activatebtn={(tr) => this.handleButtonState(tr)}
+                    Id={products.Id}
+                    selectedId={(Id) => this.handleEditId(Id)}
                   />
                 );
               })}

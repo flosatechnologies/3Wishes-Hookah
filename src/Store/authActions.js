@@ -82,6 +82,8 @@ export const logoutUser = () => {
   };
 };
 
+// Create our initial doc
+
 export const AddNewProduct = (
   Id,
   product,
@@ -134,10 +136,20 @@ export const AddNewProduct = (
   };
 };
 
-export const DeleteProduct = (product_Id) => {
-  return {
-    type: "DELETE_PRODUCT",
-    payload: product_Id,
+
+export const DeleteProduct = (Id) => {
+  return (dispatch, state, { getFirestore }) => {
+    getFirestore()
+      .collection("products")
+      .doc(Id)
+      .delete()
+      .then(() => {});
+
+// export const DeleteProduct = (product_Id) => {
+//   return {
+//     type: "DELETE_PRODUCT",
+//     payload: product_Id,
+
   };
 };
 
@@ -206,11 +218,13 @@ export const loggedIn = (user) => {
   };
 };
 
+
 // export const loggedOut = () => {
 //   return {
 //     type: "LOGGED_OUT",
 //   };
 // };
+
 
 export const AddToCart = (product, qty) => {
   return {
