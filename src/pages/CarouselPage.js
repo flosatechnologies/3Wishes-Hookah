@@ -19,10 +19,12 @@ const CarouselPage = () => {
             src={image1}
             alt="First slide"
           />
-          {/* <Carousel.Caption className="carousel-caption text-left ">
-            <h3>Highest Quality Hookah On The Market</h3>
-            <p>3WishesHookah</p>
-          </Carousel.Caption> */}
+          <Carousel.Caption className="carousel-caption text-left ">
+            <h3 style={{ color: "#fff", fontFamily: "'Merienda', cursive" }}>
+              GHANA'S NUMBER 1 SMOKE SHOP
+            </h3>
+            {/*<p>3WishesHookah</p>*/}
+          </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
           <img
@@ -44,10 +46,10 @@ const CarouselPage = () => {
           />
 
           <Carousel.Caption>
-            <h3>Third slide label</h3>
+            {/*<h3>Third slide label</h3>
             <p>
               Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-            </p>
+            </p>*/}
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
@@ -58,10 +60,10 @@ const CarouselPage = () => {
           />
 
           <Carousel.Caption>
-            <h3>Forth slide label</h3>
+            {/*<h3>Forth slide label</h3>
             <p>
               Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-            </p>
+            </p>*/}
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>
