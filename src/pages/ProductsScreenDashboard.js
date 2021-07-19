@@ -18,6 +18,7 @@ class ProductsScreenDashboard extends Component {
         addProduct: "inactivebtn",
         editProduct: "inactivebtn",
       },
+      storeProducts: this.props.reduxData,
     };
   }
 
@@ -52,7 +53,7 @@ class ProductsScreenDashboard extends Component {
         return (
           <div className="container arrayOfProducts">
             <div className="row">
-              {this.props.products.map((products) => {
+              {this.state.storeProducts.map((products) => {
                 return (
                   <ProductComponentDashboard
                     productName={products.product}
@@ -100,10 +101,8 @@ class ProductsScreenDashboard extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    products: state.users.products,
-  };
+const mapStateToProps = () => {
+  return {};
 };
 
 const mapDispatchToProps = () => {

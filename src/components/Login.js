@@ -11,26 +11,29 @@ import FooterPage from "./FooterPage";
 class LogIn extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      role: "",
+    };
   }
 
-  async componentDidUpdate() {
-    console.log(this.props.auth);
-    const loaded = await this.props.state.firebase.auth.isLoaded;
-    console.log(loaded);
+  role;
 
-    const role = this.props.state.users.user.loggedInUser.role;
+  componentDidUpdate() {
+    this.role = JSON.parse(localStorage.getItem("role"));
 
-    if (loaded) {
-      if (role === "admin") {
-        this.props.history.push("/dashboard");
-        // <Redirect to="/dashboard" />;
-      }
-      if (role === "customer") {
-        this.props.history.push("/shop");
-        // <Redirect to="/shop" />;
-      } else {
-        return null;
-      }
+    console.log("type:", this.role);
+    const loggedIn = JSON.parse(localStorage.getItem("login"));
+    console.log(loggedIn);
+
+    // const role = await this.props.state.users.role;
+
+    if (this.role === "admin") {
+      this.props.history.push("/dashboard");
+      // <Redirect to={{ pathName: "/dashboard" }} />;
+    }
+    if (this.role === "customer") {
+      this.props.history.push("/shop");
+      // <Redirect to="/shop" />;
     }
   }
 
@@ -119,8 +122,10 @@ const mapStateToProps = (state) => {
   };
 };
 
-const mapDispatchToProps = {
-  loginWithEmail,
+const mapDispatchToProps = () => {
+  return {
+    loginWithEmail,
+  };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(LogIn);
+export default connect(mapStateToProps, mapDispatchToProps())(LogIn);
