@@ -1,10 +1,10 @@
 const initialState = {
   login: false,
-
+  role: "",
+  displayName: "",
+  allUsers: {},
   user: {},
   products: [],
-  cart: [],
-
 };
 
 const usersReducer = (state = initialState, action) => {
@@ -19,18 +19,27 @@ const usersReducer = (state = initialState, action) => {
 
     case "LOGGED_IN":
       const loggedInUser = action.payload;
-      return { ...state, login: true, user: { loggedInUser } };
+      console.log("theRole:", loggedInUser.role);
+      localStorage.setItem("role", JSON.stringify(loggedInUser.role));
+      localStorage.setItem("login", JSON.stringify(true));
+      const therole = loggedInUser.role;
+      const name = loggedInUser.firstName;
+      return {
+        ...state,
+        login: true,
+        role: therole,
+        displayName: name,
+        user: { loggedInUser },
+      };
 
     case "LOGGED_OUT":
-      return { ...state, login: false, user: "" };
-
-      console.log("signup success");
-      return { ...state, authError: null };
+      localStorage.setItem("role", JSON.stringify(""));
+      localStorage.setItem("login", JSON.stringify(false));
+      return { ...state, login: false, user: "", role: "", displayName: "" };
 
     case "SIGNUP_ERROR":
       console.log("signup error");
       return { ...state, authError: action.err.message };
-
 
     case "SET_ALL_PRODUCTS":
       return { products: action.payload };
@@ -44,13 +53,8 @@ const usersReducer = (state = initialState, action) => {
     case "GET_ALL_PRODUCTS":
       return { products: action.payload };
 
-    case "ADD_TO_CART":
-      const cartProduct = { qty: action.qty, product: action.product };
-      return { ...state, cart: [...state.cart, cartProduct] };
-
-
     default:
-      return state;
+      return { ...state };
   }
 };
 

@@ -40,8 +40,7 @@ function RouterComponent(props) {
 const mapStateToProps = (state) => {
   console.log(state);
   return {
-    auth: state.firebase.auth,
-    user: state.users.login,
+    user: state.login,
   };
 };
 export default connect(mapStateToProps)(RouterComponent);

@@ -36,7 +36,7 @@ class Dashboard extends Component {
       if (this.state.buttonState.product === "active") {
         return (
           <div>
-            <ProductsScreenDashboard />
+            <ProductsScreenDashboard reduxData={this.props.products} />
           </div>
         );
       }
@@ -58,7 +58,9 @@ class Dashboard extends Component {
       if (this.state.buttonState.users === "active") {
         return (
           <div>
-            <UsersScreenDashboard />
+            <UsersScreenDashboard
+              adminUsers={this.props.state.users.allUsers}
+            />
           </div>
         );
       }
@@ -80,8 +82,8 @@ class Dashboard extends Component {
                   <img src={userImage} alt="userImage" className="userImage" />
                 </div>
                 <div className="profileWelcomeMessage">
-                  <div className="userWelcome">Welcome</div>
-                  <div> {/*{this.props.adminUser.user.firstName}*/} </div>
+                  <div className="userWelcome">Welcome,</div>
+                  <div> {this.props.state.name} </div>
                 </div>
               </div>
             </div>
@@ -197,9 +199,10 @@ class Dashboard extends Component {
 }
 
 const mapStateToProps = (state) => {
-  console.log(state.users);
   return {
-    adminUser: state.users,
+    state,
+    products: state.users.products,
+    name: state.users.displayName,
   };
 };
 

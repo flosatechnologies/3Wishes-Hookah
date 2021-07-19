@@ -28,39 +28,39 @@ export const userRegistration = (user) => {
 };
 
 export const loginWithEmail = (email, password) => {
-  return (dispatch, state, { getFirebase, getFirestore }) => {
-    let firebase = getFirebase();
-    firebase
-      .auth()
-      .signInWithEmailAndPassword(email, password)
-      .then((response) => {
-        console.log(response);
+  return async (dispatch, state, { getFirebase, getFirestore }) => {
+    try {
+      getFirebase()
+        .auth()
+        .signInWithEmailAndPassword(email, password)
+        .then((response) => {
+          console.log(response);
 
-        getFirestore()
-          .collection("users")
-          .doc(response.user.uid)
-          .get()
-          .then((doc) => {
-            if (doc.exists) {
-              console.log("Document data:", doc.data());
-            } else {
-              // doc.data() will be undefined in this case
-              console.log("No such document!");
-            }
+          getFirestore()
+            .collection("users")
+            .doc(response.user.uid)
+            .get()
+            .then((doc) => {
+              if (doc.exists) {
+                console.log("Document data:", doc.data());
+              } else {
+                // doc.data() will be undefined in this case
+                console.log("No such document!");
+              }
 
-            dispatch({
-              type: "LOGGED_IN",
-              payload: doc.data(),
+              dispatch({
+                type: "LOGGED_IN",
+                payload: doc.data(),
+              });
+            })
+            .catch((error) => {
+              console.log("Error getting document:", error);
             });
-          })
-          .catch((error) => {
-            console.log("Error getting document:", error);
-          });
-      })
-      .catch((err) => {
-        console.log(err);
-        alert(err);
-      });
+        });
+    } catch (err) {
+      console.log(err);
+      alert(err);
+    }
   };
 };
 
@@ -136,6 +136,7 @@ export const AddNewProduct = (
   };
 };
 
+
 export const DeleteProduct = (Id) => {
   return (dispatch, state, { getFirestore }) => {
     getFirestore()
@@ -143,6 +144,12 @@ export const DeleteProduct = (Id) => {
       .doc(Id)
       .delete()
       .then(() => {});
+
+// export const DeleteProduct = (product_Id) => {
+//   return {
+//     type: "DELETE_PRODUCT",
+//     payload: product_Id,
+
   };
 };
 
@@ -211,16 +218,17 @@ export const loggedIn = (user) => {
   };
 };
 
-export const loggedOut = (products) => {
-  return {
-    type: "GET_ALL_PRODUCTS",
-    payload: products,
-  };
-};
+
+// export const loggedOut = () => {
+//   return {
+//     type: "LOGGED_OUT",
+//   };
+// };
+
 
 export const AddToCart = (product, qty) => {
   return {
-    type: "LOGGED_IN",
+    type: "ADD_TO_CART",
     product,
     qty,
   };

@@ -5,12 +5,20 @@ import logo from "../assets/images/logo.png";
 import { IoMdCart } from "react-icons/io";
 import { connect } from "react-redux";
 import { logoutUser } from "../Store/authActions";
+import { BsPerson } from "react-icons/bs";
 
 export class HeaderPage extends Component {
   constructor(props) {
     super(props);
   }
+  // componentDidUpdate() {
+
+  // }
+
   render() {
+    const login = JSON.parse(localStorage.getItem("login"));
+    const role = JSON.parse(localStorage.getItem("role"));
+
     return (
       <div>
         <Navbar bg="dark" variant="dark" expand="lg">
@@ -45,7 +53,7 @@ export class HeaderPage extends Component {
                 <Nav.Link>
                   <div style={{ display: "flex", flexDirection: "row" }}>
                     <div>
-                      {true ? (
+                      {this.props.cart.length === 0 ? (
                         ""
                       ) : (
                         <div
@@ -58,7 +66,7 @@ export class HeaderPage extends Component {
                             width: "1.2vw",
                           }}
                         >
-                          10
+                          {this.props.cart.length}
                         </div>
                       )}
                     </div>
@@ -68,15 +76,12 @@ export class HeaderPage extends Component {
                   </div>
                 </Nav.Link>
               </LinkContainer>
-              {!this.props.state.users.login ? (
+              {!login || (login && role === "admin") ? (
                 <LinkContainer to="/login">
                   <Nav.Link className="mr-sm-5">Login</Nav.Link>
                 </LinkContainer>
               ) : (
-                <NavDropdown
-                  title={this.props.state.users.user.loggedInUser.firstName}
-                  id="collasible-nav-dropdown"
-                >
+                <NavDropdown title={<BsPerson />} id="collasible-nav-dropdown">
                   <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
                   <NavDropdown.Item href="#action/3.2">
                     Profile
@@ -115,6 +120,8 @@ const mapStateToProps = (state) => {
   console.log(state.users);
   return {
     state,
+    name: state.users.displayName,
+    cart: state.cart.cart,
   };
 };
 const mapDispatchToProps = () => {

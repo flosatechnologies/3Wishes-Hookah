@@ -18,6 +18,7 @@ class UsersScreenDashboard extends Component {
       button: {
         addUser: "inactivebtn",
       },
+      storeUsers: this.props.adminUsers,
     };
   }
 
@@ -63,12 +64,12 @@ class UsersScreenDashboard extends Component {
                 email="k.hurt@gmail.com "
                 phone="0245678987"
               />
-              {/* {this.props.products.map((products) => {
+              {/* {this.props.storeUsers.map((users) => {
                 return (
                   <UserComponentDashboard
-                    productName={products.product}
-                    price={products.price}
-                    image={products.image}
+                    productName={users.product}
+                    price={users.price}
+                    image={users.image}
                   />
                 );
               })} */}
