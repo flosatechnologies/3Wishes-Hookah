@@ -5,7 +5,7 @@ import products from "../products";
 import "bootstrap/dist/css/bootstrap.min.css";
 import HeaderPage from "../components/HeaderPage";
 import FooterPage from "../components/FooterPage";
-import { AddNewProduct, getAllProducts } from "../Store/authActions";
+import { AddToCart, getAllProducts } from "../Store/authActions";
 import { connect } from "react-redux";
 
 // import HeaderPage from "../components/HeaderPage";
@@ -33,11 +33,19 @@ import { connect } from "react-redux";
 class ShopPage extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {};
+    this.handleSelecteId = this.handleSelecteId.bind(this);
   }
+  theSelected;
 
   componentDidMount() {
     this.props.getAllProducts();
   }
+
+  handleSelecteId = (theId) => {
+    this.setState({ selectedId: theId });
+    console.log("selected:", this.state.filtered);
+  };
 
   render() {
     return (
@@ -81,6 +89,9 @@ class ShopPage extends React.Component {
                 name={product.product}
                 image={product.image}
                 price={product.price}
+                Id={product.Id}
+                theProducts={this.props.products}
+                key={product.Id}
               />
             ))}
           </div>
@@ -92,6 +103,7 @@ class ShopPage extends React.Component {
 }
 
 const mapStateToProps = (state) => {
+  console.log(state.users.cart);
   return {
     products: state.users.products,
   };
@@ -99,7 +111,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = () => {
   return {
     getAllProducts,
-    AddNewProduct,
+    AddToCart,
   };
 };
 
