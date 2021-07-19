@@ -30,8 +30,8 @@ function ProtectedRoute({ component: Component, login, role, ...rest }) {
 
 const mapStateToProps = (state) => {
   return {
-    role: state.role,
-    login: state.login,
+    role: state.users.role,
+    login: state.users.login,
   };
 };
 export default connect(mapStateToProps)(ProtectedRoute);

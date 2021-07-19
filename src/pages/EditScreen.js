@@ -190,7 +190,10 @@ class Edit extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    products: state.users.products,
+
+    products: state.products.products,
+
+
   };
 };
 

@@ -16,24 +16,14 @@ class LogIn extends Component {
     };
   }
 
-  role;
+  async componentDidUpdate() {
+    const role = await this.props.state.users.role;
 
-  componentDidUpdate() {
-    this.role = JSON.parse(localStorage.getItem("role"));
-
-    console.log("type:", this.role);
-    const loggedIn = JSON.parse(localStorage.getItem("login"));
-    console.log(loggedIn);
-
-    // const role = await this.props.state.users.role;
-
-    if (this.role === "admin") {
+    if (role === "admin") {
       this.props.history.push("/dashboard");
-      // <Redirect to={{ pathName: "/dashboard" }} />;
     }
-    if (this.role === "customer") {
+    if (role === "customer") {
       this.props.history.push("/shop");
-      // <Redirect to="/shop" />;
     }
   }
 
