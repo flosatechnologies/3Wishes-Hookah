@@ -54,6 +54,7 @@ export const loginWithEmail = (email, password) => {
               });
             })
             .catch((error) => {
+              alert(error.message);
               console.log("Error getting document:", error);
             });
         });
@@ -136,20 +137,30 @@ export const AddNewProduct = (
   };
 };
 
-
-export const DeleteProduct = (Id) => {
-  return (dispatch, state, { getFirestore }) => {
+export const DeleteProduct = (Id, path) => {
+  return (dispatch, state, { getFirestore, getFirebase }) => {
     getFirestore()
       .collection("products")
       .doc(Id)
       .delete()
-      .then(() => {});
+      .then(() => {
+        getFirebase()
+          .storage()
+          .ref("images")
+          .child(path)
+          .delete()
+          .then(() => {
+            console.log("file deleted successfully");
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      });
 
-// export const DeleteProduct = (product_Id) => {
-//   return {
-//     type: "DELETE_PRODUCT",
-//     payload: product_Id,
-
+    // export const DeleteProduct = (product_Id) => {
+    //   return {
+    //     type: "DELETE_PRODUCT",
+    //     payload: product_Id,
   };
 };
 
@@ -181,33 +192,63 @@ export const EditProduct = (
   price,
   quantity,
   description,
-  image
+  image,
+  path
 ) => {
   return (dispatch, state, { getFirestore, getFirebase }) => {
-    getFirebase()
+    const uploadTask = getFirebase()
       .storage()
-      .ref("images")
-      .child(image.name)
-      .getDownloadURL()
-      .then((url) => {
+      .ref(`images/${image.name}`)
+      .put(image);
+
+    uploadTask.on(
+      "state_changed",
+      (snapShot) => {
+        console.log(snapShot);
+      },
+      (error) => {
+        console.log(error);
+      },
+      () => {
+        getFirebase()
+          .storage()
+          .ref("images")
+          .child(image.name)
+          .getDownloadURL()
+          .then((url) => {
+            getFirestore()
+              .collection("products")
+              .doc(Id)
+              .set({
+                Id,
+                product,
+                price,
+                quantity,
+                description,
+                image: url,
+              })
+              .then(() => {
+                alert("Update successful");
+              })
+              .catch((error) => {
+                console.log(error);
+              });
+          });
+      },
+      () => {
         getFirestore()
-          .collection("products")
-          .doc(Id)
-          .set({
-            Id,
-            product,
-            price,
-            quantity,
-            description,
-            image: url,
-          })
+          .storage()
+          .ref("images")
+          .child(path)
+          .delete()
           .then(() => {
-            alert("Product updated successfully");
+            console.log("file deleted successfully");
           })
           .catch((error) => {
             console.log(error);
           });
-      });
+      }
+    );
   };
 };
 
@@ -218,13 +259,34 @@ export const loggedIn = (user) => {
   };
 };
 
-
-// export const loggedOut = () => {
-//   return {
-//     type: "LOGGED_OUT",
-//   };
-// };
-
+export const EditTextOnly = (
+  Id,
+  product,
+  price,
+  quantity,
+  description,
+  image
+) => {
+  return (state, dispatch, { getFirestore }) => {
+    getFirestore()
+      .collection("products")
+      .doc(Id)
+      .set({
+        Id,
+        product,
+        price,
+        quantity,
+        description,
+        image,
+      })
+      .then(() => {
+        alert("Update successful");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+};
 
 export const AddToCart = (product, qty) => {
   return {

@@ -2,14 +2,25 @@ import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import productImage from "../assets/images/productImage.png";
 import "../css/CartProductComponent.css";
+import { connect } from "react-redux";
+import { changeQuantity } from "../Store/cartActions";
 
 class CartProductComponent extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       qty: this.props.qty,
+      productId: this.props.Id,
     };
   }
+
+  handleChange = (e) => {
+    this.setState({
+      [e.target.name]: e.target.value,
+    });
+    let theqty = parseInt(this.state.qty) + 1;
+    this.props.changeQuantity(theqty, this.state.productId);
+  };
 
   render() {
     return (
@@ -31,7 +42,10 @@ class CartProductComponent extends React.Component {
           <div className="col-lg-2 productQtyContainer">
             <input
               type="number"
+              min={1}
               className="productQtyInput"
+              name="qty"
+              onChange={this.handleChange}
               value={this.state.qty}
             />
           </div>
@@ -50,4 +64,18 @@ class CartProductComponent extends React.Component {
     );
   }
 }
-export default CartProductComponent;
+
+const mapStateToProps = () => {
+  return {};
+};
+
+const mapDispatchToProps = () => {
+  return {
+    changeQuantity,
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps()
+)(CartProductComponent);

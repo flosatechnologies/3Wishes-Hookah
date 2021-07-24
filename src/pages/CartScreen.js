@@ -12,17 +12,17 @@ import "../css/CartScreen.css";
 import CartProductComponent from "../components/CartProductComponent";
 
 class CartScreen extends React.Component {
+  total = 0;
   constructor(props) {
     super(props);
-    this.state = {
-      total: 0,
-    };
+    this.state = {};
   }
 
   handleTotal = () => {
-    var total;
-    for (let i = 0; i < this.props.cart.length - 1; i++) {
-      total = total + Number(this.props.cart[i].product.price);
+    var total = 0;
+    for (let i = 0; i <= this.props.cart.length - 1; i++) {
+      total = total + parseInt(this.props.cart[i].product.price);
+      console.log(total);
     }
 
     return total;
@@ -49,35 +49,21 @@ class CartScreen extends React.Component {
                 <CartProductComponent
                   productName={cartProd.product.product}
                   unitPrice={cartProd.product.price}
-                  subTotal={cartProd.product.price}
+                  subTotal={
+                    parseInt(cartProd.product.price) * parseInt(cartProd.qty)
+                  }
                   image={cartProd.product.image}
                   qty={cartProd.qty}
+                  Id={cartProd.product.Id}
                 />
               )))
             }
-            {/* <CartProductComponent
-              productName="iPhone 11 Pro 256GB ROM, 10GB RAM, 48MP"
-              unitPrice="70"
-              subTotal="70"
-            />
-  
-            <CartProductComponent
-              productName="iPhone 11 Pro 256GB Memory"
-              unitPrice="70"
-              subTotal="70"
-            />
-  
-            <CartProductComponent
-              productName="iPhone 11 Pro 256GB Memory"
-              unitPrice="70"
-              subTotal="70"
-            /> */}
           </div>
           <div className="row theTotalSection">
             <div className="col-9"></div>
             <div className="col-lg-1 theTotalText">Total: </div>
             <div className="col-lg-2 theTotalAmount">
-              {(this.handleTotal(), console.log("total: ", this.handleTotal()))}
+              {"GHS " + this.handleTotal()}
             </div>
           </div>
           <div className="row bottomSection">

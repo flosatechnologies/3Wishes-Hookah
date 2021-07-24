@@ -9,6 +9,17 @@ const cartReducer = (state = initialState, action) => {
       return { ...state, cart: [...state.cart, cartProduct] };
     case "GET_CART_PRODUCT":
       return { ...state };
+
+    case "QUANTITY_CHANGE":
+      let copy = state.cart;
+      console.log("the Copy: ", copy);
+      copy.map((prod) => {
+        if (prod.product.Id === action.Id) {
+          prod.qty = action.qty;
+        }
+      });
+      return { ...state, cart: copy };
+
     default:
       return { ...state };
   }

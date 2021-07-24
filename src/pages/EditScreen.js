@@ -8,7 +8,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import ProductComponentDashboard from "../components/ProductComponentDashboard";
 import { FaRegImage } from "react-icons/fa";
 import { v4 as uuid } from "uuid";
-import { EditProduct } from "../Store/authActions";
+import { EditProduct, EditTextOnly } from "../Store/authActions";
+import firebase from "../firebase/config";
 
 import { connect } from "react-redux";
 
@@ -23,9 +24,11 @@ class Edit extends Component {
       productId: this.props.Id,
       specificProduct: "",
       imageToFirestore: { name: "noImage.png" },
-      profileImg:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsJfdSVJ3Vi3Q_8wVTsa8lE6foFVOOFXiapNJB6SORmxKLOCi9hN1QgGO8saCXqfUhmkU&usqp=CAU",
+      profileImg: "",
+      refFile: "",
     };
+
+    this.handleUpdateProduct = this.handleUpdateProduct.bind(this);
   }
   handleFilter = () => {
     let specificProduct = "name";
@@ -33,14 +36,17 @@ class Edit extends Component {
     specificProduct = this.props.products.filter(
       (product) => product.Id === this.state.productId
     );
+
     console.log(specificProduct, "code");
-    console.log("price", specificProduct[0].price);
+
     this.setState({
       name: specificProduct[0].product,
       price: specificProduct[0].price,
       profileImg: specificProduct[0].image,
+      refFile: specificProduct[0].image,
       quantity: specificProduct[0].quantity,
       description: specificProduct[0].description,
+      imageToFirestore: { name: "notImage.png" },
     });
   };
 
@@ -51,63 +57,57 @@ class Edit extends Component {
   };
 
   handleUpdateProduct = () => {
-    this.props.EditProduct(
-      this.state.productId,
-      this.state.name,
-      this.state.price,
-      this.state.quantity,
-      this.state.description,
-      this.state.imageToFirestore
-    );
+    let storageref = firebase.storage().refFromURL(this.state.refFile);
+    console.log("ref: ", storageref.name);
+    let selectedRef = this.state.imageToFirestore;
+
+    console.log("selectedImgName: ", selectedRef.name);
+    if (selectedRef.name === "notImage.png") {
+      this.props.EditTextOnly(
+        this.state.productId,
+        this.state.name,
+        this.state.price,
+        this.state.quantity,
+        this.state.description,
+        this.state.refFile
+      );
+    } else {
+      this.props.EditProduct(
+        this.state.productId,
+        this.state.name,
+        this.state.price,
+        this.state.quantity,
+        this.state.description,
+        this.state.imageToFirestore,
+        storageref.name
+      );
+    }
   };
 
   componentDidMount() {
     this.handleFilter();
   }
 
-  // imageHandler = (e) => {
-  //   const reader = new FileReader();
-  //   reader.onload = () => {
-  //     if (reader.readyState === 2) {
-  //       this.setState({ profileImg: reader.result });
-  //     }
-  //   };
-  //   reader.readAsDataURL(e.target.files[0]);
-  // };
   imageHandler = (e) => {
-    // const reader = new FileReader();
-    // reader.onload = () => {
-    //   if (reader.readyState === 2) {
-    //     this.setState({ profileImg: reader.result });
-    //   }
-    // };
-    // reader.readAsDataURL(e.target.files[0]);
-    if (this.state.imageToFirestore === null) {
-      alert(" you must choose an image");
-    } else {
-      if (e.target.files[0]) {
-        this.setState({
-          profileImg: URL.createObjectURL(e.target.files[0]),
-          imageToFirestore: e.target.files[0],
-        });
-      }
+    if (e.target.files[0]) {
+      this.setState({
+        profileImg: URL.createObjectURL(e.target.files[0]),
+        imageToFirestore: e.target.files[0],
+      });
     }
+
     console.log(e.target.files[0]);
   };
 
   render() {
-    const { profileImg } = this.state;
-
     return (
       <Container className="container-fluid editContainer">
         <Row className="product-row">
           <Col className="image-section">
-            {/* <ProductComponentDashboard productName="Airpods" price="1200" /> */}
-
             <div className="image-heading">Product Image</div>
             <div className="image-holder">
               <img
-                src={this.state.image}
+                src={this.state.profileImg}
                 alt="image"
                 // id=""
                 className="img-responsive"
@@ -190,16 +190,14 @@ class Edit extends Component {
 
 const mapStateToProps = (state) => {
   return {
-
     products: state.products.products,
-
-
   };
 };
 
 const mapDispatchToProps = () => {
   return {
     EditProduct,
+    EditTextOnly,
   };
 };
 

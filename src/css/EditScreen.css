@@ -47,3 +47,10 @@ textarea {
 .btn:hover {
   background: #000;
 }
+.image-upload {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
