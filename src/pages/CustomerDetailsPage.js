@@ -19,7 +19,7 @@ const CustomerDetails = (props) => {
       style={{
         background: "#fff",
         width: "90%",
-        minHeight: "97vh",
+        minHeight: "150vh",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
@@ -33,7 +33,7 @@ const CustomerDetails = (props) => {
             width: "40% ",
             padding: "20px",
             borderRadius: "5px",
-            height: "85vh",
+            height: "125vh",
           }}
           className=" wrapper"
         >
@@ -78,9 +78,61 @@ const CustomerDetails = (props) => {
               </label>
               <input className="inputt" type="number" name="number" />
             </div>
+            <div className="number">
+              <label style={{ marginLeft: "15px" }} className="label">
+                Ghana Post GPS
+              </label>
+              <input className="inputt" type="number" name="number" />
+            </div>
             <div className="location">
               <label style={{ marginLeft: "15px" }} className="label">
                 Delivery Location
+              </label>
+              <input
+                style={{
+                  color: "#000",
+                  // padding: "0 !important";
+                  fontSize: " 16px",
+                  height: "32px",
+                  outline: "none",
+                  width: "100%",
+                  background: "lightgray",
+                  borderRadius: "5px",
+                  borderBottomStyle: "2px solid #000",
+                  marginBottom: "7px",
+                  alignSelf: "left",
+                }}
+                className="input"
+                type="text"
+                name="location"
+              />
+            </div>
+            <div className="location">
+              <label style={{ marginLeft: "15px" }} className="label">
+                Land Mark
+              </label>
+              <input
+                style={{
+                  color: "#000",
+                  // padding: "0 !important";
+                  fontSize: " 16px",
+                  height: "32px",
+                  outline: "none",
+                  width: "100%",
+                  background: "lightgray",
+                  borderRadius: "5px",
+                  borderBottomStyle: "2px solid #000",
+                  marginBottom: "7px",
+                  alignSelf: "left",
+                }}
+                className="input"
+                type="text"
+                name="location"
+              />
+            </div>
+            <div className="location">
+              <label style={{ marginLeft: "15px" }} className="label">
+                Region
               </label>
               <input
                 style={{
