@@ -3,7 +3,7 @@ import { Button, Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "../css/Product.css";
 import { FaCartPlus } from "react-icons/fa";
-import { AddToCart } from "../Store/authActions";
+import { AddToCart } from "../Store/cartActions";
 import { connect } from "react-redux";
 
 class Product extends React.Component {

@@ -2,12 +2,13 @@ import React from "react";
 import FooterPage from "../components/FooterPage";
 import HeaderPage from "../components/HeaderPage";
 import "bootstrap/dist/css/bootstrap.min.css";
-import div from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
 import { Link } from "react-router-dom";
-import Container from "react-bootstrap/Container";
+import {
+  quantityIncrease,
+  quantityDecrease,
+  ClearCart,
+} from "../Store/cartActions";
 import { connect } from "react-redux";
-
 import "../css/CartScreen.css";
 import CartProductComponent from "../components/CartProductComponent";
 
@@ -15,19 +16,34 @@ class CartScreen extends React.Component {
   total = 0;
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      cartProduct: [],
+      update: "",
+    };
   }
 
   handleTotal = () => {
     var total = 0;
     for (let i = 0; i <= this.props.cart.length - 1; i++) {
-      total = total + parseInt(this.props.cart[i].product.price);
+      total =
+        total +
+        parseInt(this.props.cart[i].product.price) * this.props.cart[i].qty;
       console.log(total);
     }
 
     return total;
   };
 
+  // static getDerivedStateFromProps(props, state) {
+  //   return { cartProduct: props.cart };
+  // }
+  componentDidMount() {
+    this.setState({ cartProduct: this.props.cart });
+  }
+
+  handleRerender = (data) => {
+    this.setState({ update: data, cartProduct: this.props.cart });
+  };
   render() {
     return (
       <div>
@@ -45,13 +61,14 @@ class CartScreen extends React.Component {
           <div>
             {
               (console.log("cartProducts: ", this.props.cart),
-              this.props.cart.map((cartProd) => (
+              this.state.cartProduct.map((cartProd) => (
                 <CartProductComponent
                   productName={cartProd.product.product}
                   unitPrice={cartProd.product.price}
                   subTotal={
                     parseInt(cartProd.product.price) * parseInt(cartProd.qty)
                   }
+                  rerender={(data) => this.handleRerender(data)}
                   image={cartProd.product.image}
                   qty={cartProd.qty}
                   Id={cartProd.product.Id}
@@ -67,7 +84,17 @@ class CartScreen extends React.Component {
             </div>
           </div>
           <div className="row bottomSection">
-            <div className="col-lg-8"></div>
+            <div className="col-lg-2 shoppingButtonContainer">
+              <button
+                onClick={() => {
+                  this.props.ClearCart();
+                }}
+                className="shoppingButton"
+              >
+                clear cart
+              </button>
+            </div>
+            <div className="col-lg-6"></div>
             <div className="col-lg-2 shoppingButtonContainer">
               <button onClick={() => {}} className="shoppingButton">
                 <Link
@@ -104,7 +131,7 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = () => {
-  return {};
+  return { quantityDecrease, quantityIncrease, ClearCart };
 };
 
 export default connect(mapStateToProps, mapDispatchToProps())(CartScreen);

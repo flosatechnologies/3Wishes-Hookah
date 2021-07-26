@@ -287,11 +287,3 @@ export const EditTextOnly = (
       });
   };
 };
-
-export const AddToCart = (product, qty) => {
-  return {
-    type: "ADD_TO_CART",
-    product,
-    qty,
-  };
-};
