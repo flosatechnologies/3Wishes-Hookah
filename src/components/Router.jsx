@@ -2,8 +2,6 @@ import React from "react";
 import { Route, Switch } from "react-router-dom";
 import ProtectedRoute from "./ProtectedRoute";
 import CarouselPage from "../pages/CarouselPage";
-import HeaderPage from "./HeaderPage";
-import FooterPage from "./FooterPage";
 import ShopPage from "../pages/ShopPage";
 import ContactPage from "../pages/ContactPage";
 import Dashboard from "../pages/Dashboard";

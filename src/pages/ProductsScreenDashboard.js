@@ -8,7 +8,8 @@ import ProductComponentDashboard from "../components/ProductComponentDashboard";
 import Edit from "./EditScreen";
 import { connect } from "react-redux";
 import { MdKeyboardBackspace } from "react-icons/md";
-import { getAllProducts } from "../Store/authActions.js";
+import firebase from "../firebase/config";
+import { DeleteProduct } from "../Store/authActions.js";
 
 class ProductsScreenDashboard extends Component {
   constructor(props) {
@@ -17,34 +18,86 @@ class ProductsScreenDashboard extends Component {
       button: {
         addProduct: "inactivebtn",
         editProduct: "inactivebtn",
+        deleteProduct: "inactivebtn",
       },
 
       editId: "",
 
       storeProducts: this.props.reduxData,
-
     };
   }
 
-  handleButtonState = (trigger) => {
-    this.setState({ button: { addProduct: "inactive", editProduct: trigger } });
+  handleButtonState = (trigger, btn) => {
+    if (btn === "edit") {
+      this.setState({
+        button: {
+          addProduct: "inactivebtn",
+          editProduct: trigger,
+          deleteProduct: "inactivebtn",
+        },
+      });
+    } else if (btn === "del") {
+      this.setState({
+        button: {
+          addProduct: "inactivebtn",
+          editProduct: "inactivebtn",
+          deleteProduct: trigger,
+        },
+      });
+    }
   };
 
   handleEditId = (Id) => {
     this.setState({ editId: Id });
   };
 
-  componentDidMount() {
-    this.props.getAllProducts();
-  }
+  handleDeleteProduct = () => {
+    const productToDelete = this.state.storeProducts.filter(
+      (delprod) => delprod.Id === this.state.editId
+    );
+
+    console.log("filteredDelete: ", productToDelete[0]);
+    let imageName = firebase.storage().refFromURL(productToDelete[0].image);
+
+    this.props.DeleteProduct(this.state.editId, imageName.name);
+  };
 
   render() {
-    console.log("productsStore ", this.props.products);
     const handleRenderScreen = () => {
       if (this.state.button.addProduct === "activebtn") {
         return (
           <div>
             <AddProduct />
+          </div>
+        );
+      }
+
+      if (this.state.button.deleteProduct === "activebtn") {
+        return (
+          <div>
+            <div className="messageContainer">
+              <p>Are you sure you want to delete product</p>
+            </div>
+            <div className="buttonsContainer">
+              <div>
+                <button onClick={this.handleDeleteProduct}>Yes</button>
+              </div>
+              <div>
+                <button
+                  onClick={() => {
+                    this.setState({
+                      button: {
+                        addProduct: "inactivebtn",
+                        editProduct: "inactivebtn",
+                        deleteProduct: "inactivebth",
+                      },
+                    });
+                  }}
+                >
+                  No
+                </button>
+              </div>
+            </div>
           </div>
         );
       }
@@ -67,7 +120,7 @@ class ProductsScreenDashboard extends Component {
                     productName={products.product}
                     price={products.price}
                     image={products.image}
-                    activatebtn={(tr) => this.handleButtonState(tr)}
+                    activatebtn={(tr, btn) => this.handleButtonState(tr, btn)}
                     Id={products.Id}
                     selectedId={(Id) => this.handleEditId(Id)}
                   />
@@ -117,7 +170,7 @@ const mapStateToProps = () => {
 
 const mapDispatchToProps = () => {
   return {
-    getAllProducts,
+    DeleteProduct,
   };
 };
 

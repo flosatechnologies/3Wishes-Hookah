@@ -52,7 +52,7 @@ class ProductComponentDashboard extends Component {
           <div>
             <button
               onClick={() => {
-                this.props.activatebtn("activebtn");
+                this.props.activatebtn("activebtn", "edit");
                 this.props.selectedId(this.props.Id);
                 // this.handleProductFilter();
               }}
@@ -63,7 +63,14 @@ class ProductComponentDashboard extends Component {
             </button>
           </div>
           <div>
-            <button className="deleteButton">
+            <button
+              onClick={() => {
+                this.props.activatebtn("activebtn", "del");
+                this.props.selectedId(this.props.Id);
+                // this.handleProductFilter();
+              }}
+              className="deleteButton"
+            >
               <MdDelete />
               delete
             </button>

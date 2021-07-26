@@ -11,7 +11,7 @@ import PaymentScreen from "./PaymentScreen";
 import ProductsScreenDashboard from "./ProductsScreenDashboard";
 import DeliveryScreen from "./DeliveryScreen";
 import { connect } from "react-redux";
-import { logoutUser } from "../Store/authActions";
+import { logoutUser, getAllProducts } from "../Store/authActions";
 
 import UsersScreenDashboard from "./UsersScreenDashboard";
 
@@ -30,6 +30,9 @@ class Dashboard extends Component {
     };
   }
 
+  componentDidMount() {
+    this.props.getAllProducts();
+  }
   render() {
     const handleRenderScreen = () => {
       // if (this.state.buttonState.payment === "active")
@@ -83,7 +86,7 @@ class Dashboard extends Component {
                 </div>
                 <div className="profileWelcomeMessage">
                   <div className="userWelcome">Welcome,</div>
-                  <div> {this.props.state.name} </div>
+                  <div> {this.props.state.users.displayName} </div>
                 </div>
               </div>
             </div>
@@ -206,7 +209,7 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = () => {
-  return { logoutUser };
+  return { logoutUser, getAllProducts };
 };
 
 export default connect(mapStateToProps, mapDispatchToProps())(Dashboard);

@@ -4,7 +4,7 @@ import "../css/AddProductScreen.css";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import Button from "react-bootstrap/Button";
+
 import "bootstrap/dist/css/bootstrap.min.css";
 import { FaRegImage } from "react-icons/fa";
 import { v4 as uuid } from "uuid";
@@ -68,7 +68,7 @@ class AddProduct extends Component {
       );
     };
 
-    const { profileImg } = this.state;
+    // const { profileImg } = this.state;
     return (
       <Container className="main-container">
         <Row className="form subContainer">

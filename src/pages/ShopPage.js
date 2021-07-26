@@ -5,7 +5,8 @@ import products from "../products";
 import "bootstrap/dist/css/bootstrap.min.css";
 import HeaderPage from "../components/HeaderPage";
 import FooterPage from "../components/FooterPage";
-import { AddToCart, getAllProducts } from "../Store/authActions";
+import { getAllProducts } from "../Store/authActions";
+import { AddToCart } from "../Store/cartActions";
 import { connect } from "react-redux";
 
 // import HeaderPage from "../components/HeaderPage";
