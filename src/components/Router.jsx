@@ -17,6 +17,7 @@ import LogIn from "../components/Login";
 import LogOut from "../components/LogOut";
 import CustomerDetails from "../pages/CustomerDetailsPage";
 import { connect } from "react-redux";
+import UserProfile from "./../pages/UserProfilePage";
 
 function RouterComponent(props) {
   return (
@@ -33,6 +34,7 @@ function RouterComponent(props) {
       <Route path="/checkout" component={CheckoutScreen} />
       <Route path="/logOut" component={LogOut} />
       <Route path="/customerDetails" component={CustomerDetails} />
+      <Route path="/userprofile" component={UserProfile} />
       <ProtectedRoute path="/dashboard" component={Dashboard} />
     </div>
   );

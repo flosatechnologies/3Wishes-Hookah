@@ -48,6 +48,7 @@ class Dashboard extends Component {
           </div>
         );
       }
+
       if (this.state.buttonState.delivery === "active") {
         return (
           <div>
