@@ -9,9 +9,13 @@ import { connect } from "react-redux";
 const CustomerDetails = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault();
-    let name = e.target.elements.name.value;
+    let name = e.target.elements.fullname.value;
     let number = e.target.elements.number.value;
     let address = e.target.elements.address.value;
+    let gps = e.target.elements.gps.value;
+    let location = e.target.elements.location.value;
+    let mark = e.target.elements.mark.value;
+    let region = e.target.elements.region.value;
   };
 
   return (
@@ -19,7 +23,7 @@ const CustomerDetails = (props) => {
       style={{
         background: "#fff",
         width: "90%",
-        minHeight: "150vh",
+        minHeight: "80vh",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
@@ -31,9 +35,9 @@ const CustomerDetails = (props) => {
           style={{
             background: "linear-gradient(to right, #64b375, #1bdd45)",
             width: "40% ",
-            padding: "20px",
+            // padding: "20px",
             borderRadius: "5px",
-            height: "125vh",
+            height: "50vh",
           }}
           className=" wrapper"
         >
@@ -42,151 +46,33 @@ const CustomerDetails = (props) => {
           </div>
 
           <form onSubmit={handleSubmit} className="form-wrapper">
-            <div className="name">
-              <label
-                style={{
-                  width: "100%",
-                  marginTop: "0.4rem",
-                  display: "flex",
-                  justifyContent: "left ",
-                }}
-                className="label"
-              >
-                Full Name
-              </label>
-              <input
-                style={{
-                  color: "#000",
-                  fontSize: " 16px",
-                  height: "40px",
-                  outline: "none",
-                  width: "100%",
-                  background: "lightgray",
-                  borderRadius: "5px",
-                  borderBottomStyle: "2px solid #000",
-                  marginBottom: "7px",
-                  alignSelf: "left",
-                }}
-                className="input1"
-                type="text"
-                name="fullname"
-              />
+            <div className="name-group">
+              <label className="labe">Full Name</label>
+              <input className="name-input" type="text" name="fullname" />
+
+              <label className="labi">Phone Number</label>
+              <input className="num-input" type="number" name="number" />
             </div>
-            <div className="number">
-              <label style={{ marginLeft: "15px" }} className="label">
-                Phone Number
-              </label>
-              <input className="inputt" type="number" name="number" />
+
+            <div className="number-group">
+              <label className="labell">Ghana Post GPS</label>
+              <input className="numb-input" type="text" name="gps" />
+
+              <label className="lab">Delivery Location</label>
+              <input className="input" type="text" name="location" />
             </div>
-            <div className="number">
-              <label style={{ marginLeft: "15px" }} className="label">
-                Ghana Post GPS
-              </label>
-              <input className="inputt" type="number" name="number" />
-            </div>
-            <div className="location">
-              <label style={{ marginLeft: "15px" }} className="label">
-                Delivery Location
-              </label>
-              <input
-                style={{
-                  color: "#000",
-                  // padding: "0 !important";
-                  fontSize: " 16px",
-                  height: "32px",
-                  outline: "none",
-                  width: "100%",
-                  background: "lightgray",
-                  borderRadius: "5px",
-                  borderBottomStyle: "2px solid #000",
-                  marginBottom: "7px",
-                  alignSelf: "left",
-                }}
-                className="input"
-                type="text"
-                name="location"
-              />
-            </div>
-            <div className="location">
-              <label style={{ marginLeft: "15px" }} className="label">
-                Land Mark
-              </label>
-              <input
-                style={{
-                  color: "#000",
-                  // padding: "0 !important";
-                  fontSize: " 16px",
-                  height: "32px",
-                  outline: "none",
-                  width: "100%",
-                  background: "lightgray",
-                  borderRadius: "5px",
-                  borderBottomStyle: "2px solid #000",
-                  marginBottom: "7px",
-                  alignSelf: "left",
-                }}
-                className="input"
-                type="text"
-                name="location"
-              />
-            </div>
-            <div className="location">
-              <label style={{ marginLeft: "15px" }} className="label">
-                Region
-              </label>
-              <input
-                style={{
-                  color: "#000",
-                  // padding: "0 !important";
-                  fontSize: " 16px",
-                  height: "32px",
-                  outline: "none",
-                  width: "100%",
-                  background: "lightgray",
-                  borderRadius: "5px",
-                  borderBottomStyle: "2px solid #000",
-                  marginBottom: "7px",
-                  alignSelf: "left",
-                }}
-                className="input"
-                type="text"
-                name="location"
-              />
+
+            <div className="location-group">
+              <label className="labelled">Land Mark</label>
+              <input className="land-input" type="text" name="mark" />
+
+              <label className="labs">Region</label>
+              <input className="location-input" type="text" name="region" />
             </div>
 
             <div>
               <button className="submit">Add</button>
             </div>
-            {/*<div style={{ display: "flex" }}>
-              <p
-                style={{
-                  display: "flex",
-                  flexDirection: "row",
-                  color: "#fff",
-                  paddingTop: "25px",
-                  marginLeft: "50px",
-                  fontSize: "12px",
-                }}
-              >
-                Have an account?
-              </p>
-              <button
-                style={{
-                  display: "flex",
-                  flexDirection: "row",
-                  color: "#f80759",
-                  background: "none",
-                  border: "none",
-                  marginLeft: "10px",
-                  paddingTop: "25px",
-                  fontSize: "12px",
-                }}
-              >
-                <li>
-                  <Link to={"/login"}>Sign in </Link>
-                </li>
-              </button>
-              </div>*/}
           </form>
         </Col>
       </Row>

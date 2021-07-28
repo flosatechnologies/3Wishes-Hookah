@@ -83,7 +83,7 @@ export class HeaderPage extends Component {
               ) : (
                 <NavDropdown title={<BsPerson />} id="collasible-nav-dropdown">
                   {/* <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item> */}
-                  <NavDropdown.Item href="#action/3.2">
+                  <NavDropdown.Item href="/userProfile">
                     Profile
                   </NavDropdown.Item>
                   <NavDropdown.Item href="#action/3.3">
