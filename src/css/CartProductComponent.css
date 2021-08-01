@@ -70,9 +70,12 @@ div.productQtyContainer {
   background-color: transparent;
 }
 .productUnitPrice,
-.productSubtotal,
+.productSubtotal {
+  margin-top: 35px;
+}
 .productQtyInput {
   margin-top: 35px;
+  width: 40%;
 }
 .removeButtonContainer {
   margin-top: 20px;

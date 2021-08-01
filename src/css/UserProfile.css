@@ -1,11 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
-.container-fluid {
+.userProfileContainer {
   /* background-color: rgb(110, 103, 103); */
   font-family: "Roboto", sans-serif;
   height: 50vh;
 }
 
-.header {
+.userProfileHeader {
   margin-top: 15px;
   margin-bottom: 15px;
   color: rgb(25, 0, 255);

@@ -41,9 +41,9 @@ class UserProfile extends Component {
 
   render() {
     return (
-      <div className="container-fluid">
+      <div className="container-fluid userProfileContainer">
         <Row>
-          <h4 className="header">Your Profile</h4>
+          <h4 className="userProfileHeader">Your Profile</h4>
           <hr />
         </Row>
         <Row>

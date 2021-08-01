@@ -19,6 +19,14 @@ export const quantityDecrease = (Id) => {
   };
 };
 
+export const quantityChange = (Id, newQty) => {
+  return {
+    type: "QUANTITY_CHANGE",
+    Id,
+    newQty,
+  };
+};
+
 export const AddToCart = (product, qty) => {
   return {
     type: "ADD_TO_CART",

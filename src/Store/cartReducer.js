@@ -30,6 +30,16 @@ const cartReducer = (state = initialState, action) => {
     case "GET_CART_PRODUCT":
       return { ...state };
 
+    case "QUANTITY_CHANGE":
+      let changecopy = state.cart;
+      console.log("the Copy: ", changecopy);
+      copy.map((prod) => {
+        if (prod.product.Id === action.Id) {
+          prod.qty = action.newQty;
+        }
+      });
+      return { ...state, cart: changecopy };
+
     case "QUANTITY_INCREASE":
       let copy = state.cart;
       console.log("the Copy: ", copy);
@@ -45,7 +55,11 @@ const cartReducer = (state = initialState, action) => {
       console.log("the Copy: ", duplicate);
       duplicate.map((prod) => {
         if (prod.product.Id === action.Id) {
-          prod.qty = prod.qty - 1;
+          if (prod.qty === 1) {
+            prod.qty = prod.qty;
+          } else {
+            prod.qty = prod.qty - 1;
+          }
         }
       });
       return { ...state, cart: duplicate };

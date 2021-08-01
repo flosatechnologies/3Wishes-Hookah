@@ -6,11 +6,13 @@ import { Link } from "react-router-dom";
 import {
   quantityIncrease,
   quantityDecrease,
+  removeProduct,
   ClearCart,
 } from "../Store/cartActions";
 import { connect } from "react-redux";
 import "../css/CartScreen.css";
 import CartProductComponent from "../components/CartProductComponent";
+import { BsFillDashCircleFill, BsFillPlusCircleFill } from "react-icons/bs";
 
 class CartScreen extends React.Component {
   total = 0;
@@ -44,6 +46,7 @@ class CartScreen extends React.Component {
   handleRerender = (data) => {
     this.setState({ update: data, cartProduct: this.props.cart });
   };
+
   render() {
     return (
       <div>
@@ -61,7 +64,7 @@ class CartScreen extends React.Component {
           <div>
             {
               (console.log("cartProducts: ", this.props.cart),
-              this.state.cartProduct.map((cartProd) => (
+              this.props.cart.map((cartProd) => (
                 <CartProductComponent
                   productName={cartProd.product.product}
                   unitPrice={cartProd.product.price}
@@ -131,7 +134,7 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = () => {
-  return { quantityDecrease, quantityIncrease, ClearCart };
+  return { quantityDecrease, quantityIncrease, removeProduct, ClearCart };
 };
 
 export default connect(mapStateToProps, mapDispatchToProps())(CartScreen);

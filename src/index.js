@@ -26,6 +26,7 @@ const persistConfig = {
 const pReducer = persistReducer(persistConfig, reducer);
 const store = createStore(
   pReducer,
+  {},
   compose(
     applyMiddleware(thunk.withExtraArgument({ getFirebase, getFirestore })),
     reduxFirestore(firebase),

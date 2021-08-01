@@ -7,6 +7,7 @@ import {
   quantityIncrease,
   quantityDecrease,
   removeProduct,
+  quantityChange,
 } from "../Store/cartActions";
 import { BsFillDashCircleFill, BsFillPlusCircleFill } from "react-icons/bs";
 
@@ -14,7 +15,7 @@ class CartProductComponent extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      qty: this.props.qty,
+      newQty: "",
       productId: this.props.Id,
     };
   }
@@ -33,6 +34,12 @@ class CartProductComponent extends React.Component {
   handleRemoveProduct = () => {
     // let theqty = parseInt(this.state.qty) + 1;
     this.props.removeProduct(this.state.productId);
+    this.props.rerender("rerender");
+  };
+
+  handleChangeQuantity = (newQty) => {
+    // let theqty = parseInt(this.state.qty) + 1;
+    this.props.removeProduct(this.state.productId, newQty);
     this.props.rerender("rerender");
   };
 
@@ -74,8 +81,7 @@ class CartProductComponent extends React.Component {
                   className="productQtyInput"
                   name="qty"
                   pattern="[0-9]"
-                  onChange={this.handleChange}
-                  value={this.state.qty}
+                  value={this.props.qty}
                 />
               </div>
               <div className="decrementBtnContainer">
@@ -113,6 +119,7 @@ const mapDispatchToProps = () => {
     quantityDecrease,
     quantityIncrease,
     removeProduct,
+    quantityChange,
   };
 };
 

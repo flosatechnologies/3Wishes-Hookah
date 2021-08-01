@@ -76,12 +76,16 @@ export class HeaderPage extends Component {
                   </div>
                 </Nav.Link>
               </LinkContainer>
-              {!login || (login && role === "admin") ? (
+              {!this.props.login ||
+              (this.props.login && this.props.role === "admin") ? (
                 <LinkContainer to="/login">
                   <Nav.Link className="mr-sm-5">Login</Nav.Link>
                 </LinkContainer>
               ) : (
-                <NavDropdown title={<BsPerson />} id="collasible-nav-dropdown">
+                <NavDropdown
+                  title={<BsPerson size={20} />}
+                  id="collasible-nav-dropdown"
+                >
                   {/* <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item> */}
                   <NavDropdown.Item href="/userProfile">
                     Profile
@@ -121,6 +125,8 @@ const mapStateToProps = (state) => {
   return {
     state,
     name: state.users.displayName,
+    login: state.users.login,
+    role: state.users.role,
     cart: state.cart.cart,
   };
 };

@@ -1,6 +1,7 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
 import ProtectedRoute from "./ProtectedRoute";
+import PrivateRoute from "./PrivateRoute";
 import CarouselPage from "../pages/CarouselPage";
 import ShopPage from "../pages/ShopPage";
 import ContactPage from "../pages/ContactPage";
@@ -29,7 +30,7 @@ function RouterComponent(props) {
       <Route path="/edit" component={Edit} />
       <Route path="/delivery" component={DeliveryScreen} />
       <Route path="/signup" component={Register} />
-      <Route path="/checkout" component={CheckoutScreen} />
+      <PrivateRoute path="/checkout" component={CheckoutScreen} />
       <Route path="/logOut" component={LogOut} />
       <Route path="/customerDetails" component={CustomerDetails} />
       <Route path="/userprofile" component={UserProfile} />

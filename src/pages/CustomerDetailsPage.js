@@ -42,7 +42,7 @@ const CustomerDetails = (props) => {
           className=" wrapper"
         >
           <div>
-            <h3 className="title">Delivery Information</h3>
+            <h3 className="customerDetailsTitle">Delivery Information</h3>
           </div>
 
           <form onSubmit={handleSubmit} className="form-wrapper">
@@ -59,7 +59,11 @@ const CustomerDetails = (props) => {
               <input className="numb-input" type="text" name="gps" />
 
               <label className="lab">Delivery Location</label>
-              <input className="input" type="text" name="location" />
+              <input
+                className="customerDetailsInput"
+                type="text"
+                name="location"
+              />
             </div>
 
             <div className="location-group">
@@ -71,7 +75,7 @@ const CustomerDetails = (props) => {
             </div>
 
             <div>
-              <button className="submit">Add</button>
+              <button className="customerDetailsSubmit">Add</button>
             </div>
           </form>
         </Col>
