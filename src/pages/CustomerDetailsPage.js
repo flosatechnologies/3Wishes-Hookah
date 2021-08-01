@@ -1,87 +1,194 @@
-import React from "react";
+import React, { Component } from "react";
 import "../css/CustomerDetails.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Row, Col } from "react-bootstrap";
-import { Link } from "react-router-dom";
-
+import { AddCustomerDetail } from "./../Store/custDetailActions";
 import { connect } from "react-redux";
 
-const CustomerDetails = (props) => {
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    let name = e.target.elements.fullname.value;
-    let number = e.target.elements.number.value;
-    let address = e.target.elements.address.value;
-    let gps = e.target.elements.gps.value;
-    let location = e.target.elements.location.value;
-    let mark = e.target.elements.mark.value;
-    let region = e.target.elements.region.value;
+class CustomerDetails extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      fullName: "",
+      phoneNumber: "",
+      ghanaPostGps: "",
+      deliveryLocation: "",
+      landMark: "",
+      region: "",
+    };
+  }
+
+  //handle inputs
+  handleFullName = (e) => {
+    this.setState({
+      fullName: e.target.value,
+    });
   };
 
-  return (
-    <div
-      style={{
-        background: "#fff",
-        width: "90%",
-        minHeight: "80vh",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-      className="container-fluid"
-    >
-      <Row>
-        <Col
-          style={{
-            background: "linear-gradient(to right, #64b375, #1bdd45)",
-            width: "40% ",
-            // padding: "20px",
-            borderRadius: "5px",
-            height: "50vh",
-          }}
-          className=" wrapper"
-        >
-          <div>
-            <h3 className="title">Delivery Information</h3>
-          </div>
+  handlePhoneNumber = (e) => {
+    this.setState({
+      phoneNumber: e.target.value,
+    });
+  };
 
-          <form onSubmit={handleSubmit} className="form-wrapper">
-            <div className="name-group">
-              <label className="labe">Full Name</label>
-              <input className="name-input" type="text" name="fullname" />
+  handleGhanaPostGps = (e) => {
+    this.setState({
+      ghanaPostGps: e.target.value,
+    });
+  };
 
-              <label className="labi">Phone Number</label>
-              <input className="num-input" type="number" name="number" />
-            </div>
+  handleDeliveryLocation = (e) => {
+    this.setState({
+      deliveryLocation: e.target.value,
+    });
+  };
 
-            <div className="number-group">
-              <label className="labell">Ghana Post GPS</label>
-              <input className="numb-input" type="text" name="gps" />
+  handleLandMark = (e) => {
+    this.setState({
+      landMark: e.target.value,
+    });
+  };
 
-              <label className="lab">Delivery Location</label>
-              <input className="input" type="text" name="location" />
-            </div>
+  handleRegion = (e) => {
+    this.setState({
+      region: e.target.value,
+    });
+  };
+  //end
 
-            <div className="location-group">
-              <label className="labelled">Land Mark</label>
-              <input className="land-input" type="text" name="mark" />
-
-              <label className="labs">Region</label>
-              <input className="location-input" type="text" name="region" />
-            </div>
-
+  // formSubmit
+  cancelCourse = () => {
+    document.getElementById("reset").reset();
+  };
+  handleSubmit = (e) => {
+    e.preventDefault();
+    // eslint-disable-next-line no-unused-vars
+    const newCustomer = {
+      fullName: this.state.fullName,
+      phoneNumber: this.state.phoneNumber,
+      ghanaPostGps: this.state.ghanaPostGps,
+      deliveryLocation: this.state.deliveryLocation,
+      landMark: this.state.landMark,
+      region: this.state.region,
+      createdAt: new Date(),
+    };
+    this.props.AddCustomerDetail(newCustomer);
+  };
+  render() {
+    return (
+      <div
+        style={{
+          background: "#fff",
+          width: "90%",
+          minHeight: "80vh",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+        className="container-fluid"
+      >
+        <Row>
+          <Col
+            style={{
+              background: "linear-gradient(to right, #64b375, #1bdd45)",
+              width: "40% ",
+              // padding: "20px",
+              borderRadius: "5px",
+              height: "50vh",
+            }}
+            className=" wrapper"
+          >
             <div>
-              <button className="submit">Add</button>
+              <h3 className="title">Delivery Information</h3>
             </div>
-          </form>
-        </Col>
-      </Row>
-    </div>
-  );
+
+            <form
+              onSubmit={this.handleSubmit}
+              className="form-wrapper"
+              id="reset"
+            >
+              <div className="name-group">
+                <label className="labe">Full Name</label>
+                <input
+                  className="name-input"
+                  type="text"
+                  name="fullname"
+                  value={this.state.fullName}
+                  onChange={this.handleFullName}
+                />
+
+                <label className="labi">Phone Number</label>
+                <input
+                  className="num-input"
+                  type="number"
+                  name="phoneNumber"
+                  value={this.state.phoneNumber}
+                  onChange={this.handlePhoneNumber}
+                />
+              </div>
+
+              <div className="number-group">
+                <label className="labell">Ghana Post GPS</label>
+                <input
+                  className="numb-input"
+                  type="text"
+                  name="ghanaPostGps"
+                  value={this.state.ghanaPostGps}
+                  onChange={this.handleGhanaPostGps}
+                />
+
+                <label className="lab">Delivery Location</label>
+                <input
+                  className="input"
+                  type="text"
+                  name="deliveryLocation"
+                  value={this.state.deliveryLocation}
+                  onChange={this.handleDeliveryLocation}
+                />
+              </div>
+
+              <div className="location-group">
+                <label className="labelled">Land Mark</label>
+                <input
+                  className="land-input"
+                  type="text"
+                  name="landMark"
+                  value={this.state.landMark}
+                  onChange={this.handleLandMark}
+                />
+
+                <label className="labs">Region</label>
+                <input
+                  className="location-input"
+                  type="text"
+                  name="region"
+                  value={this.state.region}
+                  onChange={this.handleRegion}
+                />
+              </div>
+
+              <div>
+                <button className="submit">Add</button>
+              </div>
+            </form>
+          </Col>
+        </Row>
+      </div>
+    );
+  }
+}
+
+const mapStateToProps = (state) => {
+  console.log("customers", state.customer);
+  return {
+    customers: state.customer,
+  };
 };
 
-const mapStateToProps = () => {};
+const mapDispatchToProps = () => {
+  return {
+    AddCustomerDetail,
+  };
+};
 
-const mapDispatchToProps = {};
-
-export default connect(mapStateToProps, mapDispatchToProps)(CustomerDetails);
+export default connect(mapStateToProps, mapDispatchToProps())(CustomerDetails);

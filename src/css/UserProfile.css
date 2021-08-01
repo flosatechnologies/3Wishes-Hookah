@@ -16,6 +16,7 @@
 .entries {
   color: rgb(41, 38, 38);
   font-weight: bold;
+  text-transform: capitalize;
 }
 
 .but {

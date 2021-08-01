@@ -5,6 +5,8 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import CustomerDetails from "./CustomerDetailsPage";
+import { connect } from "react-redux";
+import { AddCustomerDetail } from "./../Store/custDetailActions";
 
 class UserProfile extends Component {
   constructor(props) {
@@ -16,15 +18,28 @@ class UserProfile extends Component {
       },
     };
   }
+
   renderComponent = () => {
     if (this.state.button.profileBtn === "on") {
       return (
         <div>
           <Col>
-            <h6 className="entries">Name:</h6>
-            <h6 className="entries">Email:</h6>
-            <h6 className="entries">Location:</h6>
-            <h6 className="entries">Phone Number:</h6>
+            <h6 className="entries">
+              Full Name:{this.props.customers.fullName}
+            </h6>
+            <h6 className="entries">
+              Phone Number:{this.props.customers.phoneNumber}
+            </h6>
+            <h6 className="entries">
+              Ghana Post GPS:{this.props.customers.ghanaPostGps}
+            </h6>
+            <h6 className="entries">
+              Delivery Location:{this.props.customers.deliveryLocation}
+            </h6>
+            <h6 className="entries">
+              Land Mark:{this.props.customers.landMark}
+            </h6>
+            <h6 className="entries">Region:{this.props.customers.region}</h6>
           </Col>
         </div>
       );
@@ -79,4 +94,16 @@ class UserProfile extends Component {
   }
 }
 
-export default UserProfile;
+const mapStateToProps = (state) => {
+  return {
+    customers: state.customer,
+  };
+};
+
+const mapDispatchToProps = () => {
+  return {
+    AddCustomerDetail,
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps())(UserProfile);
