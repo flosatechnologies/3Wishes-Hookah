@@ -2,8 +2,9 @@ import React, { Component } from "react";
 import "../css/CustomerDetails.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Row, Col } from "react-bootstrap";
-import { AddCustomerDetail } from "./../Store/custDetailActions";
+import { AddCustomerDetail, getCustomers } from "./../Store/custDetailActions";
 import { connect } from "react-redux";
+import { v4 as uuid } from "uuid";
 
 class CustomerDetails extends Component {
   constructor(props) {
@@ -17,6 +18,10 @@ class CustomerDetails extends Component {
       region: "",
     };
   }
+
+  // componentDidMount() {
+  //   this.props.getCustomers();
+  // }
 
   //handle inputs
   handleFullName = (e) => {
@@ -56,13 +61,16 @@ class CustomerDetails extends Component {
   };
   //end
 
-  // formSubmit
-  cancelCourse = () => {
-    document.getElementById("reset").reset();
+  handleReset = () => {
+    this.setState({
+      value: [{}],
+    });
   };
+
+  // formSubmit
+
   handleSubmit = (e) => {
     e.preventDefault();
-    // eslint-disable-next-line no-unused-vars
     const newCustomer = {
       fullName: this.state.fullName,
       phoneNumber: this.state.phoneNumber,
@@ -70,6 +78,7 @@ class CustomerDetails extends Component {
       deliveryLocation: this.state.deliveryLocation,
       landMark: this.state.landMark,
       region: this.state.region,
+      Id: uuid(),
       createdAt: new Date(),
     };
     this.props.AddCustomerDetail(newCustomer);
@@ -105,7 +114,7 @@ class CustomerDetails extends Component {
             <form
               onSubmit={this.handleSubmit}
               className="form-wrapper"
-              id="reset"
+              id="reset-form"
             >
               <div className="name-group">
                 <label className="labe">Full Name</label>
@@ -179,7 +188,7 @@ class CustomerDetails extends Component {
 }
 
 const mapStateToProps = (state) => {
-  console.log("customers", state.customer);
+  // console.log("customers", state.customer);
   return {
     customers: state.customer,
   };
@@ -188,6 +197,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = () => {
   return {
     AddCustomerDetail,
+    getCustomers,
   };
 };
 

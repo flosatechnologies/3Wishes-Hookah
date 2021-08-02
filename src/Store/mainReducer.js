@@ -4,7 +4,7 @@ import productsReducer from "./productsReducer";
 import { firebaseReducer } from "react-redux-firebase";
 import { firestoreReducer } from "redux-firestore";
 import { combineReducers } from "redux";
-import CustomerDetailReducer from "./custDetailReducer";
+import { CustomerDetailReducer } from "./custDetailReducer";
 
 export default combineReducers({
   users: usersReducer,
