@@ -15,6 +15,7 @@ export const userRegistration = (user) => {
           phoneNumber: user.phoneNumber,
           role: user.role,
           createdDate: timestamp,
+          Id: resp.user.uid,
         });
       })
       .then(() => {

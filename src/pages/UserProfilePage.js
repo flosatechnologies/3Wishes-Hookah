@@ -5,6 +5,10 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import CustomerDetails from "./CustomerDetailsPage";
+import { connect } from "react-redux";
+import { AddCustomerDetail, getCustomers } from "./../Store/custDetailActions";
+import firebase from "firebase";
+import { HeaderPage } from "../components/HeaderPage";
 
 class UserProfile extends Component {
   constructor(props) {
@@ -16,15 +20,38 @@ class UserProfile extends Component {
       },
     };
   }
+
+  componentDidMount() {
+    // const getCustomers = async () => {
+    //   // const db = firebase.firestore();
+    //   // const customerRef = db.collection("customers");
+    //   // const customers = await customerRef.get();
+    //   // console.log("customers", customers);
+
+    //   // customers.forEach((doc) => {
+    //   //   this.setState({ customers: [...this.props.customers, doc.data()] });
+    //   // });
+
+    // };
+    this.props.getCustomers();
+    // getCustomers();
+  }
+
   renderComponent = () => {
     if (this.state.button.profileBtn === "on") {
       return (
         <div>
           <Col>
-            <h6 className="entries">Name:</h6>
-            <h6 className="entries">Email:</h6>
-            <h6 className="entries">Location:</h6>
-            <h6 className="entries">Phone Number:</h6>
+            <h6 className="entries">Full Name:{this.props.fullName}</h6>
+            <h6 className="entries">Phone Number:{this.props.phoneNumber}</h6>
+            <h6 className="entries">
+              Ghana Post GPS:{this.props.ghanaPostGps}
+            </h6>
+            <h6 className="entries">
+              Delivery Location:{this.props.deliveryLocation}
+            </h6>
+            <h6 className="entries">Land Mark:{this.props.landMark}</h6>
+            <h6 className="entries">Region:{this.props.region}</h6>
           </Col>
         </div>
       );
@@ -41,42 +68,63 @@ class UserProfile extends Component {
 
   render() {
     return (
-      <div className="container-fluid">
-        <Row>
-          <h4 className="header">Your Profile</h4>
-          <hr />
-        </Row>
-        <Row>
-          <Col></Col>
-          <Col className="but">
-            <button
-              onClick={() => {
-                this.setState({ button: { profileBtn: "on" } });
-              }}
-              className="pro-edit"
-            >
-              Profile
-            </button>
-            <button
-              onClick={() => {
-                this.setState({ button: { editProfileBtn: "on" } });
-              }}
-              className="pro-editt"
-            >
-              Edit Profile
-            </button>
-          </Col>
-          <Col></Col>
-        </Row>
-        <Row>
-          <Col></Col>
-          {this.renderComponent()}
+      <div>
+        {/*<div>
+          <HeaderPage />
+        </div>*/}
+        <div className="container-fluid">
+          <Row>
+            <h4 className="header">Your Profile</h4>
+            <hr />
+          </Row>
+          <Row>
+            <Col></Col>
+            <Col className="but">
+              <button
+                onClick={() => {
+                  this.setState({ button: { profileBtn: "on" } });
+                }}
+                className="pro-edit"
+              >
+                Profile
+              </button>
+              <button
+                onClick={() => {
+                  this.setState({ button: { editProfileBtn: "on" } });
+                }}
+                className="pro-editt"
+              >
+                Edit Profile
+              </button>
+            </Col>
+            <Col></Col>
+          </Row>
+          <Row>
+            <Col></Col>
+            {this.renderComponent()}
 
-          <Col></Col>
-        </Row>
+            <Col></Col>
+          </Row>
+        </div>
       </div>
     );
   }
 }
 
-export default UserProfile;
+const mapStateToProps = (state) => {
+  console.log("customer details: ", state.customer);
+  console.log(state, "hhhh");
+  return {
+    customers: state.customer,
+    userId: state.users.uid,
+  };
+};
+
+const mapDispatchToProps = () => {
+  return {
+    AddCustomerDetail,
+    getCustomers,
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps())(UserProfile);
