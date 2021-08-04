@@ -23,7 +23,7 @@ class LogIn extends Component {
       this.props.history.push("/dashboard");
     }
     if (role === "customer") {
-      this.props.history.push("/shop");
+      this.props.history.goBack();
     }
   }
 
