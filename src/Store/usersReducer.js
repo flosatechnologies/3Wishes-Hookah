@@ -19,8 +19,6 @@ const usersReducer = (state = initialState, action) => {
     case "LOGGED_IN":
       const loggedInUser = action.payload;
       console.log("theRole:", loggedInUser.role);
-      localStorage.setItem("role", JSON.stringify(loggedInUser.role));
-      localStorage.setItem("login", JSON.stringify(true));
       const therole = loggedInUser.role;
       const name = loggedInUser.firstName;
       return {
