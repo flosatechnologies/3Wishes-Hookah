@@ -68,44 +68,39 @@ class UserProfile extends Component {
 
   render() {
     return (
-      <div>
-        {/*<div>
-          <HeaderPage />
-        </div>*/}
-        <div className="container-fluid">
-          <Row>
-            <h4 className="header">Your Profile</h4>
-            <hr />
-          </Row>
-          <Row>
-            <Col></Col>
-            <Col className="but">
-              <button
-                onClick={() => {
-                  this.setState({ button: { profileBtn: "on" } });
-                }}
-                className="pro-edit"
-              >
-                Profile
-              </button>
-              <button
-                onClick={() => {
-                  this.setState({ button: { editProfileBtn: "on" } });
-                }}
-                className="pro-editt"
-              >
-                Edit Profile
-              </button>
-            </Col>
-            <Col></Col>
-          </Row>
-          <Row>
-            <Col></Col>
-            {this.renderComponent()}
+      <div className="container-fluid">
+        <Row>
+          <h4 className="header">Your Profile</h4>
+          <hr />
+        </Row>
+        <Row>
+          <Col></Col>
+          <Col className="but">
+            <button
+              onClick={() => {
+                this.setState({ button: { profileBtn: "on" } });
+              }}
+              className="pro-edit"
+            >
+              Profile
+            </button>
+            <button
+              onClick={() => {
+                this.setState({ button: { editProfileBtn: "on" } });
+              }}
+              className="pro-editt"
+            >
+              Edit Profile
+            </button>
+          </Col>
+          <Col></Col>
+        </Row>
+        <Row>
+          <Col></Col>
+          {this.renderComponent()}
 
-            <Col></Col>
-          </Row>
-        </div>
+          <Col></Col>
+        </Row>
       </div>
     );
   }

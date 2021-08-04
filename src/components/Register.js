@@ -45,7 +45,7 @@ class Register extends Component {
           style={{
             background: "linear-gradient(135deg, #98d8a6, #56be6c)",
             width: "100%",
-            minHeight: "97vh",
+            minHeight: "88vh",
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
