@@ -1,14 +1,14 @@
 import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../css/UserProfile.css";
-import Container from "react-bootstrap/Container";
+// import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import CustomerDetails from "./CustomerDetailsPage";
 import { connect } from "react-redux";
 import { AddCustomerDetail, getCustomers } from "./../Store/custDetailActions";
 import firebase from "firebase";
-import { HeaderPage } from "../components/HeaderPage";
+// import { HeaderPage } from "../components/HeaderPage";
 
 class UserProfile extends Component {
   constructor(props) {
@@ -21,20 +21,24 @@ class UserProfile extends Component {
     };
   }
 
+  getCustomers(firestore) {
+    const customers = [];
+    firestore
+      .collection("customers")
+      .get()
+      .then((snapshot) => {
+        snapshot.docs.forEach((customer) => {
+          let userId = customer.Id;
+          let appObj = { ...customer.data(), userId };
+          customers.push(appObj);
+          getCustomers.push(customer.data());
+        });
+        getCustomers();
+      });
+  }
+
   componentDidMount() {
-    // const getCustomers = async () => {
-    //   // const db = firebase.firestore();
-    //   // const customerRef = db.collection("customers");
-    //   // const customers = await customerRef.get();
-    //   // console.log("customers", customers);
-
-    //   // customers.forEach((doc) => {
-    //   //   this.setState({ customers: [...this.props.customers, doc.data()] });
-    //   // });
-
-    // };
-    this.props.getCustomers();
-    // getCustomers();
+    getCustomers();
   }
 
   renderComponent = () => {
@@ -42,16 +46,22 @@ class UserProfile extends Component {
       return (
         <div>
           <Col>
-            <h6 className="entries">Full Name:{this.props.fullName}</h6>
-            <h6 className="entries">Phone Number:{this.props.phoneNumber}</h6>
             <h6 className="entries">
-              Ghana Post GPS:{this.props.ghanaPostGps}
+              Full Name:{this.state.customers.fullName}
             </h6>
             <h6 className="entries">
-              Delivery Location:{this.props.deliveryLocation}
+              Phone Number:{this.state.customers.phoneNumber}
             </h6>
-            <h6 className="entries">Land Mark:{this.props.landMark}</h6>
-            <h6 className="entries">Region:{this.props.region}</h6>
+            <h6 className="entries">
+              Ghana Post GPS:{this.state.customers.ghanaPostGps}
+            </h6>
+            <h6 className="entries">
+              Delivery Location:{this.state.customers.deliveryLocation}
+            </h6>
+            <h6 className="entries">
+              Land Mark:{this.state.customers.landMark}
+            </h6>
+            <h6 className="entries">Region:{this.state.customers.region}</h6>
           </Col>
         </div>
       );
