@@ -74,11 +74,12 @@ class ProductsScreenDashboard extends Component {
 
       if (this.state.button.deleteProduct === "activebtn") {
         return (
-          <div>
+          <div className="deleteDialogBox">
+            <div className="dialogBoxTitle">Confirm Delete</div>
             <div className="messageContainer">
-              <p>Are you sure you want to delete product</p>
+              Are you sure you want to delete product ?
             </div>
-            <div className="buttonsContainer">
+            <div className="deleteDialogButtonsContainer">
               <div>
                 <button onClick={this.handleDeleteProduct}>Yes</button>
               </div>
@@ -126,6 +127,11 @@ class ProductsScreenDashboard extends Component {
                   />
                 );
               })}
+            </div>
+            <div>
+              {/* {
+                this.state.button.deleteProduct === "activebtn" ? 
+              } */}
             </div>
           </div>
         );

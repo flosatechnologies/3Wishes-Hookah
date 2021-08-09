@@ -27,3 +27,8 @@
   color: white;
   border-color: white;
 }
+
+.dialogBoxTitle {
+  text-transform: uppercase;
+  color: gray;
+}
