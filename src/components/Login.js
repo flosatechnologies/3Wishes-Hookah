@@ -106,7 +106,7 @@ class LogIn extends Component {
 }
 
 const mapStateToProps = (state) => {
-  console.log(state.users);
+  // console.log(state.users);
   return {
     state,
   };

@@ -16,7 +16,7 @@ export const CustomerDetailReducer = (state = initialState, action) => {
       };
       return { ...state, customers: [...state.customers, newCustomer] };
     case "GET_CUSTOMERS":
-      return { ...state, customers: action.payload };
+      return { ...state, customers: action.payload};
     default:
       return state;
   }

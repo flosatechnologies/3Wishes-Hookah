@@ -11,6 +11,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 90vh !important;
 }
 .app-wrapper {
   background-color: rgb(44, 40, 40);
