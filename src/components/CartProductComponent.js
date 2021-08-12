@@ -75,7 +75,7 @@ class CartProductComponent extends React.Component {
                   name="qty"
                   pattern="[0-9]"
                   onChange={this.handleChange}
-                  value={this.state.qty}
+                  value={this.props.qty}
                 />
               </div>
               <div className="decrementBtnContainer">

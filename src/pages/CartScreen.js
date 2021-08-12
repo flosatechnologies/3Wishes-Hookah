@@ -61,7 +61,7 @@ class CartScreen extends React.Component {
           <div>
             {
               (console.log("cartProducts: ", this.props.cart),
-              this.state.cartProduct.map((cartProd) => (
+              this.props.cart.map((cartProd) => (
                 <CartProductComponent
                   productName={cartProd.product.product}
                   unitPrice={cartProd.product.price}
