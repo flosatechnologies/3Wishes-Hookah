@@ -13,17 +13,29 @@ function UserComponentDashboard(props) {
       </div>
 
       <div className="userDetailsContainer">
-        <div className="dashboardUserFullName">{props.fullName}</div>
+        <div className="dashboardUserFullName">
+          {props.firstName + " " + props.otherNames}
+        </div>
 
         <div className="dashboardUserEmail">{props.email}</div>
         <div className="dashboardUserPhone">{props.phone}</div>
 
         <div className="adminUserEditAndDeleteButtonContainer">
           <div className="onlyAdminUserEditButtonContainer">
-            <button className="adminUserEditButton">edit</button>
+            <button
+              onClick={() => props.Edit(props.Id)}
+              className="adminUserEditButton"
+            >
+              edit
+            </button>
           </div>
           <div className="adminUserDeleteButtonContainer">
-            <button className="adminUserDeleteButton">delete</button>
+            <button
+              onClick={() => props.Delete(props.Id)}
+              className="adminUserDeleteButton"
+            >
+              delete
+            </button>
           </div>
         </div>
       </div>

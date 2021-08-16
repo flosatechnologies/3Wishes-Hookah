@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "../css/CreateAccountDashboard.css";
+import "../css/editAccountComponent.css";
 import { userRegistration } from "../Store/authActions";
 import { connect } from "react-redux";
 import profileImg from "../assets/images/userImage.png";
 import { FaRegImage } from "react-icons/fa";
 
-class CreateAccountDashboard extends Component {
+class EditAccountComponent extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -14,12 +14,12 @@ class CreateAccountDashboard extends Component {
       otherNames: "",
       phoneNumber: "",
       email: "",
-      role: "admin",
       password: "",
-
       confirmPassword: "",
       profileImg: "",
       profileImgDisplayVersion: profileImg,
+      users: this.props.theAdmins,
+      userId: this.props.userId,
     };
   }
   handleChange = (e) => {
@@ -47,6 +47,18 @@ class CreateAccountDashboard extends Component {
 
     console.log(e.target.files[0]);
   };
+  componentDidMount() {
+    let filtered = this.state.users.filter(
+      (admin) => admin.Id === this.state.userId
+    );
+    console.log("filtered: ", filtered);
+    this.setState({
+      firstName: filtered[0].firstName,
+      otherNames: filtered[0].otherNames,
+      phoneNumber: filtered[0].phoneNumber,
+      email: filtered[0].email,
+    });
+  }
 
   render() {
     return (
@@ -61,14 +73,19 @@ class CreateAccountDashboard extends Component {
               />
             </div>
 
-            <div className="chooseImgButtonContainer">
-              <label htmlFor="profileImg" className="image-upload">
-                <div className="chooseImgButton">Choose image</div>
+            <div className="chooseImgButtonContainer-EditAcntComponent">
+              <label
+                htmlFor="profileImg-EditAcntComponent"
+                className="image-upload"
+              >
+                <div className="chooseImgButton-EditAcntComponent">
+                  Choose image
+                </div>
                 <input
                   type="file"
                   required="true"
                   name="profileImg"
-                  id="profileImg"
+                  id="profileImg-EditAcntComponent"
                   accept="image/*"
                   onChange={this.imageHandler}
                 />
@@ -76,76 +93,86 @@ class CreateAccountDashboard extends Component {
             </div>
           </div>
           <form onSubmit={this.handleSubmit}>
-            <div className="accntInfoText">Account Information</div>
-            <div className="firstAndOtherNamesContainer">
-              <div className="firstNameContainer">
+            <div className="accntInfoText-EditAcntComponent">
+              Account Information
+            </div>
+            <div className="firstAndOtherNamesContainer-EditAcntComponent">
+              <div className="firstNameContainer-EditAcntComponent">
                 <input
-                  className="firstNameInput"
-                  id="firstNameInputId"
+                  className="firstNameInput-EditAcntComponent"
+                  id="firstNameInputId-EditAcntComponent"
                   type="text"
                   name="firstName"
                   placeholder="First Name"
+                  value={this.state.firstName}
                   onChange={this.handleChange}
                 />
               </div>
-              <div className="otherNamesContainer">
+              <div className="otherNamesContainer-EditAcntComponent">
                 <input
-                  className="otherNamesInput"
-                  id="otherNamesInputId"
+                  className="otherNamesInput-EditAcntComponent"
+                  id="otherNamesInputId-EditAcntComponent"
                   type="text"
                   name="otherNames"
                   placeholder="Other Names"
+                  value={this.state.otherNames}
                   onChange={this.handleChange}
                 />
               </div>
             </div>
-            <div className="emailAndPhoneNumberContainer">
-              <div className="emailContainer">
+            <div className="emailAndPhoneNumberContainer-EditAcntComponent">
+              <div className="emailContainer-EditAcntComponent">
                 <input
-                  className="emailInput"
-                  id="emailInputId"
+                  className="emailInput-EditAcntComponent"
+                  id="emailInputId-EditAcntComponent"
                   type="email"
                   name="email"
                   placeholder="Email Address"
+                  value={this.state.email}
                   onChange={this.handleChange}
                 />
               </div>
-              <div className="phoneNumberContainer">
+              <div className="phoneNumberContainer-EditAcntComponent">
                 <input
-                  className="phoneNumberInput"
+                  className="phoneNumberInput-EditAcntComponent"
                   id="phoneNumberInputId"
                   type="tel"
                   name="phoneNumber"
                   placeholder="Phone Number"
+                  value={this.state.phoneNumber}
                   onChange={this.handleChange}
                 />
               </div>
             </div>
-            <div className="passwordDetailsText">Password Details</div>
-            <div className="passwordContainer">
+            <div className="passwordDetailsText-EditAcntComponent">
+              Password Details
+            </div>
+            <div className="passwordContainer-EditAcntComponent">
               <input
-                className="passwordInput"
+                className="passwordInput-EditAcntComponent"
                 type="password"
                 name="password"
                 placeholder="Password"
+                value={this.state.password}
                 onChange={this.handleChange}
               />
             </div>
 
-            <div className="confirmPasswordContainer">
+            <div className="confirmPasswordContainer-EditAcntComponent">
               <input
-                className="confirmPasswordInput"
+                className="confirmPasswordInput-EditAcntComponent"
                 type="password"
                 name="confirmPassword"
                 placeholder="Confirm Password"
+                value={this.state.confirmPassword}
                 onChange={this.handleChange}
               />
             </div>
-            <div className="registerButtonContainer">
+            <div className="registerButtonContainer-EditAcntComponent">
               <input
-                className="registerButton"
+                className="registerButton-EditAcntComponent"
                 type="submit"
-                value="Register"
+                value="Update"
               />
             </div>
           </form>
@@ -171,4 +198,4 @@ const mapDispatchToProps = () => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps()
-)(CreateAccountDashboard);
+)(EditAccountComponent);

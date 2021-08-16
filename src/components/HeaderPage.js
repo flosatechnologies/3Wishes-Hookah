@@ -16,8 +16,8 @@ export class HeaderPage extends Component {
   // }
 
   render() {
-    const login = JSON.parse(localStorage.getItem("login"));
-    const role = JSON.parse(localStorage.getItem("role"));
+    // const login = JSON.parse(localStorage.getItem("login"));
+    // const role = JSON.parse(localStorage.getItem("role"));
 
     return (
       <div>
@@ -76,15 +76,18 @@ export class HeaderPage extends Component {
                   </div>
                 </Nav.Link>
               </LinkContainer>
-              {!login || (login && role === "admin") ? (
+              {!this.props.state.auth.login ||
+              (this.props.state.auth.login &&
+                this.props.state.auth.role === "admin") ? (
                 <LinkContainer to="/login">
                   <Nav.Link className="mr-sm-5">Login</Nav.Link>
                 </LinkContainer>
               ) : (
                 <NavDropdown title={<BsPerson />} id="collasible-nav-dropdown">
-                  {/* <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item> */}
-                  <NavDropdown.Item href="/userProfile">
-                    Profile
+                  <NavDropdown.Item href="#">
+                    <LinkContainer to="/userProfile">
+                      <div style={{ color: "black" }}>Profile</div>
+                    </LinkContainer>
                   </NavDropdown.Item>
                   <NavDropdown.Item href="#action/3.3">
                     Address
@@ -117,10 +120,10 @@ export class HeaderPage extends Component {
 }
 
 const mapStateToProps = (state) => {
-  console.log(state.users);
+  console.log(state.auth);
   return {
     state,
-    name: state.users.displayName,
+    name: state.auth.displayName,
     cart: state.cart.cart,
   };
 };

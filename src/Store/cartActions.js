@@ -14,7 +14,6 @@ export const quantityIncrease = (Id) => {
 export const quantityDecrease = (Id) => {
   return {
     type: "QUANTITY_DECREASE",
-
     Id,
   };
 };

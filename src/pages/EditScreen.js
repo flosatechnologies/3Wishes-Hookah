@@ -105,26 +105,30 @@ class Edit extends Component {
         <Row className="product-row">
           <Col className="image-section">
             <div className="image-heading">Product Image</div>
-            <div className="image-holder">
-              <img
-                src={this.state.profileImg}
-                alt="image"
-                // id=""
-                className="img-responsive"
-              />
-            </div>
-            <input
-              type="file"
-              name="image-upload"
-              id="input"
-              accept="image/*"
-              onChange={this.imageHandler}
-            />
-            <div className="label">
-              <label htmlFor="input" className="image-upload">
-                <FaRegImage />
-                Select
-              </label>
+            <div className="productImageSection-EditProduct">
+              <div className="image-holder">
+                <img
+                  src={this.state.profileImg}
+                  alt="image"
+                  className="img-responsive"
+                />
+              </div>
+
+              <div className="selectImgBtnContainer-EditProduct">
+                <label htmlFor="input-editProduct" className="image-upload">
+                  <div className="selectImg-EditProduct">
+                    <FaRegImage style={{ marginRight: "8px" }} />
+                    select
+                  </div>
+                  <input
+                    type="file"
+                    name="image-upload"
+                    id="input-editProduct"
+                    accept="image/*"
+                    onChange={this.imageHandler}
+                  />
+                </label>
+              </div>
             </div>
           </Col>
           <Col className="form-input">

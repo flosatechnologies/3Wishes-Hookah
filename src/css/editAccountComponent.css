@@ -1,20 +1,20 @@
-.firstLevelContainer {
+.firstLevelContainer-EditAcntComponent {
   position: absolute;
   left: 25%;
 }
-.theMainContainer {
+.theMainContainer-EditAcntComponent {
   margin-top: 10px;
   padding: 10px;
   background-color: white;
   width: fit-content;
 }
-.firstAndOtherNamesContainer {
+.firstAndOtherNamesContainer-EditAcntComponent {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   margin-bottom: 3%;
 }
-input.firstNameInput {
+input.firstNameInput-EditAcntComponent {
   border-style: solid;
   border-color: "#eee";
   border-radius: 5px;
@@ -24,7 +24,7 @@ input.firstNameInput {
   font-size: 15px;
   width: 85px;
 }
-input.otherNamesInput {
+input.otherNamesInput-EditAcntComponent {
   border-style: solid;
   border-color: "#eee";
   border-radius: 5px;
@@ -34,10 +34,10 @@ input.otherNamesInput {
   width: 220px;
 }
 
-.emailInput,
-.phoneNumberInput,
-.confirmPasswordInput,
-.passwordInput {
+.emailInput-EditAcntComponent,
+.phoneNumberInput-EditAcntComponent,
+.confirmPasswordInput-EditAcntComponent,
+.passwordInput-EditAcntComponent {
   border-style: solid;
   border-color: "#eee";
   border-radius: 5px;
@@ -46,7 +46,7 @@ input.otherNamesInput {
   font-size: 15px;
 }
 
-.emailAndPhoneNumberContainer {
+.emailAndPhoneNumberContainer-EditAcntComponent {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -54,31 +54,31 @@ input.otherNamesInput {
   width: inherit;
 }
 
-.emailContainer {
+.emailContainer-EditAcntComponent {
   margin-right: 3%;
   width: 47%;
 }
-#emailInputId {
+#emailInputId-EditAcntComponent {
   width: 115%;
 }
-#phoneNumberInputId {
+#phoneNumberInputId-EditAcntComponent {
   width: 68%;
   margin-left: 12%;
 }
-.passwordContainer {
+.passwordContainer-EditAcntComponent {
   margin-bottom: 2%;
 }
 
-.confirmPasswordContainer {
+.confirmPasswordContainer-EditAcntComponent {
   margin-bottom: 2%;
 }
 
-.registerButtonContainer {
+.registerButtonContainer-EditAcntComponent {
   margin-top: 1%;
   margin-bottom: 5%;
 }
 
-.registerButton {
+.registerButton-EditAcntComponent {
   padding: 0px 15px;
   border-style: solid;
   border-width: 1px;
@@ -86,16 +86,16 @@ input.otherNamesInput {
   border-radius: 3px;
   background-color: transparent;
 }
-.registerButton:hover,
-.registerButton:active,
-.registerButton:focus {
+.registerButton-EditAcntComponent:hover,
+.registerButton-EditAcntComponent:active,
+.registerButton-EditAcntComponent:focus {
   border-style: none;
   border-radius: 3px;
   background-color: #076f1d;
   color: white;
 }
 
-.chooseImgButton {
+.chooseImgButton-EditAcntComponent {
   /* margin-top: 2.5%; */
   border-style: none;
   background-color: antiquewhite;
@@ -105,15 +105,15 @@ input.otherNamesInput {
   border-radius: 5px;
   width: 150px;
 }
-.chooseImgButton:hover {
+.chooseImgButton-EditAcntComponent:hover {
   background: #1bbc1b;
 }
 
-.profileImgSection {
+.profileImgSection-EditAcntComponent {
   display: flex;
   flex-direction: row;
 }
-.profileImgContainer {
+.profileImgContainer-EditAcntComponent {
   width: 155px;
   height: 155px;
   border-style: solid;
@@ -123,18 +123,18 @@ input.otherNamesInput {
   padding: 1px;
   border-radius: 5px;
 }
-.chooseImgButtonContainer {
+.chooseImgButtonContainer-EditAcntComponent {
   margin-top: 125px;
 }
 
-.profileImage {
+.profileImage-EditAcntComponent {
   width: 150px;
   height: 150px;
   border-radius: 5px;
   text-align: center;
 }
-.accntInfoText,
-.passwordDetailsText {
+.accntInfoText-EditAcntComponent,
+.passwordDetailsText-EditAcntComponent {
   margin-top: 15px;
   margin-bottom: 5px;
   color: black;
