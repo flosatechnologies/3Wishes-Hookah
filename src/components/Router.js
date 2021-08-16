@@ -1,6 +1,7 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
 import ProtectedRoute from "./ProtectedRoute";
+import PrivateRoute from "./PrivateRoute";
 import CarouselPage from "../pages/CarouselPage";
 import ShopPage from "../pages/ShopPage";
 import ContactPage from "../pages/ContactPage";
@@ -10,12 +11,12 @@ import Edit from "../pages/EditScreen";
 import DeliveryScreen from "../pages/DeliveryScreen";
 import CartScreen from "../pages/CartScreen";
 import CheckoutScreen from "../pages/CheckoutScreen";
-import Register from "../components/Register";
-import LogIn from "../components/Login";
-import LogOut from "../components/LogOut";
+import Register from "./Register";
+import LogIn from "./Login";
+import LogOut from "./LogOut";
 import CustomerDetails from "../pages/CustomerDetailsPage";
 import { connect } from "react-redux";
-import UserProfile from "./../pages/UserProfilePage";
+import UserProfile from "../pages/UserProfilePage";
 
 function RouterComponent(props) {
   return (
@@ -29,10 +30,10 @@ function RouterComponent(props) {
       <Route path="/edit" component={Edit} />
       <Route path="/delivery" component={DeliveryScreen} />
       <Route path="/signup" component={Register} />
-      <Route path="/checkout" component={CheckoutScreen} />
+      <PrivateRoute path="/checkout" component={CheckoutScreen} />
       <Route path="/logOut" component={LogOut} />
       <Route path="/customerDetails" component={CustomerDetails} />
-      <Route path="/userprofile" component={UserProfile} />
+      <Route path="/userProfile" component={UserProfile} />
       <ProtectedRoute path="/dashboard" component={Dashboard} />
     </div>
   );

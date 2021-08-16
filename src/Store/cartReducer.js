@@ -1,4 +1,4 @@
-import { isEmpty } from "react-redux-firebase";
+// import { isEmpty } from "react-redux-firebase";
 
 const initialState = {
   cart: [],

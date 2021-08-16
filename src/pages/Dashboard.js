@@ -68,6 +68,43 @@ class Dashboard extends Component {
           </div>
         );
       }
+
+      if (this.state.buttonState.logout === "active") {
+        return (
+          <div>
+            <div className="logOutDialogBoxContainer">
+              <div className=" logOutHeaderContainer">
+                <p>CONFIRMATION</p>
+              </div>
+              <div className=" logOutmessageContainer">
+                <p>Are you sure you want to Logout</p>
+              </div>
+              <div className="logOutButtonsContainer">
+                <div>
+                  <button onClick={this.props.logoutUser()}>Yes</button>
+                </div>
+                <div>
+                  <button
+                    onClick={() => {
+                      this.setState({
+                        buttonState: {
+                          product: "active",
+                          payment: "inactive",
+                          delivery: "inactive",
+                          users: "inactive",
+                          logout: "inactive",
+                        },
+                      });
+                    }}
+                  >
+                    No
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        );
+      }
     };
 
     return (
@@ -87,7 +124,7 @@ class Dashboard extends Component {
                 </div>
                 <div className="profileWelcomeMessage">
                   <div className="userWelcome">Welcome,</div>
-                  <div> {this.props.state.users.displayName} </div>
+                  <div> {this.props.state.auth.displayName} </div>
                 </div>
               </div>
             </div>
@@ -185,7 +222,6 @@ class Dashboard extends Component {
                       logout: "active",
                     },
                   });
-                  this.props.logoutUser();
                 }}
                 id={this.state.buttonState.logout}
                 className="dashboardButtons"

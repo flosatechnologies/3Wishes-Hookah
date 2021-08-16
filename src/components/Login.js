@@ -17,13 +17,13 @@ class LogIn extends Component {
   }
 
   async componentDidUpdate() {
-    const role = await this.props.state.users.role;
+    const role = await this.props.state.auth.role;
 
     if (role === "admin") {
       this.props.history.push("/dashboard");
     }
     if (role === "customer") {
-      this.props.history.push("/shop");
+      this.props.history.goBack();
     }
   }
 

@@ -74,31 +74,36 @@ class ProductsScreenDashboard extends Component {
 
       if (this.state.button.deleteProduct === "activebtn") {
         return (
-          <div>
-            <div className="messageContainer">
-              <p>Are you sure you want to delete product</p>
-            </div>
-            <div className="buttonsContainer">
-              <div>
-                <button onClick={this.handleDeleteProduct}>Yes</button>
+          /*BEGINING OF DELETE CONFIRMATION DIALOGUE BOX */
+          <div className="dialogBoxMainContainer">
+            <div className="dialogBoxContainer">
+              <div className=" headerContainer">CONFIRMATION</div>
+              <div className=" messageContainer">
+                <p>Are you sure you want to delete product</p>
               </div>
-              <div>
-                <button
-                  onClick={() => {
-                    this.setState({
-                      button: {
-                        addProduct: "inactivebtn",
-                        editProduct: "inactivebtn",
-                        deleteProduct: "inactivebth",
-                      },
-                    });
-                  }}
-                >
-                  No
-                </button>
+              <div className="buttonsContainer">
+                <div>
+                  <button onClick={this.handleDeleteProduct}>Yes</button>
+                </div>
+                <div>
+                  <button
+                    onClick={() => {
+                      this.setState({
+                        button: {
+                          addProduct: "inactivebtn",
+                          editProduct: "inactivebtn",
+                          deleteProduct: "inactivebth",
+                        },
+                      });
+                    }}
+                  >
+                    No
+                  </button>
+                </div>
               </div>
             </div>
           </div>
+          /*END OF DELETE CONFIRMATION DIALOGUE BOX */
         );
       }
 

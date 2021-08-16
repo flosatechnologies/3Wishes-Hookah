@@ -54,3 +54,16 @@ textarea {
   align-items: center;
   cursor: pointer;
 }
+
+.selectImg-EditProduct {
+  background-color: white;
+  margin-top: 15px;
+  padding: 1px 10px;
+  border-radius: 3px;
+}
+
+.selectImg-EditProduct:hover,
+.selectImg-EditProduct:active {
+  background-color: green;
+  color: white;
+}

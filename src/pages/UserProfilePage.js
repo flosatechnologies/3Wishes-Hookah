@@ -8,6 +8,7 @@ import CustomerDetails from "./CustomerDetailsPage";
 import { connect } from "react-redux";
 import { AddCustomerDetail, getCustomers } from "./../Store/custDetailActions";
 import firebase from "firebase";
+import { HeaderPage } from "../components/HeaderPage";
 // import { HeaderPage } from "../components/HeaderPage";
 
 class UserProfile extends Component {
@@ -21,24 +22,8 @@ class UserProfile extends Component {
     };
   }
 
-  getCustomers(firestore) {
-    const customers = [];
-    firestore
-      .collection("customers")
-      .get()
-      .then((snapshot) => {
-        snapshot.docs.forEach((customer) => {
-          let userId = customer.Id;
-          let appObj = { ...customer.data(), userId };
-          customers.push(appObj);
-          getCustomers.push(customer.data());
-        });
-        getCustomers();
-      });
-  }
-
   componentDidMount() {
-    getCustomers();
+    this.props.getCustomers();
   }
 
   renderComponent = () => {
@@ -78,39 +63,42 @@ class UserProfile extends Component {
 
   render() {
     return (
-      <div className="container-fluid userProfileContainer">
-        <Row>
-          <h4 className="header">Your Profile</h4>
-          <hr />
-        </Row>
-        <Row>
-          <Col></Col>
-          <Col className="but">
-            <button
-              onClick={() => {
-                this.setState({ button: { profileBtn: "on" } });
-              }}
-              className="pro-edit"
-            >
-              Profile
-            </button>
-            <button
-              onClick={() => {
-                this.setState({ button: { editProfileBtn: "on" } });
-              }}
-              className="pro-editt"
-            >
-              Edit Profile
-            </button>
-          </Col>
-          <Col></Col>
-        </Row>
-        <Row>
-          <Col></Col>
-          {this.renderComponent()}
+      <div>
+        {/* <HeaderPage /> */}
+        <div className="container-fluid userProfileContainer">
+          <Row>
+            <h4 className="header">Your Profile</h4>
+            <hr />
+          </Row>
+          <Row>
+            <Col></Col>
+            <Col className="but">
+              <button
+                onClick={() => {
+                  this.setState({ button: { profileBtn: "on" } });
+                }}
+                className="pro-edit"
+              >
+                Profile
+              </button>
+              <button
+                onClick={() => {
+                  this.setState({ button: { editProfileBtn: "on" } });
+                }}
+                className="pro-editt"
+              >
+                Edit Profile
+              </button>
+            </Col>
+            <Col></Col>
+          </Row>
+          <Row>
+            <Col></Col>
+            {this.renderComponent()}
 
-          <Col></Col>
-        </Row>
+            <Col></Col>
+          </Row>
+        </div>
       </div>
     );
   }
@@ -118,9 +106,10 @@ class UserProfile extends Component {
 
 const mapStateToProps = (state) => {
   console.log("customer details: ", state.customer);
-  console.log(state, "hhhh");
+
   return {
     customers: state.customer,
+
     userId: state.users.uid,
   };
 };

@@ -2,8 +2,11 @@ import React from "react";
 import { connect } from "react-redux";
 import { Route, Redirect } from "react-router-dom";
 
-function ProtectedRoute({ component: Component, login, role, ...rest }) {
-  if (login && role === "admin") {
+function PrivateRoute({ component: Component, login, role, ...rest }) {
+  // const role = JSON.parse(localStorage.getItem("role"));
+  // const login = JSON.parse(localStorage.getItem("login"));
+  // if (!auth.isLoaded) return null;
+  if (login && role === "customer") {
     return (
       <Route
         {...rest}
@@ -27,8 +30,8 @@ function ProtectedRoute({ component: Component, login, role, ...rest }) {
 
 const mapStateToProps = (state) => {
   return {
-    role: state.auth.role,
-    login: state.auth.login,
+    role: state.users.role,
+    login: state.users.login,
   };
 };
-export default connect(mapStateToProps)(ProtectedRoute);
+export default connect(mapStateToProps)(PrivateRoute);

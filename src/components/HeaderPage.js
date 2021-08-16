@@ -16,8 +16,8 @@ export class HeaderPage extends Component {
   // }
 
   render() {
-    const login = JSON.parse(localStorage.getItem("login"));
-    const role = JSON.parse(localStorage.getItem("role"));
+    // const login = JSON.parse(localStorage.getItem("login"));
+    // const role = JSON.parse(localStorage.getItem("role"));
 
     return (
       <div>
@@ -76,13 +76,17 @@ export class HeaderPage extends Component {
                   </div>
                 </Nav.Link>
               </LinkContainer>
-              {!login || (login && role === "admin") ? (
+              {!this.props.state.users.login ||
+              (this.props.state.users.login &&
+                this.props.state.users.role === "admin") ? (
                 <LinkContainer to="/login">
                   <Nav.Link className="mr-sm-5">Login</Nav.Link>
                 </LinkContainer>
               ) : (
                 <NavDropdown title={<BsPerson />} id="collasible-nav-dropdown">
-                  {/* <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item> */}
+                  <LinkContainer to="/login">
+                    <Nav.Link className="mr-sm-5">Login</Nav.Link>
+                  </LinkContainer>
                   <NavDropdown.Item href="/userProfile">
                     Profile
                   </NavDropdown.Item>
