@@ -52,6 +52,9 @@ class UsersScreenDashboard extends Component {
     });
   };
   render() {
+    const filtered = this.props.users.filter(
+      (admin) => admin.role === "admin" && admin.email !== "admin@admin.com"
+    );
     const handleRenderScreen = () => {
       if (this.state.button.addUser === "activebtn") {
         return (
@@ -70,10 +73,18 @@ class UsersScreenDashboard extends Component {
       if (this.state.button.addUser === "inactivebtn") {
         return (
           <div className="container arrayOfUsers">
-            <div className="row">{
-              this.props.users.(admin => {
-              })
-            }</div>
+            <div className="row">
+              {filtered.map((users) => (
+                <UserComponentDashboard
+                  fullname={users.otherNames}
+                  email={users.email}
+                  phone={users.phone}
+                  Id={users.Id}
+                  Edit={(id) => this.handleActivateEdit(id)}
+                  Delete={(id) => this.handleActivateDelete(id)}
+                />
+              ))}
+            </div>
           </div>
         );
       }

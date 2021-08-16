@@ -30,8 +30,8 @@ function PrivateRoute({ component: Component, login, role, ...rest }) {
 
 const mapStateToProps = (state) => {
   return {
-    role: state.users.role,
-    login: state.users.login,
+    role: state.auth.role,
+    login: state.auth.login,
   };
 };
 export default connect(mapStateToProps)(PrivateRoute);

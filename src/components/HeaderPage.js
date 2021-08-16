@@ -76,9 +76,9 @@ export class HeaderPage extends Component {
                   </div>
                 </Nav.Link>
               </LinkContainer>
-              {!this.props.state.users.login ||
-              (this.props.state.users.login &&
-                this.props.state.users.role === "admin") ? (
+              {!this.props.state.auth.login ||
+              (this.props.state.auth.login &&
+                this.props.state.auth.role === "admin") ? (
                 <LinkContainer to="/login">
                   <Nav.Link className="mr-sm-5">Login</Nav.Link>
                 </LinkContainer>
@@ -121,10 +121,10 @@ export class HeaderPage extends Component {
 }
 
 const mapStateToProps = (state) => {
-  console.log(state.users);
+  console.log(state.auth);
   return {
     state,
-    name: state.users.displayName,
+    name: state.auth.displayName,
     cart: state.cart.cart,
   };
 };
