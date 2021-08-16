@@ -18,26 +18,20 @@ class UserProfile extends Component {
         profileBtn: "off",
         editProfileBtn: "off",
       },
+      customer: [],
     };
   }
 
-  getCustomers(firestore) {
-    const customers = [];
-    firestore
-      .collection("customers")
-      .get()
-      .then((snapshot) => {
-        snapshot.docs.forEach((customer) => {
-          let userId = customer.Id;
-          let appObj = { ...customer.data(), userId };
-          customers.push(appObj);
-          getCustomers.push(customer.data());
-        });
-        getCustomers();
-      });
-  }
-
   componentDidMount() {
+    const getCustomers = async () => {
+      const db = firebase.firestore();
+      const detailRef = db.collection("customers");
+      const details = await detailRef.get();
+
+      details.forEach((doc) => {
+        this.setState({ customer: [...this.state.customer, doc.data()] });
+      });
+    };
     getCustomers();
   }
 
@@ -47,21 +41,21 @@ class UserProfile extends Component {
         <div>
           <Col>
             <h6 className="entries">
-              Full Name:{this.state.customers.fullName}
+              Full Name:{this.state.customer.fullName}
             </h6>
             <h6 className="entries">
-              Phone Number:{this.state.customers.phoneNumber}
+              Phone Number:{this.state.customer.phoneNumber}
             </h6>
             <h6 className="entries">
-              Ghana Post GPS:{this.state.customers.ghanaPostGps}
+              Ghana Post GPS:{this.state.customer.ghanaPostGps}
             </h6>
             <h6 className="entries">
-              Delivery Location:{this.state.customers.deliveryLocation}
+              Delivery Location:{this.state.customer.deliveryLocation}
             </h6>
             <h6 className="entries">
-              Land Mark:{this.state.customers.landMark}
+              Land Mark:{this.state.customer.landMark}
             </h6>
-            <h6 className="entries">Region:{this.state.customers.region}</h6>
+            <h6 className="entries">Region:{this.state.customer.region}</h6>
           </Col>
         </div>
       );
@@ -119,6 +113,7 @@ class UserProfile extends Component {
 const mapStateToProps = (state) => {
   console.log("customer details: ", state.customer);
   console.log(state, "hhhh");
+  console.log(getCustomers(state), "ne");
   return {
     customers: state.customer,
     userId: state.users.uid,
