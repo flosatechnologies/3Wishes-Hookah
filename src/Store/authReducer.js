@@ -22,8 +22,6 @@ const authReducer = (state = initialState, action) => {
       };
 
     case "LOGGED_OUT":
-      localStorage.setItem("role", JSON.stringify(""));
-      localStorage.setItem("login", JSON.stringify(false));
       return { ...state, login: false, user: "", role: "", displayName: "" };
 
     case "SIGNUP_ERROR":

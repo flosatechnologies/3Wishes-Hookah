@@ -16,7 +16,7 @@ class UserProfile extends Component {
     super(props);
     this.state = {
       button: {
-        profileBtn: "off",
+        profileBtn: "on",
         editProfileBtn: "off",
       },
     };
@@ -31,22 +31,12 @@ class UserProfile extends Component {
       return (
         <div>
           <Col>
-            <h6 className="entries">
-              Full Name:{this.state.customers.fullName}
-            </h6>
-            <h6 className="entries">
-              Phone Number:{this.state.customers.phoneNumber}
-            </h6>
-            <h6 className="entries">
-              Ghana Post GPS:{this.state.customers.ghanaPostGps}
-            </h6>
-            <h6 className="entries">
-              Delivery Location:{this.state.customers.deliveryLocation}
-            </h6>
-            <h6 className="entries">
-              Land Mark:{this.state.customers.landMark}
-            </h6>
-            <h6 className="entries">Region:{this.state.customers.region}</h6>
+            <h6 className="entries">Full Name:{}</h6>
+            <h6 className="entries">Phone Number:{}</h6>
+            <h6 className="entries">Ghana Post GPS:{}</h6>
+            <h6 className="entries">Delivery Location:{}</h6>
+            <h6 className="entries">Land Mark:{}</h6>
+            <h6 className="entries">Region:{}</h6>
           </Col>
         </div>
       );
@@ -110,7 +100,7 @@ const mapStateToProps = (state) => {
   return {
     customers: state.customer,
 
-    userId: state.users.uid,
+    userId: state.auth.userId.Id,
   };
 };
 

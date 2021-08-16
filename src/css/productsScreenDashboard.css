@@ -32,8 +32,7 @@
 div.dialogBoxMainContainer {
   position: absolute;
   top: 20%;
-  left: 5%;
-  width: 88%;
+  left: 35%;
 }
 .dialogBox {
   position: relative;
@@ -42,7 +41,7 @@ div.dialogBoxMainContainer {
 }
 .dialogBoxContainer {
   width: fit-content;
-  height: fit-content;
+  height: 20vh;
   background-color: white;
   padding: 5px;
   border-radius: 5px;

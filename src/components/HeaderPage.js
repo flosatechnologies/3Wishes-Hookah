@@ -84,11 +84,10 @@ export class HeaderPage extends Component {
                 </LinkContainer>
               ) : (
                 <NavDropdown title={<BsPerson />} id="collasible-nav-dropdown">
-                  <LinkContainer to="/login">
-                    <Nav.Link className="mr-sm-5">Login</Nav.Link>
-                  </LinkContainer>
-                  <NavDropdown.Item href="/userProfile">
-                    Profile
+                  <NavDropdown.Item href="#">
+                    <LinkContainer to="/userProfile">
+                      <div style={{ color: "black" }}>Profile</div>
+                    </LinkContainer>
                   </NavDropdown.Item>
                   <NavDropdown.Item href="#action/3.3">
                     Address

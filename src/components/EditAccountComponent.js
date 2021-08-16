@@ -14,12 +14,12 @@ class EditAccountComponent extends Component {
       otherNames: "",
       phoneNumber: "",
       email: "",
-      role: "admin",
       password: "",
-
       confirmPassword: "",
       profileImg: "",
       profileImgDisplayVersion: profileImg,
+      users: this.props.theAdmins,
+      userId: this.props.userId,
     };
   }
   handleChange = (e) => {
@@ -47,6 +47,18 @@ class EditAccountComponent extends Component {
 
     console.log(e.target.files[0]);
   };
+  componentDidMount() {
+    let filtered = this.state.users.filter(
+      (admin) => admin.Id === this.state.userId
+    );
+    console.log("filtered: ", filtered);
+    this.setState({
+      firstName: filtered[0].firstName,
+      otherNames: filtered[0].otherNames,
+      phoneNumber: filtered[0].phoneNumber,
+      email: filtered[0].email,
+    });
+  }
 
   render() {
     return (
@@ -92,6 +104,7 @@ class EditAccountComponent extends Component {
                   type="text"
                   name="firstName"
                   placeholder="First Name"
+                  value={this.state.firstName}
                   onChange={this.handleChange}
                 />
               </div>
@@ -102,6 +115,7 @@ class EditAccountComponent extends Component {
                   type="text"
                   name="otherNames"
                   placeholder="Other Names"
+                  value={this.state.otherNames}
                   onChange={this.handleChange}
                 />
               </div>
@@ -114,6 +128,7 @@ class EditAccountComponent extends Component {
                   type="email"
                   name="email"
                   placeholder="Email Address"
+                  value={this.state.email}
                   onChange={this.handleChange}
                 />
               </div>
@@ -124,6 +139,7 @@ class EditAccountComponent extends Component {
                   type="tel"
                   name="phoneNumber"
                   placeholder="Phone Number"
+                  value={this.state.phoneNumber}
                   onChange={this.handleChange}
                 />
               </div>
@@ -137,6 +153,7 @@ class EditAccountComponent extends Component {
                 type="password"
                 name="password"
                 placeholder="Password"
+                value={this.state.password}
                 onChange={this.handleChange}
               />
             </div>
@@ -147,6 +164,7 @@ class EditAccountComponent extends Component {
                 type="password"
                 name="confirmPassword"
                 placeholder="Confirm Password"
+                value={this.state.confirmPassword}
                 onChange={this.handleChange}
               />
             </div>
@@ -154,7 +172,7 @@ class EditAccountComponent extends Component {
               <input
                 className="registerButton-EditAcntComponent"
                 type="submit"
-                value="Register"
+                value="Update"
               />
             </div>
           </form>

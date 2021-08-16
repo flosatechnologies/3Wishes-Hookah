@@ -34,7 +34,7 @@ class UsersScreenDashboard extends Component {
     this.setState({
       button: {
         addUser: "inactivebtn",
-        editUsr: "activebtn",
+        editUser: "activebtn",
         delUser: "inactivebtn",
         Id: Id,
       },
@@ -45,7 +45,7 @@ class UsersScreenDashboard extends Component {
     this.setState({
       button: {
         addUser: "inactivebtn",
-        editUsr: "inactivebtn",
+        editUser: "inactivebtn",
         delUser: "activebtn",
         Id: Id,
       },
@@ -53,8 +53,9 @@ class UsersScreenDashboard extends Component {
   };
   render() {
     const filtered = this.props.users.filter(
-      (admin) => admin.role === "admin" && admin.email !== "admin@admin.com"
+      (admin) => admin.role === "admin" && admin.firstName !== "Admin"
     );
+    console.log("filteredAdmin: ", filtered);
     const handleRenderScreen = () => {
       if (this.state.button.addUser === "activebtn") {
         return (
@@ -66,7 +67,10 @@ class UsersScreenDashboard extends Component {
       if (this.state.button.editUser === "activebtn") {
         return (
           <div>
-            <EditAccountComponent />
+            <EditAccountComponent
+              userId={this.state.button.Id}
+              theAdmins={this.props.users}
+            />
           </div>
         );
       }
@@ -76,9 +80,11 @@ class UsersScreenDashboard extends Component {
             <div className="row">
               {filtered.map((users) => (
                 <UserComponentDashboard
-                  fullname={users.otherNames}
+                  image={profileImg}
+                  firstName={users.firstName}
+                  otherNames={users.otherNames}
                   email={users.email}
-                  phone={users.phone}
+                  phone={users.phoneNumber}
                   Id={users.Id}
                   Edit={(id) => this.handleActivateEdit(id)}
                   Delete={(id) => this.handleActivateDelete(id)}
