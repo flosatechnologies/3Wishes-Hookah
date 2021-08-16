@@ -3,6 +3,7 @@ import "../css/checkout.css";
 import { FaCheckCircle } from "react-icons/fa";
 import HeaderPage from "../components/HeaderPage";
 import FooterPage from "../components/FooterPage";
+import Flutterwave from "../components/Flutterwave";
 
 function CheckoutScreen() {
   return (
@@ -75,9 +76,10 @@ function CheckoutScreen() {
             </div>
           </div>
           <div className="row">
-            <div className="col-lg-12 confirmButtonContainer">
+            {/**  <div className="col-lg-12 confirmButtonContainer">
               <button className="confirmButton">Confirm Order</button>
-            </div>
+             </div> */}
+            <Flutterwave />
           </div>
         </div>
       </div>
