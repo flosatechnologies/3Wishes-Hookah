@@ -20,10 +20,20 @@ function UserComponentDashboard(props) {
 
         <div className="adminUserEditAndDeleteButtonContainer">
           <div className="onlyAdminUserEditButtonContainer">
-            <button className="adminUserEditButton">edit</button>
+            <button
+              onClick={props.Edit(props.Id)}
+              className="adminUserEditButton"
+            >
+              edit
+            </button>
           </div>
           <div className="adminUserDeleteButtonContainer">
-            <button className="adminUserDeleteButton">delete</button>
+            <button
+              onClick={props.Delete(props.Id)}
+              className="adminUserDeleteButton"
+            >
+              delete
+            </button>
           </div>
         </div>
       </div>

@@ -7,9 +7,10 @@ import { Component } from "react";
 import UserComponentDashboard from "../components/UserComponentDashboard";
 import { connect } from "react-redux";
 import { MdKeyboardBackspace } from "react-icons/md";
-import { getAllProducts } from "../Store/authActions.js";
+import { getAllUsers } from "../Store/usersActions.js";
 import profileImg from "../assets/images/userImage.png";
 import CreateAccountDashboard from "../components/CreateAccountDashboard.jsx";
+import EditAccountComponent from "../components/EditAccountComponent";
 
 class UsersScreenDashboard extends Component {
   constructor(props) {
@@ -17,15 +18,39 @@ class UsersScreenDashboard extends Component {
     this.state = {
       button: {
         addUser: "inactivebtn",
+        editUser: "inactivebtn",
+        delUser: "inactivebtn",
+        Id: "",
       },
       storeUsers: this.props.adminUsers,
     };
   }
 
   componentDidMount() {
-    this.props.getAllProducts();
+    this.props.getAllUsers();
   }
 
+  handleActivateEdit = (Id) => {
+    this.setState({
+      button: {
+        addUser: "inactivebtn",
+        editUsr: "activebtn",
+        delUser: "inactivebtn",
+        Id: Id,
+      },
+    });
+  };
+
+  handleActivateDelete = (Id) => {
+    this.setState({
+      button: {
+        addUser: "inactivebtn",
+        editUsr: "inactivebtn",
+        delUser: "activebtn",
+        Id: Id,
+      },
+    });
+  };
   render() {
     const handleRenderScreen = () => {
       if (this.state.button.addUser === "activebtn") {
@@ -35,45 +60,20 @@ class UsersScreenDashboard extends Component {
           </div>
         );
       }
-
+      if (this.state.button.editUser === "activebtn") {
+        return (
+          <div>
+            <EditAccountComponent />
+          </div>
+        );
+      }
       if (this.state.button.addUser === "inactivebtn") {
         return (
           <div className="container arrayOfUsers">
-            <div className="row">
-              <UserComponentDashboard
-                image={profileImg}
-                fullName="Adams Bamfo"
-                email="bamfoadamsf@gmail.com "
-                phone="0547117125"
-              />
-              <UserComponentDashboard
-                image={profileImg}
-                fullName="Samuel Kupoe"
-                email="developerkupoe@gmail.com "
-                phone="0547117125"
-              />
-              <UserComponentDashboard
-                image={profileImg}
-                fullName="Francis Florent"
-                email="florent@gmail.com "
-                phone="0245958767"
-              />
-              <UserComponentDashboard
-                image={profileImg}
-                fullName="Kevin Hurt"
-                email="k.hurt@gmail.com "
-                phone="0245678987"
-              />
-              {/* {this.props.storeUsers.map((users) => {
-                return (
-                  <UserComponentDashboard
-                    productName={users.product}
-                    price={users.price}
-                    image={users.image}
-                  />
-                );
-              })} */}
-            </div>
+            <div className="row">{
+              this.props.users.(admin => {
+              })
+            }</div>
           </div>
         );
       }
@@ -111,12 +111,14 @@ class UsersScreenDashboard extends Component {
 }
 
 const mapStateToProps = (state) => {
-  return {};
+  return {
+    users: state.users.users,
+  };
 };
 
 const mapDispatchToProps = () => {
   return {
-    getAllProducts,
+    getAllUsers,
   };
 };
 
