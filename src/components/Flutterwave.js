@@ -6,7 +6,7 @@ export default function Flutterwave() {
   const config = {
     public_key: "FLWPUBK_TEST-0386baedd5eff7cf6f8d0da09e59613e-X",
     tx_ref: Date.now(),
-    amount: 100,
+    amount: 0.1,
     currency: "GHS",
     payment_options: "card,mobilemoney,ussd",
     customer: {

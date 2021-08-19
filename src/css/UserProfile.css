@@ -19,28 +19,37 @@
   text-transform: capitalize;
 }
 
-.but {
+.theButtonsContainer {
   display: flex;
   flex-direction: row;
-  align-self: center;
+  justify-content: flex-start;
+  align-items: center;
   margin-bottom: 10px;
+  margin-left: 100px;
+}
+.theButtonsMainContainer {
+  text-align: center;
 }
 .new {
   align-content: center;
 }
 
-.pro-edit {
-  background-color: blue;
-  color: #fff;
-  width: 80px;
-  border-color: rgb(44, 129, 41);
-  border-radius: 3px;
-}
+.pro-edit,
 .pro-editt {
-  background-color: red;
-  color: #fff;
-  width: 90px;
-  margin-left: 5px;
-  border-color: rgb(44, 129, 41);
-  border-radius: 3px;
+  background-color: transparent;
+  font-weight: normal;
+  color: gray;
+  width: 80px;
+  border-style: none;
+}
+button#on:active,
+button#on:hover,
+button#off:hover,
+button#on {
+  background-color: transparent;
+  font-weight: bolder;
+  color: green;
+
+  width: 80px;
+  border-style: none;
 }

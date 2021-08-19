@@ -6,9 +6,13 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import CustomerDetails from "./CustomerDetailsPage";
 import { connect } from "react-redux";
-import { AddCustomerDetail, getCustomers } from "./../Store/custDetailActions";
+import {
+  getCustomerInfo,
+  getOtherCustomerInfo,
+} from "./../Store/custDetailActions";
 import firebase from "firebase";
-import { HeaderPage } from "../components/HeaderPage";
+
+import CustomerAddressDetails from "../components/CustomerAddressDetails";
 // import { HeaderPage } from "../components/HeaderPage";
 
 class UserProfile extends Component {
@@ -23,21 +27,19 @@ class UserProfile extends Component {
   }
 
   componentDidMount() {
-    this.props.getCustomers();
+    this.props.getCustomerInfo();
+    this.props.getOtherCustomerInfo();
   }
 
   renderComponent = () => {
     if (this.state.button.profileBtn === "on") {
       return (
         <div>
-          <Col>
-            <h6 className="entries">Full Name:{}</h6>
-            <h6 className="entries">Phone Number:{}</h6>
-            <h6 className="entries">Ghana Post GPS:{}</h6>
-            <h6 className="entries">Delivery Location:{}</h6>
-            <h6 className="entries">Land Mark:{}</h6>
-            <h6 className="entries">Region:{}</h6>
-          </Col>
+          <CustomerAddressDetails
+            Info={this.props.customerInfo}
+            logUserInfo={this.props.loggedUserInfo}
+            otherInformation={this.props.otherInfo}
+          />
         </div>
       );
     }
@@ -45,7 +47,11 @@ class UserProfile extends Component {
     if (this.state.button.editProfileBtn === "on") {
       return (
         <div>
-          <CustomerDetails />
+          <CustomerDetails
+            custInfo={this.props.customerInfo}
+            otherInform={this.props.otherInfo}
+            loggedUserInfo={this.props.loggedUserInfo}
+          />
         </div>
       );
     }
@@ -61,26 +67,38 @@ class UserProfile extends Component {
             <hr />
           </Row>
           <Row>
-            <Col></Col>
-            <Col className="but">
-              <button
-                onClick={() => {
-                  this.setState({ button: { profileBtn: "on" } });
-                }}
-                className="pro-edit"
-              >
-                Profile
-              </button>
-              <button
-                onClick={() => {
-                  this.setState({ button: { editProfileBtn: "on" } });
-                }}
-                className="pro-editt"
-              >
-                Edit Profile
-              </button>
+            <Col xxl={4}></Col>
+            <Col className=" theButtonsMainContainer">
+              <div className="theButtonsContainer">
+                <div className="theProfileContainer">
+                  <button
+                    onClick={() => {
+                      this.setState({
+                        button: { profileBtn: "on", editProfileBtn: "off" },
+                      });
+                    }}
+                    className="pro-edit"
+                    Id={this.state.button.profileBtn}
+                  >
+                    Profile
+                  </button>
+                </div>
+                <div className="theEditProfileContainer">
+                  <button
+                    onClick={() => {
+                      this.setState({
+                        button: { profileBtn: "off", editProfileBtn: "on" },
+                      });
+                    }}
+                    className="pro-editt"
+                    Id={this.state.button.editProfileBtn}
+                  >
+                    Edit Profile
+                  </button>
+                </div>
+              </div>
             </Col>
-            <Col></Col>
+            <Col xxl={4}></Col>
           </Row>
           <Row>
             <Col></Col>
@@ -95,19 +113,26 @@ class UserProfile extends Component {
 }
 
 const mapStateToProps = (state) => {
-  console.log("customer details: ", state.customer);
-
+  var selected = state.customerInfo.customers.filter(
+    (cust) => cust.Id === state.auth.user.loggedInUser.Id
+  );
+  var selectedOther = state.customerInfo.otherInfo.filter(
+    (oth) => oth.Id === state.auth.user.loggedInUser.Id
+  );
+  console.log("selected: ", selected);
+  console.log("otherInfo: ", selectedOther);
   return {
-    customers: state.customer,
-
-    userId: state.auth.userId.Id,
+    customerInfo: selected,
+    otherInfo: selectedOther,
+    userId: state.auth.user.loggedInUser.Id,
+    loggedUserInfo: state.auth.user.loggedInUser,
   };
 };
 
 const mapDispatchToProps = () => {
   return {
-    AddCustomerDetail,
-    getCustomers,
+    getCustomerInfo,
+    getOtherCustomerInfo,
   };
 };
 

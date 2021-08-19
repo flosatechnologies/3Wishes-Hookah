@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import "../css/CustomerDetails.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Row, Col } from "react-bootstrap";
-import { AddCustomerDetail, getCustomers } from "./../Store/custDetailActions";
+import { AddCustomerInfo } from "./../Store/custDetailActions";
+import { Row, Col, Container } from "react-bootstrap";
+
 import { connect } from "react-redux";
 import { v4 as uuid } from "uuid";
 
@@ -10,78 +11,53 @@ class CustomerDetails extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      fullName: "",
+      firstName: "",
+      otherNames: "",
       phoneNumber: "",
       ghanaPostGps: "",
-      deliveryLocation: "",
-      landMark: "",
+      residentialAddress: "",
+      additionalInfo: "",
       region: "",
+      customerInfo: this.props.custInfo,
+      otherInformat: this.props.otherInform,
+      loggedInfo: this.props.loggedUserInfo,
     };
   }
 
-  // componentDidMount() {
-  //   this.props.getCustomers();
-  // }
-
-  //handle inputs
-  handleFullName = (e) => {
+  handleChange = (e) => {
     this.setState({
-      fullName: e.target.value,
+      [e.target.name]: e.target.value,
     });
   };
-
-  handlePhoneNumber = (e) => {
+  componentDidMount() {
+    const customerInfo = this.state.customerInfo;
+    const otherInformat = this.state.otherInformat;
     this.setState({
-      phoneNumber: e.target.value,
+      firstName: otherInformat[0].firstName,
+      otherNames: otherInformat[0].otherNames,
+      phoneNumber: otherInformat[0].phoneNumber,
+      ghanaPostGps: customerInfo[0].ghanaPostGps,
+      residentialAddress: customerInfo[0].residentialAddress,
+      additionalInfo: customerInfo[0].additionalInfo,
+      region: customerInfo[0].region,
     });
-  };
-
-  handleGhanaPostGps = (e) => {
-    this.setState({
-      ghanaPostGps: e.target.value,
-    });
-  };
-
-  handleDeliveryLocation = (e) => {
-    this.setState({
-      deliveryLocation: e.target.value,
-    });
-  };
-
-  handleLandMark = (e) => {
-    this.setState({
-      landMark: e.target.value,
-    });
-  };
-
-  handleRegion = (e) => {
-    this.setState({
-      region: e.target.value,
-    });
-  };
-  //end
-
-  handleReset = () => {
-    this.setState({
-      value: [{}],
-    });
-  };
+  }
 
   // formSubmit
 
   handleSubmit = (e) => {
     e.preventDefault();
     const newCustomer = {
-      fullName: this.state.fullName,
+      firstName: this.state.firstName,
+      otherNames: this.state.otherNames,
       phoneNumber: this.state.phoneNumber,
       ghanaPostGps: this.state.ghanaPostGps,
-      deliveryLocation: this.state.deliveryLocation,
-      landMark: this.state.landMark,
+      residentialAddress: this.state.residentialAddress,
+      additionalInfo: this.state.additionalInfo,
       region: this.state.region,
-      Id: uuid(),
-      createdAt: new Date(),
+      Id: this.state.otherInformat[0].Id,
     };
-    this.props.AddCustomerDetail(newCustomer);
+    this.props.AddCustomerInfo(newCustomer);
   };
   render() {
     return (
@@ -100,84 +76,137 @@ class CustomerDetails extends Component {
           <Col
             style={{
               background: "linear-gradient(to right, #64b375, #1bdd45)",
-              width: "40% ",
-              // padding: "20px",
+              width: "max-content ",
               borderRadius: "5px",
-              height: "50vh",
+              height: "fit-content",
+              padding: "20px 10px",
             }}
             className=" wrapper"
           >
             <div>
-              <h3 className="title">Delivery Information</h3>
+              <div className="title">Delivery Information</div>
             </div>
 
-            <form
-              onSubmit={this.handleSubmit}
-              className="form-wrapper"
-              id="reset-form"
-            >
-              <div className="name-group">
-                <label className="labe">Full Name</label>
-                <input
-                  className="name-input"
-                  type="text"
-                  name="fullname"
-                  value={this.state.fullName}
-                  onChange={this.handleFullName}
-                />
+            <form onSubmit={this.handleSubmit}>
+              <div className="form-wrapper">
+                <div className="firstAndOtherNamesContainer">
+                  <div className="firstNameContainer-CustomerProfile">
+                    <div className="labels-CustomerProfile">First Name</div>
+                    <input
+                      className="firstNameInput-CustomerProfile"
+                      type="text"
+                      name="fullname"
+                      value={this.state.firstName}
+                      onChange={this.handleChange}
+                    />
+                  </div>
 
-                <label className="labi">Phone Number</label>
-                <input
-                  className="num-input"
-                  type="number"
-                  name="phoneNumber"
-                  value={this.state.phoneNumber}
-                  onChange={this.handlePhoneNumber}
-                />
-              </div>
+                  <div className="otherNamesContainer-CustomerProfile">
+                    <div className="labels-CustomerProfile">Other Names</div>
+                    <div className="otherNames_InputContainer">
+                      <input
+                        className="otherNamesInput-CustomerProfile"
+                        type="text"
+                        name="otherNames"
+                        value={this.state.otherNames}
+                        onChange={this.handleChange}
+                      />
+                    </div>
+                  </div>
+                </div>
 
-              <div className="number-group">
-                <label className="labell">Ghana Post GPS</label>
-                <input
-                  className="numb-input"
-                  type="text"
-                  name="ghanaPostGps"
-                  value={this.state.ghanaPostGps}
-                  onChange={this.handleGhanaPostGps}
-                />
+                <div className="phoneNumberAndGhPostGpsContainer">
+                  <div className="phoneNumberContainer-CustomerProfile">
+                    <div className="labels-CustomerProfile">Phone Number</div>
+                    <input
+                      className="phoneNumberInput-CustomerProfile"
+                      type="tel"
+                      name="phoneNumber"
+                      value={this.state.phoneNumber}
+                      onChange={this.handleChange}
+                    />
+                  </div>
 
-                <label className="lab">Delivery Location</label>
-                <input
-                  className="input"
-                  type="text"
-                  name="deliveryLocation"
-                  value={this.state.deliveryLocation}
-                  onChange={this.handleDeliveryLocation}
-                />
-              </div>
+                  <div className="ghPostGPSContainer-CustomerProfile">
+                    <div className="labels-CustomerProfile">Ghana Post GPS</div>
+                    <input
+                      className="ghPostGpsInput-CustomerProfile"
+                      type="text"
+                      name="ghanaPostGps"
+                      value={this.state.ghanaPostGps}
+                      onChange={this.handleChange}
+                    />
+                  </div>
+                </div>
+                <div className="residentialAddressContainer-CustomerProfile">
+                  <div className="labels-CustomerProfile">
+                    Residential Address
+                  </div>
+                  <input
+                    className="residentialAddressInput-CustomerProfile"
+                    type="text"
+                    name="residentialAddress"
+                    value={this.state.residentialAddress}
+                    onChange={this.handleChange}
+                  />
+                </div>
 
-              <div className="location-group">
-                <label className="labelled">Land Mark</label>
-                <input
-                  className="land-input"
-                  type="text"
-                  name="landMark"
-                  value={this.state.landMark}
-                  onChange={this.handleLandMark}
-                />
+                <div className="additionalInfoAndRegionContainer">
+                  <div className="additionalInfoContainer-CustomerProfile">
+                    <div className="labels-CustomerProfile">
+                      Additional Information
+                    </div>
+                    <input
+                      className="additionalInfoInput-CustomerProfile"
+                      type="text"
+                      name="additionalInfo"
+                      value={this.state.additionalInfo}
+                      onChange={this.handleChange}
+                    />
+                  </div>
 
-                <label className="labs">Region</label>
-                <input
-                  className="location-input"
-                  type="text"
-                  name="region"
-                  value={this.state.region}
-                  onChange={this.handleRegion}
-                />
-              </div>
+                  <div className="regionContainer-CustomerProfile">
+                    <div className="labels-CustomerProfile">Region</div>
+                    <select
+                      value={this.state.region}
+                      className="regionInput-CustomerProfile"
+                      name="region"
+                      onChange={this.handleChange}
+                    >
+                      <option value="Greater Accra Region">
+                        Greater Accra Region
+                      </option>
+                      <option value="Central Region">Central Region</option>
+                      <option value="Western North Region">
+                        Western North Region
+                      </option>
+                      <option value="Western Region">Western Region </option>
+                      <option value="Bono Region">Bono Region</option>
+                      <option value="Bono East Region">Bono East Region</option>
+                      <option value="Ahafo Region">Ahafo Region</option>
+                      <option value="Upper East Region">
+                        Upper East Region
+                      </option>
+                      <option value="Upper West Region">
+                        Upper West Region
+                      </option>
+                      <option value="North East Region">
+                        North East Region
+                      </option>
+                      <option value="Northern Region">Northern Region</option>
+                      <option value="Savanna Region">Savanna Region</option>
+                      <option value="Eastern Region">Eastern Region</option>
+                      <option value="Ashanti Region">Ashanti Region</option>
+                      <option value="Oti Region">Oti Region</option>
+                      <option value="Volta Region">Volta Region</option>
+                    </select>
+                    {console.log(this.state.region)}
+                  </div>
+                </div>
 
-              <div>
-                <button className="submit">Add</button>
+                <div>
+                  <button className="submit">save</button>
+                </div>
               </div>
             </form>
           </Col>
@@ -187,17 +216,13 @@ class CustomerDetails extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  // console.log("customers", state.customer);
-  return {
-    customers: state.customer,
-  };
+const mapStateToProps = () => {
+  return {};
 };
 
 const mapDispatchToProps = () => {
   return {
-    AddCustomerDetail,
-    getCustomers,
+    AddCustomerInfo,
   };
 };
 

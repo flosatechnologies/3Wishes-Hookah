@@ -14,5 +14,5 @@ export default combineReducers({
   firestore: firestoreReducer,
   products: productsReducer,
   cart: cartReducer,
-  customer: CustomerDetailReducer,
+  customerInfo: CustomerDetailReducer,
 });
