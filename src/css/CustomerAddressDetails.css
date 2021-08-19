@@ -5,7 +5,7 @@
   padding: 0;
 }
 
-.title {
+.title-CustAddress {
   color: #0e0b0c;
   text-align: center;
   font-size: 30px;
@@ -15,9 +15,9 @@
 }
 
 /*Name and phone number*/
-.firstAndOtherNamesContainer,
-.phoneNumberAndGhPostGpsContainer,
-.additionalInfoAndRegionContainer {
+.firstAndOtherNamesContainer-CustAddress,
+.phoneNumberAndGhPostGpsContainer-CustAddress,
+.additionalInfoAndRegionContainer-CustAddress {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -26,36 +26,36 @@
 
 /*GPS and location*/
 
-.firstNameContainer-CustomerProfile,
-.phoneNumberContainer-CustomerProfile,
-.additionalInfoContainer-CustomerProfile {
+.firstNameContainer-CustAddress,
+.phoneNumberContainer-CustAddress,
+.additionalInfoContainer-CustAddress {
   margin-right: 20px;
 }
-input.ghPostGpsInput-CustomerProfile,
-input.residentialAddressInput-CustomerProfile,
-input.additionalInfoInput-CustomerProfile,
-input.firstNameInput-CustomerProfile,
-input.otherNamesInput-CustomerProfile,
-input.phoneNumberInput-CustomerProfile,
-input.additionalInfoInput-CustomerProfile,
-select.regionInput-CustomerProfile {
-  background-color: transparent;
-  border-style: solid;
-  border-width: 1px;
-  border-color: black;
-  border-radius: 3px;
-  padding-left: 3px;
+div.ghPostGpsInput-CustAddress,
+div.residentialAddressInput-CustAddress,
+div.additionalInfoInput-CustAddress,
+div.firstNameInput-CustAddress,
+div.otherNamesInput-CustAddress,
+div.phoneNumberInput-CustAddress,
+div.additionalInfoInput-CustAddress,
+div.regionInput-CustAddress {
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: white;
+  width: 240px;
+  color: black;
 }
-.labels-CustomerProfile {
+.labels-CustAddress {
   color: white;
+  font-size: 20px;
 }
-input.residentialAddressInput-CustomerProfile {
+div.residentialAddressInput-CustAddress {
   width: 100%;
 }
-input.phoneNumberInput-CustomerProfile {
+div.phoneNumberInput-CustAddress {
   width: 240px;
 }
-select.regionInput-CustomerProfile {
+select.regionInput-CustAddress {
   width: 238px;
   padding-top: 1.5px;
   padding-bottom: 1.5px;

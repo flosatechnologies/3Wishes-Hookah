@@ -3,11 +3,13 @@ export const userRegistration = (user) => {
     const firebase = getFirebase();
     const firestore = getFirestore();
     const timestamp = new Date();
+    var respId = "";
 
     firebase
       .auth()
       .createUserWithEmailAndPassword(user.email, user.password)
       .then((resp) => {
+        respId = resp.user.uid;
         return firestore.collection("users").doc(resp.user.uid).set({
           firstName: user.firstName,
           otherNames: user.otherNames,
@@ -19,6 +21,15 @@ export const userRegistration = (user) => {
         });
       })
       .then(() => {
+        if (user.role === "customer") {
+          firestore.collection("customersInfo").doc(respId).set({
+            additionalInfo: "",
+            ghanaPostGps: "",
+            residentialAddress: "",
+            region: "",
+            Id: respId,
+          });
+        }
         dispatch({ type: "SIGNUP_SUCCESS" });
       })
       .catch((err) => {

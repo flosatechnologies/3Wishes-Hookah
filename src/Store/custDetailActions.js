@@ -1,20 +1,29 @@
-export const AddCustomerDetail = (customer) => {
+export const AddCustomerInfo = (customer) => {
   return (dispatch, state, { getFirestore }) => {
     getFirestore()
-      .collection("customers")
+      .collection("customersInfo")
       .doc(customer.Id)
       .set({
-        fullName: customer.fullName,
-        phoneNumber: customer.phoneNumber,
         ghanaPostGps: customer.ghanaPostGps,
-        deliveryLocation: customer.deliveryLocation,
-        landMark: customer.landMark,
+        residentialAddress: customer.residentialAddress,
+        additionalInfo: customer.additionalInfo,
         region: customer.region,
         Id: customer.Id,
-        createdAt: customer.createdAt,
       })
       .then(() => {
         alert("Details submitted successfully");
+        getFirestore()
+          .collection("users")
+          .doc(customer.Id)
+          .update({
+            firstName: customer.firstName,
+            otherNames: customer.otherNames,
+            phoneNumber: customer.phoneNumber,
+          })
+          .then()
+          .catch((error) => {
+            alert(error);
+          });
       })
       .catch((error) => {
         console.log(error);
@@ -27,10 +36,10 @@ export const AddCustomerDetail = (customer) => {
   };
 };
 
-export const getCustomers = () => {
+export const getCustomerInfo = () => {
   return (dispatch, state, { getFirestore }) => {
     getFirestore()
-      .collection("customers")
+      .collection("customersInfo")
       .onSnapshot(
         (snapshot) => {
           let customers = [];
@@ -41,6 +50,26 @@ export const getCustomers = () => {
           dispatch({
             type: "GET_CUSTOMERS",
             payload: customers,
+          });
+        },
+        (err) => {}
+      );
+  };
+};
+export const getOtherCustomerInfo = () => {
+  return (dispatch, state, { getFirestore }) => {
+    getFirestore()
+      .collection("users")
+      .onSnapshot(
+        (snapshot) => {
+          let others = [];
+          snapshot.forEach((doc) => {
+            others.push(doc.data());
+          });
+          console.log(others, "Sam");
+          dispatch({
+            type: "GET_OTHER_CUSTOMER_INFO",
+            payload: others,
           });
         },
         (err) => {}

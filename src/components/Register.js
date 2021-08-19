@@ -14,7 +14,7 @@ class Register extends Component {
     firstName: "",
     otherNames: "",
     email: "",
-    phoneNumber: "0240000000",
+    phoneNumber: "",
     password: "",
     role: "customer",
   };
@@ -36,7 +36,7 @@ class Register extends Component {
   render() {
     const { isPasswordShown } = this.state;
     const { auth } = this.props;
-    if (auth.uid) return <Redirect to="/" />;
+
     return (
       <div>
         <HeaderPage />
