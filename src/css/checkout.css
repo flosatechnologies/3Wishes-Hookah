@@ -42,7 +42,25 @@
   margin-left: 2%;
   color: gray;
 }
+.itemSummationContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+.subTotalFigure,
+.deliveryFeesFigure,
+.totalFigure {
+  color: forestgreen;
+  font-weight: bolder;
+}
 
+.subTotalText,
+.deliveryFeesText,
+.totalText {
+  color: black;
+  font-weight: 600;
+  margin-right: 16px;
+}
 .confirmButton {
   background-color: forestgreen;
   color: white;

@@ -18,7 +18,7 @@ class CustomerAddressDetails extends Component {
       phoneNumber: "",
       ghanaPostGps: "",
       residentialAddress: "",
-      additionalInfo: "",
+      city: "",
       region: "",
       customerInfo: this.props.Info,
       loggedUserInfo: this.props.logUserInfo,
@@ -46,7 +46,7 @@ class CustomerAddressDetails extends Component {
       phoneNumber: otherInfor[0].phoneNumber,
       ghanaPostGps: customerInfo[0].ghanaPostGps,
       residentialAddress: customerInfo[0].residentialAddress,
-      additionalInfo: customerInfo[0].additionalInfo,
+      city: customerInfo[0].city,
       region: customerInfo[0].region,
     });
   }
@@ -123,13 +123,11 @@ class CustomerAddressDetails extends Component {
                   </div>
                 </div>
 
-                <div className="additionalInfoAndRegionContainer-CustAddress">
-                  <div className="additionalInfoContainer-CustAddress">
-                    <div className="labels-CustAddress">
-                      Additional Information
-                    </div>
-                    <div className="additionalInfoInput-CustAddress">
-                      {this.state.additionalInfo}
+                <div className="cityAndRegionContainer-CustAddress">
+                  <div className="cityContainer-CustAddress">
+                    <div className="labels-CustAddress">Town/City</div>
+                    <div className="cityInput-CustAddress">
+                      {this.state.city}
                     </div>
                   </div>
 

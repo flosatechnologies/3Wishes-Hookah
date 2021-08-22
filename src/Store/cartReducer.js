@@ -45,7 +45,9 @@ const cartReducer = (state = initialState, action) => {
       console.log("the Copy: ", duplicate);
       duplicate.map((prod) => {
         if (prod.product.Id === action.Id) {
-          prod.qty = prod.qty - 1;
+          if (prod.qty > 1) {
+            prod.qty = prod.qty - 1;
+          }
         }
       });
       return { ...state, cart: duplicate };
