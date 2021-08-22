@@ -45,6 +45,8 @@ class CartScreen extends React.Component {
     this.setState({ update: data, cartProduct: this.props.cart });
   };
   render() {
+    var theTotal = this.handleTotal();
+    console.log("totale: ", theTotal);
     return (
       <div>
         <HeaderPage />
@@ -109,7 +111,12 @@ class CartScreen extends React.Component {
               <button className="checkoutButton">
                 <Link
                   style={{ textDecoration: "none", color: "white" }}
-                  to={"/checkout"}
+                  to={{
+                    pathname: "/checkout",
+                    state: {
+                      total: theTotal,
+                    },
+                  }}
                 >
                   Proceed to checkout
                 </Link>

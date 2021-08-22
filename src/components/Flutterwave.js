@@ -2,17 +2,19 @@ import React from "react";
 import { useFlutterwave, closePaymentModal } from "flutterwave-react-v3";
 import CartScreen from "../pages/CartScreen";
 
-export default function Flutterwave() {
+export default function Flutterwave(props) {
+  const info = props.data;
+
   const config = {
     public_key: "FLWPUBK_TEST-0386baedd5eff7cf6f8d0da09e59613e-X",
     tx_ref: Date.now(),
-    amount: 100,
+    amount: info.amnt,
     currency: "GHS",
     payment_options: "card,mobilemoney,ussd",
     customer: {
-      email: "user@gmail.com",
-      phonenumber: "07064586146",
-      name: "joel ugwumadu",
+      email: info.email,
+      phonenumber: info.phoneNumber,
+      name: info.name,
     },
     customizations: {
       title: "3 Wishes",

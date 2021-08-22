@@ -16,7 +16,7 @@ class CustomerDetails extends Component {
       phoneNumber: "",
       ghanaPostGps: "",
       residentialAddress: "",
-      additionalInfo: "",
+      city: "",
       region: "",
       customerInfo: this.props.custInfo,
       otherInformat: this.props.otherInform,
@@ -38,7 +38,7 @@ class CustomerDetails extends Component {
       phoneNumber: otherInformat[0].phoneNumber,
       ghanaPostGps: customerInfo[0].ghanaPostGps,
       residentialAddress: customerInfo[0].residentialAddress,
-      additionalInfo: customerInfo[0].additionalInfo,
+      city: customerInfo[0].city,
       region: customerInfo[0].region,
     });
   }
@@ -53,7 +53,7 @@ class CustomerDetails extends Component {
       phoneNumber: this.state.phoneNumber,
       ghanaPostGps: this.state.ghanaPostGps,
       residentialAddress: this.state.residentialAddress,
-      additionalInfo: this.state.additionalInfo,
+      city: this.state.city,
       region: this.state.region,
       Id: this.state.otherInformat[0].Id,
     };
@@ -151,16 +151,14 @@ class CustomerDetails extends Component {
                   />
                 </div>
 
-                <div className="additionalInfoAndRegionContainer">
-                  <div className="additionalInfoContainer-CustomerProfile">
-                    <div className="labels-CustomerProfile">
-                      Additional Information
-                    </div>
+                <div className="cityAndRegionContainer">
+                  <div className="cityContainer-CustomerProfile">
+                    <div className="labels-CustomerProfile">Town/City</div>
                     <input
-                      className="additionalInfoInput-CustomerProfile"
+                      className="cityInput-CustomerProfile"
                       type="text"
-                      name="additionalInfo"
-                      value={this.state.additionalInfo}
+                      name="city"
+                      value={this.state.city}
                       onChange={this.handleChange}
                     />
                   </div>

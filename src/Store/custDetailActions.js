@@ -6,7 +6,7 @@ export const AddCustomerInfo = (customer) => {
       .set({
         ghanaPostGps: customer.ghanaPostGps,
         residentialAddress: customer.residentialAddress,
-        additionalInfo: customer.additionalInfo,
+        city: customer.city,
         region: customer.region,
         Id: customer.Id,
       })

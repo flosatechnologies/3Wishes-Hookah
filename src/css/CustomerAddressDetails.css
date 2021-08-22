@@ -17,7 +17,7 @@
 /*Name and phone number*/
 .firstAndOtherNamesContainer-CustAddress,
 .phoneNumberAndGhPostGpsContainer-CustAddress,
-.additionalInfoAndRegionContainer-CustAddress {
+.cityAndRegionContainer-CustAddress {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -28,16 +28,16 @@
 
 .firstNameContainer-CustAddress,
 .phoneNumberContainer-CustAddress,
-.additionalInfoContainer-CustAddress {
+.cityContainer-CustAddress {
   margin-right: 20px;
 }
 div.ghPostGpsInput-CustAddress,
 div.residentialAddressInput-CustAddress,
-div.additionalInfoInput-CustAddress,
+div.cityInput-CustAddress,
 div.firstNameInput-CustAddress,
 div.otherNamesInput-CustAddress,
 div.phoneNumberInput-CustAddress,
-div.additionalInfoInput-CustAddress,
+div.cityInput-CustAddress,
 div.regionInput-CustAddress {
   border-top-style: solid;
   border-top-width: 1px;

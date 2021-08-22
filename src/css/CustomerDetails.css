@@ -17,7 +17,7 @@
 /*Name and phone number*/
 .firstAndOtherNamesContainer,
 .phoneNumberAndGhPostGpsContainer,
-.additionalInfoAndRegionContainer {
+.cityAndRegionContainer {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -28,16 +28,16 @@
 
 .firstNameContainer-CustomerProfile,
 .phoneNumberContainer-CustomerProfile,
-.additionalInfoContainer-CustomerProfile {
+.cityContainer-CustomerProfile {
   margin-right: 20px;
 }
 input.ghPostGpsInput-CustomerProfile,
 input.residentialAddressInput-CustomerProfile,
-input.additionalInfoInput-CustomerProfile,
+input.cityInput-CustomerProfile,
 input.firstNameInput-CustomerProfile,
 input.otherNamesInput-CustomerProfile,
 input.phoneNumberInput-CustomerProfile,
-input.additionalInfoInput-CustomerProfile,
+input.cityInput-CustomerProfile,
 select.regionInput-CustomerProfile {
   background-color: transparent;
   border-style: solid;
