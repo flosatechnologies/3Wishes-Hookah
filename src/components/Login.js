@@ -66,6 +66,18 @@ class LogIn extends Component {
               <div>
                 <button className="submit">Log In</button>
               </div>
+              <p className="forgotPassword text-right">
+                <li
+                  style={{
+                    color: "#f80759",
+                    marginTop: 10,
+                    textAlign: "center",
+                    fontSize: 12,
+                  }}
+                >
+                  <Link to={"/ForgotPassword"}>Forgot Password? </Link>
+                </li>
+              </p>
               <div style={{ display: "flex" }}>
                 <p
                   style={{

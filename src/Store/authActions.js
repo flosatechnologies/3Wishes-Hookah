@@ -95,6 +95,34 @@ export const logoutUser = () => {
   };
 };
 
+export const resetPassword = (email) => async (dispatch) => {
+  return async (dispatch, state, { getFirebase, getFirestore }) => {
+    const firebase = getFirebase();
+    try {
+      firebase
+        .auth()
+        .sendPasswordResetEmail(email)
+        .then(() =>
+          dispatch({
+            type: "RESET_SUCCESS",
+            payload: "Reset email sent. Go check your inbox.",
+          })
+        )
+        .catch((err) => {
+          dispatch({
+            type: "RESET_ERROR",
+            payload: "...some message for the user...",
+          });
+        });
+    } catch (err) {
+      dispatch({
+        type: " RESET_ERROR",
+        payload: "...some message for the user...",
+      });
+    }
+  };
+};
+
 // Create our initial doc
 
 export const AddNewProduct = (
