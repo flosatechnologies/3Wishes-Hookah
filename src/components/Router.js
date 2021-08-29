@@ -17,6 +17,7 @@ import LogOut from "./LogOut";
 import CustomerDetails from "../pages/CustomerDetailsPage";
 import { connect } from "react-redux";
 import UserProfile from "../pages/UserProfilePage";
+import ForgotPassword from "../pages/ForgotPassword";
 
 function RouterComponent(props) {
   return (
@@ -34,6 +35,7 @@ function RouterComponent(props) {
       <Route path="/logOut" component={LogOut} />
       <Route path="/customerDetails" component={CustomerDetails} />
       <Route path="/userProfile" component={UserProfile} />
+      <Route path="/forgotPassword" component={ForgotPassword} />
       <ProtectedRoute path="/dashboard" component={Dashboard} />
     </div>
   );
