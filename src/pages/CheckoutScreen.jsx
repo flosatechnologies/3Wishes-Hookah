@@ -31,11 +31,15 @@ class CheckoutScreen extends React.Component {
     });
   };
   handleInputMethodTwoChange = (e) => {
+    let deliv = 20;
+    if (this.props.customerInfo[0].region === "Greater Accra Region") {
+      deliv = 0;
+    }
     this.setState({
       deliveryMethodTwo: true,
       deliveryMethodOne: false,
       deliveryMethodColor: "forestgreen",
-      deliveryfee: 50,
+      deliveryfee: deliv,
     });
   };
   componentDidMount() {
@@ -191,6 +195,7 @@ const mapStateToProps = (state) => {
   );
   console.log("selected: ", selectedOther);
   return {
+    allState: state,
     customerInfo: selected,
     otherInfo: selectedOther,
     login: state.auth.login,

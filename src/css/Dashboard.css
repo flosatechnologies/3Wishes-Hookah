@@ -67,3 +67,45 @@
 .workspace {
   background-color: #a7a7a7;
 }
+
+/*Delete Dialog Box*/
+div.logOutYesButtonContainer {
+  margin-right: 5px;
+}
+.logOutDialogBox {
+  position: absolute;
+  top: 20%;
+  left: 35%;
+}
+.logOutDialogBoxContainer {
+  width: fit-content;
+  height: 20vh;
+  background-color: white;
+  padding: 5px;
+  border-radius: 5px;
+}
+.logOutHeaderContainer {
+  font-weight: bolder;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-color: #dddddd;
+  margin-bottom: 7px;
+}
+div.logOutButtonsContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: right;
+}
+button.logOutYesButton {
+  border-style: none;
+  background-color: green;
+  color: white;
+  padding: 1px 5px;
+}
+
+button.logOutNoButton {
+  border-style: none;
+  background-color: brown;
+  color: white;
+  padding: 1px 5px;
+}

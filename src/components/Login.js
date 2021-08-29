@@ -17,7 +17,7 @@ class LogIn extends Component {
   }
 
   async componentDidUpdate() {
-    const role = await this.props.state.auth.role;
+    const role = await this.props.allState.auth.role;
 
     if (role === "admin") {
       this.props.history.push("/dashboard");
@@ -120,7 +120,7 @@ class LogIn extends Component {
 const mapStateToProps = (state) => {
   // console.log(state.users);
   return {
-    state,
+    allState: state,
   };
 };
 

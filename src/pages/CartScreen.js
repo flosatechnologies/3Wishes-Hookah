@@ -133,6 +133,7 @@ class CartScreen extends React.Component {
 const mapStateToProps = (state) => {
   console.log(state.cart.cart);
   return {
+    allState: state,
     cart: state.cart.cart,
   };
 };

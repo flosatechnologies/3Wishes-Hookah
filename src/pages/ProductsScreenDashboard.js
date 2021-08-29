@@ -9,7 +9,7 @@ import Edit from "./EditScreen";
 import { connect } from "react-redux";
 import { MdKeyboardBackspace } from "react-icons/md";
 import firebase from "../firebase/config";
-import { DeleteProduct } from "../Store/authActions.js";
+import { DeleteProduct } from "../Store/productActions.js";
 
 class ProductsScreenDashboard extends Component {
   constructor(props) {

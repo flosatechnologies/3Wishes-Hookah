@@ -2,34 +2,15 @@ import React, { Component } from "react";
 import "../css/productComponentDashboard.css";
 import { MdEdit, MdDelete } from "react-icons/md";
 import { Link } from "react-router-dom";
-import { EditProduct, DeleteProduct } from "../Store/authActions";
+import { EditProduct, DeleteProduct } from "../Store/productActions";
 import { v4 as uuid } from "uuid";
 import { connect } from "react-redux";
-import image1 from "../assets/images/productImage.png";
-// import { deleteProduct } from "./../Store/authActions";
-
-// function ProductComponentDashboard(props) {
-//   return (
-//     <div className="dashboardProductContainer">
-//       <div className="dashboardProductImageContainer">
-//         <img
-//           className="dashboardProductImage"
-//           src={props.image}
-//           alt="productImage"
-//         />
-//       </div>
-
-//       <div className="nameAndPriceContainer">
-//         <div className="dashboardProductName">{props.productName}</div>
 
 class ProductComponentDashboard extends Component {
-  // eslint-disable-next-line no-useless-constructor
   constructor(props) {
     super(props);
   }
-  // handleDelete = () => {
-  //   // deleteProduct();
-  // };
+
   render() {
     return (
       <div className="dashboardProductContainer">

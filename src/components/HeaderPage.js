@@ -89,9 +89,7 @@ export class HeaderPage extends Component {
                       <div style={{ color: "black" }}>Profile</div>
                     </LinkContainer>
                   </NavDropdown.Item>
-                  <NavDropdown.Item href="#action/3.3">
-                    Address
-                  </NavDropdown.Item>
+
                   <NavDropdown.Divider />
                   <NavDropdown.Item href="#">
                     <button
@@ -107,9 +105,6 @@ export class HeaderPage extends Component {
                   </NavDropdown.Item>
                 </NavDropdown>
               )}
-              {/* <LinkContainer to="/logOut">
-                <Nav.Link className="mr-sm-5">LogOut</Nav.Link>
-              </LinkContainer> */}
             </Nav>
           </Navbar.Collapse>
           {/* </Container> */}
