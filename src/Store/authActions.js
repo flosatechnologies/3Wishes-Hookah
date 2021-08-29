@@ -1,3 +1,5 @@
+import { getAuth, sendPasswordResetEmail } from "firebase/auth";
+
 export const userRegistration = (user) => {
   return (dispatch, getState, { getFirebase, getFirestore }) => {
     const firebase = getFirebase();
@@ -96,30 +98,17 @@ export const logoutUser = () => {
 };
 
 export const resetPassword = (email) => async (dispatch) => {
-  return async (dispatch, state, { getFirebase, getFirestore }) => {
-    const firebase = getFirebase();
-    try {
-      firebase
-        .auth()
-        .sendPasswordResetEmail(email)
-        .then(() =>
-          dispatch({
-            type: "RESET_SUCCESS",
-            payload: "Reset email sent. Go check your inbox.",
-          })
-        )
-        .catch((err) => {
-          dispatch({
-            type: "RESET_ERROR",
-            payload: "...some message for the user...",
-          });
-        });
-    } catch (err) {
-      dispatch({
-        type: " RESET_ERROR",
-        payload: "...some message for the user...",
+  return async (dispatch, state, { getAuth, sendPasswordResetEmail }) => {
+    const auth = getAuth();
+
+    sendPasswordResetEmail(auth, email)
+      .then(() => {
+        // Password reset email sent!
+        alert("Check mail");
+      })
+      .catch((error) => {
+        console.log(error);
       });
-    }
   };
 };
 
