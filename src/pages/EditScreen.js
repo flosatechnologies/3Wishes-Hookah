@@ -8,7 +8,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import ProductComponentDashboard from "../components/ProductComponentDashboard";
 import { FaRegImage } from "react-icons/fa";
 import { v4 as uuid } from "uuid";
-import { EditProduct, EditTextOnly } from "../Store/authActions";
+import { EditProduct, EditTextOnly } from "../Store/productActions";
 import firebase from "../firebase/config";
 
 import { connect } from "react-redux";

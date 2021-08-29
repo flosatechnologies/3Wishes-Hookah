@@ -22,11 +22,12 @@ export const AddCustomerInfo = (customer) => {
           })
           .then()
           .catch((error) => {
-            alert(error);
+            alert(error.message);
           });
       })
       .catch((error) => {
         console.log(error);
+        alert(error.message);
       });
     // dispatch(doc(customer));
     // dispatch({
@@ -52,7 +53,9 @@ export const getCustomerInfo = () => {
             payload: customers,
           });
         },
-        (err) => {}
+        (err) => {
+          alert(err.message);
+        }
       );
   };
 };

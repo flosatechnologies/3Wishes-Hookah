@@ -7,8 +7,9 @@ import image3 from "../assets/images/tobias-nii-kwatei-quartey.jpg";
 import image4 from "../assets/images/viktor1.jpg";
 import HeaderPage from "../components/HeaderPage";
 import FooterPage from "../components/FooterPage";
+import { connect } from "react-redux";
 
-const CarouselPage = () => {
+const CarouselPage = (props) => {
   return (
     <div>
       <HeaderPage />
@@ -72,4 +73,14 @@ const CarouselPage = () => {
   );
 };
 
-export default CarouselPage;
+const mapStateToProps = (state) => {
+  return {
+    state,
+  };
+};
+
+const mapDispatchToProps = () => {
+  return {};
+};
+
+export default connect(mapStateToProps, mapDispatchToProps())(CarouselPage);

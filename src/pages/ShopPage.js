@@ -5,7 +5,7 @@ import products from "../products";
 import "bootstrap/dist/css/bootstrap.min.css";
 import HeaderPage from "../components/HeaderPage";
 import FooterPage from "../components/FooterPage";
-import { getAllProducts } from "../Store/authActions";
+import { getAllProducts } from "../Store/productActions";
 import { AddToCart } from "../Store/cartActions";
 import { connect } from "react-redux";
 
@@ -106,6 +106,7 @@ class ShopPage extends React.Component {
 const mapStateToProps = (state) => {
   console.log("theCartsContent: ", state.cart.cart);
   return {
+    redata: state,
     products: state.products.products,
   };
 };

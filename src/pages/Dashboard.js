@@ -11,7 +11,8 @@ import PaymentScreen from "./PaymentScreen";
 import ProductsScreenDashboard from "./ProductsScreenDashboard";
 import DeliveryScreen from "./DeliveryScreen";
 import { connect } from "react-redux";
-import { logoutUser, getAllProducts } from "../Store/authActions";
+import { logoutUser } from "../Store/authActions";
+import { getAllProducts } from "../Store/productActions";
 
 import UsersScreenDashboard from "./UsersScreenDashboard";
 
@@ -71,20 +72,28 @@ class Dashboard extends Component {
 
       if (this.state.buttonState.logout === "active") {
         return (
-          <div>
+          <div className=" logOutDialogBox ">
             <div className="logOutDialogBoxContainer">
               <div className=" logOutHeaderContainer">
                 <p>CONFIRMATION</p>
               </div>
-              <div className=" logOutmessageContainer">
+              <div className=" logOutMessageContainer">
                 <p>Are you sure you want to Logout</p>
               </div>
               <div className="logOutButtonsContainer">
-                <div>
-                  <button onClick={this.props.logoutUser()}>Yes</button>
-                </div>
-                <div>
+                <div className="logOutYesButtonContainer">
                   <button
+                    className="logOutYesButton"
+                    onClick={() => {
+                      this.props.logoutUser();
+                    }}
+                  >
+                    Yes
+                  </button>
+                </div>
+                <div className="logOutNoButtonContainer">
+                  <button
+                    className="logOutNoButton"
                     onClick={() => {
                       this.setState({
                         buttonState: {

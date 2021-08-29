@@ -10,10 +10,8 @@ import {
   getCustomerInfo,
   getOtherCustomerInfo,
 } from "./../Store/custDetailActions";
-import firebase from "firebase";
-
+import { MdKeyboardBackspace } from "react-icons/md";
 import CustomerAddressDetails from "../components/CustomerAddressDetails";
-// import { HeaderPage } from "../components/HeaderPage";
 
 class UserProfile extends Component {
   constructor(props) {
@@ -63,7 +61,23 @@ class UserProfile extends Component {
         {/* <HeaderPage /> */}
         <div className="container-fluid userProfileContainer">
           <Row>
-            <h4 className="header">Your Profile</h4>
+            <Col lg={11}>
+              <h4 className="header">Your Profile</h4>
+            </Col>
+            <Col lg={1}>
+              <button
+                onClick={() => {
+                  this.props.history.goBack();
+                }}
+                style={{
+                  marginTop: "15px",
+                  borderStyle: "none",
+                  backgroundColor: "transparent",
+                }}
+              >
+                <MdKeyboardBackspace size="1.6em" />
+              </button>
+            </Col>
             <hr />
           </Row>
           <Row>
@@ -122,6 +136,7 @@ const mapStateToProps = (state) => {
   console.log("selected: ", selected);
   console.log("otherInfo: ", selectedOther);
   return {
+    allTheState: state,
     customerInfo: selected,
     otherInfo: selectedOther,
     userId: state.auth.user.loggedInUser.Id,

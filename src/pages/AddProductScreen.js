@@ -10,7 +10,7 @@ import { FaRegImage } from "react-icons/fa";
 import { v4 as uuid } from "uuid";
 import product from "../assets/images/productImage.png";
 
-import { AddNewProduct } from "../Store/authActions";
+import { AddNewProduct } from "../Store/productActions";
 import { connect } from "react-redux";
 
 class AddProduct extends Component {
