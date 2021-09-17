@@ -33,7 +33,7 @@ class CartProductComponent extends React.Component {
   handleRemoveProduct = () => {
     // let theqty = parseInt(this.state.qty) + 1;
     this.props.removeProduct(this.state.productId);
-    this.props.rerender("rerender");
+    this.props.rerender("removing");
   };
 
   render() {

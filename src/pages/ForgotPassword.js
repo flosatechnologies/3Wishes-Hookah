@@ -37,7 +37,7 @@ const ForgotPassword = ({ history }) => {
   };
 
   return (
-    <div className="mainContainer">
+    <div className="mainContainerForgotPass">
       {loading ? (
         <h4 style={{ color: "red" }}>loading</h4>
       ) : (

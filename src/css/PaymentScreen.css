@@ -58,3 +58,7 @@
 .headerTime {
   font-weight: bold;
 }
+.paymentScreenBackButton {
+  background-color: transparent;
+  border-style: none;
+}

@@ -16,6 +16,8 @@ import reducer from "./Store/mainReducer";
 import { getFirebase, reduxReactFirebase } from "react-redux-firebase";
 import { getFirestore, reduxFirestore } from "redux-firestore";
 import firebase from "./firebase/config";
+import Loading from "./components/Loading";
+import { logger } from "redux-logger";
 import { PersistGate } from "redux-persist/integration/react";
 
 const persistConfig = {
@@ -27,7 +29,10 @@ const pReducer = persistReducer(persistConfig, reducer);
 const store = createStore(
   pReducer,
   compose(
-    applyMiddleware(thunk.withExtraArgument({ getFirebase, getFirestore })),
+    applyMiddleware(
+      thunk.withExtraArgument({ getFirebase, getFirestore }),
+      logger
+    ),
     reduxFirestore(firebase),
     reduxReactFirebase(firebase)
   )
@@ -37,7 +42,7 @@ const persistor = persistStore(store);
 
 ReactDOM.render(
   <Provider store={store}>
-    <PersistGate loading={null} persistor={persistor}>
+    <PersistGate loading={Loading} persistor={persistor}>
       <App />
     </PersistGate>
   </Provider>,

@@ -6,11 +6,12 @@ export default function Flutterwave(props) {
   const info = props.data;
 
   const config = {
-    public_key: "FLWPUBK_TEST-0386baedd5eff7cf6f8d0da09e59613e-X",
+    public_key: "FLWPUBK_TEST-cfce97daa36f7fe92ee4c4a0c80c497b-X", //"FLWPUBK_TEST-c48c8f42b590ea034a97d9fa1dcc2400-X",
     tx_ref: Date.now(),
     amount: info.amnt,
     currency: "GHS",
     payment_options: "card,mobilemoney,ussd",
+    // redirect_url: "localhost/payment",
     customer: {
       email: info.email,
       phonenumber: info.phoneNumber,
@@ -31,7 +32,12 @@ export default function Flutterwave(props) {
         onClick={() => {
           handleFlutterPayment({
             callback: (response) => {
-              console.log(response);
+              console.log("response", response);
+              // return RequeryTransaction({
+              //   live: false,
+              //   txref: response.tx.txRef,
+              //   SECKEY: "",
+              // });
               closePaymentModal(); // this will close the modal programmatically
             },
             onClose: () => {},

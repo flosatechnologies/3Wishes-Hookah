@@ -12,6 +12,7 @@ import {
 } from "./../Store/custDetailActions";
 import { MdKeyboardBackspace } from "react-icons/md";
 import CustomerAddressDetails from "../components/CustomerAddressDetails";
+import DeliveryReceiptComponent from "../components/DeliveryReceiptComponent";
 
 class UserProfile extends Component {
   constructor(props) {
@@ -20,6 +21,7 @@ class UserProfile extends Component {
       button: {
         profileBtn: "on",
         editProfileBtn: "off",
+        deliveryBtn: "off",
       },
     };
   }
@@ -53,12 +55,19 @@ class UserProfile extends Component {
         </div>
       );
     }
+
+    if (this.state.button.deliveryBtn === "on") {
+      return (
+        <div>
+          <DeliveryReceiptComponent />
+        </div>
+      );
+    }
   };
 
   render() {
     return (
       <div>
-        {/* <HeaderPage /> */}
         <div className="container-fluid userProfileContainer">
           <Row>
             <Col lg={11}>
@@ -88,7 +97,11 @@ class UserProfile extends Component {
                   <button
                     onClick={() => {
                       this.setState({
-                        button: { profileBtn: "on", editProfileBtn: "off" },
+                        button: {
+                          profileBtn: "on",
+                          editProfileBtn: "off",
+                          deliveryBtn: "off",
+                        },
                       });
                     }}
                     className="pro-edit"
@@ -101,7 +114,11 @@ class UserProfile extends Component {
                   <button
                     onClick={() => {
                       this.setState({
-                        button: { profileBtn: "off", editProfileBtn: "on" },
+                        button: {
+                          profileBtn: "off",
+                          editProfileBtn: "on",
+                          deliveryBtn: "off",
+                        },
                       });
                     }}
                     className="pro-editt"
@@ -110,15 +127,32 @@ class UserProfile extends Component {
                     Edit Profile
                   </button>
                 </div>
+                <div className="theEditProfileContainer">
+                  <button
+                    onClick={() => {
+                      this.setState({
+                        button: {
+                          profileBtn: "off",
+                          editProfileBtn: "off",
+                          deliveryBtn: "on",
+                        },
+                      });
+                    }}
+                    className="pro-editt"
+                    Id={this.state.button.deliveryBtn}
+                  >
+                    Delivery
+                  </button>
+                </div>
               </div>
             </Col>
             <Col xxl={4}></Col>
           </Row>
           <Row>
-            <Col></Col>
-            {this.renderComponent()}
+            <Col lg={3}></Col>
+            <Col lg={6}> {this.renderComponent()}</Col>
 
-            <Col></Col>
+            <Col lg={3}></Col>
           </Row>
         </div>
       </div>
