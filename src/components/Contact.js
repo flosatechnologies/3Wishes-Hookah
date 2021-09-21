@@ -113,17 +113,17 @@ export default class Contact extends Component {
             </p>
             <div className="icon-text">
               <FaPhoneAlt className="Fa" />
-              <span>+233 507 442 694</span>
+              <span>+233 500 205 795</span>
             </div>
 
             <div className="icon-text">
               <FaEnvelope className="Fa" />
-              <span>3wishes@gmail.com</span>
+              <span>info@3wishesgh.com</span>
             </div>
 
             <div className="icon-text">
               <FaMapMarkerAlt className="Fa" />
-              <span>Agavena-Koforidua, Ghana</span>
+              <span>Koforidua, Ghana</span>
             </div>
 
             <div className="social-media">
