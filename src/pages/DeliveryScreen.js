@@ -3,143 +3,122 @@ import "../css/deliveryScreen.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Row, Col, Dropdown, Card } from "react-bootstrap";
 import airpods from "../../src/assets/images/airpods.jpg";
+import DatePicker from "react-datepicker";
+import { MdKeyboardBackspace } from "react-icons/md";
+import DeliveryComponent from "../components/DeliveryComponent";
 
-export default function DeliveryScreen() {
-  return (
-    <div className="container-fluid">
-      <Row className="row-one">
-        <Col
-          style={{
-            display: "flex",
-            flexDirection: "row",
-            paddingLeft: 50,
-            marginTop: 20,
-          }}
-        >
-          <p style={{ fontSize: 18, fontWeight: "600", paddingRight: 10 }}>
-            From
-          </p>
-          <input
-            type="date"
-            id="from"
-            style={{ borderRadius: 10, width: "15rem", textAlign: "center" }}
-          />
-        </Col>
-        <Col
-          style={{
-            display: "flex",
-            flexDirection: "row",
-            paddingLeft: 70,
-            marginTop: 20,
-          }}
-        >
-          <p style={{ fontSize: 18, fontWeight: "600", paddingRight: 10 }}>
-            To
-          </p>
-          <input
-            type="date"
-            id="to"
-            style={{ borderRadius: 10, width: "15rem", textAlign: "center" }}
-          />
-        </Col>
-        <Col
-          style={{
-            marginTop: 20,
-          }}
-        >
-          <button className="filterButton">Filter</button>
-        </Col>
-        <hr style={{ color: "#000", marginTop: 15 }} />
-      </Row>
+export default class DeliveryScreen extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      date1: new Date(),
+      date2: new Date(),
+    };
+  }
+  render() {
+    return (
+      <div className="container-fluid">
+        <Row className="filterSection">
+          <div className="col-lg-8 dateFilter">
+            <div style={{ marginRight: 50 }}>
+              From{"   "}
+              <DatePicker
+                selected={this.state.date1}
+                onChange={(date) => this.setState({ date1: date })}
+                peekNextMonth
+                showMonthDropdown
+                showYearDropdown
+                dropdownMode="select"
+                dateFormat="dd/MM/yyyy"
+              />
+            </div>
+            <div>
+              To
+              <DatePicker
+                selected={this.state.date2}
+                onChange={(date) => this.setState({ date2: date })}
+                peekNextMonth
+                showMonthDropdown
+                showYearDropdown
+                dropdownMode="select"
+                dateFormat="dd/MM/yyyy"
+              />
+            </div>
+          </div>
+          <div className="col-lg-3">
+            <button className="filterButton">Filter</button>
+          </div>
 
-      <Row className="row-two">
-        <Col>
-          <h5 style={{ fontSize: 18, fontWeight: "600" }}>PRODUCT</h5>
-        </Col>
-        <Col>
-          <p style={{ fontSize: 18, fontWeight: "600" }}>CUSTOMER</p>
-        </Col>
-        <Col>
-          <h5 style={{ fontSize: 18, fontWeight: "600" }}>LOCATION</h5>
-        </Col>
-
-        <Col>
-          <h5 style={{ fontSize: 18, fontWeight: "600" }}>QUANTITY</h5>
-        </Col>
-
-        <Col>
-          <h5 style={{ fontSize: 18, fontWeight: "600" }}>STATUS</h5>
-        </Col>
-
-        <Col>
-          <h5
-            style={{
-              fontSize: 18,
-              fonFamily: "'Oswald', sans-serif",
-              fontWeight: "800",
-            }}
-          >
-            DELIVERY
-          </h5>
-        </Col>
-      </Row>
-
-      <Row className="row-three">
-        <Col>
-          <Card.Img
-            style={{ width: 100, height: 100 }}
-            src={airpods}
-            variant="top"
-            className="img"
-          />
-        </Col>
-        <Col>
-          <p style={{ fontSize: 18, fonFamily: "'Oswald', sans-serif" }}>
-            James Addo
-          </p>
-        </Col>
-        <Col>
-          <p style={{ fontSize: 18, fonFamily: "'Oswald', sans-serif" }}>
-            Tema
-          </p>
-        </Col>
-
-        <Col>
-          <p style={{ fontSize: 18, fonFamily: "'Oswald', sans-serif" }}>10</p>
-        </Col>
-
-        <Col>
-          <p style={{ fontSize: 18, background: "#2FDE17", width: 55 }}>Paid</p>
-        </Col>
-
-        <Col>
-          <Dropdown>
-            <Dropdown.Toggle
-              variant="success"
-              id="dropdown-basic"
-              style={{
-                width: 100,
-                fontSize: 15,
-                background: "yellow",
-                color: "#000",
-                textTransform: "capitalize",
+          <div className="col-lg-1">
+            <button
+              className="paymentScreenBackButton"
+              onClick={() => {
+                this.setState({ receipt: "no", paySummary: "yes" });
               }}
             >
-              Pending
-            </Dropdown.Toggle>
+              <MdKeyboardBackspace size="1.6em" />
+            </button>
+          </div>
+        </Row>
 
-            <Dropdown.Menu>
-              <Dropdown.Item
-                style={{ background: "green", width: 100, color: "#fff" }}
-                href="#/action-1"
-              >
-                Delivered
-              </Dropdown.Item>
-            </Dropdown.Menu>
-          </Dropdown>
-        </Col>
-      </Row>
-      <hr />
-    </div>
-  );
+        <Row lg={12} className="deliveryHeaderContainer">
+          <Col lg={1}>
+            <div style={{ fontSize: 15, fontWeight: "600" }}>ID</div>
+          </Col>
+          <Col lg={3}>
+            <div style={{ fontSize: 15, fontWeight: "600" }}>PRODUCT(S)</div>
+          </Col>
+          <Col lg={2}>
+            <p style={{ fontSize: 15, fontWeight: "600" }}>CUSTOMER</p>
+          </Col>
+          <Col lg={2}>
+            <div style={{ fontSize: 15, fontWeight: "600" }}>LOCATION</div>
+          </Col>
+
+          <Col lg={2}>
+            <div style={{ fontSize: 15, fontWeight: "600" }}>AMOUNT(GHS)</div>
+          </Col>
+
+          <Col lg={1}>
+            <div
+              style={{
+                fontSize: 15,
+                fontWeight: "600",
+              }}
+            >
+              DELIVERY
+            </div>
+          </Col>
+        </Row>
+        <DeliveryComponent
+          Id="D000120"
+          products="Hp Omen Laptop, ipad..."
+          customer="James Addo"
+          location="Koforidua"
+          amount="3000"
+          delivery="delivered"
+        />
+        <DeliveryComponent
+          Id="D000220"
+          products="Whiskey, ipad..."
+          customer="James Addo"
+          location="Kasoa"
+          amount="400"
+          delivery="pending"
+        />
+
+        <DeliveryComponent
+          Id="D000220"
+          products="Whiskey, ipad..."
+          customer="James Addo"
+          location="Tema"
+          amount="400"
+          delivery="pending"
+        />
+
+        <Row className="row-three"></Row>
+        <hr />
+      </div>
+    );
+  }
 }

@@ -7,3 +7,7 @@
 #edit {
   text-transform: capitalize;
 }
+
+.deliveryHeaderContainer {
+  padding: 0px 4px;
+}

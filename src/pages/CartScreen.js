@@ -43,6 +43,7 @@ class CartScreen extends React.Component {
 
   handleRerender = (data) => {
     this.setState({ update: data, cartProduct: this.props.cart });
+    console.log("update", this.state.update);
   };
   render() {
     var theTotal = this.handleTotal();

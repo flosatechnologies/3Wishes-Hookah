@@ -193,7 +193,7 @@ const mapStateToProps = (state) => {
   var selectedOther = state.customerInfo.otherInfo.filter(
     (oth) => oth.Id === state.auth.user.loggedInUser.Id
   );
-  console.log("selected: ", selectedOther);
+  console.log("custInfo: ", state.customerInfo);
   return {
     allState: state,
     customerInfo: selected,

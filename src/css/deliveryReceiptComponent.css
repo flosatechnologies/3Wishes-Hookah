@@ -1,0 +1,63 @@
+.deliveryHeaderContainer-customer {
+}
+.receiptConfirmationMainContainer {
+  background-color: transparent;
+  position: relative;
+  height: 60vh;
+  bottom: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.receiptConfirmationBox {
+  width: 290px;
+  background-color: white;
+  border-radius: 4px;
+  padding: 5px;
+  box-shadow: 1px 1px 6px 3px rgba(0, 0, 0, 0.438);
+}
+
+.receiptConfirmationText {
+  font-size: 18px;
+  text-transform: uppercase;
+  font-weight: bolder;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-color: #cccccc;
+  color: rgb(2, 87, 16);
+}
+
+div.receiptConfirmationCautionText {
+  font-size: 17px;
+  margin-bottom: 5px;
+  font-weight: bolder;
+  line-height: 22px;
+}
+
+div.receiptConfirmationNoteText {
+  font-size: 12px;
+  font-weight: bolder;
+  margin-top: 2px;
+  color: firebrick;
+}
+.receiptConfirmationButtonContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+}
+
+.receiptConfirmationYesButton {
+  font-size: 15px;
+  border-style: none;
+  background-color: limegreen;
+  padding: 0px 4px;
+  margin-right: 5px;
+}
+.receiptConfirmationNoButton {
+  font-size: 15px;
+  border-style: none;
+  background-color: rgb(189, 3, 3);
+  padding: 0px 4px;
+  color: white;
+}

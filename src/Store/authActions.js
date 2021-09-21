@@ -70,7 +70,7 @@ export const loginWithEmail = (email, password) => {
               });
             })
             .catch((error) => {
-              alert(error.message);
+              alert(error);
               console.log("Error getting document:", error);
             });
         });

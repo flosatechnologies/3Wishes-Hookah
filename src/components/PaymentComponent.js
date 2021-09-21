@@ -13,7 +13,14 @@ function PaymentComponent(props) {
         <div className="Amount"> {props.amountPaid} </div>
         <div className="Time"> {props.time} </div>
         <div>
-          <AiOutlineEye />
+          <button
+            onClick={() => {
+              props.Change("yes");
+            }}
+            style={{ backgroundColor: "transparent", borderStyle: "none" }}
+          >
+            <AiOutlineEye />
+          </button>
         </div>
       </div>
     </div>

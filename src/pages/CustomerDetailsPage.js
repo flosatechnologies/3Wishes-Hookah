@@ -95,6 +95,7 @@ class CustomerDetails extends Component {
                     <input
                       className="firstNameInput-CustomerProfile"
                       type="text"
+                      required={true}
                       name="fullname"
                       value={this.state.firstName}
                       onChange={this.handleChange}
@@ -107,6 +108,7 @@ class CustomerDetails extends Component {
                       <input
                         className="otherNamesInput-CustomerProfile"
                         type="text"
+                        required={true}
                         name="otherNames"
                         value={this.state.otherNames}
                         onChange={this.handleChange}
@@ -121,6 +123,7 @@ class CustomerDetails extends Component {
                     <input
                       className="phoneNumberInput-CustomerProfile"
                       type="tel"
+                      required={true}
                       name="phoneNumber"
                       value={this.state.phoneNumber}
                       onChange={this.handleChange}
@@ -157,6 +160,7 @@ class CustomerDetails extends Component {
                     <input
                       className="cityInput-CustomerProfile"
                       type="text"
+                      required="true"
                       name="city"
                       value={this.state.city}
                       onChange={this.handleChange}
@@ -168,6 +172,7 @@ class CustomerDetails extends Component {
                     <select
                       value={this.state.region}
                       className="regionInput-CustomerProfile"
+                      required
                       name="region"
                       onChange={this.handleChange}
                     >
