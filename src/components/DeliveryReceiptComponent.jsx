@@ -105,7 +105,7 @@ export class DeliveryReceiptComponent extends Component {
           Id="D000220"
           products="Whiskey, ipad..."
           amount="400"
-          delivery="on route"
+          delivery="pending"
           receive={(y) => {
             this.handleReceipt(y);
           }}

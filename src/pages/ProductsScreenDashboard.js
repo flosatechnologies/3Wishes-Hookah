@@ -9,7 +9,7 @@ import Edit from "./EditScreen";
 import { connect } from "react-redux";
 import { MdKeyboardBackspace } from "react-icons/md";
 import firebase from "../firebase/config";
-import { DeleteProduct } from "../Store/productActions.js";
+import { DeleteProduct, getAllProducts } from "../Store/productActions.js";
 
 class ProductsScreenDashboard extends Component {
   constructor(props) {
@@ -79,14 +79,20 @@ class ProductsScreenDashboard extends Component {
             <div className="dialogBoxContainer">
               <div className=" headerContainer">CONFIRMATION</div>
               <div className=" messageContainer">
-                <p>Are you sure you want to delete product</p>
+                Are you sure you want to delete product
               </div>
               <div className="buttonsContainer">
-                <div>
-                  <button onClick={this.handleDeleteProduct}>Yes</button>
-                </div>
-                <div>
+                <div className="yesButtonContainer-dashboard">
                   <button
+                    className="yesButton-dashboard"
+                    onClick={this.handleDeleteProduct}
+                  >
+                    Yes
+                  </button>
+                </div>
+                <div className="noButtonContainer-dashboard">
+                  <button
+                    className="noButton-dashboard"
                     onClick={() => {
                       this.setState({
                         button: {
@@ -118,7 +124,7 @@ class ProductsScreenDashboard extends Component {
       if (this.state.button.addProduct === "inactivebtn") {
         return (
           <div className="container arrayOfProducts">
-            <div className="row">
+            <div className="row dashboardProductsContainer">
               {this.state.storeProducts.map((products) => {
                 return (
                   <ProductComponentDashboard
@@ -137,7 +143,7 @@ class ProductsScreenDashboard extends Component {
       }
     };
     return (
-      <div className="container">
+      <div className="container productScreenMainContainer">
         <div className="row filterSection">
           <div className="col-lg-2">
             <button
@@ -176,6 +182,7 @@ const mapStateToProps = () => {
 const mapDispatchToProps = () => {
   return {
     DeleteProduct,
+    getAllProducts,
   };
 };
 

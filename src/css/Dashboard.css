@@ -97,15 +97,17 @@ div.logOutButtonsContainer {
   justify-content: right;
 }
 button.logOutYesButton {
+  font-size: 15px;
   border-style: none;
-  background-color: green;
-  color: white;
-  padding: 1px 5px;
+  background-color: limegreen;
+  padding: 0px 4px;
+  margin-right: 5px;
 }
 
 button.logOutNoButton {
+  font-size: 15px;
   border-style: none;
-  background-color: brown;
+  background-color: rgb(189, 3, 3);
+  padding: 0px 4px;
   color: white;
-  padding: 1px 5px;
 }

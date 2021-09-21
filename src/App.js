@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter, Switch } from "react-router-dom";
 import RouterComponent from "./components/Router";
 
-function NavigationContainer() {
+function App() {
   return (
     <div>
       <BrowserRouter>
@@ -14,4 +14,4 @@ function NavigationContainer() {
   );
 }
 
-export default NavigationContainer;
+export default App;

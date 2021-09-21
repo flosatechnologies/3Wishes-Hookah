@@ -1,17 +1,15 @@
 import React from "react";
 import { useFlutterwave, closePaymentModal } from "flutterwave-react-v3";
-import CartScreen from "../pages/CartScreen";
 
 export default function Flutterwave(props) {
   const info = props.data;
 
   const config = {
-    public_key: "FLWPUBK_TEST-cfce97daa36f7fe92ee4c4a0c80c497b-X", //"FLWPUBK_TEST-c48c8f42b590ea034a97d9fa1dcc2400-X",
+    public_key: "FLWPUBK_TEST-c48c8f42b590ea034a97d9fa1dcc2400-X", //"FLWPUBK_TEST-cfce97daa36f7fe92ee4c4a0c80c497b-X",
     tx_ref: Date.now(),
     amount: info.amnt,
     currency: "GHS",
     payment_options: "card,mobilemoney,ussd",
-    // redirect_url: "localhost/payment",
     customer: {
       email: info.email,
       phonenumber: info.phoneNumber,

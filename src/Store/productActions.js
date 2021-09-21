@@ -64,6 +64,7 @@ export const DeleteProduct = (Id, path) => {
           .delete()
           .then(() => {
             console.log("file deleted successfully");
+            alert("product deleted successfully");
           })
           .catch((error) => {
             console.log(error);

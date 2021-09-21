@@ -6,7 +6,6 @@ import App from "./App";
 import "../src/css/contact.scss";
 import reportWebVitals from "./reportWebVitals";
 import "bootstrap/dist/css/bootstrap.min.css";
-
 import { createStore, applyMiddleware, compose } from "redux";
 import thunk from "redux-thunk";
 import { Provider } from "react-redux";
@@ -14,6 +13,7 @@ import storage from "redux-persist/lib/storage";
 import { persistReducer, persistStore } from "redux-persist";
 import reducer from "./Store/mainReducer";
 import { getFirebase, reduxReactFirebase } from "react-redux-firebase";
+import { composeWithDevTools } from "redux-devtools-extension";
 import { getFirestore, reduxFirestore } from "redux-firestore";
 import firebase from "./firebase/config";
 import Loading from "./components/Loading";
@@ -23,6 +23,7 @@ import { PersistGate } from "redux-persist/integration/react";
 const persistConfig = {
   key: "root",
   storage: storage,
+  whitelist: ["auth", "cart"],
 };
 
 const pReducer = persistReducer(persistConfig, reducer);

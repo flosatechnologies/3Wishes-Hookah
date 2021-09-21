@@ -94,7 +94,7 @@ export default class DeliveryScreen extends React.Component {
           Id="D000120"
           products="Hp Omen Laptop, ipad..."
           customer="James Addo"
-          location="Greater Accra"
+          location="Koforidua"
           amount="3000"
           delivery="delivered"
         />
@@ -102,7 +102,7 @@ export default class DeliveryScreen extends React.Component {
           Id="D000220"
           products="Whiskey, ipad..."
           customer="James Addo"
-          location="Central"
+          location="Kasoa"
           amount="400"
           delivery="pending"
         />
@@ -111,9 +111,9 @@ export default class DeliveryScreen extends React.Component {
           Id="D000220"
           products="Whiskey, ipad..."
           customer="James Addo"
-          location="Central"
+          location="Tema"
           amount="400"
-          delivery="on route"
+          delivery="pending"
         />
 
         <Row className="row-three"></Row>
