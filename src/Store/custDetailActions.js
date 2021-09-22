@@ -47,7 +47,7 @@ export const getCustomerInfo = () => {
           snapshot.forEach((doc) => {
             customers.push(doc.data());
           });
-          console.log(customers, "Sam");
+          console.log("theCustomers ", customers);
           dispatch({
             type: "GET_CUSTOMERS",
             payload: customers,
@@ -69,7 +69,7 @@ export const getOtherCustomerInfo = () => {
           snapshot.forEach((doc) => {
             others.push(doc.data());
           });
-          console.log(others, "Sam");
+          console.log("theOtherInfo ", others);
           dispatch({
             type: "GET_OTHER_CUSTOMER_INFO",
             payload: others,

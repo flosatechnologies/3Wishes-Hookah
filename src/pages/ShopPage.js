@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import { Col, Row } from "react-bootstrap";
+
 import Product from "../pages/Product";
-import products from "../products";
+
 import "bootstrap/dist/css/bootstrap.min.css";
 import HeaderPage from "../components/HeaderPage";
 import FooterPage from "../components/FooterPage";

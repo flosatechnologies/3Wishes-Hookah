@@ -1,5 +1,3 @@
-import { getAuth, sendPasswordResetEmail } from "firebase/auth";
-
 export const userRegistration = (user) => {
   return (dispatch, getState, { getFirebase, getFirestore }) => {
     const firebase = getFirebase();

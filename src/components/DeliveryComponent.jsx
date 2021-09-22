@@ -2,6 +2,7 @@ import React from "react";
 import { Row, Col, Dropdown, Card } from "react-bootstrap";
 import "../css/deliveryComponent.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { AiOutlineEye } from "react-icons/ai";
 
 function DeliveryComponent(props) {
   return (
@@ -34,12 +35,22 @@ function DeliveryComponent(props) {
           </div>
         </Col>
 
-        <Col lg={2}>
+        <Col lg={1}>
           <div
             style={{ fontSize: 16, color: "forestgreen", fontWeight: "bolder" }}
           >
             {props.delivery}
           </div>
+        </Col>
+        <Col lg={1}>
+          <button
+            onClick={() => {
+              props.alteration("yes");
+            }}
+            style={{ backgroundColor: "transparent", borderStyle: "none" }}
+          >
+            <AiOutlineEye />
+          </button>
         </Col>
       </Row>
     </div>

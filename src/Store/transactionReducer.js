@@ -1,5 +1,6 @@
 const initialState = {
   transaction: [],
+  delivery: [],
 };
 
 const transactionReducer = (state = initialState, action) => {

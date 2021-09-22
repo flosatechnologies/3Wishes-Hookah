@@ -7,7 +7,6 @@ import {
   getCustomerInfo,
 } from "./../Store/custDetailActions";
 import { connect } from "react-redux";
-import { v4 as uuid } from "uuid";
 
 class CustomerAddressDetails extends Component {
   constructor(props) {
@@ -36,9 +35,10 @@ class CustomerAddressDetails extends Component {
 
   componentDidMount() {
     this.props.getOtherCustomerInfo();
+    this.props.getCustomerInfo();
     const customerInfo = this.state.customerInfo;
-
     const otherInfor = this.state.otherInfor;
+    console.log("otherInfor ", otherInfor);
 
     this.setState({
       firstName: otherInfor[0].firstName,

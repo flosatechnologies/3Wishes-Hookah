@@ -44,7 +44,7 @@ class CheckoutScreen extends React.Component {
   };
   componentDidMount() {
     this.props.getCustomerInfo();
-    this.props.getCustomerInfo();
+    this.props.getOtherCustomerInfo();
     if (
       this.props.login === true &&
       this.props.otherInfo[0].role === "customer"

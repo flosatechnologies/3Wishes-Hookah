@@ -24,3 +24,5 @@ export const CustomerDetailReducer = (state = initialState, action) => {
       return state;
   }
 };
+
+export default CustomerDetailReducer;
