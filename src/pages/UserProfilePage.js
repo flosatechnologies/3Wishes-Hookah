@@ -19,7 +19,7 @@ class UserProfile extends Component {
     super(props);
     this.state = {
       button: {
-        profileBtn: "on",
+        profileBtn: "off",
         editProfileBtn: "off",
         deliveryBtn: "off",
       },
@@ -30,7 +30,6 @@ class UserProfile extends Component {
     this.props.getCustomerInfo();
     this.props.getOtherCustomerInfo();
   }
-
   renderComponent = () => {
     if (this.state.button.profileBtn === "on") {
       return (

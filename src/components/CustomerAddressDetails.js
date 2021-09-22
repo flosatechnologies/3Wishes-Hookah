@@ -34,8 +34,8 @@ class CustomerAddressDetails extends Component {
   //end
 
   componentDidMount() {
-    this.props.getOtherCustomerInfo();
-    this.props.getCustomerInfo();
+    // this.props.getOtherCustomerInfo();
+    // this.props.getCustomerInfo();
     const customerInfo = this.state.customerInfo;
     const otherInfor = this.state.otherInfor;
     console.log("otherInfor ", otherInfor);
