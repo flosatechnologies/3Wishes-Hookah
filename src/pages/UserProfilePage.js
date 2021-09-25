@@ -60,7 +60,9 @@ class UserProfile extends Component {
     if (this.state.button.deliveryBtn === "on") {
       return (
         <div>
-          <DeliveryReceiptComponent transacts={this.props.transaction} />
+          <DeliveryReceiptComponent
+          // transacts={this.props.allTheState.transaction.transaction}
+          />
         </div>
       );
     }
@@ -170,7 +172,7 @@ const mapStateToProps = (state) => {
   );
   console.log("customerInfo: ", state.customerInfo);
   console.log("otherInfo: ", state.customerInfo.otherInfo);
-  console.log("transaction: ", state.transaction.transaction);
+
   return {
     allTheState: state,
     customerInfo: selected,
