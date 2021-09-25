@@ -1,9 +1,10 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../css/SignIn.css";
-import { Link, Redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { loginWithEmail } from "../Store/authActions";
+
 import { Component } from "react";
 import HeaderPage from "./HeaderPage";
 import FooterPage from "./FooterPage";

@@ -5,9 +5,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import "bootstrap/dist/css/bootstrap.min.css";
-import ProductComponentDashboard from "../components/ProductComponentDashboard";
 import { FaRegImage } from "react-icons/fa";
-import { v4 as uuid } from "uuid";
 import { EditProduct, EditTextOnly } from "../Store/productActions";
 import firebase from "../firebase/config";
 
@@ -109,7 +107,7 @@ class Edit extends Component {
               <div className="image-holder">
                 <img
                   src={this.state.profileImg}
-                  alt="image"
+                  alt="profileImage"
                   className="img-responsive"
                 />
               </div>

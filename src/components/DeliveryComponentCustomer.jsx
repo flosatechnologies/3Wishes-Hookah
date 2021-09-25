@@ -9,16 +9,32 @@ export class DeliveryComponentCustomer extends Component {
     };
   }
   render() {
+    let status = false;
+    let color = "forestgreen";
+
+    if (this.props.delivery === "delivered") {
+      status = true;
+      color = "#cccccc";
+    }
     return (
       <div>
         <Row>
           <Col lg={2}>
             <div style={{ fontSize: 16, fonFamily: "'Oswald', sans-serif" }}>
-              {this.props.Id}
+              {this.props.orderId}
             </div>
           </Col>
           <Col lg={4}>
-            <div style={{ fontSize: 16, fonFamily: "'Oswald', sans-serif" }}>
+            <div
+              style={{
+                fontSize: 16,
+                fonFamily: "'Oswald', sans-serif",
+                width: "160",
+                textOverflow: "ellipsis",
+                whiteSpace: "nowrap",
+                overflow: "hidden",
+              }}
+            >
               {this.props.products}
             </div>
           </Col>
@@ -42,17 +58,18 @@ export class DeliveryComponentCustomer extends Component {
           </Col>
           <Col lg={2}>
             <button
+              disabled={status}
               style={{
                 fontSize: 16,
                 color: "white",
-                backgroundColor: "forestgreen",
+                backgroundColor: color,
                 borderStyle: "none",
                 margin: "1px 0px",
                 padding: "1px 2px",
                 borderRadius: "3px",
               }}
               onClick={() => {
-                this.props.receive("on");
+                this.props.receive("on", this.props.Id);
               }}
             >
               receive

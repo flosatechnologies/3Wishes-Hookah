@@ -11,7 +11,7 @@ import thunk from "redux-thunk";
 import { Provider } from "react-redux";
 import storage from "redux-persist/lib/storage";
 import { persistReducer, persistStore } from "redux-persist";
-import reducer from "./Store/mainReducer";
+import combineReducer from "./Store/mainReducer";
 import { getFirebase, reduxReactFirebase } from "react-redux-firebase";
 import { getFirestore, reduxFirestore } from "redux-firestore";
 import firebase from "./firebase/config";
@@ -23,7 +23,7 @@ const persistConfig = {
   whitelist: ["auth", "cart"],
 };
 
-const pReducer = persistReducer(persistConfig, reducer);
+const pReducer = persistReducer(persistConfig, combineReducer);
 const store = createStore(
   pReducer,
   compose(

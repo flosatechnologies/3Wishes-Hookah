@@ -1,18 +1,22 @@
 import React, { Component } from "react";
 import { Row, Col, Dropdown, Card } from "react-bootstrap";
+import { connect } from "react-redux";
 import "../css/deliveryReceiptComponent.css";
 import DeliveryComponentCustomer from "./DeliveryComponentCustomer";
+import { updateTransaction } from "../Store/transactionAction";
 
 export class DeliveryReceiptComponent extends Component {
   constructor(props) {
     super(props);
     this.state = {
       receive: "off",
+      chosenId: "",
+      // transactInfo: this.props.transacts,
     };
   }
 
-  handleReceipt = (yes) => {
-    this.setState({ receive: yes });
+  handleReceipt = (yes, Id) => {
+    this.setState({ receive: yes, chosenId: Id });
   };
 
   handleRenderReceiptConfirmation = () => {
@@ -29,7 +33,14 @@ export class DeliveryReceiptComponent extends Component {
             </div>
             <div className="receiptConfirmationButtonContainer">
               <div className="receiptConfirmationYesButtonContainer">
-                <button className="receiptConfirmationYesButton">Yes</button>
+                <button
+                  onClick={() => {
+                    this.props.updateTransaction(this.state.chosenId);
+                  }}
+                  className="receiptConfirmationYesButton"
+                >
+                  Yes
+                </button>
               </div>
               <div className="receiptConfirmationNoButtonContainer">
                 <button
@@ -82,34 +93,23 @@ export class DeliveryReceiptComponent extends Component {
             ></div>
           </Col>
         </Row>
-        <DeliveryComponentCustomer
-          Id="D000120"
-          products="Hp Omen Laptop, ipad..."
-          amount="3000"
-          delivery="delivered"
-          receive={(y) => {
-            this.handleReceipt(y);
-          }}
-        />
-        <DeliveryComponentCustomer
-          Id="D000220"
-          products="Whiskey, ipad..."
-          amount="400"
-          delivery="pending"
-          receive={(y) => {
-            this.handleReceipt(y);
-          }}
-        />
-
-        <DeliveryComponentCustomer
-          Id="D000220"
-          products="Whiskey, ipad..."
-          amount="400"
-          delivery="pending"
-          receive={(y) => {
-            this.handleReceipt(y);
-          }}
-        />
+        {
+          (console.log("transact: ", this.props.transact),
+          this.props.transact.map((transa) => {
+            return (
+              <DeliveryComponentCustomer
+                Id={transa.Id}
+                orderId={transa.orderId}
+                products={transa.products[0].product}
+                amount={transa.amount}
+                delivery={transa.deliveryStatus}
+                receive={(y, d) => {
+                  this.handleReceipt(y, d);
+                }}
+              />
+            );
+          }))
+        }
 
         <Row className="row-three"></Row>
         <div>{this.handleRenderReceiptConfirmation()}</div>
@@ -118,4 +118,20 @@ export class DeliveryReceiptComponent extends Component {
   }
 }
 
-export default DeliveryReceiptComponent;
+const mapStateToProps = (state) => {
+  console.log("TransactState: ", state.transaction.transaction);
+  return {
+    transact: state.transaction.transaction,
+  };
+};
+
+const mapDispatchToProps = () => {
+  return {
+    updateTransaction,
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps()
+)(DeliveryReceiptComponent);

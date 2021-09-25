@@ -1,12 +1,15 @@
-import React, { useState } from "react";
+import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../css/PaymentScreen.css";
+import Moment from "react-moment";
 import PaymentComponent from "../components/PaymentComponent.js";
 import PaymentDetialsComponent from "../components/PaymentDetailsComponent.js";
 import DatePicker from "react-datepicker";
 import { MdKeyboardBackspace } from "react-icons/md";
 import "react-datepicker/dist/react-datepicker.css";
 import { Component } from "react";
+import { connect } from "react-redux";
+import { getTransaction } from "../Store/transactionAction";
 
 class PaymentScreen extends Component {
   constructor(props) {
@@ -16,18 +19,34 @@ class PaymentScreen extends Component {
       date2: new Date(),
       receipt: "no",
       paySummary: "yes",
+      selectedTrans: "",
+      transaction: this.props.transaction,
     };
   }
 
-  handleChangeState = (val) => {
-    this.setState({ receipt: val, paySummary: "no" });
+  componentDidMount() {
+    this.props.getTransaction();
+  }
+
+  handleChangeState = (val, Id) => {
+    var chosen = this.state.transaction.filter((t) => t.Id === Id);
+    this.setState({ receipt: val, paySummary: "no", selectedTrans: chosen });
   };
 
   handleShowComponent = () => {
     if (this.state.receipt === "yes") {
       return (
         <div>
-          <PaymentDetialsComponent />
+          <PaymentDetialsComponent
+            transactionId={this.state.selectedTrans[0].transactionId}
+            customer={this.state.selectedTrans[0].customer}
+            date={
+              <Moment format="D MMM YYYY hh:mm a ">
+                {this.state.selectedTrans[0].time}
+              </Moment>
+            }
+            filteredTrans={this.state.selectedTrans[0].products}
+          />
         </div>
       );
     }
@@ -42,46 +61,21 @@ class PaymentScreen extends Component {
             <div className="headerTime">TIME</div>
           </div>
           <div>
-            <PaymentComponent
-              index="1"
-              paymentId="PR-0000001"
-              customerName="Kelvin Taylor"
-              amountPaid="300"
-              time="Sat Jun 05 2021 14:15:10"
-              Change={(v) => this.handleChangeState(v)}
-            />
-            <PaymentComponent
-              index="2"
-              paymentId="PR-0000001"
-              customerName="Kelvin Taylor"
-              amountPaid="300"
-              time="Sat Jun 05 2021 14:15:10"
-              Change={(v) => this.handleChangeState(v)}
-            />
-            <PaymentComponent
-              index="3"
-              paymentId="PR-0000001"
-              customerName="Kelvin Taylor"
-              amountPaid="300"
-              time="Sat Jun 05 2021 14:15:10"
-              Change={(v) => this.handleChangeState(v)}
-            />
-            <PaymentComponent
-              index="4"
-              paymentId="PR-0000001"
-              customerName="Kelvin Taylor"
-              amountPaid="300"
-              time="Sat Jun 05 2021 14:15:10"
-              Change={(v) => this.handleChangeState(v)}
-            />
-            <PaymentComponent
-              index="5"
-              paymentId="PR-0000001"
-              customerName="Kelvin Taylor"
-              amountPaid="300"
-              time="Sat Jun 05 2021 14:15:10"
-              Change={(v) => this.handleChangeState(v)}
-            />
+            {this.state.transaction.map((trans, index) => {
+              return (
+                <PaymentComponent
+                  index={index + 1}
+                  paymentId={trans.transactionId}
+                  customerName={trans.customer}
+                  amountPaid={trans.amount}
+                  Id={trans.Id}
+                  time={
+                    <Moment format="D MMM YYYY hh:mm a ">{trans.time}</Moment>
+                  }
+                  Change={(v, d) => this.handleChangeState(v, d)}
+                />
+              );
+            })}
           </div>
         </div>
       );
@@ -139,4 +133,14 @@ class PaymentScreen extends Component {
   }
 }
 
-export default PaymentScreen;
+const mapStateToProps = (state) => {
+  return {};
+};
+
+const mapDispatchToProps = () => {
+  return {
+    getTransaction,
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps())(PaymentScreen);

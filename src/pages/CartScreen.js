@@ -8,6 +8,10 @@ import {
   quantityDecrease,
   ClearCart,
 } from "../Store/cartActions";
+import {
+  getCustomerInfo,
+  getOtherCustomerInfo,
+} from "../Store/custDetailActions";
 import { connect } from "react-redux";
 import "../css/CartScreen.css";
 import CartProductComponent from "../components/CartProductComponent";
@@ -39,6 +43,8 @@ class CartScreen extends React.Component {
   // }
   componentDidMount() {
     this.setState({ cartProduct: this.props.cart });
+    this.props.getCustomerInfo();
+    this.props.getOtherCustomerInfo();
   }
 
   handleRerender = (data) => {
@@ -48,6 +54,7 @@ class CartScreen extends React.Component {
   render() {
     var theTotal = this.handleTotal();
     console.log("totale: ", theTotal);
+
     return (
       <div>
         <HeaderPage />
@@ -116,6 +123,8 @@ class CartScreen extends React.Component {
                     pathname: "/checkout",
                     state: {
                       total: theTotal,
+                      Info: this.props.allState.customerInfo,
+                      products: this.props.cart,
                     },
                   }}
                 >
@@ -140,7 +149,13 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = () => {
-  return { quantityDecrease, quantityIncrease, ClearCart };
+  return {
+    quantityDecrease,
+    quantityIncrease,
+    ClearCart,
+    getCustomerInfo,
+    getOtherCustomerInfo,
+  };
 };
 
 export default connect(mapStateToProps, mapDispatchToProps())(CartScreen);

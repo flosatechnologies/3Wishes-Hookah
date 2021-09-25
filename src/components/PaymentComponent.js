@@ -15,7 +15,7 @@ function PaymentComponent(props) {
         <div>
           <button
             onClick={() => {
-              props.Change("yes");
+              props.Change("yes", props.Id);
             }}
             style={{ backgroundColor: "transparent", borderStyle: "none" }}
           >

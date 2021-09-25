@@ -6,6 +6,7 @@ import FooterPage from "../components/FooterPage";
 import Flutterwave from "../components/Flutterwave";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import { v4 as uuid } from "uuid";
 import {
   getCustomerInfo,
   getOtherCustomerInfo,
@@ -19,48 +20,91 @@ class CheckoutScreen extends React.Component {
       deliveryMethodColor: "#eeeeee",
       deliveryMethodOne: false,
       deliveryMethodTwo: false,
-      deliveryfee: 0,
+
+      region: "",
     };
   }
+
+  componentDidMount() {
+    this.props.getCustomerInfo();
+    this.props.getOtherCustomerInfo();
+
+    if (
+      this.props.login === true &&
+      this.props.state.auth.role === "customer"
+    ) {
+      this.setState({ color: "forestgreen" });
+    }
+  }
+
+  defineTransactionProducts = (arr) => {
+    let defined = [];
+    for (let i = 0; i < arr.length; i++) {
+      let prod = {
+        Id: arr[i].product.Id,
+        product: arr[i].product.product,
+        price: arr[i].product.price,
+        qty: arr[i].qty,
+      };
+      defined.push(prod);
+    }
+    return defined;
+  };
   handleInputMethodOneChange = (e) => {
     this.setState({
       deliveryMethodOne: true,
       deliveryMethodTwo: false,
       deliveryMethodColor: "forestgreen",
-      deliveryfee: 0,
     });
   };
   handleInputMethodTwoChange = (e) => {
-    let deliv = 20;
-    if (this.props.customerInfo[0].region === "Greater Accra Region") {
-      deliv = 0;
-    }
     this.setState({
       deliveryMethodTwo: true,
       deliveryMethodOne: false,
       deliveryMethodColor: "forestgreen",
-      deliveryfee: deliv,
     });
   };
-  componentDidMount() {
-    this.props.getCustomerInfo();
-    this.props.getOtherCustomerInfo();
-    if (
-      this.props.login === true &&
-      this.props.otherInfo[0].role === "customer"
-    ) {
-      this.setState({ color: "forestgreen" });
-    }
-  }
+
   render() {
+    var customerInfo = this.props.location.state.Info.customers.filter(
+      (cust) => cust.Id === this.props.state.auth.user.loggedInUser.Id
+    );
+
+    var otherInfo = this.props.location.state.Info.otherInfo.filter(
+      (oth) => oth.Id === this.props.state.auth.user.loggedInUser.Id
+    );
+
+    let deliv = 0;
+    if (
+      this.state.deliveryMethodOne === true ||
+      (this.state.deliveryMethodTwo === true &&
+        customerInfo[0].region === "Greater Accra Region")
+    ) {
+      deliv = 0;
+    } else if (
+      this.state.deliveryMethodTwo === true &&
+      customerInfo[0].region !== "Greater Accra Region"
+    ) {
+      deliv = 20;
+    }
+    let Id = uuid();
+    let transId = Id.slice(24, 36);
+    let orderId = Id.slice(0, 8);
+    console.log("orderId:", transId);
     let data = {
-      name:
-        this.props.otherInfo[0].firstName +
-        " " +
-        this.props.otherInfo[0].otherNames,
-      email: this.props.otherInfo[0].email,
-      phoneNumber: this.props.otherInfo[0].phoneNumber,
-      amnt: this.props.location.state.total + this.state.deliveryfee,
+      name: otherInfo[0].firstName + " " + otherInfo[0].otherNames,
+      email: otherInfo[0].email,
+      phoneNumber: otherInfo[0].phoneNumber,
+      transactionId: transId,
+      Id: Id,
+      orderId: orderId,
+      amnt: this.props.location.state.total + deliv,
+      location: customerInfo[0].city,
+      time: Date.now(),
+      allProductsPrice: this.props.location.state.total,
+      products: this.defineTransactionProducts(
+        this.props.location.state.products
+      ),
     };
     return (
       <div>
@@ -86,17 +130,13 @@ class CheckoutScreen extends React.Component {
               </div>
               <div className="row theAddressDetailsContainer">
                 <div className="customerName">
-                  {this.props.otherInfo[0].firstName +
-                    " " +
-                    this.props.otherInfo[0].otherNames}
+                  {otherInfo[0].firstName + " " + otherInfo[0].otherNames}
                 </div>
-                <div>{this.props.customerInfo[0].residentialAddress}</div>
+                <div>{customerInfo[0].residentialAddress}</div>
                 <div>
-                  {this.props.customerInfo[0].city +
-                    ", " +
-                    this.props.customerInfo[0].region}
+                  {customerInfo[0].city + ", " + customerInfo[0].region}
                 </div>
-                <div>{this.props.otherInfo[0].phoneNumber}</div>
+                <div>{otherInfo[0].phoneNumber}</div>
               </div>
             </div>
             <div className="container deliveryMethodContainer">
@@ -162,17 +202,14 @@ class CheckoutScreen extends React.Component {
             <div className="row">
               <div className="col-lg-12 itemSummationContainer">
                 <div className="deliveryFeesText">Delivery fees:</div>
-                <div className="deliveryFeesFigure">
-                  {"GH\u20B5 " + this.state.deliveryfee}
-                </div>
+                <div className="deliveryFeesFigure">{"GH\u20B5 " + deliv}</div>
               </div>
             </div>
             <div className="row">
               <div className="col-lg-12 itemSummationContainer">
                 <div className="totalText">Total:</div>
                 <div className="totalFigure">
-                  {"GH\u20B5 " +
-                    (this.state.deliveryfee + this.props.location.state.total)}
+                  {"GH\u20B5 " + (deliv + this.props.location.state.total)}
                 </div>
               </div>
             </div>
@@ -187,17 +224,18 @@ class CheckoutScreen extends React.Component {
   }
 }
 const mapStateToProps = (state) => {
-  var selected = state.customerInfo.customers.filter(
-    (cust) => cust.Id === state.auth.user.loggedInUser.Id
-  );
-  var selectedOther = state.customerInfo.otherInfo.filter(
-    (oth) => oth.Id === state.auth.user.loggedInUser.Id
-  );
-  console.log("custInfo: ", state.customerInfo);
+  // var selected = state.customerInfo.customers.filter(
+  //   (cust) => cust.Id === state.auth.user.loggedInUser.Id
+  // );
+  // var selectedOther = state.customerInfo.otherInfo.filter(
+  //   (oth) => oth.Id === state.auth.user.loggedInUser.Id
+  // );
+  // console.log("custInfo: ", state.customerInfo);
+
   return {
-    allState: state,
-    customerInfo: selected,
-    otherInfo: selectedOther,
+    state,
+    customerInfo: state.customerInfo.customers,
+    otherInfo: state.customerInfo.otherInfo,
     login: state.auth.login,
   };
 };

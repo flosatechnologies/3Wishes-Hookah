@@ -9,7 +9,8 @@ import { connect } from "react-redux";
 import {
   getCustomerInfo,
   getOtherCustomerInfo,
-} from "./../Store/custDetailActions";
+} from "../Store/custDetailActions";
+import { getTransaction } from "../Store/transactionAction";
 import { MdKeyboardBackspace } from "react-icons/md";
 import CustomerAddressDetails from "../components/CustomerAddressDetails";
 import DeliveryReceiptComponent from "../components/DeliveryReceiptComponent";
@@ -29,6 +30,7 @@ class UserProfile extends Component {
   componentDidMount() {
     this.props.getCustomerInfo();
     this.props.getOtherCustomerInfo();
+    this.props.getTransaction();
   }
   renderComponent = () => {
     if (this.state.button.profileBtn === "on") {
@@ -58,7 +60,9 @@ class UserProfile extends Component {
     if (this.state.button.deliveryBtn === "on") {
       return (
         <div>
-          <DeliveryReceiptComponent />
+          <DeliveryReceiptComponent
+          // transacts={this.props.allTheState.transaction.transaction}
+          />
         </div>
       );
     }
@@ -168,12 +172,14 @@ const mapStateToProps = (state) => {
   );
   console.log("customerInfo: ", state.customerInfo);
   console.log("otherInfo: ", state.customerInfo.otherInfo);
+
   return {
     allTheState: state,
     customerInfo: selected,
     otherInfo: selectedOther,
     userId: state.auth.user.loggedInUser.Id,
     loggedUserInfo: state.auth.user.loggedInUser,
+    transaction: state.transaction.transaction,
   };
 };
 
@@ -181,6 +187,7 @@ const mapDispatchToProps = () => {
   return {
     getCustomerInfo,
     getOtherCustomerInfo,
+    getTransaction,
   };
 };
 

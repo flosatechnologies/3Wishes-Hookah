@@ -6,7 +6,7 @@ import { RiTruckLine } from "react-icons/ri";
 import { AiOutlineLogout } from "react-icons/ai";
 import logo from "../assets/images/logo1.png";
 import userImage from "../assets/images/contact.jpg";
-
+import { getAllUsers } from "../Store/usersActions.js";
 import PaymentScreen from "./PaymentScreen";
 import ProductsScreenDashboard from "./ProductsScreenDashboard";
 import DeliveryScreen from "./DeliveryScreen";
@@ -15,6 +15,7 @@ import { logoutUser } from "../Store/authActions";
 import { getAllProducts } from "../Store/productActions";
 
 import UsersScreenDashboard from "./UsersScreenDashboard";
+import { getTransaction } from "../Store/transactionAction";
 
 class Dashboard extends Component {
   constructor(props) {
@@ -33,6 +34,8 @@ class Dashboard extends Component {
 
   componentDidMount() {
     this.props.getAllProducts();
+    this.props.getAllUsers();
+    this.props.getTransaction();
   }
   render() {
     const handleRenderScreen = () => {
@@ -48,7 +51,9 @@ class Dashboard extends Component {
       if (this.state.buttonState.payment === "active") {
         return (
           <div>
-            <PaymentScreen />
+            <PaymentScreen
+              transaction={this.props.state.transaction.transaction}
+            />
           </div>
         );
       }
@@ -56,16 +61,16 @@ class Dashboard extends Component {
       if (this.state.buttonState.delivery === "active") {
         return (
           <div>
-            <DeliveryScreen />
+            <DeliveryScreen
+              transaction={this.props.state.transaction.transaction}
+            />
           </div>
         );
       }
       if (this.state.buttonState.users === "active") {
         return (
           <div>
-            <UsersScreenDashboard
-              adminUsers={this.props.state.users.allUsers}
-            />
+            <UsersScreenDashboard adminUsers={this.props.state.users.users} />
           </div>
         );
       }
@@ -255,7 +260,7 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = () => {
-  return { logoutUser, getAllProducts };
+  return { logoutUser, getAllProducts, getAllUsers, getTransaction };
 };
 
 export default connect(mapStateToProps, mapDispatchToProps())(Dashboard);

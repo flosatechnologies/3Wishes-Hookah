@@ -9,12 +9,30 @@ function DeliveryComponent(props) {
     <div className="deliveryComponentMainContainer">
       <Row>
         <Col lg={1}>
-          <div style={{ fontSize: 16, fonFamily: "'Oswald', sans-serif" }}>
-            {props.Id}
+          <div
+            style={{
+              fontSize: 16,
+              fonFamily: "'Oswald', sans-serif",
+              width: "80px",
+              textOverflow: "ellipsis",
+              whiteSpace: "nowrap",
+              overflow: "hidden",
+            }}
+          >
+            {props.orderId}
           </div>
         </Col>
         <Col lg={3}>
-          <div style={{ fontSize: 16, fonFamily: "'Oswald', sans-serif" }}>
+          <div
+            style={{
+              fontSize: 16,
+              fonFamily: "'Oswald', sans-serif",
+              width: "240px",
+              textOverflow: "ellipsis",
+              whiteSpace: "nowrap",
+              overflow: "hidden",
+            }}
+          >
             {props.products}
           </div>
         </Col>
@@ -45,7 +63,7 @@ function DeliveryComponent(props) {
         <Col lg={1}>
           <button
             onClick={() => {
-              props.alteration("yes");
+              props.alteration("yes", props.Id);
             }}
             style={{ backgroundColor: "transparent", borderStyle: "none" }}
           >

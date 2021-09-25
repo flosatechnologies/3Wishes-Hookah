@@ -2,10 +2,9 @@ import React, { Component } from "react";
 import "../css/CustomerDetails.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { AddCustomerInfo } from "./../Store/custDetailActions";
-import { Row, Col, Container } from "react-bootstrap";
+import { Row, Col } from "react-bootstrap";
 
 import { connect } from "react-redux";
-import { v4 as uuid } from "uuid";
 
 class CustomerDetails extends Component {
   constructor(props) {
@@ -160,7 +159,7 @@ class CustomerDetails extends Component {
                     <input
                       className="cityInput-CustomerProfile"
                       type="text"
-                      required="true"
+                      required={true}
                       name="city"
                       value={this.state.city}
                       onChange={this.handleChange}

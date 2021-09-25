@@ -92,6 +92,7 @@ label.label {
 .firstName_Input,
 .otherNames_Input,
 .email_Input,
+.phoneNumber_Input,
 .password_Input {
   color: "#000";
   font-size: 16px;
@@ -104,6 +105,7 @@ label.label {
   border-bottom-style: 2px solid #000;
   margin-bottom: 8px;
   margin-left: 0px;
+  padding-left: 2px;
 }
 
 input.firstName_Input {
@@ -113,7 +115,8 @@ input.firstName_Input {
 input.otherNames_Input {
   width: 195px;
 }
-input.email_Input {
+input.email_Input,
+input.phoneNumber_Input {
   width: 300px;
 }
 input.password_Input {

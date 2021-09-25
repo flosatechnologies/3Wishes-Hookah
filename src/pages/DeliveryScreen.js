@@ -1,14 +1,16 @@
 import React from "react";
 import "../css/deliveryScreen.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Row, Col, Dropdown, Card } from "react-bootstrap";
-import airpods from "../../src/assets/images/airpods.jpg";
+import { Row, Col } from "react-bootstrap";
 import DatePicker from "react-datepicker";
 import { MdKeyboardBackspace } from "react-icons/md";
 import DeliveryComponent from "../components/DeliveryComponent";
 import OrderDetailsComponent from "../components/OrderDetailsComponent";
+import { connect } from "react-redux";
+import { getTransaction } from "../Store/transactionAction";
+import Moment from "react-moment";
 
-export default class DeliveryScreen extends React.Component {
+class DeliveryScreen extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -16,11 +18,23 @@ export default class DeliveryScreen extends React.Component {
       date2: new Date(),
       orderDetails: "no",
       deliveries: "yes",
+      Order: "",
+      transaction: this.props.transaction,
     };
   }
 
-  handleAlteration = (val) => {
-    this.setState({ orderDetails: val, deliveries: "no" });
+  componentDidMount() {
+    this.props.getTransaction();
+  }
+
+  handleAlteration = (val, I) => {
+    let chosen = this.state.transaction.filter((tr) => tr.Id === I);
+    console.log("selectedOrder: ", chosen);
+    this.setState({
+      orderDetails: val,
+      deliveries: "no",
+      Order: chosen,
+    });
   };
 
   handleShowComponent = () => {
@@ -58,40 +72,22 @@ export default class DeliveryScreen extends React.Component {
           </Row>
           <Row>
             <div>
-              <DeliveryComponent
-                Id="D000120"
-                products="Hp Omen Laptop, ipad..."
-                customer="James Addo"
-                location="Koforidua"
-                amount="3000"
-                delivery="delivered"
-                alteration={(c) => {
-                  this.handleAlteration(c);
-                }}
-              />
-              <DeliveryComponent
-                Id="D000220"
-                products="Whiskey, ipad..."
-                customer="James Addo"
-                location="Kasoa"
-                amount="400"
-                delivery="pending"
-                alteration={(c) => {
-                  this.handleAlteration(c);
-                }}
-              />
-
-              <DeliveryComponent
-                Id="D000220"
-                products="Whiskey, ipad..."
-                customer="James Addo"
-                location="Tema"
-                amount="400"
-                delivery="pending"
-                alteration={(c) => {
-                  this.handleAlteration(c);
-                }}
-              />
+              {this.props.transaction.map((trans) => {
+                return (
+                  <DeliveryComponent
+                    orderId={trans.orderId}
+                    Id={trans.Id}
+                    products={trans.products[0].product}
+                    customer={trans.customer}
+                    location={trans.location}
+                    amount={trans.amount}
+                    delivery={trans.deliveryStatus}
+                    alteration={(c, I) => {
+                      this.handleAlteration(c, I);
+                    }}
+                  />
+                );
+              })}
             </div>
           </Row>
         </div>
@@ -99,7 +95,20 @@ export default class DeliveryScreen extends React.Component {
     }
 
     if (this.state.orderDetails === "yes") {
-      return <OrderDetailsComponent />;
+      return (
+        <OrderDetailsComponent
+          orderId={this.state.Order[0].orderId}
+          contact={this.state.Order[0].contact}
+          customer={this.state.Order[0].customer}
+          deliveryStatus={this.state.Order[0].deliveryStatus}
+          date={
+            <Moment format="D MMM YYYY hh:mm a ">
+              {this.state.Order[0].time}
+            </Moment>
+          }
+          chosen={this.state.Order}
+        />
+      );
     }
   };
 
@@ -156,3 +165,16 @@ export default class DeliveryScreen extends React.Component {
     );
   }
 }
+
+const mapStateToProps = (state) => {
+  return {
+    transaction: state.transaction.transaction,
+  };
+};
+const mapDispatchToProps = () => {
+  return {
+    getTransaction,
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps())(DeliveryScreen);
