@@ -44,6 +44,7 @@ export const getCustomerInfo = () => {
       .onSnapshot(
         (snapshot) => {
           let customers = [];
+
           snapshot.forEach((doc) => {
             customers.push(doc.data());
           });
@@ -75,23 +76,9 @@ export const getOtherCustomerInfo = () => {
             payload: others,
           });
         },
-        (err) => {}
+        (err) => {
+          console.log("getOtherCustomerInfo: ", err);
+        }
       );
   };
 };
-
-// async function getCustomer(Id) {
-//   try {
-//     const snapshot = await db.collection("customers").doc(Id).get();
-//     if (!snapshot.exists) {
-//       console.log(`No user found with id ${Id}`);
-//     } else {
-//       console.log("Success, found the user");
-//       console.log(snapshot.id);
-//       console.log(snapshot.data());
-//     }
-//   } catch (err) {
-//     console.log(err);
-//   }
-// }
-// getCustomer("logo");

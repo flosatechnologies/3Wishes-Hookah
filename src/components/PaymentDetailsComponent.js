@@ -6,8 +6,18 @@ import ReceiptComponent from "./ReceiptComponent";
 export class PaymentDetailsComponent extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      selected: this.props.filteredTrans,
+    };
   }
 
+  handleTheSummation = (arr) => {
+    let total = 0;
+    for (let x = 0; x < arr.length; x++) {
+      total += arr[x].price * arr[x].qty;
+    }
+    return total;
+  };
   render() {
     return (
       <div className="container receiptSheet">
@@ -15,15 +25,17 @@ export class PaymentDetailsComponent extends Component {
           <div className="col-lg-8">
             <div className=" receiptTransactionIdContainer">
               <div className="receiptTransactionIdLabel">Transaction Id:</div>
-              <div className="receiptTransactionIdText">{"23343434343"}</div>
+              <div className="receiptTransactionIdText">
+                {this.props.transactionId}
+              </div>
             </div>
             <div className="receiptCustomerContainer">
               <div className="receiptCustomerLabel">Customer:</div>
-              <div className="receiptCustomerText">{"Kelvin Taylor"}</div>
+              <div className="receiptCustomerText">{this.props.customer}</div>
             </div>
             <div className="receiptDateContainer">
               <div className="receiptDateLabel">Date:</div>
-              <div className="receiptDateText">{"23343434343"}</div>
+              <div className="receiptDateText">{this.props.date}</div>
             </div>
           </div>
           <div className="col-lg-4">
@@ -43,28 +55,22 @@ export class PaymentDetailsComponent extends Component {
         </div>
         <div className="container">
           <div className="row">
-            <ReceiptComponent
-              item="Hp omen Laptop"
-              qty="3"
-              price="50"
-              total="150"
-            />
-            <ReceiptComponent
-              item="Hp omen Laptop"
-              qty="3"
-              price="50"
-              total="150"
-            />
-            <ReceiptComponent
-              item="Hp omen Laptop"
-              qty="3"
-              price="50"
-              total="150"
-            />
+            {this.state.selected.map((prod) => {
+              return (
+                <ReceiptComponent
+                  item={prod.product}
+                  qty={prod.qty}
+                  price={prod.price}
+                  total={prod.price * prod.qty}
+                />
+              );
+            })}
           </div>
           <div className="row receiptTotalContainer">
             <div className="col-lg-10 receiptTotalLabel">Total:</div>
-            <div className="col-lg-2">{"450"}</div>
+            <div className="col-lg-2">
+              {this.handleTheSummation(this.state.selected)}
+            </div>
           </div>
         </div>
       </div>

@@ -21,6 +21,9 @@
 .PaymentId {
   width: 150px;
   margin-right: 50px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .Customer {

@@ -1,18 +1,23 @@
 import React, { Component } from "react";
 import { Row, Col, Dropdown, Card } from "react-bootstrap";
+import { connect } from "react-redux";
 import "../css/deliveryReceiptComponent.css";
 import DeliveryComponentCustomer from "./DeliveryComponentCustomer";
+import { updateTransaction } from "../Store/transactionAction";
 
 export class DeliveryReceiptComponent extends Component {
   constructor(props) {
     super(props);
     this.state = {
       receive: "off",
+      chosenTransact: "",
+      transactInfo: this.props.transacts,
     };
   }
 
-  handleReceipt = (yes) => {
-    this.setState({ receive: yes });
+  handleReceipt = (yes, Id) => {
+    let selected = this.state.transactInfo.filter((trans) => trans.Id === Id);
+    this.setState({ receive: yes, chosenTransact: selected[0].product });
   };
 
   handleRenderReceiptConfirmation = () => {
@@ -82,16 +87,20 @@ export class DeliveryReceiptComponent extends Component {
             ></div>
           </Col>
         </Row>
-        <DeliveryComponentCustomer
-          Id="D000120"
-          products="Hp Omen Laptop, ipad..."
-          amount="3000"
-          delivery="delivered"
-          receive={(y) => {
-            this.handleReceipt(y);
-          }}
-        />
-        <DeliveryComponentCustomer
+        {this.state.transactInfo.map((t) => {
+          return (
+            <DeliveryComponentCustomer
+              Id={t.Id}
+              products={t.products[0]}
+              amount={t.amount}
+              delivery={t.delivery}
+              receive={(y, d) => {
+                this.handleReceipt(y, d);
+              }}
+            />
+          );
+        })}
+        {/* <DeliveryComponentCustomer
           Id="D000220"
           products="Whiskey, ipad..."
           amount="400"
@@ -109,7 +118,7 @@ export class DeliveryReceiptComponent extends Component {
           receive={(y) => {
             this.handleReceipt(y);
           }}
-        />
+        /> */}
 
         <Row className="row-three"></Row>
         <div>{this.handleRenderReceiptConfirmation()}</div>
@@ -118,4 +127,17 @@ export class DeliveryReceiptComponent extends Component {
   }
 }
 
-export default DeliveryReceiptComponent;
+const mapStateToProps = () => {
+  return {};
+};
+
+const mapDispatchToProps = () => {
+  return {
+    updateTransaction,
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps()
+)(DeliveryReceiptComponent);

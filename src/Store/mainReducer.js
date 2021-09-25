@@ -5,7 +5,7 @@ import productsReducer from "./productsReducer";
 import { firebaseReducer } from "react-redux-firebase";
 import { firestoreReducer } from "redux-firestore";
 import { combineReducers } from "redux";
-import CustomerDetailReducer from "./custDetailReducer";
+import customerDetailReducer from "./custDetailReducer.js";
 import transactionReducer from "./transactionReducer";
 
 export default combineReducers({
@@ -15,6 +15,6 @@ export default combineReducers({
   firestore: firestoreReducer,
   products: productsReducer,
   cart: cartReducer,
-  customerInfo: CustomerDetailReducer,
+  customerInfo: customerDetailReducer,
   transaction: transactionReducer,
 });

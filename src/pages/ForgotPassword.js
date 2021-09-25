@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "../css/ForgotPassword.css";
-import { auth } from "../firebase/config";
+
 import { toast } from "react-toastify";
-import { useSelector } from "react-redux";
-import { sendPasswordResetEmail } from "firebase/auth";
+
 import firebase from "firebase";
 import "firebase/auth";
 

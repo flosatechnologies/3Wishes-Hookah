@@ -1,9 +1,7 @@
 import React, { Component } from "react";
 import "../css/productComponentDashboard.css";
 import { MdEdit, MdDelete } from "react-icons/md";
-import { Link } from "react-router-dom";
 import { EditProduct, DeleteProduct } from "../Store/productActions";
-import { v4 as uuid } from "uuid";
 import { connect } from "react-redux";
 
 class ProductComponentDashboard extends Component {

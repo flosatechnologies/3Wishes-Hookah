@@ -2,15 +2,14 @@ import React, { Component } from "react";
 import { Navbar, Nav, NavDropdown } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
 import logo from "../assets/images/logo.png";
-import { IoMdCart } from "react-icons/io";
 import { connect } from "react-redux";
 import { logoutUser } from "../Store/authActions";
 import { BsPerson } from "react-icons/bs";
 
 export class HeaderPage extends Component {
-  constructor(props) {
-    super(props);
-  }
+  // constructor(props) {
+  //   super(props);
+  // }
   // componentDidUpdate() {
 
   // }

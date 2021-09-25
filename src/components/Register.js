@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Row, Col } from "react-bootstrap";
-import { Link, Redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 // import SignIn from "../components/SignIn";
 import { connect } from "react-redux";
 import { userRegistration } from "../Store/authActions";
@@ -35,7 +35,6 @@ class Register extends Component {
   };
   render() {
     const { isPasswordShown } = this.state;
-    const { auth } = this.props;
 
     return (
       <div>
@@ -68,7 +67,7 @@ class Register extends Component {
                   style={{
                     color: "#f80759",
                     textAlign: "center",
-                    margin: "40px 0px 40px 0px",
+                    margin: "10px 0px 20px 0px",
                   }}
                   className="title"
                 >
@@ -81,6 +80,7 @@ class Register extends Component {
                   <div className="firstNameBox">
                     <label className="label">First Name</label>
                     <input
+                      required
                       className="firstName_Input"
                       type="text"
                       name="fullname"
@@ -103,6 +103,7 @@ class Register extends Component {
                 <div className="emailBox">
                   <label className="label">Email</label>
                   <input
+                    required
                     className="email_Input"
                     type="email"
                     name="email"
@@ -110,10 +111,24 @@ class Register extends Component {
                     onChange={this.handleChange}
                   />
                 </div>
+
+                <div className="phoneNumberBox">
+                  <label className="label">Phone Number</label>
+                  <input
+                    required
+                    className="phoneNumber_Input"
+                    type="tel"
+                    name="phoneNumber"
+                    id="phoneNumber"
+                    onChange={this.handleChange}
+                  />
+                </div>
+
                 <div className="passwordAndIconBox">
                   <div className="passwordBox">
                     <label className="label">Password</label>
                     <input
+                      required
                       className="password_Input"
                       type={isPasswordShown ? "text" : "password"}
                       name="password"

@@ -19,6 +19,7 @@ div.receiptHeader-orderDetails {
 
 div.receiptTransactionIdContainer-orderDetails,
 div.receiptCustomerContainer-orderDetails,
+div.receiptContactContainer-orderDetails,
 div.receiptDateContainer-orderDetails {
   display: flex;
   flex-direction: row;
@@ -27,7 +28,8 @@ div.receiptDateContainer-orderDetails {
 
 div.receiptTransactionIdLabel-orderDetails,
 div.receiptCustomerLabel-orderDetails,
-div.receiptDateLabel-orderDetails {
+div.receiptDateLabel-orderDetails,
+div.receiptContactLabel-orderDetails {
   font-weight: bolder;
   margin-right: 4px;
   font-size: 15px;
@@ -35,6 +37,7 @@ div.receiptDateLabel-orderDetails {
 
 div.receiptTransactionIdText-orderDetails,
 div.receiptCustomerText-orderDetails,
+div.receiptContactText-orderDetails,
 div.receiptDateText-orderDetails {
   font-size: 15px;
 }

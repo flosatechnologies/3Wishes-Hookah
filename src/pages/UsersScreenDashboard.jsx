@@ -1,13 +1,12 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../css/UserScreenDashboard.css";
-import AddProduct from "./AddProductScreen.js";
 import "react-datepicker/dist/react-datepicker.css";
 import { Component } from "react";
 import UserComponentDashboard from "../components/UserComponentDashboard";
 import { connect } from "react-redux";
 import { MdKeyboardBackspace } from "react-icons/md";
-import { getAllUsers } from "../Store/usersActions.js";
+// import { getAllUsers } from "../Store/usersActions.js";
 import profileImg from "../assets/images/userImage.png";
 import CreateAccountDashboard from "../components/CreateAccountDashboard.jsx";
 import EditAccountComponent from "../components/EditAccountComponent";
@@ -26,9 +25,9 @@ class UsersScreenDashboard extends Component {
     };
   }
 
-  componentDidMount() {
-    this.props.getAllUsers();
-  }
+  // componentDidMount() {
+  //   this.props.getAllUsers();
+  // }
 
   handleActivateEdit = (Id) => {
     this.setState({
@@ -52,9 +51,10 @@ class UsersScreenDashboard extends Component {
     });
   };
   render() {
-    const filtered = this.props.users.filter(
+    const filtered = this.state.storeUsers.filter(
       (admin) => admin.role === "admin" && admin.firstName !== "Admin"
     );
+
     console.log("filteredAdmin: ", filtered);
     const handleRenderScreen = () => {
       if (this.state.button.addUser === "activebtn") {
@@ -135,7 +135,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = () => {
   return {
-    getAllUsers,
+    // getAllUsers,
   };
 };
 

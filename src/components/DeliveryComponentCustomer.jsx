@@ -52,7 +52,7 @@ export class DeliveryComponentCustomer extends Component {
                 borderRadius: "3px",
               }}
               onClick={() => {
-                this.props.receive("on");
+                this.props.receive("on", this.props.Id);
               }}
             >
               receive

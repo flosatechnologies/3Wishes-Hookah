@@ -1,6 +1,4 @@
 import React from "react";
-import { Button, Card } from "react-bootstrap";
-import { Link } from "react-router-dom";
 import "../css/Product.css";
 import { FaCartPlus } from "react-icons/fa";
 import { AddToCart } from "../Store/cartActions";
@@ -28,7 +26,11 @@ class Product extends React.Component {
     return (
       <div className="shopPageProductContainer">
         <div className="shopPageProductImageBox">
-          <img src={this.props.image} className="productImageShopPage" />
+          <img
+            src={this.props.image}
+            alt="productImage"
+            className="productImageShopPage"
+          />
         </div>
         <div className="productNameShopPage">{this.props.name}</div>
         <div className="priceAndProductBox">

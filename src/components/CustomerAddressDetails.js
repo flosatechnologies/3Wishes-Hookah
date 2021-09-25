@@ -148,7 +148,7 @@ class CustomerAddressDetails extends Component {
 }
 
 const mapStateToProps = () => {
-  // console.log("customers", state.customer);
+  return {};
 };
 
 const mapDispatchToProps = () => {
