@@ -214,7 +214,30 @@ class CheckoutScreen extends React.Component {
               </div>
             </div>
             <div className="row">
-              <Flutterwave data={data} />
+              {customerInfo[0].city === "" ||
+              otherInfo[0].phoneNumber === "" ||
+              (this.state.deliveryMethodTwo === false &&
+                this.state.deliveryMethodOne === false) ? (
+                <button
+                  onClick={() => {
+                    alert(
+                      "Ensure all your delivery information is provided in profile and choose a delivery method"
+                    );
+                  }}
+                  style={{
+                    margin: "5px 5px 5px 15px",
+                    padding: "5px",
+                    borderRadius: "5px",
+                    color: "white",
+                    backgroundColor: "green",
+                    width: "160px",
+                  }}
+                >
+                  Proceed to Payment
+                </button>
+              ) : (
+                <Flutterwave data={data} />
+              )}
             </div>
           </div>
         </div>
