@@ -3,11 +3,7 @@ import FooterPage from "../components/FooterPage";
 import HeaderPage from "../components/HeaderPage";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Link } from "react-router-dom";
-import {
-  quantityIncrease,
-  quantityDecrease,
-  ClearCart,
-} from "../Store/cartActions";
+import { ClearCart, getCartProduct } from "../Store/cartActions";
 import {
   getCustomerInfo,
   getOtherCustomerInfo,
@@ -47,10 +43,6 @@ class CartScreen extends React.Component {
     this.props.getOtherCustomerInfo();
   }
 
-  handleRerender = (data) => {
-    this.setState({ update: data, cartProduct: this.props.cart });
-    console.log("update", this.state.update);
-  };
   render() {
     var theTotal = this.handleTotal();
     console.log("totale: ", theTotal);
@@ -69,22 +61,18 @@ class CartScreen extends React.Component {
             <div className="col-lg-2 subtotalHeader">SUB-TOTAL</div>
           </div>
           <div>
-            {
-              (console.log("cartProducts: ", this.props.cart),
-              this.props.cart.map((cartProd) => (
-                <CartProductComponent
-                  productName={cartProd.product.product}
-                  unitPrice={cartProd.product.price}
-                  subTotal={
-                    parseInt(cartProd.product.price) * parseInt(cartProd.qty)
-                  }
-                  rerender={(data) => this.handleRerender(data)}
-                  image={cartProd.product.image}
-                  qty={cartProd.qty}
-                  Id={cartProd.product.Id}
-                />
-              )))
-            }
+            {this.props.cart.map((cartProd) => (
+              <CartProductComponent
+                productName={cartProd.product.product}
+                unitPrice={cartProd.product.price}
+                subTotal={
+                  parseInt(cartProd.product.price) * parseInt(cartProd.qty)
+                }
+                image={cartProd.product.image}
+                qty={cartProd.qty}
+                Id={cartProd.product.Id}
+              />
+            ))}
           </div>
           <div className="row theTotalSection">
             <div className="col-9"></div>
@@ -150,9 +138,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = () => {
   return {
-    quantityDecrease,
-    quantityIncrease,
     ClearCart,
+    getCartProduct,
     getCustomerInfo,
     getOtherCustomerInfo,
   };
