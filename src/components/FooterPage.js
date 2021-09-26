@@ -5,7 +5,7 @@ import {
   FaInstagramSquare,
   FaTwitterSquare,
 } from "react-icons/fa";
-import { Container, Row, Col } from "react-bootstrap";
+
 import "bootstrap/dist/css/bootstrap.min.css";
 
 function FooterPage() {
@@ -37,13 +37,16 @@ function FooterPage() {
           <div className="col-lg-4 col-md-3" style={{ textAlign: "right" }}>
             <div className="socialMediaContainer">
               <div className="socialMedia">
-                <a href="#" target="_blank">
+                <a href="https://www.facebook.com" target="facebook.com">
                   <FaFacebookSquare size="1.5em" />
                 </a>
               </div>
 
               <div className="socialMedia">
-                <a href="https://twitter.com/LoungeWishes?s=09" target="_blank">
+                <a
+                  href="https://twitter.com/LoungeWishes?s=09"
+                  target="twitter.com"
+                >
                   <FaTwitterSquare size="1.5em" />
                 </a>
               </div>
@@ -51,7 +54,7 @@ function FooterPage() {
               <div className="socialMedia">
                 <a
                   href="https://www.instagram.com/3wisheslounge/"
-                  target="_blank"
+                  target="instagram.com"
                 >
                   <FaInstagramSquare size="1.5em" />
                 </a>

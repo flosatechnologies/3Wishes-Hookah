@@ -4,7 +4,6 @@ import "../css/editAccountComponent.css";
 import { userRegistration } from "../Store/authActions";
 import { connect } from "react-redux";
 import profileImg from "../assets/images/userImage.png";
-import { FaRegImage } from "react-icons/fa";
 
 class EditAccountComponent extends Component {
   constructor(props) {
@@ -68,7 +67,7 @@ class EditAccountComponent extends Component {
             <div className="profileImgContainer">
               <img
                 src={this.state.profileImgDisplayVersion}
-                alt="profile Picture"
+                alt=""
                 className="profileImage"
               />
             </div>

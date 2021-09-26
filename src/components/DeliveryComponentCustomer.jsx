@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Row, Col, Dropdown, Card } from "react-bootstrap";
+import { Row, Col } from "react-bootstrap";
 
 export class DeliveryComponentCustomer extends Component {
   constructor(props) {

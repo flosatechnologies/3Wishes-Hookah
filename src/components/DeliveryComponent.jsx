@@ -1,5 +1,5 @@
 import React from "react";
-import { Row, Col, Dropdown, Card } from "react-bootstrap";
+import { Row, Col } from "react-bootstrap";
 import "../css/deliveryComponent.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { AiOutlineEye } from "react-icons/ai";

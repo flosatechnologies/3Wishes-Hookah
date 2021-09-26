@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "../css/CustomerAddressDetails.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Row, Col, Container } from "react-bootstrap";
+import { Row, Col } from "react-bootstrap";
 import {
   getOtherCustomerInfo,
   getCustomerInfo,

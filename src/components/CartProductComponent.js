@@ -1,6 +1,6 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import productImage from "../assets/images/productImage.png";
+
 import "../css/CartProductComponent.css";
 import { connect } from "react-redux";
 import {
@@ -43,10 +43,10 @@ class CartProductComponent extends React.Component {
           <div className="col-lg-6 productAndNameSection">
             <div className="row">
               <div className="col-lg-4 productImageBox">
-                <img src={this.props.image} className="productImage" />
+                <img src={this.props.image} alt="" className="productImage" />
               </div>
               <div className="col-lg-8 productNameBox">
-                <div className="row productName">{this.props.productName}</div>
+                <div className="row productName">{this.props.productName} </div>
                 <div className="row removeButtonContainer">
                   <button
                     onClick={this.handleRemoveProduct}

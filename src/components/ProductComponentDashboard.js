@@ -5,10 +5,6 @@ import { EditProduct, DeleteProduct } from "../Store/productActions";
 import { connect } from "react-redux";
 
 class ProductComponentDashboard extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     return (
       <div className="dashboardProductContainer">

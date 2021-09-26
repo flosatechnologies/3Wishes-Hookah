@@ -4,7 +4,6 @@ import "../css/CreateAccountDashboard.css";
 import { userRegistration } from "../Store/authActions";
 import { connect } from "react-redux";
 import profileImg from "../assets/images/userImage.png";
-import { FaRegImage } from "react-icons/fa";
 
 class CreateAccountDashboard extends Component {
   constructor(props) {
@@ -56,7 +55,7 @@ class CreateAccountDashboard extends Component {
             <div className="profileImgContainer">
               <img
                 src={this.state.profileImgDisplayVersion}
-                alt="profile Picture"
+                alt=""
                 className="profileImage"
               />
             </div>
