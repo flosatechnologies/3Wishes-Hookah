@@ -91,6 +91,7 @@ class Register extends Component {
                   <div className="otherNamesBox">
                     <label className="label">Other Names</label>
                     <input
+                      required
                       className="otherNames_Input"
                       type="text"
                       name="fullname"

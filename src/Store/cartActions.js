@@ -1,4 +1,4 @@
-export const GetCartProduct = () => {
+export const getCartProduct = () => {
   return {
     type: "GET_CART_PRODUCT",
   };

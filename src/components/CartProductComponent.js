@@ -13,27 +13,17 @@ import { BsFillDashCircleFill, BsFillPlusCircleFill } from "react-icons/bs";
 class CartProductComponent extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      qty: this.props.qty,
-      productId: this.props.Id,
-    };
   }
 
   handleIncreaseQuantity = () => {
-    // let theqty = parseInt(this.state.qty)
-    this.props.quantityIncrease(this.state.productId);
-    this.props.rerender("rerender");
+    this.props.quantityIncrease(this.props.Id);
   };
 
   handleDecreaseQuantity = () => {
-    // let theqty = parseInt(this.state.qty) + 1;
-    this.props.quantityDecrease(this.state.productId);
-    this.props.rerender("rerender");
+    this.props.quantityDecrease(this.props.Id);
   };
   handleRemoveProduct = () => {
-    // let theqty = parseInt(this.state.qty) + 1;
-    this.props.removeProduct(this.state.productId);
-    this.props.rerender("removing");
+    this.props.removeProduct(this.props.Id);
   };
 
   render() {
