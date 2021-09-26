@@ -87,28 +87,32 @@ class PaymentScreen extends Component {
         <div className="row filterSection">
           <div className="col-lg-8 dateFilter">
             <div style={{ marginRight: 50 }}>
-              From{"   "}
-              <DatePicker
-                selected={this.state.date1}
-                onChange={(date) => this.setState({ date1: date })}
-                peekNextMonth
-                showMonthDropdown
-                showYearDropdown
-                dropdownMode="select"
-                dateFormat="dd/MM/yyyy"
-              />
+              <div>From</div>
+              <div>
+                <DatePicker
+                  selected={this.state.date1}
+                  onChange={(date) => this.setState({ date1: date })}
+                  peekNextMonth
+                  showMonthDropdown
+                  showYearDropdown
+                  dropdownMode="select"
+                  dateFormat="dd/MM/yyyy"
+                />
+              </div>
             </div>
             <div>
-              To
-              <DatePicker
-                selected={this.state.date2}
-                onChange={(date) => this.setState({ date2: date })}
-                peekNextMonth
-                showMonthDropdown
-                showYearDropdown
-                dropdownMode="select"
-                dateFormat="dd/MM/yyyy"
-              />
+              <div>To</div>
+              <div>
+                <DatePicker
+                  selected={this.state.date2}
+                  onChange={(date) => this.setState({ date2: date })}
+                  peekNextMonth
+                  showMonthDropdown
+                  showYearDropdown
+                  dropdownMode="select"
+                  dateFormat="dd/MM/yyyy"
+                />
+              </div>
             </div>
           </div>
           <div className="col-lg-3">

@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../css/UserProfile.css";
-// import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import CustomerDetails from "./CustomerDetailsPage";
@@ -60,9 +59,7 @@ class UserProfile extends Component {
     if (this.state.button.deliveryBtn === "on") {
       return (
         <div>
-          <DeliveryReceiptComponent
-          // transacts={this.props.allTheState.transaction.transaction}
-          />
+          <DeliveryReceiptComponent />
         </div>
       );
     }

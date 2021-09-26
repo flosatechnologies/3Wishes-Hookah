@@ -60,6 +60,12 @@ export class DeliveryReceiptComponent extends Component {
   };
 
   render() {
+    let name =
+      this.props.state.auth.user.loggedInUser.firstName +
+      " " +
+      this.props.state.auth.user.loggedInUser.otherNames;
+    console.log("theName: ", name);
+
     return (
       <div className="deliveryHeaderContainer-customer">
         <Row lg={12}>
@@ -93,21 +99,24 @@ export class DeliveryReceiptComponent extends Component {
             ></div>
           </Col>
         </Row>
+
         {
           (console.log("transact: ", this.props.transact),
           this.props.transact.map((transa) => {
-            return (
-              <DeliveryComponentCustomer
-                Id={transa.Id}
-                orderId={transa.orderId}
-                products={transa.products[0].product}
-                amount={transa.amount}
-                delivery={transa.deliveryStatus}
-                receive={(y, d) => {
-                  this.handleReceipt(y, d);
-                }}
-              />
-            );
+            if (name === transa.customer) {
+              return (
+                <DeliveryComponentCustomer
+                  Id={transa.Id}
+                  orderId={transa.orderId}
+                  products={transa.products[0].product}
+                  amount={transa.amount}
+                  delivery={transa.deliveryStatus}
+                  receive={(y, d) => {
+                    this.handleReceipt(y, d);
+                  }}
+                />
+              );
+            }
           }))
         }
 
@@ -121,6 +130,7 @@ export class DeliveryReceiptComponent extends Component {
 const mapStateToProps = (state) => {
   console.log("TransactState: ", state.transaction.transaction);
   return {
+    state,
     transact: state.transaction.transaction,
   };
 };
