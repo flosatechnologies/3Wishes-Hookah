@@ -1,0 +1,83 @@
+@import url("https://fonts.googleapis.com/css2?family=Amita&family=Roboto:wght@100&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.title-CustAddress {
+  color: #0e0b0c;
+  text-align: center;
+  font-size: 30px;
+  margin: 20px 0px;
+  font-family: "Amita", cursive;
+  text-transform: capitalize;
+}
+
+/*Name and phone number*/
+.firstAndOtherNamesContainer-CustAddress,
+.phoneNumberAndGhPostGpsContainer-CustAddress,
+.cityAndRegionContainer-CustAddress {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  margin: 30px 0px;
+}
+
+/*GPS and location*/
+
+.firstNameContainer-CustAddress,
+.phoneNumberContainer-CustAddress,
+.cityContainer-CustAddress {
+  margin-right: 20px;
+}
+div.ghPostGpsInput-CustAddress,
+div.residentialAddressInput-CustAddress,
+div.cityInput-CustAddress,
+div.firstNameInput-CustAddress,
+div.otherNamesInput-CustAddress,
+div.phoneNumberInput-CustAddress,
+div.cityInput-CustAddress,
+div.regionInput-CustAddress {
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: white;
+  width: 240px;
+  color: black;
+}
+.labels-CustAddress {
+  color: white;
+  font-size: 20px;
+}
+div.residentialAddressInput-CustAddress {
+  width: 100%;
+}
+div.phoneNumberInput-CustAddress {
+  width: 240px;
+}
+select.regionInput-CustAddress {
+  width: 238px;
+  padding-top: 1.5px;
+  padding-bottom: 1.5px;
+}
+.submit {
+  display: flex;
+  margin-top: 30px;
+  text-transform: uppercase;
+  font-size: 15px;
+  border-radius: 5px;
+  color: #fff;
+  font-weight: bold;
+  padding: 10px 60px;
+  background: linear-gradient(to right, #262927, #101310);
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
+    rgba(0, 0, 0, 0.22) 0px 15px 12px;
+  /* margin: auto; */
+  outline: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.1s;
+}
+button:active {
+  transform: translateY(2px);
+}

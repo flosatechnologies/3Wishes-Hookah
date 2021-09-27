@@ -1,0 +1,113 @@
+.menuBar {
+  height: 12vh;
+  width: 100vw;
+  background-color: black;
+}
+.bodyArea {
+  width: 100vw;
+}
+
+.dashboardButtonSection {
+  min-height: 88vh;
+  background-color: #838282;
+}
+.profileSection {
+  height: 12vh;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 0px 5px;
+}
+.profileSectionContainer {
+  background-color: #cbcaca;
+}
+
+/* .logo {
+  width: 50px;
+  height: 50px;
+} */
+
+.userWelcome {
+  font-size: 25px;
+  font-weight: 500;
+}
+.profileWelcomeMessage {
+  padding-left: 15px;
+}
+.userImage {
+  width: 70px;
+  height: 70px;
+  border-radius: 35px;
+}
+
+.dashboardButtons,
+#inactive {
+  width: 16vw;
+  background-color: transparent;
+  border-style: none;
+  border-bottom-width: 1px;
+  border-top-width: 1px;
+  margin: 2px 5px;
+  color: black;
+  text-align: left;
+  padding: 5px 0px 5px 10px;
+}
+.dashboardButtons:focus,
+.dashboardButtons:active,
+.dashboardButtons:hover,
+#inactive:hover,
+#active {
+  background-color: #8b0000;
+  color: white;
+  border-bottom-style: solid;
+  border-bottom-color: #8b0000;
+  border-bottom-width: 1px;
+}
+
+.workspace {
+  background-color: #a7a7a7;
+}
+
+/*Delete Dialog Box*/
+div.logOutYesButtonContainer {
+  margin-right: 5px;
+}
+.logOutDialogBox {
+  position: absolute;
+  top: 20%;
+  left: 35%;
+}
+.logOutDialogBoxContainer {
+  width: fit-content;
+  height: 20vh;
+  background-color: white;
+  padding: 5px;
+  border-radius: 5px;
+}
+.logOutHeaderContainer {
+  font-weight: bolder;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-color: #dddddd;
+  margin-bottom: 7px;
+}
+div.logOutButtonsContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: right;
+}
+button.logOutYesButton {
+  font-size: 15px;
+  border-style: none;
+  background-color: limegreen;
+  padding: 0px 4px;
+  margin-right: 5px;
+}
+
+button.logOutNoButton {
+  font-size: 15px;
+  border-style: none;
+  background-color: rgb(189, 3, 3);
+  padding: 0px 4px;
+  color: white;
+}

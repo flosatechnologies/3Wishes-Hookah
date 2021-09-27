@@ -1,0 +1,19 @@
+@import url("https://fonts.googleapis.com/css2?family=Merienda&display=swap");
+.carouselImage {
+  height: 85vh;
+  min-height: 270px;
+  background: no-repeat center center scroll;
+  overflow: hidden;
+}
+
+.carousel-caption {
+  top: 95px;
+  bottom: 50px;
+}
+
+.carousel-caption h3 {
+  font-size: 50px;
+  margin-top: 170px;
+  margin-right: 150px;
+  text-align: center;
+}

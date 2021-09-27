@@ -1,0 +1,56 @@
+.receiptSheet {
+  background-color: white;
+  width: 65%;
+  margin-top: 3%;
+  padding: 20px 15px;
+  box-shadow: 5px 5px 5px rgba(12, 12, 12, 0.397);
+}
+
+div.receiptHeader {
+  margin: 5px 0px;
+  padding: 5px 0px;
+  border-top-style: solid;
+  border-top-color: black;
+  border-top-width: 1px;
+  border-bottom-style: double;
+  border-bottom-color: black;
+  border-bottom-width: 1px;
+}
+
+div.receiptTransactionIdContainer,
+div.receiptCustomerContainer,
+div.receiptDateContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+div.receiptTransactionIdLabel,
+div.receiptCustomerLabel,
+div.receiptDateLabel {
+  font-weight: bolder;
+  margin-right: 4px;
+  font-size: 15px;
+}
+
+div.receiptTransactionIdText,
+div.receiptCustomerText,
+div.receiptDateText {
+  font-size: 15px;
+}
+
+div.receiptHeadingText {
+  font-weight: bolder;
+  font-size: 15px;
+}
+.receiptTotalContainer {
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: black;
+  margin-top: 5px;
+  padding-bottom: 10px;
+}
+.receiptTotalLabel {
+  font-weight: bolder;
+  text-align: right;
+}

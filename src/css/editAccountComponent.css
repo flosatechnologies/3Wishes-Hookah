@@ -1,0 +1,142 @@
+.firstLevelContainer-EditAcntComponent {
+  position: absolute;
+  left: 25%;
+}
+.theMainContainer-EditAcntComponent {
+  margin-top: 10px;
+  padding: 10px;
+  background-color: white;
+  width: fit-content;
+}
+.firstAndOtherNamesContainer-EditAcntComponent {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  margin-bottom: 3%;
+}
+input.firstNameInput-EditAcntComponent {
+  border-style: solid;
+  border-color: "#eee";
+  border-radius: 5px;
+  border-width: 1px;
+  padding: 2px 4px;
+  margin: 0px 5px 0px 0px;
+  font-size: 15px;
+  width: 85px;
+}
+input.otherNamesInput-EditAcntComponent {
+  border-style: solid;
+  border-color: "#eee";
+  border-radius: 5px;
+  border-width: 1px;
+  padding: 2px 4px;
+  font-size: 15px;
+  width: 220px;
+}
+
+.emailInput-EditAcntComponent,
+.phoneNumberInput-EditAcntComponent,
+.confirmPasswordInput-EditAcntComponent,
+.passwordInput-EditAcntComponent {
+  border-style: solid;
+  border-color: "#eee";
+  border-radius: 5px;
+  border-width: 1px;
+  padding: 2px 4px;
+  font-size: 15px;
+}
+
+.emailAndPhoneNumberContainer-EditAcntComponent {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  margin-bottom: 10%;
+  width: inherit;
+}
+
+.emailContainer-EditAcntComponent {
+  margin-right: 3%;
+  width: 47%;
+}
+#emailInputId-EditAcntComponent {
+  width: 115%;
+}
+#phoneNumberInputId-EditAcntComponent {
+  width: 68%;
+  margin-left: 12%;
+}
+.passwordContainer-EditAcntComponent {
+  margin-bottom: 2%;
+}
+
+.confirmPasswordContainer-EditAcntComponent {
+  margin-bottom: 2%;
+}
+
+.registerButtonContainer-EditAcntComponent {
+  margin-top: 1%;
+  margin-bottom: 5%;
+}
+
+.registerButton-EditAcntComponent {
+  padding: 0px 15px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #076f1d;
+  border-radius: 3px;
+  background-color: transparent;
+}
+.registerButton-EditAcntComponent:hover,
+.registerButton-EditAcntComponent:active,
+.registerButton-EditAcntComponent:focus {
+  border-style: none;
+  border-radius: 3px;
+  background-color: #076f1d;
+  color: white;
+}
+
+.chooseImgButton-EditAcntComponent {
+  /* margin-top: 2.5%; */
+  border-style: none;
+  background-color: antiquewhite;
+  padding: 0.5% 0%;
+  font-size: 15px;
+  text-align: center;
+  border-radius: 5px;
+  width: 150px;
+}
+.chooseImgButton-EditAcntComponent:hover {
+  background: #1bbc1b;
+}
+
+.profileImgSection-EditAcntComponent {
+  display: flex;
+  flex-direction: row;
+}
+.profileImgContainer-EditAcntComponent {
+  width: 155px;
+  height: 155px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #dddddd;
+  margin-right: 15px;
+  padding: 1px;
+  border-radius: 5px;
+}
+.chooseImgButtonContainer-EditAcntComponent {
+  margin-top: 125px;
+}
+
+.profileImage-EditAcntComponent {
+  width: 150px;
+  height: 150px;
+  border-radius: 5px;
+  text-align: center;
+}
+.accntInfoText-EditAcntComponent,
+.passwordDetailsText-EditAcntComponent {
+  margin-top: 15px;
+  margin-bottom: 5px;
+  color: black;
+  font-weight: bolder;
+}

@@ -1,0 +1,62 @@
+.cartHeaderSection {
+  margin-top: 2%;
+}
+.itemHeader,
+.unitPriceHeader,
+.subtotalHeader,
+.quantityHeader {
+  font-weight: bold;
+}
+.productImage {
+  width: 80px;
+  height: 80px;
+  margin-right: 0px;
+  padding-right: 0px;
+}
+.productAndNameSection {
+  background-color: "#eeeeee";
+}
+.unitPriceHeader,
+.subtotalHeader,
+.quantityHeader {
+  text-align: center;
+}
+
+.theTotalText {
+  font-weight: bold;
+  text-align: right;
+  padding-right: 0px;
+  margin-right: 0px;
+}
+.theTotalAmount {
+  text-align: center;
+}
+.theTotalSection {
+  margin-top: 3%;
+}
+.checkoutButton {
+  font-size: 15px;
+  background-color: forestgreen;
+  border-style: none;
+  color: white;
+  padding: 0px 4px;
+}
+
+.shoppingButton {
+  font-size: 15px;
+  border-style: none;
+  padding: 0px 4px;
+  background-color: white;
+  box-shadow: 0px 0px 1px 0.5px rgba(20, 17, 17, 0.734);
+}
+.checkoutButtonContainer,
+.shoppingButtonContainer {
+  display: flex;
+  align-items: center;
+}
+
+.bottomSection {
+  height: 8vh;
+  box-shadow: 0px 0px 4px 1px rgba(20, 17, 17, 0.734);
+  margin-bottom: 5%;
+}

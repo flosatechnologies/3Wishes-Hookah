@@ -1,0 +1,64 @@
+.filterSection {
+  height: 12vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: black;
+}
+.dateFilter {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+.filterButton {
+  width: 5vw;
+  background-color: #40f167;
+  border-style: none;
+  color: black;
+  text-align: center;
+}
+.headerSection {
+  height: fit-content;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 15px;
+  padding: 0px 7px;
+}
+.headerIndex {
+  width: 30px;
+  margin-right: 20px;
+  font-weight: bold;
+  padding-left: 10px;
+  text-align: center;
+  padding-left: 5px;
+}
+.headerPaymentId {
+  width: 150px;
+  margin-right: 70px;
+  font-weight: bold;
+}
+
+.headerCustomer {
+  width: 240px;
+  margin-right: 40px;
+  font-weight: bold;
+}
+
+.headerAmount {
+  width: 160px;
+  margin-right: 70px;
+  font-weight: bold;
+}
+.headerTime {
+  font-weight: bold;
+}
+.paymentScreenBackButton {
+  background-color: transparent;
+  border-style: none;
+}

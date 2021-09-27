@@ -1,0 +1,69 @@
+.editContainer {
+  /* background: gray; */
+  align-items: center;
+  margin-bottom: 3.5rem;
+}
+.image-section {
+  background-color: #2d3551;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+.product-row {
+  margin: 30px;
+}
+.form-input {
+  /* margin-top: 10px; */
+  background: #84f39c;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  /* height: 29rem;
+  width: 23rem; */
+}
+.form-input[type="text"],
+[type="number"],
+textarea {
+  background: rgb(204, 188, 188);
+}
+#pname {
+  background: rgb(204, 188, 188);
+}
+.editLabel {
+  font-size: 14px;
+  font-weight: bolder;
+  margin-bottom: 0px;
+  color: rgb(41, 8, 230);
+}
+.editInput {
+  margin-bottom: 15px;
+}
+
+.btn {
+  width: 240px;
+}
+.btn:hover {
+  background: #000;
+}
+.image-upload {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.selectImg-EditProduct {
+  background-color: white;
+  margin-top: 15px;
+  padding: 1px 10px;
+  border-radius: 3px;
+}
+
+.selectImg-EditProduct:hover,
+.selectImg-EditProduct:active {
+  background-color: green;
+  color: white;
+}

@@ -1,0 +1,144 @@
+/************************BODY*******************************/
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
+.main-container {
+  font-family: "Roboto", sans-serif;
+  margin: 10px;
+  padding: 0;
+}
+/************************INPUT FIELDS*******************************/
+.inputSection {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  background-color: #84f39c;
+}
+
+.imageContainer {
+  background-color: #2d3551;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.labelName {
+  font-size: 14px;
+  font-weight: bolder;
+  margin-bottom: 0px;
+}
+.subContainer,
+.addButtonContainer {
+  margin: 0px 50px;
+}
+#product-name,
+#product-price,
+#product-quantity,
+#product-description {
+  margin-bottom: 15px;
+}
+
+/* h3 {
+  color: blue;
+  margin-bottom: 10px;
+  font-weight: bold;
+} */
+hr {
+  border-color: #1bbc1b;
+  border-bottom: 1rem;
+}
+/* h5 {
+  text-shadow: none;
+  color: blue;
+} */
+input[type="text"],
+[type="number"],
+textarea {
+  width: 15rem;
+  border-radius: 0.3rem;
+  /* margin-bottom: 0.1rem; */
+}
+/************************PRODUCT IMAGE*******************************/
+.img-responsive {
+  width: inherit;
+  height: inherit;
+  /* object-fit: cover; */
+}
+
+.image-holder {
+  margin: auto;
+  width: 250px;
+  height: 250px;
+
+  border-radius: 5px;
+  margin-top: 1rem;
+}
+
+.image-heading {
+  text-align: center;
+  margin-top: 0.1rem;
+  font-weight: bold;
+  font-size: 20px;
+  color: antiquewhite;
+}
+
+input[type="file"] {
+  display: none;
+}
+/* #input {
+} */
+.label {
+  /* width: 100%; */
+  margin-top: 0.4rem;
+  /* display: flex;
+  justify-content: center; */
+  text-align: center;
+}
+.imageUploadButton {
+  /* margin-left: 13px;
+  width: 100px;
+  height: fit-content;
+  padding: 2px 10px;
+  background-color: black;
+  border-radius: 5px;
+  color: white;
+  text-align: center;
+  cursor: pointer; */
+  width: fit-content;
+}
+.image-upload {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.uploadButton {
+  margin-top: 2.5%;
+  border-style: none;
+  background-color: antiquewhite;
+  padding: 0.5% 4%;
+  border-radius: 5px;
+}
+.uploadButton:hover {
+  background: #1bbc1b;
+}
+/************************BUTTON*******************************/
+.button {
+  font-size: 20px;
+  margin-top: 25px;
+  width: fit-content;
+  padding: 0px 70px;
+  border-style: none;
+  background-color: #1e90ff;
+  border-radius: 5px;
+  color: white;
+}
+.btn {
+  width: 250px;
+  margin-top: 8px;
+  cursor: pointer;
+
+  font-weight: 600;
+}
+.btn:hover,
+.button:hover {
+  background: #1bbc1b;
+}

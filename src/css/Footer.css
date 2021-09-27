@@ -1,0 +1,20 @@
+.text-center {
+  height: 10px;
+}
+.secondaryHeaderContainer {
+  height: 2vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.socialMediaContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.socialMedia {
+  margin-right: 10px;
+}
