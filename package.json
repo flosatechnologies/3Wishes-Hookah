@@ -1,5 +1,6 @@
 {
   "name": "3wishes",
+  "homepage":"http://3wishesgh.com",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
