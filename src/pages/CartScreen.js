@@ -4,6 +4,7 @@ import HeaderPage from "../components/HeaderPage";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Link } from "react-router-dom";
 import { ClearCart, getCartProduct } from "../Store/cartActions";
+import { Container, Row, Col } from "react-bootstrap";
 import {
   getCustomerInfo,
   getOtherCustomerInfo,
@@ -50,16 +51,56 @@ class CartScreen extends React.Component {
     return (
       <div>
         <HeaderPage />
-        <div className="container background">
-          <div className="row">
-            <div>Cart({this.props.cart.length + " item(s)"})</div>
-          </div>
-          <div className="row cartHeaderSection">
-            <div className="col-lg-6 itemHeader">ITEM</div>
-            <div className="col-lg-2 quantityHeader">QUANTITY</div>
-            <div className="col-lg-2 unitPriceHeader">UNIT PRICE</div>
-            <div className="col-lg-2 subtotalHeader">SUB-TOTAL</div>
-          </div>
+        <Container className=" background">
+          <Row>
+            <Col>Cart({this.props.cart.length + " item(s)"})</Col>
+          </Row>
+          <Row className="cartHeaderSection">
+            <Col
+              xxl={6}
+              xl={6}
+              lg={6}
+              md={6}
+              sm={6}
+              xs={6}
+              className=" itemHeader"
+            >
+              ITEM
+            </Col>
+            <Col
+              xxl={2}
+              xl={2}
+              lg={2}
+              md={2}
+              sm={2}
+              xs={2}
+              className=" quantityHeader"
+            >
+              QTY
+            </Col>
+            <Col
+              xxl={2}
+              xl={2}
+              lg={2}
+              md={2}
+              sm={2}
+              xs={2}
+              className="col-lg-2 unitPriceHeader"
+            >
+              UNIT PRICE
+            </Col>
+            <Col
+              xxl={2}
+              xl={2}
+              lg={2}
+              md={2}
+              sm={2}
+              xs={2}
+              className="col-lg-2 subtotalHeader"
+            >
+              SUB-TOTAL
+            </Col>
+          </Row>
           <div>
             {this.props.cart.map((cartProd) => (
               <CartProductComponent
@@ -74,15 +115,40 @@ class CartScreen extends React.Component {
               />
             ))}
           </div>
-          <div className="row theTotalSection">
-            <div className="col-9"></div>
-            <div className="col-lg-1 theTotalText">Total: </div>
-            <div className="col-lg-2 theTotalAmount">
+          <Row className=" theTotalSection">
+            <Col
+              xxl={{ span: 2, offset: 8 }}
+              xl={{ span: 2, offset: 8 }}
+              lg={{ span: 2, offset: 8 }}
+              md={{ span: 2, offset: 8 }}
+              sm={{ span: 2, offset: 8 }}
+              xs={{ span: 2, offset: 8 }}
+              className=" theTotalText"
+            >
+              Total:
+            </Col>
+            <Col
+              xxl={2}
+              xl={2}
+              lg={2}
+              md={2}
+              s={2}
+              xs={2}
+              className="theTotalAmount"
+            >
               {"GHS " + this.handleTotal()}
-            </div>
-          </div>
-          <div className="row bottomSection">
-            <div className="col-lg-2 shoppingButtonContainer">
+            </Col>
+          </Row>
+          <Row className=" bottomSection">
+            <Col
+              xxl={2}
+              xl={2}
+              lg={2}
+              md={2}
+              s={2}
+              xs={2}
+              className="shoppingButtonContainer"
+            >
               <button
                 onClick={() => {
                   this.props.ClearCart();
@@ -91,10 +157,18 @@ class CartScreen extends React.Component {
               >
                 clear cart
               </button>
-            </div>
-            <div className="col-lg-6"></div>
-            <div className="col-lg-2 shoppingButtonContainer">
-              <button onClick={() => {}} className="shoppingButton">
+            </Col>
+
+            <Col
+              xxl={{ span: 2, offset: 5 }}
+              xl={{ span: 2, offset: 5 }}
+              lg={{ span: 2, offset: 5 }}
+              md={{ span: 2, offset: 5 }}
+              sm={{ span: 2, offset: 5 }}
+              xs={{ span: 2, offset: 5 }}
+              className=" shoppingButtonContainer-continue"
+            >
+              <button onClick={() => {}} className="shoppingButton-continue">
                 <Link
                   style={{ textDecoration: "none", color: "black" }}
                   to={"/shop"}
@@ -102,8 +176,16 @@ class CartScreen extends React.Component {
                   Continue shopping
                 </Link>
               </button>
-            </div>
-            <div className="col-lg-2 checkoutButtonContainer">
+            </Col>
+            <Col
+              xxl={3}
+              xl={3}
+              lg={3}
+              md={3}
+              s={3}
+              xs={3}
+              className=" checkoutButtonContainer"
+            >
               <button className="checkoutButton">
                 <Link
                   style={{ textDecoration: "none", color: "white" }}
@@ -119,9 +201,9 @@ class CartScreen extends React.Component {
                   Proceed to checkout
                 </Link>
               </button>
-            </div>
-          </div>
-        </div>
+            </Col>
+          </Row>
+        </Container>
 
         <FooterPage />
       </div>

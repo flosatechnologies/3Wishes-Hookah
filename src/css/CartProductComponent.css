@@ -1,13 +1,16 @@
-input.productQtyInput {
-  background-color: transparent;
+input.productQuantityInput {
   border-style: none;
   text-align: center;
-  width: 80px;
+  /* width: 80px; */
+  background-color: whitesmoke;
+}
+div.productQtyInputContainer {
+  text-align: center;
 }
 
 div.incrementBtnContainer,
 div.decrementBtnContainer {
-  margin-top: 31px;
+  text-align: center;
 }
 
 button.incrementBtn,
@@ -17,7 +20,7 @@ button.decrementBtn {
 }
 
 .cartComponentContainer {
-  margin-top: 15px;
+  margin: 15px 2px 5px 2px;
 }
 .productUnitPriceContainer {
   background-color: whitesmoke;
@@ -31,9 +34,7 @@ button.decrementBtn {
   text-align: center;
 }
 div.prodQtyContainer {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
+  text-align: center;
 }
 
 div.productQtyContainer {
@@ -54,14 +55,13 @@ div.productQtyContainer {
 }
 .productName {
   padding-top: 15px;
+  text-align: center;
 }
 .productNameBox {
-  padding-left: 0px;
-  margin-left: 0px;
+  padding-left: 15px;
 }
-.productImageBox {
-  padding-right: 0px;
-  margin-right: 0px;
+div.productImageBox {
+  text-align: left;
 }
 .removeButton {
   color: #ff0000;
@@ -76,5 +76,5 @@ div.productQtyContainer {
 }
 .removeButtonContainer {
   margin-top: 20px;
-  text-align: right;
+  text-align: center;
 }
