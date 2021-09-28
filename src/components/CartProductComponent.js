@@ -31,64 +31,116 @@ class CartProductComponent extends React.Component {
     return (
       <div>
         <Row className="cartComponentContainer">
-          <div className="col-lg-6 productAndNameSection">
-            <Row className="row">
-              <Col className="col-lg-4 productImageBox">
+          <Col
+            xxl={6}
+            xl={6}
+            lg={6}
+            md={6}
+            sm={6}
+            xs={6}
+            className="productAndNameSection"
+          >
+            <Row>
+              <Col
+                xxl={4}
+                xl={4}
+                lg={4}
+                md={4}
+                sm={4}
+                xs={4}
+                className=" productImageBox"
+              >
                 <img src={this.props.image} alt="" className="productImage" />
               </Col>
-              <div className="col-lg-8 productNameBox">
-                <div className="row productName">{this.props.productName} </div>
-                <div className="row removeButtonContainer">
-                  <button
-                    onClick={this.handleRemoveProduct}
-                    className="removeButton"
-                  >
-                    remove
-                  </button>
-                </div>
-              </div>
+              <Col
+                xxl={8}
+                xl={8}
+                lg={8}
+                md={8}
+                sm={8}
+                xs={8}
+                className="productNameBox"
+              >
+                <Row className="productName">
+                  <Col xxl={12} xl={12} lg={12} md={12} sm={12} xs={12}>
+                    {this.props.productName}
+                  </Col>
+                </Row>
+                <Row className="removeButtonContainer">
+                  <Col xxl={12} xl={12} lg={12} md={12} sm={12} xs={12}>
+                    <button
+                      onClick={this.handleRemoveProduct}
+                      className="removeButton"
+                    >
+                      remove
+                    </button>
+                  </Col>
+                </Row>
+              </Col>
             </Row>
-          </div>
-          <div className="col-lg-2 productQtyContainer">
-            <div className="prodQtyContainer">
-              <div className="incrementBtnContainer">
-                <button
-                  onClick={this.handleDecreaseQuantity}
-                  className="decrementBtn"
-                >
-                  <BsFillDashCircleFill />
-                </button>
-              </div>
-              <div>
-                <input
-                  type="text"
-                  className="productQtyInput"
-                  name="qty"
-                  pattern="[0-9]"
-                  onChange={this.handleChange}
-                  value={this.props.qty}
-                />
-              </div>
-              <div className="decrementBtnContainer">
-                <button
-                  onClick={this.handleIncreaseQuantity}
-                  className="incrementBtn"
-                >
-                  <BsFillPlusCircleFill />
-                </button>
-              </div>
-            </div>
-          </div>
-          <div className="col-lg-2 productUnitPriceContainer">
+          </Col>
+          <Col
+            xxl={2}
+            xl={2}
+            lg={2}
+            md={2}
+            sm={2}
+            xs={2}
+            className=" productQtyContainer"
+          >
+            <Row className="decrementBtnContainer">
+              <button
+                onClick={this.handleIncreaseQuantity}
+                className="incrementBtn"
+              >
+                <BsFillPlusCircleFill />
+              </button>
+            </Row>
+            <Row className="productQtyInputContainer">
+              <input
+                type="text"
+                className="productQuantityInput"
+                name="qty"
+                pattern="[0-9]"
+                onChange={this.handleChange}
+                value={this.props.qty}
+              />
+            </Row>
+            <Row className="incrementBtnContainer">
+              <button
+                onClick={this.handleDecreaseQuantity}
+                className="decrementBtn"
+              >
+                <BsFillDashCircleFill />
+              </button>
+            </Row>
+          </Col>
+          <Col
+            xxl={2}
+            xl={2}
+            lg={2}
+            md={2}
+            sm={2}
+            xs={2}
+            className=" productUnitPriceContainer"
+          >
             <div className="productUnitPrice">
               GHS {" " + this.props.unitPrice}
             </div>
-          </div>
-          <div className="col-lg-2 productSubtotalContainer">
+          </Col>
+          <Col
+            xxl={2}
+            xl={2}
+            lg={2}
+            md={2}
+            sm={2}
+            xs={2}
+            className=" productSubtotalContainer"
+          >
             <div className="productSubtotal">
               GHS {" " + this.props.subTotal}
             </div>
-          </div>
+          </Col>
         </Row>
       </div>
     );

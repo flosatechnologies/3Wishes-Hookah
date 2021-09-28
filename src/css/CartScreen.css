@@ -1,5 +1,7 @@
 .cartHeaderSection {
   margin-top: 2%;
+  margin-right: 3px;
+  margin-left: 3px;
 }
 .itemHeader,
 .unitPriceHeader,
@@ -37,26 +39,30 @@
 .checkoutButton {
   font-size: 15px;
   background-color: forestgreen;
+  line-height: 15px;
   border-style: none;
   color: white;
-  padding: 0px 4px;
+  padding: 3px 3px;
+}
+.checkoutButtonContainer,
+.shoppingButtonContainer-continue {
+  text-align: right;
 }
 
-.shoppingButton {
+.shoppingButton,
+.shoppingButton-continue {
   font-size: 15px;
+  line-height: 15px;
   border-style: none;
-  padding: 0px 4px;
+  padding: 3px 3px;
   background-color: white;
   box-shadow: 0px 0px 1px 0.5px rgba(20, 17, 17, 0.734);
 }
-.checkoutButtonContainer,
-.shoppingButtonContainer {
-  display: flex;
-  align-items: center;
-}
 
 .bottomSection {
-  height: 8vh;
+  height: fit-content;
+  width: inherit;
+  padding: 2% 0.1%;
   box-shadow: 0px 0px 4px 1px rgba(20, 17, 17, 0.734);
-  margin-bottom: 5%;
+  margin: 1% 0% 8% 0%;
 }

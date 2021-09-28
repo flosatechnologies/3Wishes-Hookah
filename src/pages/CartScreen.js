@@ -51,7 +51,7 @@ class CartScreen extends React.Component {
     return (
       <div>
         <HeaderPage />
-        <Container className="container background">
+        <Container className=" background">
           <Row>
             <Col>Cart({this.props.cart.length + " item(s)"})</Col>
           </Row>
@@ -115,15 +115,40 @@ class CartScreen extends React.Component {
               />
             ))}
           </div>
-          <div className="row theTotalSection">
-            <div className="col-9"></div>
-            <div className="col-lg-1 theTotalText">Total: </div>
-            <div className="col-lg-2 theTotalAmount">
+          <Row className=" theTotalSection">
+            <Col
+              xxl={{ span: 2, offset: 8 }}
+              xl={{ span: 2, offset: 8 }}
+              lg={{ span: 2, offset: 8 }}
+              md={{ span: 2, offset: 8 }}
+              sm={{ span: 2, offset: 8 }}
+              xs={{ span: 2, offset: 8 }}
+              className=" theTotalText"
+            >
+              Total:
+            </Col>
+            <Col
+              xxl={2}
+              xl={2}
+              lg={2}
+              md={2}
+              s={2}
+              xs={2}
+              className="theTotalAmount"
+            >
               {"GHS " + this.handleTotal()}
-            </div>
-          </div>
-          <div className="row bottomSection">
-            <div className="col-lg-2 shoppingButtonContainer">
+            </Col>
+          </Row>
+          <Row className=" bottomSection">
+            <Col
+              xxl={2}
+              xl={2}
+              lg={2}
+              md={2}
+              s={2}
+              xs={2}
+              className="shoppingButtonContainer"
+            >
               <button
                 onClick={() => {
                   this.props.ClearCart();
@@ -132,10 +157,18 @@ class CartScreen extends React.Component {
               >
                 clear cart
               </button>
-            </div>
-            <div className="col-lg-6"></div>
-            <div className="col-lg-2 shoppingButtonContainer">
-              <button onClick={() => {}} className="shoppingButton">
+            </Col>
+
+            <Col
+              xxl={{ span: 2, offset: 5 }}
+              xl={{ span: 2, offset: 5 }}
+              lg={{ span: 2, offset: 5 }}
+              md={{ span: 2, offset: 5 }}
+              sm={{ span: 2, offset: 5 }}
+              xs={{ span: 2, offset: 5 }}
+              className=" shoppingButtonContainer-continue"
+            >
+              <button onClick={() => {}} className="shoppingButton-continue">
                 <Link
                   style={{ textDecoration: "none", color: "black" }}
                   to={"/shop"}
@@ -143,8 +176,16 @@ class CartScreen extends React.Component {
                   Continue shopping
                 </Link>
               </button>
-            </div>
-            <div className="col-lg-2 checkoutButtonContainer">
+            </Col>
+            <Col
+              xxl={3}
+              xl={3}
+              lg={3}
+              md={3}
+              s={3}
+              xs={3}
+              className=" checkoutButtonContainer"
+            >
               <button className="checkoutButton">
                 <Link
                   style={{ textDecoration: "none", color: "white" }}
@@ -160,8 +201,8 @@ class CartScreen extends React.Component {
                   Proceed to checkout
                 </Link>
               </button>
-            </div>
-          </div>
+            </Col>
+          </Row>
         </Container>
 
         <FooterPage />
