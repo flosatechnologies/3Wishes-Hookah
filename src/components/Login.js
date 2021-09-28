@@ -1,6 +1,7 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "../css/SignIn.css";
+import "../css/login.css";
+import { Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { loginWithEmail } from "../Store/authActions";
@@ -39,9 +40,30 @@ class LogIn extends Component {
     return (
       <div>
         <HeaderPage />
-        <div className="container-fluid loginBackground">
-          <div className="app-wrapper">
-            <div>
+        <div
+          style={{
+            background: " linear-gradient(135deg, #98d8a6, #56be6c)",
+            width: "100%",
+            padding: "3%",
+            display: "flex",
+            justifyContent: "center",
+            alignSelf: "center",
+            alignItems: "center",
+            height: "81.8vh",
+          }}
+          className="container-fluid loginBackground"
+        >
+          <div
+            style={{
+              backgroundColor: "rgb(44, 40, 40)",
+              width: "50%",
+              padding: "10px",
+              boxSizing: "border-box",
+              borderRadius: "5px",
+              justifyContent: "center",
+            }}
+          >
+            <Col>
               <h3
                 style={{
                   color: "#f80759",
@@ -52,7 +74,7 @@ class LogIn extends Component {
               >
                 Login
               </h3>
-            </div>
+            </Col>
 
             <form onSubmit={this.handleSubmit} className="form-wrapper">
               <div className="email">
@@ -65,7 +87,7 @@ class LogIn extends Component {
               </div>
 
               <div>
-                <button className="submit">Log In</button>
+                <button className="button">Log In</button>
               </div>
               <p className="forgotPassword text-right">
                 <li

@@ -16,6 +16,9 @@ const CarouselPage = (props) => {
       <Carousel fade>
         <Carousel.Item>
           <img
+            overflow="hidden"
+            height="auto"
+            width="100%"
             className="d-block w-100 carouselImage"
             src={image1}
             alt="First slide"
