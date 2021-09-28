@@ -4,6 +4,7 @@ import HeaderPage from "../components/HeaderPage";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Link } from "react-router-dom";
 import { ClearCart, getCartProduct } from "../Store/cartActions";
+import { Container, Row, Col } from "react-bootstrap";
 import {
   getCustomerInfo,
   getOtherCustomerInfo,
@@ -50,16 +51,56 @@ class CartScreen extends React.Component {
     return (
       <div>
         <HeaderPage />
-        <div className="container background">
-          <div className="row">
-            <div>Cart({this.props.cart.length + " item(s)"})</div>
-          </div>
-          <div className="row cartHeaderSection">
-            <div className="col-lg-6 itemHeader">ITEM</div>
-            <div className="col-lg-2 quantityHeader">QUANTITY</div>
-            <div className="col-lg-2 unitPriceHeader">UNIT PRICE</div>
-            <div className="col-lg-2 subtotalHeader">SUB-TOTAL</div>
-          </div>
+        <Container className="container background">
+          <Row>
+            <Col>Cart({this.props.cart.length + " item(s)"})</Col>
+          </Row>
+          <Row className="cartHeaderSection">
+            <Col
+              xxl={6}
+              xl={6}
+              lg={6}
+              md={6}
+              sm={6}
+              xs={6}
+              className=" itemHeader"
+            >
+              ITEM
+            </Col>
+            <Col
+              xxl={2}
+              xl={2}
+              lg={2}
+              md={2}
+              sm={2}
+              xs={2}
+              className=" quantityHeader"
+            >
+              QTY
+            </Col>
+            <Col
+              xxl={2}
+              xl={2}
+              lg={2}
+              md={2}
+              sm={2}
+              xs={2}
+              className="col-lg-2 unitPriceHeader"
+            >
+              UNIT PRICE
+            </Col>
+            <Col
+              xxl={2}
+              xl={2}
+              lg={2}
+              md={2}
+              sm={2}
+              xs={2}
+              className="col-lg-2 subtotalHeader"
+            >
+              SUB-TOTAL
+            </Col>
+          </Row>
           <div>
             {this.props.cart.map((cartProd) => (
               <CartProductComponent
@@ -121,7 +162,7 @@ class CartScreen extends React.Component {
               </button>
             </div>
           </div>
-        </div>
+        </Container>
 
         <FooterPage />
       </div>

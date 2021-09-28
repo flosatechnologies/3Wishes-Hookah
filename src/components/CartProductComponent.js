@@ -1,5 +1,6 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { Container, Row, Col } from "react-bootstrap";
 
 import "../css/CartProductComponent.css";
 import { connect } from "react-redux";
@@ -29,12 +30,12 @@ class CartProductComponent extends React.Component {
   render() {
     return (
       <div>
-        <div className="row cartComponentContainer">
+        <Row className="cartComponentContainer">
           <div className="col-lg-6 productAndNameSection">
-            <div className="row">
-              <div className="col-lg-4 productImageBox">
+            <Row className="row">
+              <Col className="col-lg-4 productImageBox">
                 <img src={this.props.image} alt="" className="productImage" />
-              </div>
+              </Col>
               <div className="col-lg-8 productNameBox">
                 <div className="row productName">{this.props.productName} </div>
                 <div className="row removeButtonContainer">
@@ -46,7 +47,7 @@ class CartProductComponent extends React.Component {
                   </button>
                 </div>
               </div>
-            </div>
+            </Row>
           </div>
           <div className="col-lg-2 productQtyContainer">
             <div className="prodQtyContainer">
@@ -88,7 +89,7 @@ class CartProductComponent extends React.Component {
               GHS {" " + this.props.subTotal}
             </div>
           </div>
-        </div>
+        </Row>
       </div>
     );
   }
