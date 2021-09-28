@@ -1,6 +1,6 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "../css/login.scss";
+import "../css/login.css";
 import { Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
