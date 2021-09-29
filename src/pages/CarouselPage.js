@@ -24,7 +24,16 @@ const CarouselPage = (props) => {
             alt="First slide"
           />
           <Carousel.Caption className="carousel-caption text-left ">
-            <h3 style={{ color: "#fff", fontFamily: "'Merienda', cursive" }}>
+            <h3
+              style={{
+                color: "#fff",
+                fontFamily: "'Merienda', cursive",
+                fontSize: "30px",
+                position: "relative",
+                textAlign: "center",
+                top: "90px",
+              }}
+            >
               GHANA'S NUMBER 1 SMOKE SHOP
             </h3>
             {/*<p>3WishesHookah</p>*/}
