@@ -9,5 +9,155 @@
 }
 
 .deliveryHeaderContainer {
-  padding: 0px 4px;
+  padding: 4px 4px;
+}
+
+.deliveryFilterSection {
+  height: fit-content;
+  padding: 10px 2px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: black;
+}
+
+div.deliveryFilterButtonContainer {
+  padding-top: 20px;
+}
+.filterSection {
+  height: fit-content;
+  padding: 10px 2px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: black;
+}
+.dateFilter {
+  /* display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start; */
+}
+div.filterButtonContainer {
+  padding-top: 20px;
+}
+.filterButton {
+  width: fit-content;
+  padding: 2px 10px;
+  background-color: #40f167;
+  border-style: none;
+  color: black;
+  text-align: center;
+}
+
+.paymentScreenBackButtonContainer {
+  text-align: right;
+  padding-top: 18px;
+}
+.headerSection {
+  height: fit-content;
+  margin-bottom: 15px;
+  padding: 0px 12px;
+}
+
+.headerIndexAndIdContainer {
+  display: flex;
+  flex-direction: row;
+  width: inherit;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.headerIndex {
+  font-weight: bold;
+  padding-right: 8px;
+  text-align: left;
+  padding-left: 1px;
+  font-size: 14px;
+}
+.headerPaymentId {
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.headerCustomer {
+  font-weight: bold;
+  font-size: 14px;
+  width: inherit;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.headerAmount {
+  font-weight: bold;
+  font-size: 14px;
+  width: inherit;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.headerTime {
+  font-weight: bold;
+  font-size: 14px;
+}
+.deliveryScreenBackButton {
+  background-color: transparent;
+  border-style: none;
+}
+.deliveryFilterButton {
+  width: fit-content;
+  padding: 2px 10px;
+  background-color: #40f167;
+  border-style: none;
+  color: black;
+  text-align: center;
+}
+
+.deliveryScreenBackButtonContainer {
+  text-align: right;
+  padding-top: 18px;
+}
+.headerSection {
+  height: fit-content;
+  margin-bottom: 15px;
+  padding: 0px 12px;
+}
+
+.headerIndexAndIdContainer {
+  display: flex;
+  flex-direction: row;
+  width: inherit;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.headerIndex {
+  font-weight: bold;
+  padding-right: 8px;
+  text-align: left;
+  padding-left: 1px;
+  font-size: 14px;
+}
+.headerPaymentId {
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.headerCustomer {
+  font-weight: bold;
+  font-size: 14px;
+  width: inherit;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.headerAmount {
+  font-weight: bold;
+  font-size: 14px;
+  width: inherit;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.headerTime {
+  font-weight: bold;
+  font-size: 14px;
+}
+.paymentScreenBackButton {
+  background-color: transparent;
+  border-style: none;
 }

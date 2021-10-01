@@ -7,38 +7,50 @@ import {
 } from "react-icons/fa";
 
 import "bootstrap/dist/css/bootstrap.min.css";
+import { Container, Row, Col } from "react-bootstrap";
 
 function FooterPage() {
   return (
-    <div
-      className="container"
-      style={{
-        padding: "6px 0px",
-      }}
-    >
-      <div className="row">
-        <div
-          className="col-lg-4 col-md-3"
-          style={{ fontSize: "12px", color: "#cccccc", textAlign: "center" }}
-        >
-          Copyright &copy; 2021
-          <span
-            style={{
-              fontWeight: "bold",
-              fontSize: "12px",
-              marginLeft: "4px",
-            }}
+    <div>
+      <Container fluid={true} className="footerContainer">
+        <Row>
+          <Col
+            xs={12}
+            sm={12}
+            md={12}
+            lg={4}
+            xl={4}
+            xxl={4}
+            className="copyrightInfo"
           >
-            3wishesLounge
-          </span>
-        </div>
+            Copyright &copy; 2021
+            <span
+              style={{
+                fontWeight: "bold",
+                textAlign: "left",
+                fontSize: "13px",
+                marginLeft: "4px",
+              }}
+            >
+              3wishesLounge
+            </span>
+          </Col>
 
-        <div className="col-lg-4 col-md-3" style={{ textAlign: "right" }}>
-          <div className="socialMediaContainer">
-            <div className="socialMedia">
-              <a href="https://www.facebook.com" target="facebook.com">
-                <FaFacebookSquare size="1.5em" />
-              </a>
+          <Col
+            xs={12}
+            sm={12}
+            md={12}
+            lg={4}
+            xl={4}
+            xxl={4}
+            style={{ textAlign: "right" }}
+          >
+            <div className="socialMediaContainer">
+              <div className="socialMedia">
+                <a href="https://www.facebook.com" target="facebook.com">
+                  <FaFacebookSquare size="1.5em" />
+                </a>
+              </div>
             </div>
 
             <div className="socialMedia">
@@ -58,29 +70,34 @@ function FooterPage() {
                 <FaInstagramSquare size="1.5em" />
               </a>
             </div>
-          </div>
-        </div>
+          </Col>
 
-        <div
-          className="col-lg-4 col-md-3"
-          style={{
-            color: "whitesmoke",
-            fontSize: "12px",
-            textAlign: "center",
-          }}
-        >
-          Powered by
-          <span
+          <Col
+            xs={12}
+            sm={12}
+            md={12}
+            lg={4}
+            xl={4}
+            xxl={4}
             style={{
               color: "#40f167",
               marginLeft: "1px",
               fontSize: "12px",
             }}
           >
-            FLOSA Technologies
-          </span>
-        </div>
-      </div>
+            Powered by
+            <span
+              style={{
+                color: "#40f167",
+                marginLeft: "1px",
+                fontSize: "12px",
+              }}
+            >
+              FLOSA Technologies
+            </span>
+          </Col>
+        </Row>
+      </Container>
     </div>
   );
 }

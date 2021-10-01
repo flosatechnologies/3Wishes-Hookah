@@ -4,17 +4,19 @@
   }
 }
 
-* {
-  margin: 0;
-  padding: 0;
+.loginBackground {
+  background: linear-gradient(135deg, #98d8a6, #56be6c);
+
+  padding: 3%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90vh !important;
 }
 
 .app-wrapper {
   background-color: rgb(44, 40, 40);
-  width: 28%;
-  /* min-height: 500px;  */
-  padding: 30px;
-  box-sizing: border-box;
+  /* box-sizing: border-box; */
   border-radius: 5px;
 }
 .name,

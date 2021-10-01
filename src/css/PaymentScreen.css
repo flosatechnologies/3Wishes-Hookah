@@ -1,62 +1,75 @@
 .filterSection {
-  height: 12vh;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
+  height: fit-content;
+  padding: 10px 2px;
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: black;
 }
 .dateFilter {
-  display: flex;
+  /* display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: flex-start; */
+}
+div.filterButtonContainer {
+  padding-top: 20px;
 }
 .filterButton {
-  width: 5vw;
+  width: fit-content;
+  padding: 2px 10px;
   background-color: #40f167;
   border-style: none;
   color: black;
   text-align: center;
 }
+
+.paymentScreenBackButtonContainer {
+  text-align: right;
+  padding-top: 18px;
+}
 .headerSection {
   height: fit-content;
+  margin-bottom: 15px;
+  padding: 0px 12px;
+}
+
+.headerIndexAndIdContainer {
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-  margin-bottom: 15px;
-  padding: 0px 7px;
+  width: inherit;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 .headerIndex {
-  width: 30px;
-  margin-right: 20px;
   font-weight: bold;
-  padding-left: 10px;
-  text-align: center;
-  padding-left: 5px;
+  padding-right: 8px;
+  text-align: left;
+  padding-left: 1px;
+  font-size: 14px;
 }
 .headerPaymentId {
-  width: 150px;
-  margin-right: 70px;
   font-weight: bold;
+  font-size: 14px;
 }
 
 .headerCustomer {
-  width: 240px;
-  margin-right: 40px;
   font-weight: bold;
+  font-size: 14px;
+  width: inherit;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
 .headerAmount {
-  width: 160px;
-  margin-right: 70px;
   font-weight: bold;
+  font-size: 14px;
+  width: inherit;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 .headerTime {
   font-weight: bold;
+  font-size: 14px;
 }
 .paymentScreenBackButton {
   background-color: transparent;

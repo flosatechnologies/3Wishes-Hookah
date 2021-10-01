@@ -1,14 +1,23 @@
 import React from "react";
+import { Container, Col, Row } from "react-bootstrap";
 
 export default function ReceiptComponent(props) {
   return (
-    <div>
-      <div className="row">
-        <div className="col-lg-6">{props.item}</div>
-        <div className="col-lg-2">{props.qty}</div>
-        <div className="col-lg-2">{props.price}</div>
-        <div className="col-lg-2">{props.total}</div>
-      </div>
-    </div>
+    <Container>
+      <Row className="">
+        <Col xxl={6} xl={6} lg={6} md={6} sm={6} xs={6}>
+          {props.item}
+        </Col>
+        <Col xxl={2} xl={2} lg={2} md={2} sm={2} xs={2}>
+          {props.qty}
+        </Col>
+        <Col xxl={2} xl={2} lg={2} md={2} sm={2} xs={2}>
+          {props.price}
+        </Col>
+        <Col xxl={2} xl={2} lg={2} md={2} sm={2} xs={2}>
+          {props.total}
+        </Col>
+      </Row>
+    </Container>
   );
 }
