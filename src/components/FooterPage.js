@@ -51,24 +51,24 @@ function FooterPage() {
                   <FaFacebookSquare size="1.5em" />
                 </a>
               </div>
-            </div>
 
-            <div className="socialMedia">
-              <a
-                href="https://twitter.com/LoungeWishes?s=09"
-                target="twitter.com"
-              >
-                <FaTwitterSquare size="1.5em" />
-              </a>
-            </div>
+              <div className="socialMedia">
+                <a
+                  href="https://twitter.com/LoungeWishes?s=09"
+                  target="twitter.com"
+                >
+                  <FaTwitterSquare size="1.5em" />
+                </a>
+              </div>
 
-            <div className="socialMedia">
-              <a
-                href="https://www.instagram.com/3wisheslounge/"
-                target="instagram.com"
-              >
-                <FaInstagramSquare size="1.5em" />
-              </a>
+              <div className="socialMedia">
+                <a
+                  href="https://www.instagram.com/3wisheslounge/"
+                  target="instagram.com"
+                >
+                  <FaInstagramSquare size="1.5em" />
+                </a>
+              </div>
             </div>
           </Col>
 
