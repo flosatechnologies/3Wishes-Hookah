@@ -10,6 +10,7 @@ import { connect } from "react-redux";
 import { MdKeyboardBackspace } from "react-icons/md";
 import firebase from "../firebase/config";
 import { DeleteProduct, getAllProducts } from "../Store/productActions.js";
+import { Container, Row, Col } from "react-bootstrap";
 
 class ProductsScreenDashboard extends Component {
   constructor(props) {
@@ -75,40 +76,78 @@ class ProductsScreenDashboard extends Component {
       if (this.state.button.deleteProduct === "activebtn") {
         return (
           /*BEGINING OF DELETE CONFIRMATION DIALOGUE BOX */
-          <div className="dialogBoxMainContainer">
-            <div className="dialogBoxContainer">
-              <div className=" headerContainer">CONFIRMATION</div>
-              <div className=" messageContainer">
-                Are you sure you want to delete product
-              </div>
-              <div className="buttonsContainer">
-                <div className="yesButtonContainer-dashboard">
-                  <button
-                    className="yesButton-dashboard"
-                    onClick={this.handleDeleteProduct}
+          <Container className="dialogBoxMainContainer">
+            <Row>
+              <Col
+                xxl={{ offset: 4, span: 4 }}
+                xl={{ offset: 4, span: 4 }}
+                lg={{ offset: 4, span: 4 }}
+                md={{ offset: 4, span: 4 }}
+                sm={{ offset: 3, span: 6 }}
+                xs={{ offset: 3, span: 6 }}
+                className="dialogBoxContainer"
+              >
+                <Row className=" headerContainer">CONFIRMATION</Row>
+                <Row className=" messageContainer">
+                  Are you sure you want to delete product
+                </Row>
+                <Row className=" deleteDialogButtonsContainer ">
+                  <Col
+                    xxl={{ offset: 9, span: 3 }}
+                    xl={{ offset: 9, span: 3 }}
+                    lg={{ offset: 8, span: 4 }}
+                    md={{ offset: 8, span: 4 }}
+                    sm={{ offset: 8, span: 4 }}
+                    xs={{ offset: 7, span: 5 }}
+                    className="deleteDialogButtonContainer"
                   >
-                    Yes
-                  </button>
-                </div>
-                <div className="noButtonContainer-dashboard">
-                  <button
-                    className="noButton-dashboard"
-                    onClick={() => {
-                      this.setState({
-                        button: {
-                          addProduct: "inactivebtn",
-                          editProduct: "inactivebtn",
-                          deleteProduct: "inactivebth",
-                        },
-                      });
-                    }}
-                  >
-                    No
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
+                    <Row>
+                      <Col
+                        xxl={6}
+                        xl={6}
+                        lg={6}
+                        md={5}
+                        sm={5}
+                        xs={5}
+                        className="yesButtonContainer-dashboard"
+                      >
+                        <button
+                          className="yesButton-dashboard"
+                          onClick={this.handleDeleteProduct}
+                        >
+                          Yes
+                        </button>
+                      </Col>
+                      <Col
+                        xxl={6}
+                        xl={6}
+                        lg={6}
+                        md={7}
+                        sm={7}
+                        xs={7}
+                        className="noButtonContainer-dashboard"
+                      >
+                        <button
+                          className="noButton-dashboard"
+                          onClick={() => {
+                            this.setState({
+                              button: {
+                                addProduct: "inactivebtn",
+                                editProduct: "inactivebtn",
+                                deleteProduct: "inactivebth",
+                              },
+                            });
+                          }}
+                        >
+                          No
+                        </button>
+                      </Col>
+                    </Row>
+                  </Col>
+                </Row>
+              </Col>
+            </Row>
+          </Container>
           /*END OF DELETE CONFIRMATION DIALOGUE BOX */
         );
       }
@@ -123,8 +162,8 @@ class ProductsScreenDashboard extends Component {
 
       if (this.state.button.addProduct === "inactivebtn") {
         return (
-          <div className="container arrayOfProducts">
-            <div className="row dashboardProductsContainer">
+          <Container className=" arrayOfProducts">
+            <Row className=" dashboardProductsContainer">
               {this.state.storeProducts.map((products) => {
                 return (
                   <ProductComponentDashboard
@@ -137,15 +176,23 @@ class ProductsScreenDashboard extends Component {
                   />
                 );
               })}
-            </div>
-          </div>
+            </Row>
+          </Container>
         );
       }
     };
     return (
-      <div className="container productScreenMainContainer">
-        <div className="row filterSection">
-          <div className="col-lg-2">
+      <Container className=" productScreenMainContainer">
+        <Row className="filterSection">
+          <Col
+            xxl={2}
+            xl={2}
+            lg={2}
+            md={2}
+            sm={2}
+            xs={2}
+            className="addProductButtonContainer-addProducts"
+          >
             <button
               onClick={() => {
                 this.setState({ button: { addProduct: "activebtn" } });
@@ -155,22 +202,29 @@ class ProductsScreenDashboard extends Component {
             >
               Add Product
             </button>
-          </div>
-          <div className="col-lg-10 backButtonContainer">
+          </Col>
+          <Col
+            xxl={{ offset: 8, span: 2 }}
+            xl={{ offset: 8, span: 2 }}
+            lg={{ offset: 8, span: 2 }}
+            md={{ offset: 8, span: 2 }}
+            sm={{ offset: 8, span: 2 }}
+            xs={{ offset: 8, span: 2 }}
+            className=" backButtonContainer"
+          >
             <button
               onClick={() => {
                 this.setState({ button: { addProduct: "inactivebtn" } });
               }}
               className="backButton"
-              // id={this.state.button.addProduct}
             >
               <MdKeyboardBackspace size="1.6em" />
             </button>
-          </div>
-        </div>
+          </Col>
+        </Row>
 
-        <div className="productsContainer">{handleRenderScreen()}</div>
-      </div>
+        <Row className="productsContainer">{handleRenderScreen()}</Row>
+      </Container>
     );
   }
 }

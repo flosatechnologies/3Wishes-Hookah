@@ -3,28 +3,30 @@ import "../css/productComponentDashboard.css";
 import { MdEdit, MdDelete } from "react-icons/md";
 import { EditProduct, DeleteProduct } from "../Store/productActions";
 import { connect } from "react-redux";
+import { Container, Row, Col } from "react-bootstrap";
 
 class ProductComponentDashboard extends Component {
   render() {
     return (
-      <div className="dashboardProductContainer">
-        <div className="dashboardProductImageContainer">
+      <Container className="dashboardProductContainer">
+        <Row className="dashboardProductImageContainer">
           <img
             className="dashboardProductImage"
             src={this.props.image}
             alt="productImage"
           />
-        </div>
+        </Row>
+        <Row>
+          <Col className="nameAndPriceContainer">
+            <Row className="dashboardProductName">{this.props.productName}</Row>
 
-        <div className="nameAndPriceContainer">
-          <div className="dashboardProductName">{this.props.productName}</div>
-
-          <div className="dashboardProductPrice">
-            GH{"\u20B5"} {this.props.price}
-          </div>
-        </div>
-        <div className="editAndDeleteButtonContainer">
-          <div>
+            <Row className="dashboardProductPrice">
+              GH{"\u20B5"} {this.props.price}
+            </Row>
+          </Col>
+        </Row>
+        <Row className="editAndDeleteButtonContainer">
+          <Col className="editButtonContainer">
             <button
               onClick={() => {
                 this.props.activatebtn("activebtn", "edit");
@@ -36,8 +38,8 @@ class ProductComponentDashboard extends Component {
               <MdEdit />
               edit
             </button>
-          </div>
-          <div>
+          </Col>
+          <Col className="deleteButtonContainer">
             <button
               onClick={() => {
                 this.props.activatebtn("activebtn", "del");
@@ -49,9 +51,9 @@ class ProductComponentDashboard extends Component {
               <MdDelete />
               delete
             </button>
-          </div>
-        </div>
-      </div>
+          </Col>
+        </Row>
+      </Container>
     );
   }
 }

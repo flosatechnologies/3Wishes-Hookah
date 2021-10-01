@@ -7,34 +7,44 @@ import {
 } from "react-icons/fa";
 
 import "bootstrap/dist/css/bootstrap.min.css";
+import { Container, Row, Col } from "react-bootstrap";
 
 function FooterPage() {
   return (
-    <footer variant="white" className="bg-dark m-10">
-      <div
-        className="container"
-        style={{
-          padding: "6px 0px",
-        }}
-      >
-        <div className="row">
-          <div
-            className="col-lg-4 col-md-3"
-            style={{ fontSize: "12px", color: "#cccccc", textAlign: "center" }}
+    <div>
+      <Container fluid={true} className="footerContainer">
+        <Row>
+          <Col
+            xs={12}
+            sm={12}
+            md={12}
+            lg={4}
+            xl={4}
+            xxl={4}
+            className="copyrightInfo"
           >
             Copyright &copy; 2021
             <span
               style={{
                 fontWeight: "bold",
-                fontSize: "12px",
+                textAlign: "left",
+                fontSize: "13px",
                 marginLeft: "4px",
               }}
             >
               3wishesLounge
             </span>
-          </div>
+          </Col>
 
-          <div className="col-lg-4 col-md-3" style={{ textAlign: "right" }}>
+          <Col
+            xs={12}
+            sm={12}
+            md={12}
+            lg={4}
+            xl={4}
+            xxl={4}
+            style={{ textAlign: "right" }}
+          >
             <div className="socialMediaContainer">
               <div className="socialMedia">
                 <a href="https://www.facebook.com" target="facebook.com">
@@ -60,10 +70,15 @@ function FooterPage() {
                 </a>
               </div>
             </div>
-          </div>
+          </Col>
 
-          <div
-            className="col-lg-4 col-md-3"
+          <Col
+            xs={12}
+            sm={12}
+            md={12}
+            lg={4}
+            xl={4}
+            xxl={4}
             style={{
               color: "whitesmoke",
               fontSize: "12px",
@@ -80,10 +95,10 @@ function FooterPage() {
             >
               FLOSA Technologies
             </span>
-          </div>
-        </div>
-      </div>
-    </footer>
+          </Col>
+        </Row>
+      </Container>
+    </div>
   );
 }
 

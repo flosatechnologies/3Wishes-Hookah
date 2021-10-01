@@ -6,7 +6,7 @@
 
 .loginBackground {
   background: linear-gradient(135deg, #98d8a6, #56be6c);
-  width: 100%;
+
   padding: 3%;
   display: flex;
   justify-content: center;
@@ -15,10 +15,7 @@
 }
 .app-wrapper {
   background-color: rgb(44, 40, 40);
-  width: 28%;
-  /* min-height: 500px;  */
-  padding: 30px;
-  box-sizing: border-box;
+  /* box-sizing: border-box; */
   border-radius: 5px;
 }
 .name,

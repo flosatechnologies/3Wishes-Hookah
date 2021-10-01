@@ -2,8 +2,8 @@
   width: fit-content;
   height: fit-content;
   background-color: white;
-  margin: 15px;
-  padding: 0px;
+  margin: 10px 20px;
+  padding: 3px;
 }
 .dashboardProductImageContainer {
   display: flex;
@@ -11,19 +11,21 @@
   align-items: center;
 }
 .dashboardProductImage {
-  width: 200px;
+  width: 225px;
   height: 200px;
-  padding: 0px;
-  margin-top: 8px;
+  padding: 2px;
 }
 
 .editAndDeleteButtonContainer {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
   border-top-style: solid;
   border-color: gray;
   border-top-width: 1px;
+  width: 225px;
+  margin: 0px 0.2px;
+}
+
+.editButtonContainer,
+.deleteButtonContainer {
 }
 .deleteButton,
 .editButton {
@@ -38,19 +40,20 @@
   color: #006400;
 }
 .nameAndPriceContainer {
-  width: 220px;
-  margin-left: 10px;
+  width: 250px;
 }
 
 .dashboardProductName {
   font-size: 15px;
   font-weight: bold;
   text-overflow: ellipsis;
-  width: 98%;
+  width: 100%;
   white-space: nowrap;
   overflow: hidden;
+  padding-left: 17px;
 }
 .dashboardProductPrice {
   font-size: 14px;
   font-weight: bolder;
+  padding-left: 17px;
 }

@@ -10,6 +10,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import { Component } from "react";
 import { connect } from "react-redux";
 import { getTransaction } from "../Store/transactionAction";
+import { Container, Row, Col } from "react-bootstrap";
 
 class PaymentScreen extends Component {
   constructor(props) {
@@ -52,14 +53,55 @@ class PaymentScreen extends Component {
     }
     if (this.state.paySummary === "yes") {
       return (
-        <div>
-          <div className="headerSection">
-            <div className=" headerIndex">#</div>
-            <div className=" headerPaymentId">PAYMENT ID</div>
-            <div className="headerCustomer">CUSTOMER</div>
-            <div className="headerAmount">AMOUNT (GHS)</div>
-            <div className="headerTime">TIME</div>
-          </div>
+        <Container>
+          <Row className="headerSection">
+            <Col
+              xxl={3}
+              xl={3}
+              lg={3}
+              md={3}
+              sm={3}
+              xs={3}
+              className="headerIndexAndIdContainer"
+            >
+              <div className=" headerIndex">#</div>
+              <div className=" headerPaymentId">PAYMENT ID</div>
+            </Col>
+            <Col
+              xxl={3}
+              xl={3}
+              lg={3}
+              md={3}
+              sm={3}
+              xs={3}
+              className="headerCustomer"
+            >
+              CUSTOMER
+            </Col>
+            <Col
+              xxl={2}
+              xl={2}
+              lg={2}
+              md={2}
+              sm={2}
+              xs={2}
+              className="headerAmount"
+            >
+              AMT.(GH¢)
+            </Col>
+            <Col
+              xxl={3}
+              xl={3}
+              lg={3}
+              md={3}
+              sm={3}
+              xs={3}
+              className="headerTime"
+            >
+              DATE & TIME
+            </Col>
+            <Col xxl={1} xl={1} lg={1} md={1} sm={1} xs={1}></Col>
+          </Row>
           <div>
             {this.state.transaction.map((trans, index) => {
               return (
@@ -77,49 +119,67 @@ class PaymentScreen extends Component {
               );
             })}
           </div>
-        </div>
+        </Container>
       );
     }
   };
   render() {
     return (
-      <div className="container">
-        <div className="row filterSection">
-          <div className="col-lg-8 dateFilter">
-            <div style={{ marginRight: 50 }}>
-              <div>From</div>
-              <div>
-                <DatePicker
-                  selected={this.state.date1}
-                  onChange={(date) => this.setState({ date1: date })}
-                  peekNextMonth
-                  showMonthDropdown
-                  showYearDropdown
-                  dropdownMode="select"
-                  dateFormat="dd/MM/yyyy"
-                />
-              </div>
-            </div>
-            <div>
-              <div>To</div>
-              <div>
-                <DatePicker
-                  selected={this.state.date2}
-                  onChange={(date) => this.setState({ date2: date })}
-                  peekNextMonth
-                  showMonthDropdown
-                  showYearDropdown
-                  dropdownMode="select"
-                  dateFormat="dd/MM/yyyy"
-                />
-              </div>
-            </div>
-          </div>
-          <div className="col-lg-3">
-            <button className="filterButton">Filter</button>
-          </div>
+      <Container>
+        <Row className="filterSection">
+          <Col
+            xxl={8}
+            xl={8}
+            lg={7}
+            md={7}
+            sm={7}
+            xs={7}
+            className="dateFilter"
+          >
+            <Row>
+              <Col xxl={5} xl={5} lg={8} md={8} sm={9} xs={9}>
+                <div>
+                  <div>From</div>
+                  <DatePicker
+                    selected={this.state.date1}
+                    onChange={(date) => this.setState({ date1: date })}
+                    peekNextMonth
+                    showMonthDropdown
+                    showYearDropdown
+                    dropdownMode="select"
+                    dateFormat="dd/MM/yyyy"
+                  />
+                </div>
+              </Col>
+              <Col xxl={5} xl={5} lg={8} md={8} sm={9} xs={9}>
+                <div>To</div>
+                <div>
+                  <DatePicker
+                    selected={this.state.date2}
+                    onChange={(date) => this.setState({ date2: date })}
+                    peekNextMonth
+                    showMonthDropdown
+                    showYearDropdown
+                    dropdownMode="select"
+                    dateFormat="dd/MM/yyyy"
+                  />
+                </div>
+              </Col>
+              <Col className="filterButtonContainer">
+                <button className="filterButton">Filter</button>
+              </Col>
+            </Row>
+          </Col>
 
-          <div className="col-lg-1">
+          <Col
+            xxl={{ span: 1, offset: 3 }}
+            xl={{ span: 1, offset: 3 }}
+            lg={{ span: 2, offset: 3 }}
+            md={{ span: 2, offset: 3 }}
+            sm={{ span: 2, offset: 3 }}
+            sm={{ span: 2, offset: 3 }}
+            className="paymentScreenBackButtonContainer"
+          >
             <button
               className="paymentScreenBackButton"
               onClick={() => {
@@ -128,11 +188,11 @@ class PaymentScreen extends Component {
             >
               <MdKeyboardBackspace size="1.6em" />
             </button>
-          </div>
-        </div>
+          </Col>
+        </Row>
 
-        <div className="">{this.handleShowComponent()}</div>
-      </div>
+        <Row className="">{this.handleShowComponent()}</Row>
+      </Container>
     );
   }
 }

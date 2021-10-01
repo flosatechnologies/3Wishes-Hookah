@@ -1,7 +1,7 @@
 import React from "react";
 import "../css/deliveryScreen.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Row, Col } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 import DatePicker from "react-datepicker";
 import { MdKeyboardBackspace } from "react-icons/md";
 import DeliveryComponent from "../components/DeliveryComponent";
@@ -41,33 +41,97 @@ class DeliveryScreen extends React.Component {
     if (this.state.deliveries === "yes") {
       return (
         <div>
-          <Row lg={12} className="deliveryHeaderContainer">
-            <Col lg={1}>
-              <div style={{ fontSize: 15, fontWeight: "600" }}>ID</div>
+          <Row className="deliveryHeaderContainer">
+            <Col
+              xxl={1}
+              xl={1}
+              lg={1}
+              md={1}
+              sm={1}
+              xs={1}
+              style={{ fontSize: 13, fontWeight: "600" }}
+            >
+              ID
             </Col>
-            <Col lg={3}>
-              <div style={{ fontSize: 15, fontWeight: "600" }}>PRODUCT(S)</div>
+            <Col
+              xxl={3}
+              xl={3}
+              lg={3}
+              md={3}
+              sm={3}
+              xs={3}
+              style={{
+                fontSize: 13,
+                fontWeight: "600",
+              }}
+            >
+              PRODUCT(S)
             </Col>
-            <Col lg={2}>
-              <p style={{ fontSize: 15, fontWeight: "600" }}>CUSTOMER</p>
+            <Col
+              xxl={3}
+              xl={3}
+              lg={3}
+              md={3}
+              sm={3}
+              xs={3}
+              style={{ fontSize: 13, fontWeight: "600" }}
+            >
+              CUSTOMER
             </Col>
-            <Col lg={2}>
-              <div style={{ fontSize: 15, fontWeight: "600" }}>LOCATION</div>
+            <Col
+              xxl={2}
+              xl={2}
+              lg={2}
+              md={2}
+              sm={2}
+              xs={2}
+              style={{
+                fontSize: 13,
+                fontWeight: "600",
+                width: "inherit",
+                textOverflow: "ellipsis",
+                whiteSpace: "nowrap",
+                overflow: "hidden",
+              }}
+            >
+              LOCATION
             </Col>
 
-            <Col lg={2}>
-              <div style={{ fontSize: 15, fontWeight: "600" }}>AMOUNT(GHS)</div>
+            <Col
+              xxl={1}
+              xl={1}
+              lg={1}
+              md={1}
+              sm={1}
+              xs={1}
+              style={{
+                fontSize: 13,
+                fontWeight: "600",
+                width: "inherit",
+                textOverflow: "ellipsis",
+                overflow: "hidden",
+              }}
+            >
+              AMT(¢)
             </Col>
 
-            <Col lg={1}>
-              <div
-                style={{
-                  fontSize: 15,
-                  fontWeight: "600",
-                }}
-              >
-                DELIVERY
-              </div>
+            <Col
+              xxl={2}
+              xl={2}
+              lg={2}
+              md={2}
+              sm={2}
+              xs={2}
+              style={{
+                fontSize: 13,
+                fontWeight: "600",
+                width: "inherit",
+                textOverflow: "ellipsis",
+                whiteSpace: "nowrap",
+                overflow: "hidden",
+              }}
+            >
+              DELIVERY
             </Col>
           </Row>
           <Row>
@@ -114,54 +178,76 @@ class DeliveryScreen extends React.Component {
 
   render() {
     return (
-      <div className="container-fluid">
-        <div className="row filterSection">
-          <div className="col-lg-8 dateFilter">
-            <div style={{ marginRight: 50 }}>
-              From{"   "}
-              <DatePicker
-                selected={this.state.date1}
-                onChange={(date) => this.setState({ date1: date })}
-                peekNextMonth
-                showMonthDropdown
-                showYearDropdown
-                dropdownMode="select"
-                dateFormat="dd/MM/yyyy"
-              />
-            </div>
-            <div>
-              To
-              <DatePicker
-                selected={this.state.date2}
-                onChange={(date) => this.setState({ date2: date })}
-                peekNextMonth
-                showMonthDropdown
-                showYearDropdown
-                dropdownMode="select"
-                dateFormat="dd/MM/yyyy"
-              />
-            </div>
-          </div>
-          <div className="col-lg-3">
-            <button className="filterButton">Filter</button>
-          </div>
+      <Container>
+        <Row className="deliveryFilterSection">
+          <Col
+            xxl={8}
+            xl={8}
+            lg={7}
+            md={7}
+            sm={7}
+            xs={7}
+            className=" deliveryDateFilter"
+          >
+            <Row>
+              <Col xxl={5} xl={5} lg={8} md={8} sm={9} xs={9}>
+                <div>From</div>
+                <div>
+                  <DatePicker
+                    selected={this.state.date1}
+                    onChange={(date) => this.setState({ date1: date })}
+                    peekNextMonth
+                    showMonthDropdown
+                    showYearDropdown
+                    dropdownMode="select"
+                    dateFormat="dd/MM/yyyy"
+                  />
+                </div>
+              </Col>
+              <Col xxl={5} xl={5} lg={8} md={8} sm={9} xs={9}>
+                <div>To</div>
+                <div>
+                  <DatePicker
+                    selected={this.state.date2}
+                    onChange={(date) => this.setState({ date2: date })}
+                    peekNextMonth
+                    showMonthDropdown
+                    showYearDropdown
+                    dropdownMode="select"
+                    dateFormat="dd/MM/yyyy"
+                  />
+                </div>
+              </Col>
 
-          <div className="col-lg-1">
+              <Col className="deliveryFilterButtonContainer">
+                <button className="deliveryFilterButton">Filter</button>
+              </Col>
+            </Row>
+          </Col>
+          <Col
+            xxl={{ span: 1, offset: 3 }}
+            xl={{ span: 1, offset: 3 }}
+            lg={{ span: 2, offset: 3 }}
+            md={{ span: 2, offset: 3 }}
+            sm={{ span: 2, offset: 3 }}
+            sm={{ span: 2, offset: 3 }}
+            className="deliveryScreenBackButtonContainer"
+          >
             <button
-              className="paymentScreenBackButton"
+              className="deliveryScreenBackButton"
               onClick={() => {
                 this.setState({ orderDetails: "no", deliveries: "yes" });
               }}
             >
               <MdKeyboardBackspace size="1.6em" />
             </button>
-          </div>
-        </div>
+          </Col>
+        </Row>
 
         <Row>
           <div className="">{this.handleShowComponent()}</div>
         </Row>
-      </div>
+      </Container>
     );
   }
 }
