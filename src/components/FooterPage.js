@@ -80,9 +80,10 @@ function FooterPage() {
             xl={4}
             xxl={4}
             style={{
-              color: "#40f167",
-              marginLeft: "1px",
+              color: "#ffffff",
+              textAlign: "center",
               fontSize: "12px",
+              padding: "3px 0px",
             }}
           >
             Powered by
