@@ -1,16 +1,12 @@
-div.shopPageProductContainer {
-  width: 18vw;
-  margin: 17px;
-  padding: 4px;
+.shopPageProductContainer {
+  margin: 15px 6px;
   border-style: solid;
   border-width: 1px;
   border-color: #eeeeee;
 }
 
 img.productImageShopPage {
-  width: 17.3vw;
-  height: 200px;
-  padding: 2px;
+  padding: 5px;
 }
 div.addToCartButton {
   background-color: #84f39c;
@@ -24,34 +20,28 @@ div.addToCartButton {
   height: 100px;
 } */
 
-div.shopPageProductImageBox {
-  padding: 0px;
+.shopPageProductImageBox {
 }
 
 div.shopPageProductContainer:hover {
   background-color: #eeeeee;
 }
 div.productNameShopPage {
-  width: 17vw;
+  width: inherit;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
-  padding: 0px 3px;
-  margin: 25px 4px 4px 4px;
+  padding: 0px 5px;
+  margin: 25px 10px 4px 4px;
 }
 
 div.priceAndProductBox {
-  width: 17.5vw;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
   padding: 0px 4px;
   margin-bottom: 10px;
 }
 div.priceText {
   font-size: 14;
   font-weight: bold;
-  width: 150px;
   color: #007bff;
 }
 
@@ -61,6 +51,5 @@ div.priceText {
 }
 
 .addToCartButtonBox {
-  margin-left: 100px;
   text-align: right;
 }

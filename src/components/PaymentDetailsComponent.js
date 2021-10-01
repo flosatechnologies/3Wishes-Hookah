@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../css/paymentDetailsComponent.css";
 import ReceiptComponent from "./ReceiptComponent";
+import { Container, Col, Row } from "react-bootstrap";
 
 export class PaymentDetailsComponent extends Component {
   constructor(props) {
@@ -20,41 +21,95 @@ export class PaymentDetailsComponent extends Component {
   };
   render() {
     return (
-      <div className="container receiptSheet">
-        <div className="row">
-          <div className="col-lg-8">
-            <div className=" receiptTransactionIdContainer">
-              <div className="receiptTransactionIdLabel">Transaction Id:</div>
-              <div className="receiptTransactionIdText">
-                {this.props.transactionId}
-              </div>
-            </div>
-            <div className="receiptCustomerContainer">
-              <div className="receiptCustomerLabel">Customer:</div>
-              <div className="receiptCustomerText">{this.props.customer}</div>
-            </div>
-            <div className="receiptDateContainer">
-              <div className="receiptDateLabel">Date:</div>
-              <div className="receiptDateText">{this.props.date}</div>
-            </div>
-          </div>
-          <div className="col-lg-4">
-            <div className="row">
+      <Container fluid={true} className=" receiptSheet">
+        <Row className="upperSection">
+          <Col xxl={5} xl={5} lg={6} md={12} sm={12} xs={12} className="">
+            <Row>
+              <Col className="receiptTransactionIdContainer">
+                <div className="receipTransactionIdLabel">Transaction Id:</div>
+                <div className="receiptTransactionIdText">
+                  {this.props.transactionId}
+                </div>
+              </Col>
+            </Row>
+            <Row>
+              <Col className="receiptCustomerContainer">
+                <div className="receiptCustomerLabel">Customer:</div>
+                <div className="receiptCustomerText">{this.props.customer}</div>
+              </Col>
+            </Row>
+            <Row>
+              <Col className="receiptDateContainer">
+                <div className="receiptDateLabel">Date:</div>
+                <div className="receiptDateText">{this.props.date}</div>
+              </Col>
+            </Row>
+          </Col>
+          <Col
+            xxl={{ span: 4, offset: 3 }}
+            xl={{ span: 4, offset: 3 }}
+            lg={{ span: 4, offset: 2 }}
+            md={12}
+            sm={12}
+            xs={12}
+            className=""
+          >
+            <Row className="">
               <div>3 wishes</div>
-            </div>
-            <div className="row">
+            </Row>
+            <Row className="">
               <div>Transaction Details</div>
-            </div>
-          </div>
-        </div>
-        <div className="row receiptHeader">
-          <div className="col-lg-6 receiptHeadingText">Items</div>
-          <div className="col-lg-2 receiptHeadingText">Qty</div>
-          <div className="col-lg-2 receiptHeadingText">Price{" GH\u20B5"}</div>
-          <div className="col-lg-2 receiptHeadingText">Total{" GH\u20B5"}</div>
-        </div>
-        <div className="container">
-          <div className="row">
+            </Row>
+          </Col>
+        </Row>
+        <Row className="receiptHeader">
+          <Col
+            xxl={6}
+            xl={6}
+            lg={6}
+            md={6}
+            sm={6}
+            xs={6}
+            className=" receiptHeadingText"
+          >
+            Items
+          </Col>
+          <Col
+            xxl={2}
+            xl={2}
+            lg={2}
+            md={2}
+            sm={2}
+            xs={2}
+            className="receiptHeadingText"
+          >
+            Qty
+          </Col>
+          <Col
+            xxl={2}
+            xl={2}
+            lg={2}
+            md={2}
+            sm={2}
+            xs={2}
+            className="receiptHeadingText"
+          >
+            Price{" GH\u20B5"}
+          </Col>
+          <Col
+            xxl={2}
+            xl={2}
+            lg={2}
+            md={2}
+            sm={2}
+            xs={2}
+            className="receiptHeadingText"
+          >
+            Total{" GH\u20B5"}
+          </Col>
+        </Row>
+        <Container>
+          <Row>
             {this.state.selected.map((prod) => {
               return (
                 <ReceiptComponent
@@ -65,15 +120,25 @@ export class PaymentDetailsComponent extends Component {
                 />
               );
             })}
-          </div>
-          <div className="row receiptTotalContainer">
-            <div className="col-lg-10 receiptTotalLabel">Total:</div>
-            <div className="col-lg-2">
+          </Row>
+          <Row className="receiptTotalContainer">
+            <Col
+              xxl={{ span: 2, offset: 8 }}
+              xl={{ span: 2, offset: 8 }}
+              lg={{ span: 2, offset: 8 }}
+              md={{ span: 2, offset: 8 }}
+              sm={{ span: 2, offset: 8 }}
+              xs={{ span: 2, offset: 8 }}
+              className="receiptTotalLabel"
+            >
+              Total:
+            </Col>
+            <Col xxl={2} xl={2} lg={2} md={2} sm={2} xs={2}>
               {this.handleTheSummation(this.state.selected)}
-            </div>
-          </div>
-        </div>
-      </div>
+            </Col>
+          </Row>
+        </Container>
+      </Container>
     );
   }
 }

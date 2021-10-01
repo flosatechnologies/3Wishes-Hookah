@@ -3,6 +3,7 @@ import "../css/Product.css";
 import { FaCartPlus } from "react-icons/fa";
 import { AddToCart } from "../Store/cartActions";
 import { connect } from "react-redux";
+import { Container, Col, Row, Image } from "react-bootstrap";
 
 class Product extends React.Component {
   constructor(props) {
@@ -24,32 +25,45 @@ class Product extends React.Component {
   };
   render() {
     return (
-      <div className="shopPageProductContainer">
-        <div className="shopPageProductImageBox">
-          <img
-            src={this.props.image}
-            alt="productImage"
-            className="productImageShopPage"
-          />
-        </div>
-        <div className="productNameShopPage">{this.props.name}</div>
-        <div className="priceAndProductBox">
-          <div className="priceText">
-            GH{"\u20B5 "}
-            {this.props.price}
-          </div>
-          <div className="addToCartButtonBox">
-            <button
-              onClick={() => {
-                this.handleAddToCart();
-              }}
-              className="addToCartButtonShopPage"
+      <div>
+        <Container className="shopPageProductContainer">
+          <Row className="shopPageProductImageBox">
+            <Image
+              src={this.props.image}
+              alt="productImage"
+              className="productImageShopPage"
+            />
+          </Row>
+
+          <Row>
+            <div className="productNameShopPage">{this.props.name}</div>
+          </Row>
+
+          <Row className="priceAndProductBox">
+            <Col lg={8} xl={8} md={8} sm={8} xs={8} className="priceText">
+              GH{"\u20B5 "}
+              {this.props.price}
+            </Col>
+            <Col
+              lg={4}
+              xl={4}
+              md={4}
+              sm={4}
+              xs={4}
+              className="addToCartButtonBox"
             >
-              <FaCartPlus style={{ margin: "0px 10px", color: "#007bff" }} />
-            </button>
-            {console.log(this.state.product_Id)}
-          </div>
-        </div>
+              <button
+                onClick={() => {
+                  this.handleAddToCart();
+                }}
+                className="addToCartButtonShopPage"
+              >
+                <FaCartPlus style={{ margin: "0px 10px", color: "#007bff" }} />
+              </button>
+              {console.log(this.state.product_Id)}
+            </Col>
+          </Row>
+        </Container>
       </div>
     );
   }

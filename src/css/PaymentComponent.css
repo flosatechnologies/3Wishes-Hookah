@@ -1,41 +1,29 @@
-.componentContainer {
+.componentContainer-PayComponent {
   background-color: #b6b5b5;
 }
-.paymentComponent {
+.paymentComponent-PayComponent {
   height: fit-content;
+  padding: 3px 0px;
+}
+.Index-PayComponent {
+  padding-right: 6px;
+  text-align: left;
+}
+
+.headerIndexAndIdContainer-PayComponent {
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-  flex-wrap: wrap;
-  margin-top: 3px;
-  margin-bottom: 3px;
-  padding: 5px 0px;
-}
-.Index {
-  width: 30px;
-  margin-right: 20px;
-  text-align: left;
-  padding-left: 5px;
-}
-.PaymentId {
-  width: 150px;
-  margin-right: 50px;
+  width: inherit;
   text-overflow: ellipsis;
-  white-space: nowrap;
   overflow: hidden;
 }
-
-.Customer {
-  width: 250px;
-  margin-right: 40px;
+.PaymentId-PayComponent {
 }
 
-.Amount {
-  width: 120px;
-  margin-right: 70px;
-  text-align: center;
+.Customer-PayComponent {
 }
-.Time {
-  margin-right: 50px;
+
+.Amount-PayComponent {
+}
+.Time-PayComponent {
 }

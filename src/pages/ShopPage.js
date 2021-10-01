@@ -8,28 +8,7 @@ import FooterPage from "../components/FooterPage";
 import { getAllProducts } from "../Store/productActions";
 import { AddToCart } from "../Store/cartActions";
 import { connect } from "react-redux";
-
-// import HeaderPage from "../components/HeaderPage";
-// import FooterPage from "../components/FooterPage";
-
-// class ShopPage extends Component {
-//   componentDidMount() {
-//     this.props.getAllProducts();
-//   }
-//   render() {
-//     return (
-//       <div>
-//         {/*<HeaderPage />*/}
-//         <div className="container">
-//           <Row>
-//             {products.map((product) => (
-//               <Col sm={12} md={6} lg={4} xl={3}>
-//                 <Product product={product} />
-//               </Col>
-//             ))}
-//           </Row>
-//         </div>
-//         {/*<FooterPage />*/}
+import { Container, Col, Row } from "react-bootstrap";
 
 class ShopPage extends React.Component {
   constructor(props) {
@@ -63,7 +42,7 @@ class ShopPage extends React.Component {
               }}
             >
               <form>
-                <input
+                {/* <input
                   style={{
                     marginRight: "5px",
                     backgroundColor: "#eeeeee",
@@ -80,22 +59,26 @@ class ShopPage extends React.Component {
                   className="searchButtonShopPage"
                   type="submit"
                   value="search"
-                />
+                /> */}
               </form>
             </div>
           </div>
-          <div className="row">
-            {this.props.products.map((product) => (
-              <Product
-                name={product.product}
-                image={product.image}
-                price={product.price}
-                Id={product.Id}
-                theProducts={this.props.products}
-                key={product.Id}
-              />
-            ))}
-          </div>
+          <Container>
+            <Row>
+              {this.props.products.map((product) => (
+                <Col xs={12} sm={12} md={6} lg={3} xl={3} xxl={3}>
+                  <Product
+                    name={product.product}
+                    image={product.image}
+                    price={product.price}
+                    Id={product.Id}
+                    theProducts={this.props.products}
+                    key={product.Id}
+                  />
+                </Col>
+              ))}
+            </Row>
+          </Container>
         </div>
         <FooterPage />
       </div>

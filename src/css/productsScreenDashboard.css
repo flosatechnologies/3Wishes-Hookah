@@ -1,12 +1,22 @@
-div.arrayOfProducts {
+/* div.arrayOfProducts {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+} */
+
+.addProductButtonContainer-addProducts {
+  text-align: left;
+  margin: 5px 0px;
+}
+
+.productScreenMainContainer {
+  margin: 0px 10px;
 }
 
 .addProductButton,
 #inactivebtn {
   background-color: transparent;
+  line-height: 18px;
   border-style: solid;
   padding: 2% 3%;
   border-radius: 5px;
@@ -33,7 +43,8 @@ div.dialogBoxMainContainer {
   position: absolute;
   top: 14%;
   width: 1010px;
-  height: 580px;
+  min-height: 470px;
+  max-height: inherit;
   background-color: rgba(165, 42, 42, 0);
 }
 .dialogBox {
@@ -43,18 +54,22 @@ div.dialogBoxMainContainer {
 }
 .dialogBoxContainer {
   width: fit-content;
-  height: 20vh;
+  min-height: 20vh;
   background-color: white;
-  padding: 5px;
+  max-height: fit-content;
+
   border-radius: 5px;
   position: absolute;
-  top: 25%;
-  left: 35%;
+  top: 20%;
+  /* left: 35%; */
+}
+.deleteDialogButtonContainer {
+  padding-right: 17px;
 }
 .headerContainer {
   font-size: 18px;
   text-transform: uppercase;
-
+  padding: 5px 8px;
   color: rgb(2, 87, 16);
   font-weight: bolder;
   border-bottom-style: solid;
@@ -62,18 +77,21 @@ div.dialogBoxMainContainer {
   border-bottom-color: #dddddd;
   margin-bottom: 7px;
 }
-div.buttonsContainer {
-  display: flex;
+div.deleteDialogButtonsContainer {
+  /* display: flex;
   flex-direction: row;
-  justify-content: right;
+  justify-content: right; */
 }
-
+.noButtonContainer-dashboard,
+.yesButtonContainer-dashboard {
+  text-align: center;
+  padding: 4px;
+}
 .yesButton-dashboard {
   font-size: 15px;
   border-style: none;
   background-color: limegreen;
   padding: 0px 4px;
-  margin-right: 5px;
 }
 
 .noButton-dashboard {
@@ -85,6 +103,5 @@ div.buttonsContainer {
 }
 
 .messageContainer {
-  margin: 10px 3px;
-  padding: 10px 2px;
+  padding: 21px 5px;
 }

@@ -13,9 +13,9 @@ import DeliveryScreen from "./DeliveryScreen";
 import { connect } from "react-redux";
 import { logoutUser } from "../Store/authActions";
 import { getAllProducts } from "../Store/productActions";
-
 import UsersScreenDashboard from "./UsersScreenDashboard";
 import { getTransaction } from "../Store/transactionAction";
+import { Container, Row, Col } from "react-bootstrap";
 
 class Dashboard extends Component {
   constructor(props) {
@@ -122,28 +122,42 @@ class Dashboard extends Component {
     };
 
     return (
-      <div className="container-fluid mainContainer">
-        <div className="row menuBar">
-          <div className="col-lg-2">
+      <Container fluid={true} className=" mainContainer">
+        <Row className=" menuBar">
+          <Col xl={2} xl={2} lg={2} md={2} sm={2} xs={2}>
             <img src={logo} width="70" height="70" alt="logo" />
-          </div>
-        </div>
+          </Col>
+        </Row>
 
-        <div className="row bodyArea">
-          <div className="col-lg-2 dashboardButtonSection">
-            <div className="row profileSectionContainer">
-              <div className="profileSection">
-                <div>
-                  <img src={userImage} alt="userImage" className="userImage" />
-                </div>
-                <div className="profileWelcomeMessage">
-                  <div className="userWelcome">Welcome,</div>
-                  <div> {this.props.state.auth.displayName} </div>
-                </div>
-              </div>
-            </div>
+        <Row className=" bodyArea">
+          <Col
+            xl={2}
+            xl={2}
+            lg={2}
+            md={2}
+            sm={2}
+            xs={2}
+            className="dashboardButtonSection"
+          >
+            <Row className=" profileSectionContainer">
+              <Col xl={5} xl={5} lg={5} md={12} sm={12} xs={12}>
+                <img src={userImage} alt="userImage" className="userImage" />
+              </Col>
+              <Col
+                xl={7}
+                xl={7}
+                lg={7}
+                md={12}
+                sm={12}
+                xs={12}
+                className="profileWelcomeMessage"
+              >
+                <Row className="userWelcome">Welcome,</Row>
+                <Row> {this.props.state.auth.displayName} </Row>
+              </Col>
+            </Row>
 
-            <div className="row">
+            <Row>
               <button
                 onClick={() => {
                   this.setState({
@@ -161,8 +175,8 @@ class Dashboard extends Component {
               >
                 <BsArchive style={{ marginRight: 13 }} /> Product
               </button>
-            </div>
-            <div className="row">
+            </Row>
+            <Row>
               <button
                 onClick={() => {
                   this.setState({
@@ -181,8 +195,8 @@ class Dashboard extends Component {
                 <BsCreditCard style={{ marginRight: 15 }} />
                 Payment
               </button>
-            </div>
-            <div className="row">
+            </Row>
+            <Row>
               <button
                 onClick={() => {
                   this.setState({
@@ -201,8 +215,8 @@ class Dashboard extends Component {
                 <RiTruckLine style={{ marginRight: 15 }} />
                 Delivery
               </button>
-            </div>
-            <div className="row">
+            </Row>
+            <Row>
               <button
                 onClick={() => {
                   this.setState({
@@ -222,9 +236,9 @@ class Dashboard extends Component {
                 <BsPerson style={{ marginRight: 15 }} />
                 Users
               </button>
-            </div>
+            </Row>
 
-            <div className="row">
+            <Row>
               <button
                 onClick={() => {
                   this.setState({
@@ -243,11 +257,21 @@ class Dashboard extends Component {
                 <AiOutlineLogout style={{ marginRight: 15 }} />
                 Logout
               </button>
-            </div>
-          </div>
-          <div className="col-lg-10 workspace">{handleRenderScreen()}</div>
-        </div>
-      </div>
+            </Row>
+          </Col>
+          <Col
+            xl={10}
+            xl={10}
+            lg={10}
+            md={10}
+            sm={10}
+            xs={10}
+            className=" workspace"
+          >
+            {handleRenderScreen()}
+          </Col>
+        </Row>
+      </Container>
     );
   }
 }

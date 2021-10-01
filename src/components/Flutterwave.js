@@ -44,16 +44,16 @@ function Flutterwave(props) {
           handleFlutterPayment({
             callback: (response) => {
               console.log("response", response);
-              // return RequeryTransaction({
-              //   live: false,
-              //   txref: response.tx.txRef,
-              //   SECKEY: "",
-              // });
-              closePaymentModal(); // this will close the modal programmatically
+              if (response.status === "success") {
+                props.addTransaction(transaction.Id, transaction);
+              } else {
+                alert("Transaction failed");
+              }
+
+              closePaymentModal();
             },
             onClose: () => {},
           });
-          props.addTransaction(transaction.Id, transaction);
         }}
         style={{
           margin: "5px",
