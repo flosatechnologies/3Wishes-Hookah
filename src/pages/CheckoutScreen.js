@@ -109,6 +109,7 @@ class CheckoutScreen extends React.Component {
     return (
       <div>
         <HeaderPage />
+
         <div className="checkoutMainContainer">
           <div className="container ">
             <div className="container addressDetailContainer">

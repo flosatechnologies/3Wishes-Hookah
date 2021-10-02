@@ -9,6 +9,7 @@ import { getAllProducts } from "../Store/productActions";
 import { AddToCart } from "../Store/cartActions";
 import { connect } from "react-redux";
 import { Container, Col, Row } from "react-bootstrap";
+import { Helmet } from "react-helmet";
 
 class ShopPage extends React.Component {
   constructor(props) {
@@ -31,6 +32,10 @@ class ShopPage extends React.Component {
     return (
       <div>
         <HeaderPage />
+        <Helmet>
+          <title>Shop - 3Wishesgh</title>
+          <meta name="description" content="3Wishes Hookah Shop" />
+        </Helmet>
         <div className="container">
           <div className="row">
             <div
@@ -67,6 +72,11 @@ class ShopPage extends React.Component {
             <Row>
               {this.props.products.map((product) => (
                 <Col xs={12} sm={12} md={6} lg={3} xl={3} xxl={3}>
+                  <Helmet>
+                    <title>{product.name}</title>
+                    <meta name="description" content="3Wishes Hookah Shop" />
+                  </Helmet>
+
                   <Product
                     name={product.product}
                     image={product.image}

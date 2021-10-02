@@ -12,6 +12,7 @@ import {
 import { connect } from "react-redux";
 import "../css/CartScreen.css";
 import CartProductComponent from "../components/CartProductComponent";
+import { Helmet } from "react-helmet";
 
 class CartScreen extends React.Component {
   total = 0;
@@ -51,6 +52,10 @@ class CartScreen extends React.Component {
     return (
       <div>
         <HeaderPage />
+        <Helmet>
+          <title>Cart - 3Wishesgh</title>
+          <meta name="description" content="3Wishes Hookah Cart" />
+        </Helmet>
         <Container className=" background">
           <Row>
             <Col>Cart({this.props.cart.length + " item(s)"})</Col>
