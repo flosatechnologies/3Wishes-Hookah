@@ -9,6 +9,7 @@ import OrderDetailsComponent from "../components/OrderDetailsComponent";
 import { connect } from "react-redux";
 import { getTransaction } from "../Store/transactionAction";
 import Moment from "react-moment";
+import { Helmet } from "react-helmet";
 
 class DeliveryScreen extends React.Component {
   constructor(props) {
@@ -179,6 +180,10 @@ class DeliveryScreen extends React.Component {
   render() {
     return (
       <Container>
+        <Helmet>
+          <title>Delivery - 3Wishesgh</title>
+          <meta name="description" content="3Wishes Hookah Shop" />
+        </Helmet>
         <Row className="deliveryFilterSection">
           <Col
             xxl={8}

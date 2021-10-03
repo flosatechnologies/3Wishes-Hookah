@@ -17,6 +17,7 @@ const CarouselPage = (props) => {
         <Carousel.Item>
           <img
             overflow="hidden"
+            object-fit="cover"
             height="auto"
             width="100%"
             className="d-block w-100 carouselImage"
@@ -47,22 +48,47 @@ const CarouselPage = (props) => {
           />
 
           <Carousel.Caption className="carousel-caption text-left ">
-            <h3>Highest Quality Hookah On The Market</h3>
-            <p>3WishesHookah</p>
+            <h3
+              style={{
+                color: "#fff",
+                top: "0",
+                left: "0px",
+                fontFamily: "'Merienda', cursive",
+                fontSize: "30px",
+                position: "absolute",
+                display: "flex",
+                textAlign: "center",
+                justifyContent: "center",
+              }}
+            >
+              Ultimate & flavorful smoking experience
+            </h3>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
           <img
             className="d-block w-100 carouselImage"
+            object-fit="cover"
             src={image3}
             alt="Third slide"
           />
 
           <Carousel.Caption>
-            {/*<h3>Third slide label</h3>
-            <p>
-              Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-            </p>*/}
+            <h3
+              style={{
+                color: "#fff",
+                top: "0",
+                left: "0px",
+                fontFamily: "'Merienda', cursive",
+                fontSize: "30px",
+                position: "absolute",
+                display: "flex",
+                textAlign: "center",
+                justifyContent: "center",
+              }}
+            >
+              Lounge Bar
+            </h3>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
@@ -73,6 +99,21 @@ const CarouselPage = (props) => {
           />
 
           <Carousel.Caption>
+            <h3
+              style={{
+                color: "#fff",
+                top: "83px",
+                left: "0px",
+                fontFamily: "'Merienda', cursive",
+                fontSize: "30px",
+                position: "absolute",
+                display: "flex",
+                textAlign: "center",
+                justifyContent: "center",
+              }}
+            >
+              Top quality imported tobacco flavors
+            </h3>
             {/*<h3>Forth slide label</h3>
             <p>
               Praesent commodo cursus magna, vel scelerisque nisl consectetur.

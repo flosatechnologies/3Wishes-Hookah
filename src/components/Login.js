@@ -10,6 +10,7 @@ import { Container, Row, Col } from "react-bootstrap";
 import { Component } from "react";
 import HeaderPage from "./HeaderPage";
 import FooterPage from "./FooterPage";
+import { Helmet } from "react-helmet";
 
 class LogIn extends Component {
   constructor(props) {
@@ -41,6 +42,10 @@ class LogIn extends Component {
     return (
       <div>
         <HeaderPage />
+        <Helmet>
+          <title>LogIn - 3Wishesgh</title>
+          <meta name="description" content="3Wishes Hookah LogIn" />
+        </Helmet>
         <Container fluid={true} className=" loginBackground">
           <Row>
             <Col className="app-wrapper">

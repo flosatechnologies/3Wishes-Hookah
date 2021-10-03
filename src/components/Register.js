@@ -8,6 +8,7 @@ import { userRegistration } from "../Store/authActions";
 import "../css/register.css";
 import HeaderPage from "./HeaderPage";
 import FooterPage from "./FooterPage";
+import { Helmet } from "react-helmet";
 
 class Register extends Component {
   state = {
@@ -39,6 +40,11 @@ class Register extends Component {
     return (
       <div>
         <HeaderPage />
+
+        <Helmet>
+          <title>Register - 3Wishesgh</title>
+          <meta name="description" content="3Wishes Hookah Shop Register" />
+        </Helmet>
 
         <div
           style={{

@@ -1,10 +1,23 @@
 import React from "react";
+import { Helmet } from "react-helmet";
 import { BrowserRouter, Switch } from "react-router-dom";
 import RouterComponent from "./components/Router";
 
 function App() {
   return (
-    <div>
+    <div style={{ overflow: "hidden" }}>
+      <Helmet>
+        <title>3Wishesgh</title>
+        <meta
+          name="description"
+          content="3WishesHookah Ghana's One Stop Smoking Shop."
+        />
+        <meta
+          name="keywords"
+          content="3Wishes, Smoke, Hookah, Hookah Ghana, Bar, Shop, Hookah Lounge"
+        />
+      </Helmet>
+
       <BrowserRouter>
         <Switch>
           <RouterComponent />
