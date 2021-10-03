@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../css/UserProfile.css";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
+import { Container, Row, Col } from "react-bootstrap";
 import CustomerDetails from "./CustomerDetailsPage";
 import { connect } from "react-redux";
 import {
@@ -66,14 +65,32 @@ class UserProfile extends Component {
   };
 
   render() {
+    let theCustomerInfo = {
+      customerInfo: this.props.customerInfo,
+      otherInfo: this.props.otherInfo,
+    };
     return (
       <div>
-        <div className="container-fluid userProfileContainer">
+        <Container fluid={true} className="userProfileContainer">
           <Row>
-            <Col lg={11}>
+            <Col
+              xxl={{ offset: 5, span: 3 }}
+              xl={{ offset: 5, span: 3 }}
+              lg={{ offset: 5, span: 3 }}
+              md={{ offset: 5, span: 3 }}
+              sm={{ offset: 5, span: 3 }}
+              xs={{ offset: 5, span: 3 }}
+            >
               <h4 className="header">Your Profile</h4>
             </Col>
-            <Col lg={1}>
+            <Col
+              xxl={{ offset: 3, span: 1 }}
+              xl={{ offset: 3, span: 1 }}
+              lg={{ offset: 3, span: 1 }}
+              md={{ offset: 3, span: 1 }}
+              sm={{ offset: 3, span: 1 }}
+              xs={{ offset: 3, span: 1 }}
+            >
               <button
                 onClick={() => {
                   this.props.history.goBack();
@@ -154,7 +171,7 @@ class UserProfile extends Component {
 
             <Col lg={3}></Col>
           </Row>
-        </div>
+        </Container>
       </div>
     );
   }

@@ -1,3 +1,23 @@
+@media (max-width: 768px) {
+  .productUnitPrice,
+  .productSubtotal,
+  .productQuantityInput {
+    font-size: 11px;
+  }
+  .productName,
+  .removeButton {
+    font-size: 11px;
+  }
+  .productImage {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+/*
+End of the responsive font sizing
+*/
+
 input.productQuantityInput {
   border-style: none;
   text-align: center;
@@ -35,6 +55,7 @@ button.decrementBtn {
 }
 div.prodQtyContainer {
   text-align: center;
+  height: inherit;
 }
 
 div.productQtyContainer {
