@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Row, Col } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
-// import SignIn from "../components/SignIn";
 import { connect } from "react-redux";
 import { userRegistration } from "../Store/authActions";
 import "../css/register.css";
@@ -46,29 +45,29 @@ class Register extends Component {
           <meta name="description" content="3Wishes Hookah Shop Register" />
         </Helmet>
 
-        <div
+        <Container
+          fluid={true}
           style={{
             background: "linear-gradient(135deg, #98d8a6, #56be6c)",
-            width: "100%",
-            minHeight: "88vh",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
+            minHeight: "80vh",
           }}
-          className="container-fluid"
+          className="registerScreenMainContainer"
         >
           <Row>
+            <Col xxl={4} xl={4} lg={4} md={4} sm={4} xs={4}></Col>
             <Col
+              xxl={4}
+              xl={4}
+              lg={4}
+              md={4}
+              sm={6}
+              xs={6}
               style={{
                 backgroundColor: "rgb(44, 40, 40)",
-                width: "120% ",
-                padding: "20px",
-                boxSizing: " border-box",
-                borderRadius: "5px",
               }}
-              className=" wrapper"
+              className="registerSecondContainer"
             >
-              <div>
+              <Row>
                 <h3
                   style={{
                     color: "#f80759",
@@ -79,123 +78,181 @@ class Register extends Component {
                 >
                   Create Account
                 </h3>
-              </div>
+              </Row>
+              <Row>
+                <form onSubmit={this.handleSubmit} className="form-wrapper">
+                  <Container fluid={true}>
+                    <Row className="">
+                      <Col
+                        xxl={4}
+                        xl={4}
+                        lg={4}
+                        md={4}
+                        sm={4}
+                        xs={4}
+                        className=""
+                      >
+                        <Row>
+                          <label className="registerLabel">First Name</label>
+                        </Row>
+                        <Row>
+                          <input
+                            required
+                            className="firstName_Input"
+                            type="text"
+                            name="fullname"
+                            id="firstName"
+                            onChange={this.handleChange}
+                          />
+                        </Row>
+                      </Col>
+                      <Col
+                        xxl={8}
+                        xl={8}
+                        lg={8}
+                        md={8}
+                        sm={8}
+                        xs={8}
+                        className=""
+                      >
+                        <Row>
+                          <label className="registerLabel">Other Names</label>
+                        </Row>
+                        <Row>
+                          <input
+                            required
+                            className="otherNames_Input"
+                            type="text"
+                            name="fullname"
+                            id="otherNames"
+                            onChange={this.handleChange}
+                          />
+                        </Row>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col
+                        xxl={11}
+                        xl={11}
+                        lg={11}
+                        md={11}
+                        sm={11}
+                        xs={11}
+                        className="registerInputAndTextContainer"
+                      >
+                        <Row>
+                          <label className="registerLabel">Email</label>
+                        </Row>
+                        <Row>
+                          <input
+                            required
+                            className="registerEmailInput"
+                            type="email"
+                            name="email"
+                            id="email"
+                            onChange={this.handleChange}
+                          />
+                        </Row>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col
+                        xxl={11}
+                        xl={11}
+                        lg={11}
+                        md={11}
+                        sm={11}
+                        xs={11}
+                        className="registerInputAndTextContainer"
+                      >
+                        <Row>
+                          <label className="registerLabel">Phone Number</label>
+                        </Row>
+                        <Row>
+                          <input
+                            required
+                            className="registerPhoneNumber_Input"
+                            type="tel"
+                            name="phoneNumber"
+                            id="phoneNumber"
+                            onChange={this.handleChange}
+                          />
+                        </Row>
+                      </Col>
+                    </Row>
 
-              <form onSubmit={this.handleSubmit} className="form-wrapper">
-                <div className="firstAndOtherNamesBox">
-                  <div className="firstNameBox">
-                    <label className="label">First Name</label>
-                    <input
-                      required
-                      className="firstName_Input"
-                      type="text"
-                      name="fullname"
-                      id="firstName"
-                      onChange={this.handleChange}
-                    />
-                  </div>
-                  <div className="otherNamesBox">
-                    <label className="label">Other Names</label>
-                    <input
-                      required
-                      className="otherNames_Input"
-                      type="text"
-                      name="fullname"
-                      id="otherNames"
-                      onChange={this.handleChange}
-                    />
-                  </div>
-                </div>
+                    <Row className="passwordAndIconBox">
+                      <Col className="registerInputAndTextContainer">
+                        <Row>
+                          <label className="registerLabel">Password</label>
+                        </Row>
+                        <Row>
+                          <input
+                            required
+                            className="registePassword_Input"
+                            type={isPasswordShown ? "text" : "password"}
+                            name="password"
+                            id="password"
+                            onChange={this.handleChange}
+                          />
+                        </Row>
+                      </Col>
 
-                <div className="emailBox">
-                  <label className="label">Email</label>
-                  <input
-                    required
-                    className="email_Input"
-                    type="email"
-                    name="email"
-                    id="email"
-                    onChange={this.handleChange}
-                  />
-                </div>
-
-                <div className="phoneNumberBox">
-                  <label className="label">Phone Number</label>
-                  <input
-                    required
-                    className="phoneNumber_Input"
-                    type="tel"
-                    name="phoneNumber"
-                    id="phoneNumber"
-                    onChange={this.handleChange}
-                  />
-                </div>
-
-                <div className="passwordAndIconBox">
-                  <div className="passwordBox">
-                    <label className="label">Password</label>
-                    <input
-                      required
-                      className="password_Input"
-                      type={isPasswordShown ? "text" : "password"}
-                      name="password"
-                      id="password"
-                      onChange={this.handleChange}
-                    />
-                  </div>
-
-                  <div className="iconBox">
-                    <i
-                      style={{
-                        margin: "35px 0px 0px 15px",
-                        cursor: "pointer",
-                        color: "gray",
-                      }}
-                      class={`fa ${
-                        isPasswordShown ? "fa-eye-slash" : "fa-eye"
-                      } password-icon`}
-                      onClick={this.togglePasswordVisibility}
-                    />
-                  </div>
-                </div>
-
-                <div>
-                  <button className="submit">Sign up</button>
-                </div>
-                <div style={{ display: "flex" }}>
-                  <p
-                    style={{
-                      display: "flex",
-                      flexDirection: "row",
-                      color: "#fff",
-                      paddingTop: "25px",
-                      marginLeft: "50px",
-                      fontSize: "12px",
-                    }}
-                  >
-                    Have an account?
-                  </p>
-                  <button
-                    style={{
-                      display: "flex",
-                      flexDirection: "row",
-                      color: "#f80759",
-                      background: "none",
-                      border: "none",
-                      marginLeft: "10px",
-                      paddingTop: "25px",
-                      fontSize: "12px",
-                    }}
-                  >
-                    <li>
-                      <Link to={"/login"}>Sign in </Link>
-                    </li>
-                  </button>
-                </div>
-              </form>
+                      <Col className="iconBox">
+                        <i
+                          style={{
+                            margin: "25px 0px 0px 5px",
+                            cursor: "pointer",
+                            color: "gray",
+                          }}
+                          class={`fa ${
+                            isPasswordShown ? "fa-eye-slash" : "fa-eye"
+                          } password-icon`}
+                          onClick={this.togglePasswordVisibility}
+                        />
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col xxl={2} xl={2} lg={2} md={2} sm={2} xs={2}></Col>
+                      <Col
+                        xxl={8}
+                        xl={8}
+                        lg={8}
+                        md={8}
+                        sm={8}
+                        xs={8}
+                        className="registerSubmitBtnContainer"
+                      >
+                        <button className="registerSubmitBtn">Sign up</button>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col className="haveAccountText">Have an account?</Col>
+                      <Col className="signInTextContainer">
+                        <li
+                          style={{
+                            listStyle: "none",
+                          }}
+                        >
+                          <Link
+                            style={{
+                              textDecoration: "none",
+                              listStyle: "none",
+                              fontSize: "13px",
+                            }}
+                            to={"/login"}
+                          >
+                            Sign in
+                          </Link>
+                        </li>
+                      </Col>
+                    </Row>
+                  </Container>
+                </form>
+              </Row>
             </Col>
           </Row>
-        </div>
+        </Container>
         <FooterPage />
       </div>
     );

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../css/orderDetailsComponent.css";
 import OrderComponent from "./OrderComponent";
+import { Container, Col, Row } from "react-bootstrap";
 
 export class OrderDetailsComponent extends Component {
   constructor(props) {
@@ -20,75 +21,101 @@ export class OrderDetailsComponent extends Component {
   };
   render() {
     return (
-      <div className="container receiptSheet-orderDetails">
-        <div className="row">
-          <div className="col-lg-10">
-            <div className=" receiptTransactionIdContainer-orderDetails">
-              <div className="receiptTransactionIdLabel-orderDetails">
+      <Container fluid={true} className=" receiptSheet-orderDetails">
+        <Row xxl={12} xl={12} lg={12} md={12} sm={12} xs={12}>
+          <Col xxl={10} xl={10} lg={10} md={10} sm={10} xs={10}>
+            <Row className=" receiptTransactionIdContainer-orderDetails">
+              <Col className="receiptTransactionIdLabel-orderDetails">
                 Order Id:
-              </div>
-              <div className="receiptTransactionIdText-orderDetails">
+              </Col>
+              <Col className="receiptTransactionIdText-orderDetails">
                 {this.props.orderId}
-              </div>
-            </div>
-            <div className="receiptCustomerContainer-orderDetails">
-              <div className="receiptCustomerLabel-orderDetails">Customer:</div>
-              <div className="receiptCustomerText-orderDetails">
+              </Col>
+            </Row>
+            <Row className="receiptCustomerContainer-orderDetails">
+              <Col className="receiptCustomerLabel-orderDetails">Customer:</Col>
+              <Col className="receiptCustomerText-orderDetails">
                 {this.props.customer}
-              </div>
-            </div>
-            <div className="receiptContactContainer-orderDetails">
-              <div className="receiptContactLabel-orderDetails">Contact:</div>
-              <div className="receipContactText-orderDetails">
+              </Col>
+            </Row>
+            <Row className="receiptContactContainer-orderDetails">
+              <Col className="receiptContactLabel-orderDetails">Contact:</Col>
+              <Col className="receiptContactText-orderDetails">
                 {this.props.contact}
-              </div>
-            </div>
-            <div className="receiptDateContainer-orderDetails">
-              <div className="receiptDateLabel-orderDetails">Date:</div>
-              <div className="receiptDateText-orderDetails">
+              </Col>
+            </Row>
+            <Row className="receiptDateContainer-orderDetails">
+              <Col className="receiptDateLabel-orderDetails">Date:</Col>
+              <Col className="receiptDateText-orderDetails">
                 {this.props.date}
-              </div>
-            </div>
-          </div>
-          <div className="col-lg-2">
-            <div className="row">
-              <div style={{ fontWeight: "bolder" }}>Status</div>
-            </div>
-            <div className="row">
-              <div
-                style={{
-                  fontSize: "15px",
-                  color: "forestgreen",
-                  fontWeight: "bolder",
-                }}
-              >
-                {this.props.deliveryStatus}
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="row receiptHeader-orderDetails">
-          <div className="col-lg-8 receiptHeadingText-orderDetails">
+              </Col>
+            </Row>
+          </Col>
+          <Col>
+            <Row>
+              <Col className="receiptStatusLabel-orderDetails">Status</Col>
+            </Row>
+            <Row className="receiptStatusText-orderDetails">
+              <Col>{this.props.deliveryStatus}</Col>
+            </Row>
+          </Col>
+        </Row>
+        <Row className=" receiptHeader-orderDetails">
+          <Col
+            xxl={8}
+            xl={8}
+            lg={8}
+            md={8}
+            sm={8}
+            xs={8}
+            className=" receiptHeadingText-orderDetails"
+          >
             Ordered Items
-          </div>
-          <div className="col-lg-4 receiptHeadingText-orderDetails">
+          </Col>
+          <Col
+            xxl={4}
+            xl={4}
+            lg={4}
+            md={4}
+            sm={4}
+            xs={4}
+            className=" receiptHeadingText-orderDetails"
+          >
             Quantiy
-          </div>
-        </div>
-        <div className="container">
-          <div className="row">
+          </Col>
+        </Row>
+        <Container className="container">
+          <Row>
             {this.state.filteredOrder[0].products.map((ord) => {
               return <OrderComponent item={ord.product} qty={ord.qty} />;
             })}
-          </div>
-          <div className="row receiptTotalContainer">
-            <div className="col-lg-8 receiptTotalLabel">Total Items:</div>
-            <div className="col-lg-4">
+          </Row>
+          <Row className="row receiptTotalContainer">
+            <Col
+              xxl={8}
+              xl={8}
+              lg={8}
+              md={8}
+              sm={8}
+              xs={8}
+              className="receiptTotalLabel-orderDetails"
+            >
+              Total Items:
+            </Col>
+            <Col
+              xxl={4}
+              xl={4}
+              lg={4}
+              md={4}
+              sm={4}
+              xs={4}
+              className="receiptTotalText-orderDetails"
+            >
               {this.handleSummation(this.state.filteredOrder[0].products)}
-            </div>
-          </div>
-        </div>
-      </div>
+            </Col>
+          </Row>
+        </Container>
+      </Container>
     );
   }
 }

@@ -1,6 +1,36 @@
+@media (max-width: 768px) {
+  div.receiptTransactionIdLabel-orderDetails,
+  div.receiptCustomerLabel-orderDetails,
+  div.receiptDateLabel-orderDetails,
+  div.receiptContactLabel-orderDetails,
+  div.receiptStatusLabel-orderDetails {
+    font-size: 7px;
+  }
+  div.receiptTransactionIdText-orderDetails,
+  div.receiptCustomerText-orderDetails,
+  div.receiptContactText-orderDetails,
+  div.receiptDateText-orderDetails {
+    font-size: 6px;
+  }
+  div.receiptStatusText-orderDetails {
+    font-size: 6px;
+  }
+  div.receiptHeadingText-orderDetails {
+    font-weight: bolder;
+    font-size: 7px;
+  }
+  div.receiptItemText-orderComponent {
+    font-size: 7px;
+  }
+  div.receiptTotalLabel-orderDetails,
+  div.receiptTotalText-orderDetails {
+    font-size: 7px;
+  }
+}
+
 .receiptSheet-orderDetails {
   background-color: white;
-  width: 50%;
+  width: inherit;
   margin-top: 3%;
   padding: 20px 15px;
   box-shadow: 5px 5px 5px rgba(12, 12, 12, 0.397);
@@ -21,28 +51,42 @@ div.receiptTransactionIdContainer-orderDetails,
 div.receiptCustomerContainer-orderDetails,
 div.receiptContactContainer-orderDetails,
 div.receiptDateContainer-orderDetails {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
 }
 
-div.receiptTransactionIdLabel-orderDetails,
-div.receiptCustomerLabel-orderDetails,
-div.receiptDateLabel-orderDetails,
-div.receiptContactLabel-orderDetails {
+.receiptTransactionIdLabel-orderDetails,
+.receiptCustomerLabel-orderDetails,
+.receiptDateLabel-orderDetails,
+.receiptContactLabel-orderDetails {
   font-weight: bolder;
   margin-right: 4px;
   font-size: 15px;
 }
 
-div.receiptTransactionIdText-orderDetails,
-div.receiptCustomerText-orderDetails,
-div.receiptContactText-orderDetails,
-div.receiptDateText-orderDetails {
+.receiptTransactionIdText-orderDetails,
+.receiptCustomerText-orderDetails,
+.receiptContactText-orderDetails,
+.receiptDateText-orderDetails {
   font-size: 15px;
 }
 
-div.receiptHeadingText-orderDetails {
+.receiptStatusText-orderDetails {
+  font-size: 14px;
+  color: forestgreen;
+  font-weight: bolder;
+}
+
+.receiptStatusLabel-orderDetails {
+  font-weight: bolder;
+}
+
+.receiptContactText-orderDetails {
+  font-size: 15px;
+}
+
+.receiptItemText-orderComponent {
+  font-size: 15px;
+}
+.receiptHeadingText-orderDetails {
   font-weight: bolder;
   font-size: 15px;
 }

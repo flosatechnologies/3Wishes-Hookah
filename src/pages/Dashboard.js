@@ -122,7 +122,7 @@ class Dashboard extends Component {
     };
 
     return (
-      <Container fluid={true} className=" mainContainer">
+      <Container fluid={true}>
         <Row className=" menuBar">
           <Col xl={2} xl={2} lg={2} md={2} sm={2} xs={2}>
             <img src={logo} width="70" height="70" alt="logo" />
@@ -153,7 +153,9 @@ class Dashboard extends Component {
                 className="profileWelcomeMessage"
               >
                 <Row className="userWelcome">Welcome,</Row>
-                <Row> {this.props.state.auth.displayName} </Row>
+                <Row className="userDisplayName">
+                  {this.props.state.auth.displayName}{" "}
+                </Row>
               </Col>
             </Row>
 
@@ -173,7 +175,7 @@ class Dashboard extends Component {
                 id={this.state.buttonState.product}
                 className="dashboardButtons"
               >
-                <BsArchive style={{ marginRight: 13 }} /> Product
+                <BsArchive style={{ marginRight: 7 }} /> Product
               </button>
             </Row>
             <Row>
@@ -192,7 +194,7 @@ class Dashboard extends Component {
                 id={this.state.buttonState.payment}
                 className="dashboardButtons"
               >
-                <BsCreditCard style={{ marginRight: 15 }} />
+                <BsCreditCard style={{ marginRight: 7 }} />
                 Payment
               </button>
             </Row>
@@ -212,7 +214,7 @@ class Dashboard extends Component {
                 id={this.state.buttonState.delivery}
                 className="dashboardButtons"
               >
-                <RiTruckLine style={{ marginRight: 15 }} />
+                <RiTruckLine style={{ marginRight: 8 }} />
                 Delivery
               </button>
             </Row>
@@ -233,7 +235,7 @@ class Dashboard extends Component {
                 id={this.state.buttonState.users}
                 className="dashboardButtons"
               >
-                <BsPerson style={{ marginRight: 15 }} />
+                <BsPerson style={{ marginRight: 8 }} />
                 Users
               </button>
             </Row>
@@ -254,7 +256,7 @@ class Dashboard extends Component {
                 id={this.state.buttonState.logout}
                 className="dashboardButtons"
               >
-                <AiOutlineLogout style={{ marginRight: 15 }} />
+                <AiOutlineLogout style={{ marginRight: 8 }} />
                 Logout
               </button>
             </Row>
@@ -266,7 +268,7 @@ class Dashboard extends Component {
             md={10}
             sm={10}
             xs={10}
-            className=" workspace"
+            className="workspace"
           >
             {handleRenderScreen()}
           </Col>

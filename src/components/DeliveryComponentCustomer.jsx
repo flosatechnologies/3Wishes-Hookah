@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import { Row, Col } from "react-bootstrap";
+import "../css/deliveryComponentCustomer.css";
+import { Container, Row, Col } from "react-bootstrap";
 
 export class DeliveryComponentCustomer extends Component {
   constructor(props) {
@@ -17,57 +18,85 @@ export class DeliveryComponentCustomer extends Component {
       color = "#cccccc";
     }
     return (
-      <div>
+      <Container fluid={true}>
         <Row>
-          <Col lg={2}>
-            <div style={{ fontSize: 16, fonFamily: "'Oswald', sans-serif" }}>
+          <Col
+            xxl={2}
+            xl={2}
+            lg={2}
+            md={2}
+            sm={2}
+            xs={2}
+            style={{ fontSize: 16, fonFamily: "'Oswald', sans-serif" }}
+          >
+            <div className="orderIdDeliveryComponent-Customer">
               {this.props.orderId}
             </div>
           </Col>
-          <Col lg={4}>
-            <div
-              style={{
-                fontSize: 16,
-                fonFamily: "'Oswald', sans-serif",
-                width: "160",
-                textOverflow: "ellipsis",
-                whiteSpace: "nowrap",
-                overflow: "hidden",
-              }}
-            >
+          <Col
+            xxl={4}
+            xl={4}
+            lg={4}
+            md={4}
+            sm={4}
+            xs={4}
+            style={{
+              fontSize: 16,
+              fonFamily: "'Oswald', sans-serif",
+              width: "inherit",
+              textOverflow: "ellipsis",
+              whiteSpace: "nowrap",
+              overflow: "hidden",
+            }}
+          >
+            <div className="productNameDeliveryComponent-Customer">
               {this.props.products}
             </div>
           </Col>
 
-          <Col lg={2}>
-            <div style={{ fontSize: 16, fonFamily: "'Oswald', sans-serif" }}>
+          <Col
+            xxl={2}
+            xl={2}
+            lg={2}
+            md={2}
+            sm={2}
+            xs={2}
+            style={{ fontSize: 16, fonFamily: "'Oswald', sans-serif" }}
+          >
+            <div className="amountDeliveryComponent-Customer">
               {this.props.amount}
             </div>
           </Col>
 
-          <Col lg={2}>
-            <div
-              style={{
-                fontSize: 16,
-                color: "forestgreen",
-                fontWeight: "bolder",
-              }}
-            >
+          <Col
+            xxl={2}
+            xl={2}
+            lg={2}
+            md={2}
+            sm={2}
+            xs={2}
+            style={{
+              fontSize: 16,
+              color: "forestgreen",
+              fontWeight: "bolder",
+            }}
+          >
+            <div className="deliveryDeliveryComponent-Customer">
               {this.props.delivery}
             </div>
           </Col>
-          <Col lg={2}>
+          <Col
+            xxl={2}
+            xl={2}
+            lg={2}
+            md={2}
+            sm={2}
+            xs={2}
+            className="recieveButtonContainerDeliveryComponent-Customer"
+          >
             <button
               disabled={status}
-              style={{
-                fontSize: 16,
-                color: "white",
-                backgroundColor: color,
-                borderStyle: "none",
-                margin: "1px 0px",
-                padding: "1px 2px",
-                borderRadius: "3px",
-              }}
+              className="recieveButtonDeliveryComponent-Customer"
               onClick={() => {
                 this.props.receive("on", this.props.Id);
               }}
@@ -76,7 +105,7 @@ export class DeliveryComponentCustomer extends Component {
             </button>
           </Col>
         </Row>
-      </div>
+      </Container>
     );
   }
 }

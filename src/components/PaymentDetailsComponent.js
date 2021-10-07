@@ -54,11 +54,11 @@ export class PaymentDetailsComponent extends Component {
             xs={12}
             className=""
           >
-            <Row className="">
-              <div>3 wishes</div>
+            <Row>
+              <div className="wishesText">3 wishes</div>
             </Row>
-            <Row className="">
-              <div>Transaction Details</div>
+            <Row>
+              <div className="wishesText">Transaction Details</div>
             </Row>
           </Col>
         </Row>
@@ -68,8 +68,8 @@ export class PaymentDetailsComponent extends Component {
             xl={6}
             lg={6}
             md={6}
-            sm={6}
-            xs={6}
+            sm={4}
+            xs={4}
             className=" receiptHeadingText"
           >
             Items
@@ -108,36 +108,43 @@ export class PaymentDetailsComponent extends Component {
             Total{" GH\u20B5"}
           </Col>
         </Row>
-        <Container>
-          <Row>
-            {this.state.selected.map((prod) => {
-              return (
-                <ReceiptComponent
-                  item={prod.product}
-                  qty={prod.qty}
-                  price={prod.price}
-                  total={prod.price * prod.qty}
-                />
-              );
-            })}
-          </Row>
-          <Row className="receiptTotalContainer">
-            <Col
-              xxl={{ span: 2, offset: 8 }}
-              xl={{ span: 2, offset: 8 }}
-              lg={{ span: 2, offset: 8 }}
-              md={{ span: 2, offset: 8 }}
-              sm={{ span: 2, offset: 8 }}
-              xs={{ span: 2, offset: 8 }}
-              className="receiptTotalLabel"
-            >
-              Total:
-            </Col>
-            <Col xxl={2} xl={2} lg={2} md={2} sm={2} xs={2}>
-              {this.handleTheSummation(this.state.selected)}
-            </Col>
-          </Row>
-        </Container>
+
+        <Row>
+          {this.state.selected.map((prod) => {
+            return (
+              <ReceiptComponent
+                item={prod.product}
+                qty={prod.qty}
+                price={prod.price}
+                total={prod.price * prod.qty}
+              />
+            );
+          })}
+        </Row>
+        <Row className="receiptTotalContainer">
+          <Col
+            xxl={{ span: 2, offset: 8 }}
+            xl={{ span: 2, offset: 8 }}
+            lg={{ span: 2, offset: 8 }}
+            md={{ span: 2, offset: 8 }}
+            sm={{ span: 2, offset: 7 }}
+            xs={{ span: 2, offset: 7 }}
+            className="receiptTotalLabel"
+          >
+            Total:
+          </Col>
+          <Col
+            xxl={2}
+            xl={2}
+            lg={2}
+            md={2}
+            sm={3}
+            xs={3}
+            className="receiptTotalText"
+          >
+            {this.handleTheSummation(this.state.selected)}
+          </Col>
+        </Row>
       </Container>
     );
   }
