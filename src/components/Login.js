@@ -70,7 +70,9 @@ class LogIn extends Component {
                   <Container>
                     <Row>
                       <Col className="email">
-                        <label className="label-Login">Email</label>
+                        <div>
+                          <label className="label-Login">Email</label>
+                        </div>
                         <input
                           className="allInput-Login"
                           type="email"
