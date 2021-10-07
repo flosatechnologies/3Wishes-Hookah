@@ -195,6 +195,7 @@ class CartScreen extends React.Component {
                       total: theTotal,
                       Info: this.props.allState.customerInfo,
                       products: this.props.cart,
+                      thePath: "cartscreen",
                     },
                   }}
                 >

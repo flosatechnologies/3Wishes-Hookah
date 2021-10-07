@@ -20,12 +20,8 @@
 }
 
 .theButtonsContainer {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
+  text-align: center;
   margin-bottom: 10px;
-  margin-left: 100px;
 }
 .theButtonsMainContainer {
   text-align: center;

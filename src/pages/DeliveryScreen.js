@@ -40,7 +40,7 @@ class DeliveryScreen extends React.Component {
   handleShowComponent = () => {
     if (this.state.deliveries === "yes") {
       return (
-        <div>
+        <Container fluid={true}>
           <Row className="deliveryHeaderContainer">
             <Col
               xxl={1}
@@ -49,7 +49,7 @@ class DeliveryScreen extends React.Component {
               md={1}
               sm={1}
               xs={1}
-              style={{ fontSize: 13, fontWeight: "600" }}
+              className="deliveryScreenHeaderId"
             >
               ID
             </Col>
@@ -60,10 +60,7 @@ class DeliveryScreen extends React.Component {
               md={3}
               sm={3}
               xs={3}
-              style={{
-                fontSize: 13,
-                fontWeight: "600",
-              }}
+              className="deliveryScreenHeaderProducts"
             >
               PRODUCT(S)
             </Col>
@@ -74,7 +71,7 @@ class DeliveryScreen extends React.Component {
               md={3}
               sm={3}
               xs={3}
-              style={{ fontSize: 13, fontWeight: "600" }}
+              className="deliveryScreenHeaderCustomer"
             >
               CUSTOMER
             </Col>
@@ -85,14 +82,7 @@ class DeliveryScreen extends React.Component {
               md={2}
               sm={2}
               xs={2}
-              style={{
-                fontSize: 13,
-                fontWeight: "600",
-                width: "inherit",
-                textOverflow: "ellipsis",
-                whiteSpace: "nowrap",
-                overflow: "hidden",
-              }}
+              className="deliveryScreenHeaderLocation"
             >
               LOCATION
             </Col>
@@ -104,13 +94,7 @@ class DeliveryScreen extends React.Component {
               md={1}
               sm={1}
               xs={1}
-              style={{
-                fontSize: 13,
-                fontWeight: "600",
-                width: "inherit",
-                textOverflow: "ellipsis",
-                overflow: "hidden",
-              }}
+              className="deliveryScreenHeaderAmount"
             >
               AMT(¢)
             </Col>
@@ -122,20 +106,13 @@ class DeliveryScreen extends React.Component {
               md={2}
               sm={2}
               xs={2}
-              style={{
-                fontSize: 13,
-                fontWeight: "600",
-                width: "inherit",
-                textOverflow: "ellipsis",
-                whiteSpace: "nowrap",
-                overflow: "hidden",
-              }}
+              className="deliveryScreenHeaderDelivery"
             >
               DELIVERY
             </Col>
           </Row>
           <Row>
-            <div>
+            <Row>
               {this.props.transaction.map((trans) => {
                 return (
                   <DeliveryComponent
@@ -152,9 +129,9 @@ class DeliveryScreen extends React.Component {
                   />
                 );
               })}
-            </div>
+            </Row>
           </Row>
-        </div>
+        </Container>
       );
     }
 
@@ -178,7 +155,7 @@ class DeliveryScreen extends React.Component {
 
   render() {
     return (
-      <Container>
+      <Container fluid={true}>
         <Row className="deliveryFilterSection">
           <Col
             xxl={8}
@@ -244,9 +221,7 @@ class DeliveryScreen extends React.Component {
           </Col>
         </Row>
 
-        <Row>
-          <div className="">{this.handleShowComponent()}</div>
-        </Row>
+        <Row>{this.handleShowComponent()}</Row>
       </Container>
     );
   }

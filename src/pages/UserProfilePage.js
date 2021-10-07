@@ -17,6 +17,8 @@ class UserProfile extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      from: "",
+
       button: {
         profileBtn: "off",
         editProfileBtn: "off",
@@ -29,6 +31,9 @@ class UserProfile extends Component {
     this.props.getCustomerInfo();
     this.props.getOtherCustomerInfo();
     this.props.getTransaction();
+    this.setState({
+      from: this.props.location.state.from,
+    });
   }
   renderComponent = () => {
     if (this.state.button.profileBtn === "on") {
@@ -65,10 +70,16 @@ class UserProfile extends Component {
   };
 
   render() {
-    let theCustomerInfo = {
-      customerInfo: this.props.customerInfo,
-      otherInfo: this.props.otherInfo,
-    };
+    let customerInfo = this.props.allTheState.customerInfo.customers;
+    let otherInfo = this.props.allTheState.customerInfo.otherInfo;
+    var prod = "";
+    var tot = "";
+    if (this.state.from === "checkout") {
+      prod = this.props.location.state.products;
+      tot = this.props.location.state.total;
+    }
+    const product = prod;
+    const total = tot;
     return (
       <div>
         <Container fluid={true} className="userProfileContainer">
@@ -93,7 +104,20 @@ class UserProfile extends Component {
             >
               <button
                 onClick={() => {
-                  this.props.history.goBack();
+                  if (this.state.from === "checkout") {
+                    this.props.history.push({
+                      pathname: "/checkout",
+                      state: {
+                        customerInfo,
+                        otherInfo,
+                        from: "profile",
+                        total: total,
+                        products: product,
+                      },
+                    });
+                  } else {
+                    this.props.history.goBack();
+                  }
                 }}
                 style={{
                   marginTop: "15px",
@@ -107,10 +131,17 @@ class UserProfile extends Component {
             <hr />
           </Row>
           <Row>
-            <Col xxl={4}></Col>
-            <Col className=" theButtonsMainContainer">
-              <div className="theButtonsContainer">
-                <div className="theProfileContainer">
+            <Col
+              xxl={{ offset: 4, span: 4 }}
+              xl={{ offset: 4, span: 4 }}
+              lg={{ offset: 3, span: 6 }}
+              md={{ offset: 2, span: 8 }}
+              sm={{ offset: 2, span: 8 }}
+              xs={{ offset: 1, span: 10 }}
+              className=" theButtonsMainContainer"
+            >
+              <Row className="theButtonsContainer">
+                <Col className="theProfileContainer">
                   <button
                     onClick={() => {
                       this.setState({
@@ -126,8 +157,8 @@ class UserProfile extends Component {
                   >
                     Profile
                   </button>
-                </div>
-                <div className="theEditProfileContainer">
+                </Col>
+                <Col className="theEditProfileContainer">
                   <button
                     onClick={() => {
                       this.setState({
@@ -143,8 +174,8 @@ class UserProfile extends Component {
                   >
                     Edit Profile
                   </button>
-                </div>
-                <div className="theEditProfileContainer">
+                </Col>
+                <Col className="theEditProfileContainer">
                   <button
                     onClick={() => {
                       this.setState({
@@ -160,16 +191,21 @@ class UserProfile extends Component {
                   >
                     Delivery
                   </button>
-                </div>
-              </div>
+                </Col>
+              </Row>
             </Col>
-            <Col xxl={4}></Col>
           </Row>
           <Row>
-            <Col lg={3}></Col>
-            <Col lg={6}> {this.renderComponent()}</Col>
-
-            <Col lg={3}></Col>
+            <Col
+              xxl={{ offset: 3, span: 6 }}
+              xl={{ offset: 3, span: 6 }}
+              lg={{ offset: 3, span: 6 }}
+              md={{ offset: 3, span: 6 }}
+              sm={12}
+              xs={12}
+            >
+              {this.renderComponent()}
+            </Col>
           </Row>
         </Container>
       </div>

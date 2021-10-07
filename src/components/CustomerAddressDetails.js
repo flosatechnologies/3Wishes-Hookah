@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "../css/CustomerAddressDetails.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Row, Col } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 import {
   getOtherCustomerInfo,
   getCustomerInfo,
@@ -55,16 +55,14 @@ class CustomerAddressDetails extends Component {
 
   render() {
     return (
-      <div
+      <Container
+        fluid={true}
         style={{
           background: "#fff",
-          width: "90%",
+          width: "inherit",
           minHeight: "80vh",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
+          padding: "15px",
         }}
-        className="container-fluid"
       >
         <Row>
           <Col
@@ -77,72 +75,122 @@ class CustomerAddressDetails extends Component {
             }}
             className=" wrapper"
           >
-            <div>
-              <div className="title-CustAddress">Delivery Information</div>
-            </div>
+            <Row>
+              <Col className="title-CustAddress">Delivery Information</Col>
+            </Row>
 
             <form onSubmit={this.handleSubmit}>
-              <div className="form-wrapper">
-                <div className="firstAndOtherNamesContainer-CustAddress">
-                  <div className="firstNameContainer-CustAddress">
-                    <div className="labels-CustAddress">First Name</div>
-                    <div className="firstNameInput-CustAddress">
+              <Container fluid={true} className="form-wrapper">
+                <Row className="firstAndOtherNamesContainer-CustAddress">
+                  <Col
+                    xxl={6}
+                    xl={6}
+                    lg={6}
+                    md={12}
+                    sm={12}
+                    xs={12}
+                    className="firstNameContainer-CustAddress"
+                  >
+                    <Row className="labels-CustAddress">First Name</Row>
+                    <Row className="firstNameInput-CustAddress">
                       {" "}
                       {this.state.firstName}
-                    </div>
-                  </div>
+                    </Row>
+                  </Col>
 
-                  <div className="otherNamesContainer-CustAddress">
-                    <div className="labels-CustAddress">Other Names</div>
-                    <div className="otherNamesInput-CustAddress">
+                  <Col
+                    xxl={6}
+                    xl={6}
+                    lg={6}
+                    md={12}
+                    sm={12}
+                    xs={12}
+                    className="otherNamesContainer-CustAddress"
+                  >
+                    <Row className="labels-CustAddress">Other Names</Row>
+                    <Row className="otherNamesInput-CustAddress">
                       {this.state.otherNames}
-                    </div>
-                  </div>
-                </div>
-
-                <div className="phoneNumberAndGhPostGpsContainer-CustAddress">
-                  <div className="phoneNumberContainer-CustAddress">
-                    <div className="labels-CustAddress">Phone Number</div>
-                    <div className="phoneNumberInput-CustAddress">
+                    </Row>
+                  </Col>
+                </Row>
+                <Row className="phoneNumberAndGhPostGpsContainer-CustAddress">
+                  <Col
+                    xxl={6}
+                    xl={6}
+                    lg={6}
+                    md={12}
+                    sm={12}
+                    xs={12}
+                    className="phoneNumberContainer-CustAddress"
+                  >
+                    <Row className="labels-CustAddress">Phone Number</Row>
+                    <Row className="phoneNumberInput-CustAddress">
                       {this.state.phoneNumber}{" "}
-                    </div>
-                  </div>
+                    </Row>
+                  </Col>
 
-                  <div className="ghPostGPSContainer-CustAddress">
-                    <div className="labels-CustAddress">Ghana Post GPS</div>
-                    <div className="ghPostGpsInput-CustAddress">
+                  <Col
+                    xxl={6}
+                    xl={6}
+                    lg={6}
+                    md={12}
+                    sm={12}
+                    xs={12}
+                    className="ghPostGPSContainer-CustAddress"
+                  >
+                    <Row className="labels-CustAddress">Ghana Post GPS</Row>
+                    <Row className="ghPostGpsInput-CustAddress">
                       {this.state.ghanaPostGps}
-                    </div>
-                  </div>
-                </div>
+                    </Row>
+                  </Col>
+                </Row>
+                <Row>
+                  <Col className="residentialAddressContainer-CustAddress">
+                    <Row className="labels-CustAddress">
+                      Residential Address
+                    </Row>
+                    <Row className="residentialAddressInput-CustAddress">
+                      {this.state.residentialAddress}
+                    </Row>
+                  </Col>
+                </Row>
 
-                <div className="residentialAddressContainer-CustAddress">
-                  <div className="labels-CustAddress">Residential Address</div>
-                  <div className="residentialAddressInput-CustAddress">
-                    {this.state.residentialAddress}
-                  </div>
-                </div>
-
-                <div className="cityAndRegionContainer-CustAddress">
-                  <div className="cityContainer-CustAddress">
-                    <div className="labels-CustAddress">Town/City</div>
-                    <div className="cityInput-CustAddress">
+                <Row className="cityAndRegionContainer-CustAddress">
+                  <Col
+                    xxl={6}
+                    xl={6}
+                    lg={6}
+                    md={12}
+                    sm={12}
+                    xs={12}
+                    className="cityContainer-CustAddress"
+                  >
+                    <Row className="labels-CustAddress">Town/City</Row>
+                    <Row className="cityInput-CustAddress">
                       {this.state.city}
-                    </div>
-                  </div>
+                    </Row>
+                  </Col>
 
-                  <div className="regionContainer-CustAddress">
-                    <div className="labels-CustAddress">Region</div>
-                    <div className="regionInput-CustAddress">
+                  <Col
+                    xxl={6}
+                    xl={6}
+                    lg={6}
+                    md={12}
+                    sm={12}
+                    xs={12}
+                    className="regionContainer-CustAddress"
+                  >
+                    <Row className="labels-CustAddress">Region</Row>
+                    <Row className="regionInput-CustAddress">
                       {this.state.region}{" "}
-                    </div>
-                  </div>
-                </div>
-              </div>
+                    </Row>
+                  </Col>
+                </Row>
+              </Container>
             </form>
           </Col>
         </Row>
-      </div>
+      </Container>
     );
   }
 }
