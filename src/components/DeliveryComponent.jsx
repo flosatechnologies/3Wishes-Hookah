@@ -6,7 +6,7 @@ import { AiOutlineEye } from "react-icons/ai";
 
 function DeliveryComponent(props) {
   return (
-    <Container className="deliveryComponentMainContainer">
+    <Container fluid={true} className="deliveryComponentMainContainer">
       <Row>
         <Col
           xxl={1}
@@ -83,8 +83,9 @@ function DeliveryComponent(props) {
               props.alteration("yes", props.Id);
             }}
             className="viewMoreButton-deliveryComponent"
+            style={{ backgroundColor: "transparent", borderStyle: "none" }}
           >
-            <AiOutlineEye />
+            <AiOutlineEye size="12px" />
           </button>
         </Col>
       </Row>

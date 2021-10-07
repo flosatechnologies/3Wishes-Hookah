@@ -7,7 +7,7 @@
   div.deliveryScreenHeaderLocation,
   div.deliveryScreenHeaderAmount,
   div.deliveryScreenHeaderDelivery {
-    font-size: 5px;
+    font-size: 4px;
   }
 }
 
@@ -27,28 +27,24 @@
   font-size: 13px;
   font-weight: bolder;
   text-align: left;
-  background-color: darkkhaki;
 }
 
 .deliveryScreenHeaderProducts {
   font-size: 13px;
   font-weight: bolder;
   text-align: left;
-  background-color: cyan;
 }
 
 .deliveryScreenHeaderCustomer {
   font-size: 13px;
   font-weight: bolder;
   text-align: left;
-  background-color: blueviolet;
 }
 
 .deliveryScreenHeaderAmount {
   font-size: 13px;
   font-weight: bolder;
   text-align: left;
-  background-color: crimson;
 }
 
 .deliveryFilterSection {
@@ -121,27 +117,22 @@ div.filterButtonContainer {
 .deliveryScreenHeaderLocation {
   font-weight: bold;
   font-size: 14px;
-  width: inherit;
-  text-overflow: ellipsis;
+  /* text-overflow: ellipsis;
   overflow: hidden;
-  background-color: blue;
+  background-color: blue; */
 }
 
 .deliveryScreenHeaderDelivery {
   font-weight: bold;
   font-size: 14px;
-  width: inherit;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  background-color: yellow;
 }
 
 .headerAmount {
   font-weight: bold;
   font-size: 14px;
-  width: inherit;
+  /* width: inherit;
   text-overflow: ellipsis;
-  overflow: hidden;
+  overflow: hidden; */
 }
 .headerTime {
   font-weight: bold;

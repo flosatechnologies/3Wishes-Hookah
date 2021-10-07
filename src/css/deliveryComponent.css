@@ -8,18 +8,16 @@
     font-size: 5px;
   }
   button.viewMoreButton-deliveryComponent {
-    width: inherit;
+    width: 10px;
   }
 }
 
 .deliveryComponentMainContainer {
   background-color: rgba(218, 217, 216, 0.459);
-  width: inherit;
 }
 
 .orderId-deliveryComponent {
   font-size: 14px;
-  width: inherit;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
@@ -27,32 +25,29 @@
 
 .products-deliveryComponent {
   font-size: 14px;
-  width: inherit;
   text-overflow: ellipsis;
-  white-space: nowrap;
+
   overflow: hidden;
 }
 
 .delivery-deliveryComponent {
   font-size: 14px;
   color: forestgreen;
-  width: inherit;
+
   text-overflow: ellipsis;
-  white-space: nowrap;
+
   overflow: hidden;
 }
 
 .location-deliveryComponent {
   font-size: 14px;
-  width: inherit;
   text-overflow: ellipsis;
-  white-space: nowrap;
+
   overflow: hidden;
 }
 
 .customer-deliveryComponent {
   font-size: 14px;
-  width: inherit;
 }
 
 .amount-deliveryComponent {

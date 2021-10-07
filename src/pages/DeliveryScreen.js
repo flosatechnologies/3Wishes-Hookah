@@ -112,24 +112,22 @@ class DeliveryScreen extends React.Component {
             </Col>
           </Row>
           <Row>
-            <Row>
-              {this.props.transaction.map((trans) => {
-                return (
-                  <DeliveryComponent
-                    orderId={trans.orderId}
-                    Id={trans.Id}
-                    products={trans.products[0].product}
-                    customer={trans.customer}
-                    location={trans.location}
-                    amount={trans.amount}
-                    delivery={trans.deliveryStatus}
-                    alteration={(c, I) => {
-                      this.handleAlteration(c, I);
-                    }}
-                  />
-                );
-              })}
-            </Row>
+            {this.props.transaction.map((trans) => {
+              return (
+                <DeliveryComponent
+                  orderId={trans.orderId}
+                  Id={trans.Id}
+                  products={trans.products[0].product}
+                  customer={trans.customer}
+                  location={trans.location}
+                  amount={trans.amount}
+                  delivery={trans.deliveryStatus}
+                  alteration={(c, I) => {
+                    this.handleAlteration(c, I);
+                  }}
+                />
+              );
+            })}
           </Row>
         </Container>
       );

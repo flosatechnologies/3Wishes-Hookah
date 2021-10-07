@@ -74,27 +74,17 @@ class CheckoutScreen extends React.Component {
     var otherInfo = "";
     var products = "";
     var total = "";
-    if (this.props.location.state.thePath === "cartscreen") {
-      customerInfo = this.props.location.state.Info.customers.filter(
-        (cust) => cust.Id === this.props.state.auth.user.loggedInUser.Id
-      );
 
-      otherInfo = this.props.location.state.Info.otherInfo.filter(
-        (oth) => oth.Id === this.props.state.auth.user.loggedInUser.Id
-      );
-      products = this.props.location.state.products;
-      total = this.props.location.state.total;
-    } else if (this.props.location.state.from === "profile") {
-      customerInfo = this.props.location.state.customerInfo.filter(
-        (cust) => cust.Id === this.props.state.auth.user.loggedInUser.Id
-      );
+    customerInfo = this.props.location.state.Info.customers.filter(
+      (cust) => cust.Id === this.props.state.auth.user.loggedInUser.Id
+    );
 
-      otherInfo = this.props.location.state.otherInfo.filter(
-        (oth) => oth.Id === this.props.state.auth.user.loggedInUser.Id
-      );
-      products = this.props.location.state.products;
-      total = this.props.location.state.total;
-    }
+    otherInfo = this.props.location.state.Info.otherInfo.filter(
+      (oth) => oth.Id === this.props.state.auth.user.loggedInUser.Id
+    );
+    products = this.props.location.state.products;
+    total = this.props.location.state.total;
+
     let deliv = 0;
     if (
       this.state.deliveryMethodOne === true ||

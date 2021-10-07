@@ -17,8 +17,6 @@ class UserProfile extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      from: "",
-
       button: {
         profileBtn: "off",
         editProfileBtn: "off",
@@ -31,9 +29,6 @@ class UserProfile extends Component {
     this.props.getCustomerInfo();
     this.props.getOtherCustomerInfo();
     this.props.getTransaction();
-    this.setState({
-      from: this.props.location.state.from,
-    });
   }
   renderComponent = () => {
     if (this.state.button.profileBtn === "on") {
@@ -70,16 +65,16 @@ class UserProfile extends Component {
   };
 
   render() {
-    let customerInfo = this.props.allTheState.customerInfo.customers;
-    let otherInfo = this.props.allTheState.customerInfo.otherInfo;
-    var prod = "";
-    var tot = "";
-    if (this.state.from === "checkout") {
-      prod = this.props.location.state.products;
-      tot = this.props.location.state.total;
-    }
-    const product = prod;
-    const total = tot;
+    // let customerInfo = this.props.allTheState.customerInfo.customers;
+    // let otherInfo = this.props.allTheState.customerInfo.otherInfo;
+    // var prod = "";
+    // var tot = "";
+    // if (this.state.from === "checkout") {
+    //   prod = this.props.location.state.products;
+    //   tot = this.props.location.state.total;
+    // }
+    // const product = prod;
+    // const total = tot;
     return (
       <div>
         <Container fluid={true} className="userProfileContainer">
@@ -104,20 +99,7 @@ class UserProfile extends Component {
             >
               <button
                 onClick={() => {
-                  if (this.state.from === "checkout") {
-                    this.props.history.push({
-                      pathname: "/checkout",
-                      state: {
-                        customerInfo,
-                        otherInfo,
-                        from: "profile",
-                        total: total,
-                        products: product,
-                      },
-                    });
-                  } else {
-                    this.props.history.goBack();
-                  }
+                  this.props.history.goBack();
                 }}
                 style={{
                   marginTop: "15px",

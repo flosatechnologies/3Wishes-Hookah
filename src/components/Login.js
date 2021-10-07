@@ -41,7 +41,11 @@ class LogIn extends Component {
       <div>
         <HeaderPage />
         <Container fluid={true} className=" loginBackground">
-          <Row>
+          <Row
+            style={{
+              padding: "10px 0px",
+            }}
+          >
             <Col className="app-wrapper">
               <Row>
                 <h3
@@ -57,60 +61,92 @@ class LogIn extends Component {
               </Row>
               <Row>
                 <form onSubmit={this.handleSubmit} className="form-wrapper">
-                  <div className="email">
-                    <label className="label">Email</label>
-                    <input className="inputt" type="email" name="email" />
-                  </div>
-                  <div className="password">
-                    <label className="label">Password</label>
-                    <input className="inputt" type="password" name="password" />
-                  </div>
-
-                  <div>
-                    <button className="submit">Log In</button>
-                  </div>
-                  <p className="forgotPassword text-right">
-                    <li
+                  <Container>
+                    <Row>
+                      <Col className="email">
+                        <label className="label-Login">Email</label>
+                        <input
+                          className="allInput-Login"
+                          type="email"
+                          name="email"
+                        />
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col className="password">
+                        <label className="label">Password</label>
+                        <input
+                          className="allInput-Login"
+                          type="password"
+                          name="password"
+                        />
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col
+                        xxl={{ span: 6, offset: 3 }}
+                        xl={{ span: 6, offset: 3 }}
+                        lg={{ span: 6, offset: 3 }}
+                        md={{ span: 6, offset: 3 }}
+                        sm={{ span: 6, offset: 3 }}
+                        xs={{ span: 6, offset: 3 }}
+                      >
+                        <button className="loginSubmit">Log In</button>
+                      </Col>
+                    </Row>
+                    <Row className="forgotPassword ">
+                      <button
+                        style={{
+                          color: "#f80759",
+                          marginTop: 10,
+                          textAlign: "center",
+                          fontSize: 12,
+                          backgroundColor: "transparent",
+                          borderStyle: "none",
+                        }}
+                      >
+                        <Link to={"/ForgotPassword"}>Forgot Password? </Link>
+                      </button>
+                    </Row>
+                    <Row
                       style={{
-                        color: "#f80759",
-                        marginTop: 10,
-                        textAlign: "center",
-                        fontSize: 12,
+                        marginTop: "13px",
                       }}
                     >
-                      <Link to={"/ForgotPassword"}>Forgot Password? </Link>
-                    </li>
-                  </p>
-                  <div style={{ display: "flex" }}>
-                    <p
-                      style={{
-                        display: "flex",
-                        flexDirection: "row",
-                        color: "#fff",
-                        paddingTop: "25px",
-                        marginLeft: "45px",
-                        fontSize: "12px",
-                      }}
-                    >
-                      Don't have an account?
-                    </p>
-                    <button
-                      className="loginButton"
-                      style={{
-                        display: "flex",
-                        flexDirection: "row",
-                        background: "none",
-                        border: "none",
-                        paddingTop: "25px",
-                        marginLeft: "10px",
-                        fontSize: "12px",
-                      }}
-                    >
-                      <li style={{ color: "#f80759" }}>
-                        <Link to={"/signup"}>Register </Link>
-                      </li>
-                    </button>
-                  </div>
+                      <Col
+                        xxl={8}
+                        xl={8}
+                        lg={8}
+                        md={8}
+                        sm={8}
+                        xs={8}
+                        style={{
+                          color: "white",
+                          fontSize: "12px",
+                          paddingTop: "4px",
+                          textAlign: "right",
+                        }}
+                      >
+                        Don't have an account?
+                      </Col>
+                      <Col
+                        style={{
+                          textAlign: "left",
+                        }}
+                      >
+                        <button
+                          style={{
+                            color: "#f80759",
+                            backgroundColor: "transparent",
+                            borderStyle: "none",
+                            fontSize: "12px",
+                          }}
+                        >
+                          <Link to={"/signup"}>Register </Link>
+                        </button>
+                      </Col>
+                    </Row>
+                  </Container>
                 </form>
               </Row>
             </Col>
