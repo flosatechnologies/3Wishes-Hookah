@@ -48,7 +48,7 @@ function FooterPage() {
             <div className="socialMediaContainer">
               <div className="socialMedia">
                 <a href="https://www.facebook.com" target="facebook.com">
-                  <FaFacebookSquare size="1.5em" />
+                  <FaFacebookSquare size="1.5em" color="#067AFB" />
                 </a>
               </div>
 
@@ -57,7 +57,7 @@ function FooterPage() {
                   href="https://twitter.com/LoungeWishes?s=09"
                   target="twitter.com"
                 >
-                  <FaTwitterSquare size="1.5em" />
+                  <FaTwitterSquare size="1.5em" color="#067AFB" />
                 </a>
               </div>
 
@@ -66,7 +66,7 @@ function FooterPage() {
                   href="https://www.instagram.com/3wisheslounge/"
                   target="instagram.com"
                 >
-                  <FaInstagramSquare size="1.5em" />
+                  <FaInstagramSquare size="1.5em" color="#067AFB" />
                 </a>
               </div>
             </div>

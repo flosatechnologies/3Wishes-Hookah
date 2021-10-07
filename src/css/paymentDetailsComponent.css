@@ -1,6 +1,32 @@
+@media (max-width: 768px) {
+  div.receipTransactionIdLabel,
+  div.receiptCustomerLabel,
+  div.receiptDateLabel,
+  div.wishesText {
+    font-size: 10px;
+    font-weight: bolder;
+  }
+
+  div.receiptHeadingText {
+    font-size: 6px;
+    font-weight: bolder;
+  }
+  .receiptTotalText,
+  div.receiptTotalLabel,
+  div.receiptPaymentComponentText {
+    font-size: 9px;
+  }
+
+  div.receiptTransactionIdText,
+  div.receiptCustomerText,
+  div.receiptDateText {
+    font-size: 9px;
+  }
+}
+
 .receiptSheet {
   background-color: white;
-  width: 65%;
+  width: inherit;
   margin-top: 3%;
   padding: 20px 15px;
   box-shadow: 5px 5px 5px rgba(12, 12, 12, 0.397);
@@ -9,6 +35,7 @@
 div.receiptHeader {
   margin: 5px 0px;
   padding: 5px 0px;
+
   border-top-style: solid;
   border-top-color: black;
   border-top-width: 1px;
@@ -27,21 +54,21 @@ div.receiptDateContainer {
 }
 
 div.receiptTransactionIdLabel,
-div.receiptCustomerLabel,
-div.receiptDateLabel {
+.receiptCustomerLabel,
+.receiptDateLabel {
   font-weight: bolder;
   margin-right: 4px;
   font-size: 15px;
 }
 
-div.receiptTransactionIdText,
-div.receiptCustomerText,
-div.receiptDateText {
+.receiptTransactionIdText,
+.receiptCustomerText,
+.receiptDateText {
   font-size: 15px;
   text-align: left;
 }
 
-div.receiptHeadingText {
+.receiptHeadingText {
   font-weight: bolder;
   font-size: 15px;
 }

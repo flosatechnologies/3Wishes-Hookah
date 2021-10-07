@@ -1,5 +1,16 @@
 @import url("https://fonts.googleapis.com/css2?family=Oswald:wght@300&family=Roboto:wght@100&display=swap");
 
+@media (max-width: 768px) {
+  div.deliveryScreenHeaderId,
+  div.deliveryScreenHeaderProducts,
+  div.deliveryScreenHeaderCustomer,
+  div.deliveryScreenHeaderLocation,
+  div.deliveryScreenHeaderAmount,
+  div.deliveryScreenHeaderDelivery {
+    font-size: 4px;
+  }
+}
+
 .container-fluid {
   font-family: "Roboto", sans-serif;
 }
@@ -9,7 +20,31 @@
 }
 
 .deliveryHeaderContainer {
-  padding: 4px 4px;
+  /* padding: 4px 0px; */
+}
+
+.deliveryScreenHeaderId {
+  font-size: 13px;
+  font-weight: bolder;
+  text-align: left;
+}
+
+.deliveryScreenHeaderProducts {
+  font-size: 13px;
+  font-weight: bolder;
+  text-align: left;
+}
+
+.deliveryScreenHeaderCustomer {
+  font-size: 13px;
+  font-weight: bolder;
+  text-align: left;
+}
+
+.deliveryScreenHeaderAmount {
+  font-size: 13px;
+  font-weight: bolder;
+  text-align: left;
 }
 
 .deliveryFilterSection {
@@ -30,12 +65,7 @@ div.deliveryFilterButtonContainer {
   border-bottom-width: 2px;
   border-bottom-color: black;
 }
-.dateFilter {
-  /* display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: flex-start; */
-}
+
 div.filterButtonContainer {
   padding-top: 20px;
 }
@@ -52,11 +82,6 @@ div.filterButtonContainer {
   text-align: right;
   padding-top: 18px;
 }
-.headerSection {
-  height: fit-content;
-  margin-bottom: 15px;
-  padding: 0px 12px;
-}
 
 .headerIndexAndIdContainer {
   display: flex;
@@ -65,37 +90,7 @@ div.filterButtonContainer {
   text-overflow: ellipsis;
   overflow: hidden;
 }
-.headerIndex {
-  font-weight: bold;
-  padding-right: 8px;
-  text-align: left;
-  padding-left: 1px;
-  font-size: 14px;
-}
-.headerPaymentId {
-  font-weight: bold;
-  font-size: 14px;
-}
 
-.headerCustomer {
-  font-weight: bold;
-  font-size: 14px;
-  width: inherit;
-  text-overflow: ellipsis;
-  overflow: hidden;
-}
-
-.headerAmount {
-  font-weight: bold;
-  font-size: 14px;
-  width: inherit;
-  text-overflow: ellipsis;
-  overflow: hidden;
-}
-.headerTime {
-  font-weight: bold;
-  font-size: 14px;
-}
 .deliveryScreenBackButton {
   background-color: transparent;
   border-style: none;
@@ -119,39 +114,25 @@ div.filterButtonContainer {
   padding: 0px 12px;
 }
 
-.headerIndexAndIdContainer {
-  display: flex;
-  flex-direction: row;
-  width: inherit;
-  text-overflow: ellipsis;
+.deliveryScreenHeaderLocation {
+  font-weight: bold;
+  font-size: 14px;
+  /* text-overflow: ellipsis;
   overflow: hidden;
-}
-.headerIndex {
-  font-weight: bold;
-  padding-right: 8px;
-  text-align: left;
-  padding-left: 1px;
-  font-size: 14px;
-}
-.headerPaymentId {
-  font-weight: bold;
-  font-size: 14px;
+  background-color: blue; */
 }
 
-.headerCustomer {
+.deliveryScreenHeaderDelivery {
   font-weight: bold;
   font-size: 14px;
-  width: inherit;
-  text-overflow: ellipsis;
-  overflow: hidden;
 }
 
 .headerAmount {
   font-weight: bold;
   font-size: 14px;
-  width: inherit;
+  /* width: inherit;
   text-overflow: ellipsis;
-  overflow: hidden;
+  overflow: hidden; */
 }
 .headerTime {
   font-weight: bold;

@@ -1,4 +1,18 @@
+@media (max-width: 976px) {
+  div.idHeaderDeliveryComponent-Customer,
+  div.amountHeaderDeliveryComponent-Customer,
+  div.deliveryHeaderDeliveryComponent-Customer,
+  div.productHeaderDeliveryComponent-Customer {
+    font-size: 7px;
+  }
+}
+
 .deliveryHeaderContainer-customer {
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-color: black;
+  margin-bottom: 7px;
+  margin-top: 15px;
 }
 .receiptConfirmationMainContainer {
   background-color: transparent;

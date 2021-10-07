@@ -7,6 +7,7 @@ import Flutterwave from "../components/Flutterwave";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { v4 as uuid } from "uuid";
+import { Container, Row, Col } from "react-bootstrap";
 import {
   getCustomerInfo,
   getOtherCustomerInfo,
@@ -20,8 +21,9 @@ class CheckoutScreen extends React.Component {
       deliveryMethodColor: "#eeeeee",
       deliveryMethodOne: false,
       deliveryMethodTwo: false,
-
       region: "",
+      product: "",
+      total: "",
     };
   }
 
@@ -33,7 +35,9 @@ class CheckoutScreen extends React.Component {
       this.props.login === true &&
       this.props.state.auth.role === "customer"
     ) {
-      this.setState({ color: "forestgreen" });
+      this.setState({
+        color: "forestgreen",
+      });
     }
   }
 
@@ -66,13 +70,20 @@ class CheckoutScreen extends React.Component {
   };
 
   render() {
-    var customerInfo = this.props.location.state.Info.customers.filter(
+    var customerInfo = "";
+    var otherInfo = "";
+    var products = "";
+    var total = "";
+
+    customerInfo = this.props.location.state.Info.customers.filter(
       (cust) => cust.Id === this.props.state.auth.user.loggedInUser.Id
     );
 
-    var otherInfo = this.props.location.state.Info.otherInfo.filter(
+    otherInfo = this.props.location.state.Info.otherInfo.filter(
       (oth) => oth.Id === this.props.state.auth.user.loggedInUser.Id
     );
+    products = this.props.location.state.products;
+    total = this.props.location.state.total;
 
     let deliv = 0;
     if (
@@ -101,146 +112,301 @@ class CheckoutScreen extends React.Component {
       amnt: this.props.location.state.total + deliv,
       location: customerInfo[0].city,
       time: Date.now(),
-      allProductsPrice: this.props.location.state.total,
-      products: this.defineTransactionProducts(
-        this.props.location.state.products
-      ),
+      allProductsPrice: total,
+      products: this.defineTransactionProducts(products),
     };
     return (
       <div>
         <HeaderPage />
-        <div className="checkoutMainContainer">
-          <div className="container ">
-            <div className="container addressDetailContainer">
-              <div className="row addressDetailsHeader">
-                <div className="col-lg-6">
+        <Container className="checkoutMainContainer">
+          <Row>
+            <Col
+              xxl={{ span: 6, offset: 3 }}
+              xl={{ span: 6, offset: 3 }}
+              lg={{ span: 6, offset: 3 }}
+              md={{ span: 8, offset: 2 }}
+              sm={{ span: 8, offset: 2 }}
+              xs={{ span: 8, offset: 2 }}
+              className=" addressDetailContainer"
+            >
+              <Row className="addressDetailsHeader">
+                <Col
+                  xxl={8}
+                  xl={8}
+                  lg={8}
+                  md={8}
+                  sm={9}
+                  xs={9}
+                  className="addressDetailsTextHeader"
+                >
                   <FaCheckCircle color={this.state.color} /> 1. ADDRESS DETAILS
-                </div>
-                <div className="col-lg-6 editButtonContainer">
+                </Col>
+                <Col className=" editButtonContainer">
                   <button className="editButton">
-                    {" "}
                     <Link
                       style={{ textDecoration: "none", color: "forestgreen" }}
-                      to={"/userProfile"}
+                      to={{
+                        pathname: "/userProfile",
+                        state: {
+                          from: "checkout",
+                          products,
+                          total,
+                        },
+                      }}
                     >
                       Edit
                     </Link>
                   </button>
-                </div>
-              </div>
-              <div className="row theAddressDetailsContainer">
-                <div className="customerName">
-                  {otherInfo[0].firstName + " " + otherInfo[0].otherNames}
-                </div>
-                <div>{customerInfo[0].residentialAddress}</div>
-                <div>
-                  {customerInfo[0].city + ", " + customerInfo[0].region}
-                </div>
-                <div>{otherInfo[0].phoneNumber}</div>
-              </div>
-            </div>
-            <div className="container deliveryMethodContainer">
-              <div className="row deliveryMethodHeader">
-                <div className="col-lg-12">
+                </Col>
+              </Row>
+              <Row className=" theAddressDetailsContainer">
+                <Col>
+                  <Row>
+                    <Col className="customerName-checkout">
+                      {otherInfo[0].firstName + " " + otherInfo[0].otherNames}
+                    </Col>
+                  </Row>
+                  <Row>
+                    <Col className="residentialAddress-checkout">
+                      {customerInfo[0].residentialAddress}
+                    </Col>
+                  </Row>
+                  <Row>
+                    <Col className="cityAndRegion-checkout">
+                      {customerInfo[0].city + ", " + customerInfo[0].region}
+                    </Col>
+                  </Row>
+                  <Row>
+                    <Col className="phoneNumber-checkout">
+                      {otherInfo[0].phoneNumber}
+                    </Col>
+                  </Row>
+                </Col>
+              </Row>
+            </Col>
+          </Row>
+          <Row>
+            <Col
+              xxl={{ span: 6, offset: 3 }}
+              xl={{ span: 6, offset: 3 }}
+              lg={{ span: 6, offset: 3 }}
+              md={{ span: 8, offset: 2 }}
+              sm={{ span: 8, offset: 2 }}
+              xs={{ span: 8, offset: 2 }}
+              className=" deliveryMethodContainer"
+            >
+              <Row className="deliveryMethodHeader">
+                <Col
+                  xxl={12}
+                  xl={12}
+                  lg={12}
+                  md={12}
+                  sm={12}
+                  xs={12}
+                  className="deliveryMethodHeaderText"
+                >
                   <FaCheckCircle color={this.state.deliveryMethodColor} /> 2.
                   DELIVERY METHOD
-                </div>
-              </div>
-              <div className="row deliveryMethodDetailsContainer">
-                <div>Choose how you want your order delivered </div>
-                <div className="methodOneSection">
-                  <div>
-                    <input
-                      type="radio"
-                      name="deliveryMethodOne"
-                      value="deliveryMethodOne"
-                      id="pickUpMethodOne"
-                      checked={this.state.deliveryMethodOne}
-                      onChange={this.handleInputMethodOneChange}
-                    />
-                    <label
-                      style={{ marginBottom: "0px", paddingBottom: "0px" }}
-                      htmlFor="pickUpMethodOne"
-                    >
-                      Pick up from our shop (No Fees Charged)
-                    </label>
-                  </div>
-                  <p className="methodDescription">
-                    Ready for pick up after 4hrs of order
-                  </p>
-                </div>
-                <div className="methodTwoSection">
-                  <input
-                    type="radio"
-                    name="deliveryMethodTwo"
-                    id="pickUpMethodTwo"
-                    value="deliveryMethodTwo"
-                    checked={this.state.deliveryMethodTwo}
-                    onChange={this.handleInputMethodTwoChange}
-                  />
-                  <label
-                    style={{ marginBottom: "0px", paddingBottom: "0px" }}
-                    htmlFor="pickUpMethodTwo"
-                  >
-                    Home or Office delivery
-                  </label>
-                  <div className="methodDescription">
-                    Normally delivered between 24 hrs and 48hrs after Order has
-                    been made
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="row">
-              <div className="col-lg-12 itemSummationContainer">
-                <div className="subTotalText">Sub-total:</div>
-                <div className="subTotalFigure">
-                  {"GH\u20B5 " + this.props.location.state.total}
-                </div>
-              </div>
-            </div>
-            <div className="row">
-              <div className="col-lg-12 itemSummationContainer">
-                <div className="deliveryFeesText">Delivery fees:</div>
-                <div className="deliveryFeesFigure">{"GH\u20B5 " + deliv}</div>
-              </div>
-            </div>
-            <div className="row">
-              <div className="col-lg-12 itemSummationContainer">
-                <div className="totalText">Total:</div>
-                <div className="totalFigure">
-                  {"GH\u20B5 " + (deliv + this.props.location.state.total)}
-                </div>
-              </div>
-            </div>
-            <div className="row">
-              {customerInfo[0].city === "" ||
-              otherInfo[0].phoneNumber === "" ||
-              (this.state.deliveryMethodTwo === false &&
-                this.state.deliveryMethodOne === false) ? (
-                <button
-                  onClick={() => {
-                    alert(
-                      "Ensure all your delivery information is provided in profile and choose a delivery method"
-                    );
-                  }}
-                  style={{
-                    margin: "5px 5px 5px 15px",
-                    padding: "5px",
-                    borderRadius: "5px",
-                    color: "white",
-                    backgroundColor: "green",
-                    width: "160px",
-                  }}
+                </Col>
+              </Row>
+
+              <Row>
+                <Col className=" deliveryMethodDetailsContainer">
+                  <Row>
+                    <Col className=" deliveryMethodInstructionMessage">
+                      Choose how you want your order delivered{" "}
+                    </Col>
+                  </Row>
+                  <Row>
+                    <Col>
+                      <Row>
+                        <Col className="methodOneSection">
+                          <input
+                            type="radio"
+                            name="deliveryMethodOne"
+                            value="deliveryMethodOne"
+                            id="pickUpMethodOne"
+                            checked={this.state.deliveryMethodOne}
+                            onChange={this.handleInputMethodOneChange}
+                          />
+                          <label
+                            style={{
+                              marginBottom: "0px",
+                              paddingBottom: "0px",
+                            }}
+                            htmlFor="pickUpMethodOne"
+                          >
+                            Pick up from our shop (No Fees Charged)
+                          </label>
+                        </Col>
+                      </Row>
+                      <Row>
+                        <p className="methodDescription">
+                          Ready for pick up after 4hrs of order
+                        </p>
+                      </Row>
+                    </Col>
+                  </Row>
+                  <Row>
+                    <Col>
+                      <Row>
+                        <Col>
+                          <Row>
+                            <Col className="methodTwoSection">
+                              <input
+                                type="radio"
+                                name="deliveryMethodTwo"
+                                id="pickUpMethodTwo"
+                                value="deliveryMethodTwo"
+                                checked={this.state.deliveryMethodTwo}
+                                onChange={this.handleInputMethodTwoChange}
+                              />
+                              <label
+                                style={{
+                                  marginBottom: "0px",
+                                  paddingBottom: "0px",
+                                }}
+                                htmlFor="pickUpMethodTwo"
+                              >
+                                Home or Office delivery
+                              </label>
+                            </Col>
+                          </Row>
+                          <Row>
+                            <Col>
+                              <div className="methodDescription">
+                                Normally delivered between 24 hrs and 48hrs
+                                after Order has been made
+                              </div>
+                            </Col>
+                          </Row>
+                        </Col>
+                      </Row>
+                    </Col>
+                  </Row>
+                </Col>
+              </Row>
+            </Col>
+          </Row>
+          <Row>
+            <Col
+              xxl={{ span: 6, offset: 3 }}
+              xl={{ span: 6, offset: 3 }}
+              lg={{ span: 6, offset: 3 }}
+              md={{ span: 8, offset: 2 }}
+              sm={{ span: 8, offset: 2 }}
+              xs={{ span: 10, offset: 0 }}
+            >
+              <Row>
+                <Col
+                  xxl={{ span: 7, offset: 5 }}
+                  xl={{ span: 7, offset: 5 }}
+                  lg={{ span: 7, offset: 5 }}
+                  md={{ span: 8, offset: 4 }}
+                  sm={{ span: 8, offset: 4 }}
+                  xs={{ span: 8, offset: 4 }}
                 >
-                  Proceed to Payment
-                </button>
-              ) : (
-                <Flutterwave data={data} />
-              )}
-            </div>
-          </div>
-        </div>
+                  <Row>
+                    <Col className=" itemSummationContainer">
+                      <Row>
+                        <Col
+                          xxl={7}
+                          xl={7}
+                          lg={7}
+                          md={7}
+                          sm={6}
+                          xs={6}
+                          className="subTotalText"
+                        >
+                          Sub-total:
+                        </Col>
+                        <Col className="subTotalFigure">
+                          {"GH\u20B5 " + this.props.location.state.total}
+                        </Col>
+                      </Row>
+                    </Col>
+                  </Row>
+                  <Row className="row">
+                    <Col className="itemSummationContainer">
+                      <Row>
+                        <Col
+                          xxl={7}
+                          xl={7}
+                          lg={7}
+                          md={7}
+                          sm={6}
+                          xs={6}
+                          className="deliveryFeesText"
+                        >
+                          Delivery fees:
+                        </Col>
+                        <Col className="deliveryFeesFigure">
+                          {"GH\u20B5 " + deliv}
+                        </Col>
+                      </Row>
+                    </Col>
+                  </Row>
+                  <Row className="row">
+                    <Col className="col-lg-12 itemSummationContainer">
+                      <Row>
+                        <Col
+                          xxl={7}
+                          xl={7}
+                          lg={7}
+                          md={7}
+                          sm={6}
+                          xs={6}
+                          className="totalText"
+                        >
+                          Total:
+                        </Col>
+                        <Col className="totalFigure">
+                          {"GH\u20B5 " +
+                            (deliv + this.props.location.state.total)}
+                        </Col>
+                      </Row>
+                    </Col>
+                  </Row>
+                </Col>
+              </Row>
+              <Row className="row">
+                <Col
+                  xxl={{ span: 6, offset: 3 }}
+                  xl={{ span: 6, offset: 3 }}
+                  lg={{ span: 6, offset: 3 }}
+                  md={{ span: 8, offset: 2 }}
+                  sm={{ span: 8, offset: 2 }}
+                  xs={{ span: 8, offset: 2 }}
+                >
+                  {customerInfo[0].city === "" ||
+                  otherInfo[0].phoneNumber === "" ||
+                  (this.state.deliveryMethodTwo === false &&
+                    this.state.deliveryMethodOne === false) ? (
+                    <button
+                      onClick={() => {
+                        alert(
+                          "Ensure all your delivery information is provided in profile and choose a delivery method"
+                        );
+                      }}
+                      style={{
+                        margin: "5px 5px 5px 15px",
+                        padding: "5px",
+                        borderRadius: "5px",
+                        color: "white",
+                        backgroundColor: "green",
+                        width: "160px",
+                      }}
+                    >
+                      Proceed to Payment
+                    </button>
+                  ) : (
+                    <Flutterwave data={data} />
+                  )}
+                </Col>
+              </Row>
+            </Col>
+          </Row>
+        </Container>
         <FooterPage />
       </div>
     );

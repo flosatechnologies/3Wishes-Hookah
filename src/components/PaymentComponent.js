@@ -15,10 +15,9 @@ function PaymentComponent(props) {
           md={3}
           sm={3}
           xs={3}
-          className="headerIndexAndIdContainer-PayComponent"
+          className="PaymentId-PayComponent"
         >
-          <div className="Index-PayComponent">{props.index}</div>
-          <div className="PaymentId-PayComponent">{props.paymentId}</div>
+          {props.paymentId}
         </Col>
         <Col
           xxl={3}
@@ -43,25 +42,30 @@ function PaymentComponent(props) {
           {props.amountPaid}
         </Col>
         <Col
-          xxl={3}
-          xl={3}
-          lg={3}
-          md={3}
-          sm={3}
-          xs={3}
+          xxl={4}
+          xl={4}
+          lg={4}
+          md={4}
+          sm={4}
+          xs={4}
           className="Time-PayComponent"
         >
-          {props.time}
-        </Col>
-        <Col xxl={1} xl={1} lg={1} md={1} sm={1} xs={1}>
-          <button
-            onClick={() => {
-              props.Change("yes", props.Id);
-            }}
-            style={{ backgroundColor: "transparent", borderStyle: "none" }}
-          >
-            <AiOutlineEye />
-          </button>
+          <Row>
+            <Col xxl={8} xl={8} lg={8} md={8} sm={8} xs={8}>
+              {props.time}
+            </Col>
+            <Col xxl={4} xl={4} lg={4} md={4} sm={4} xs={4}>
+              <button
+                onClick={() => {
+                  props.Change("yes", props.Id);
+                }}
+                className="viewMore-PayComponent"
+                style={{ backgroundColor: "transparent", borderStyle: "none" }}
+              >
+                <AiOutlineEye />
+              </button>
+            </Col>
+          </Row>
         </Col>
       </Row>
     </Container>

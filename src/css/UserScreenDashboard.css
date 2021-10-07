@@ -1,3 +1,9 @@
+@media (max-width: 768px) {
+  button.addUserButton {
+    font-size: 8px;
+  }
+}
+
 .arrayOfUsers {
   display: flex;
   flex-wrap: wrap;

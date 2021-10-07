@@ -12,6 +12,7 @@ import {
 import { connect } from "react-redux";
 import "../css/CartScreen.css";
 import CartProductComponent from "../components/CartProductComponent";
+import { Helmet } from "react-helmet";
 
 class CartScreen extends React.Component {
   total = 0;
@@ -51,6 +52,10 @@ class CartScreen extends React.Component {
     return (
       <div>
         <HeaderPage />
+        <Helmet>
+          <title>Cart - 3Wishesgh</title>
+          <meta name="description" content="3Wishes Hookah Cart" />
+        </Helmet>
         <Container className=" background">
           <Row>
             <Col>Cart({this.props.cart.length + " item(s)"})</Col>
@@ -121,8 +126,8 @@ class CartScreen extends React.Component {
               xl={{ span: 2, offset: 8 }}
               lg={{ span: 2, offset: 8 }}
               md={{ span: 2, offset: 8 }}
-              sm={{ span: 2, offset: 8 }}
-              xs={{ span: 2, offset: 8 }}
+              sm={{ span: 2, offset: 7 }}
+              xs={{ span: 2, offset: 7 }}
               className=" theTotalText"
             >
               Total:
@@ -132,8 +137,8 @@ class CartScreen extends React.Component {
               xl={2}
               lg={2}
               md={2}
-              s={2}
-              xs={2}
+              s={3}
+              xs={3}
               className="theTotalAmount"
             >
               {"GHS " + this.handleTotal()}
@@ -195,6 +200,7 @@ class CartScreen extends React.Component {
                       total: theTotal,
                       Info: this.props.allState.customerInfo,
                       products: this.props.cart,
+                      thePath: "cartscreen",
                     },
                   }}
                 >

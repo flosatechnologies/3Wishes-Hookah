@@ -1,17 +1,22 @@
+@media (max-width: 768px) {
+  div.dashboardUserFullName,
+  div.dashboardUserEmail,
+  button.adminUserEditButton,
+  button.adminUserDeleteButton {
+    font-size: 13px;
+    width: inherit;
+  }
+}
+
 .dashboardUserContainer {
-  display: flex;
-  flex-direction: row;
-  width: fit-content;
+  width: inherit;
   height: fit-content;
   background-color: white;
-  margin: 10px;
+  margin: 8px;
   padding: 0px;
   border-radius: 5px;
 }
 .adminProfileImageContainer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 .adminProfileImage {
   width: 100px;
@@ -22,11 +27,11 @@
 }
 
 .adminUserEditAndDeleteButtonContainer {
-  display: flex;
+  /* display: flex;
   flex-direction: row;
   justify-content: flex-start;
   padding: 0px;
-  margin-bottom: 0px;
+  margin-bottom: 0px; */
 }
 
 .adminUserEditButton {
@@ -35,16 +40,19 @@
   border-width: 1px;
   border-color: #006400;
   background-color: transparent;
-  padding: 0px 15px;
-  margin-right: 5px;
+
+  width: inherit;
+}
+.adminUserDeleteButtonContainer {
+  align-items: left;
 }
 .adminUserDeleteButton {
+  width: inherit;
   height: fit-content;
   border-style: solid;
   border-width: 1px;
   border-color: tomato;
   background-color: transparent;
-  padding: 0px 5px;
 }
 .adminUserDeleteButton:hover {
   background-color: tomato;
@@ -55,17 +63,20 @@
   color: white;
 }
 .userDetailsContainer {
-  width: 220px;
-  margin-left: 10px;
+  width: inherit;
+
+  padding-right: 4px;
 }
 
 .dashboarduserName {
   font-size: 15px;
   font-weight: bold;
+  width: inherit;
 }
 .dashboardUserEmail {
   font-size: 15px;
   font-weight: bolder;
+  width: inherit;
 }
 .dashboardUserPhone {
   font-size: 15px;

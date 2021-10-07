@@ -1,5 +1,61 @@
+@media (max-width: 768px) {
+  div.orderId-deliveryComponent,
+  div.products-deliveryComponent,
+  div.location-deliveryComponent,
+  div.customer-deliveryComponent,
+  div.amount-deliveryComponent,
+  div.delivery-deliveryComponent {
+    font-size: 5px;
+  }
+  button.viewMoreButton-deliveryComponent {
+    width: 10px;
+  }
+}
+
 .deliveryComponentMainContainer {
   background-color: rgba(218, 217, 216, 0.459);
-  padding: 4px;
-  margin-bottom: 4px;
+}
+
+.orderId-deliveryComponent {
+  font-size: 14px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.products-deliveryComponent {
+  font-size: 14px;
+  text-overflow: ellipsis;
+
+  overflow: hidden;
+}
+
+.delivery-deliveryComponent {
+  font-size: 14px;
+  color: forestgreen;
+
+  text-overflow: ellipsis;
+
+  overflow: hidden;
+}
+
+.location-deliveryComponent {
+  font-size: 14px;
+  text-overflow: ellipsis;
+
+  overflow: hidden;
+}
+
+.customer-deliveryComponent {
+  font-size: 14px;
+}
+
+.amount-deliveryComponent {
+  font-size: 14px;
+}
+
+button.viewMoreButton-deliveryComponent {
+  background-color: transparent;
+  border: none;
+  width: inherit;
 }
