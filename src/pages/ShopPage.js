@@ -10,8 +10,12 @@ import { AddToCart } from "../Store/cartActions";
 import { connect } from "react-redux";
 import { Container, Col, Row } from "react-bootstrap";
 import { Helmet } from "react-helmet";
+
 import ProductAdd from "../components/ProductAdd";
 import Video from "../components/Video";
+
+import FloatingWhatsApp from "../components/WhatsAppComponent";
+
 
 class ShopPage extends React.Component {
   constructor(props) {
@@ -94,6 +98,7 @@ class ShopPage extends React.Component {
             </Row>
           </Container>
         </div>
+        <FloatingWhatsApp />
         <FooterPage />
       </div>
     );

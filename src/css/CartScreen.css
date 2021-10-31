@@ -1,3 +1,20 @@
+@media (max-width: 768px) {
+  button.checkoutButton,
+  button.shoppingButton,
+  button.shoppingButton-continue {
+    font-size: 10px;
+  }
+
+  div.itemHeader,
+  .unitPriceHeader,
+  .subtotalHeader,
+  .quantityHeader,
+  .theTotalText,
+  .theTotalAmount {
+    font-size: 12px;
+  }
+}
+
 .cartHeaderSection {
   margin-top: 2%;
   margin-right: 3px;
@@ -27,11 +44,10 @@
 .theTotalText {
   font-weight: bold;
   text-align: right;
-  padding-right: 0px;
-  margin-right: 0px;
 }
 .theTotalAmount {
   text-align: center;
+  padding-right: 10px;
 }
 .theTotalSection {
   margin-top: 3%;

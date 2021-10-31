@@ -53,7 +53,7 @@ class PaymentScreen extends Component {
     }
     if (this.state.paySummary === "yes") {
       return (
-        <Container>
+        <Container fluid={true}>
           <Row className="headerSection">
             <Col
               xxl={3}
@@ -62,10 +62,9 @@ class PaymentScreen extends Component {
               md={3}
               sm={3}
               xs={3}
-              className="headerIndexAndIdContainer"
+              className="headerPaymentId"
             >
-              <div className=" headerIndex">#</div>
-              <div className=" headerPaymentId">PAYMENT ID</div>
+              PAYMENT ID
             </Col>
             <Col
               xxl={3}
@@ -87,7 +86,7 @@ class PaymentScreen extends Component {
               xs={2}
               className="headerAmount"
             >
-              AMT.(GH¢)
+              AMT(¢)
             </Col>
             <Col
               xxl={3}
@@ -102,7 +101,7 @@ class PaymentScreen extends Component {
             </Col>
             <Col xxl={1} xl={1} lg={1} md={1} sm={1} xs={1}></Col>
           </Row>
-          <div>
+          <Row>
             {this.state.transaction.map((trans, index) => {
               return (
                 <PaymentComponent
@@ -118,7 +117,7 @@ class PaymentScreen extends Component {
                 />
               );
             })}
-          </div>
+          </Row>
         </Container>
       );
     }
@@ -191,7 +190,7 @@ class PaymentScreen extends Component {
           </Col>
         </Row>
 
-        <Row className="">{this.handleShowComponent()}</Row>
+        <Row>{this.handleShowComponent()}</Row>
       </Container>
     );
   }

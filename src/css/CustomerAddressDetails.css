@@ -18,10 +18,7 @@
 .firstAndOtherNamesContainer-CustAddress,
 .phoneNumberAndGhPostGpsContainer-CustAddress,
 .cityAndRegionContainer-CustAddress {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  margin: 30px 0px;
+  padding: 10px 0px;
 }
 
 /*GPS and location*/
@@ -29,7 +26,7 @@
 .firstNameContainer-CustAddress,
 .phoneNumberContainer-CustAddress,
 .cityContainer-CustAddress {
-  margin-right: 20px;
+  padding-right: 20px;
 }
 div.ghPostGpsInput-CustAddress,
 div.residentialAddressInput-CustAddress,
@@ -42,7 +39,7 @@ div.regionInput-CustAddress {
   border-top-style: solid;
   border-top-width: 1px;
   border-top-color: white;
-  width: 240px;
+  width: inherit;
   color: black;
 }
 .labels-CustAddress {
@@ -50,18 +47,18 @@ div.regionInput-CustAddress {
   font-size: 20px;
 }
 div.residentialAddressInput-CustAddress {
-  width: 100%;
+  width: inherit;
 }
 div.phoneNumberInput-CustAddress {
-  width: 240px;
+  width: inherit;
 }
 select.regionInput-CustAddress {
-  width: 238px;
+  width: inherit;
   padding-top: 1.5px;
   padding-bottom: 1.5px;
 }
 .submit {
-  display: flex;
+  /* display: flex;
   margin-top: 30px;
   text-transform: uppercase;
   font-size: 15px;
@@ -72,11 +69,11 @@ select.regionInput-CustAddress {
   background: linear-gradient(to right, #262927, #101310);
   box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
     rgba(0, 0, 0, 0.22) 0px 15px 12px;
-  /* margin: auto; */
+  
   outline: none;
   border: none;
   cursor: pointer;
-  transition: all 0.1s;
+  transition: all 0.1s; */
 }
 button:active {
   transform: translateY(2px);

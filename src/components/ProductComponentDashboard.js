@@ -8,7 +8,7 @@ import { Container, Row, Col } from "react-bootstrap";
 class ProductComponentDashboard extends Component {
   render() {
     return (
-      <Container className="dashboardProductContainer">
+      <Container fluid={true} className="dashboardProductContainer">
         <Row className="dashboardProductImageContainer">
           <img
             className="dashboardProductImage"

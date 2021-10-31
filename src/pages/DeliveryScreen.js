@@ -41,7 +41,7 @@ class DeliveryScreen extends React.Component {
   handleShowComponent = () => {
     if (this.state.deliveries === "yes") {
       return (
-        <div>
+        <Container fluid={true}>
           <Row className="deliveryHeaderContainer">
             <Col
               xxl={1}
@@ -50,7 +50,7 @@ class DeliveryScreen extends React.Component {
               md={1}
               sm={1}
               xs={1}
-              style={{ fontSize: 13, fontWeight: "600" }}
+              className="deliveryScreenHeaderId"
             >
               ID
             </Col>
@@ -61,10 +61,7 @@ class DeliveryScreen extends React.Component {
               md={3}
               sm={3}
               xs={3}
-              style={{
-                fontSize: 13,
-                fontWeight: "600",
-              }}
+              className="deliveryScreenHeaderProducts"
             >
               PRODUCT(S)
             </Col>
@@ -75,7 +72,7 @@ class DeliveryScreen extends React.Component {
               md={3}
               sm={3}
               xs={3}
-              style={{ fontSize: 13, fontWeight: "600" }}
+              className="deliveryScreenHeaderCustomer"
             >
               CUSTOMER
             </Col>
@@ -86,14 +83,7 @@ class DeliveryScreen extends React.Component {
               md={2}
               sm={2}
               xs={2}
-              style={{
-                fontSize: 13,
-                fontWeight: "600",
-                width: "inherit",
-                textOverflow: "ellipsis",
-                whiteSpace: "nowrap",
-                overflow: "hidden",
-              }}
+              className="deliveryScreenHeaderLocation"
             >
               LOCATION
             </Col>
@@ -105,13 +95,7 @@ class DeliveryScreen extends React.Component {
               md={1}
               sm={1}
               xs={1}
-              style={{
-                fontSize: 13,
-                fontWeight: "600",
-                width: "inherit",
-                textOverflow: "ellipsis",
-                overflow: "hidden",
-              }}
+              className="deliveryScreenHeaderAmount"
             >
               AMT(¢)
             </Col>
@@ -123,39 +107,30 @@ class DeliveryScreen extends React.Component {
               md={2}
               sm={2}
               xs={2}
-              style={{
-                fontSize: 13,
-                fontWeight: "600",
-                width: "inherit",
-                textOverflow: "ellipsis",
-                whiteSpace: "nowrap",
-                overflow: "hidden",
-              }}
+              className="deliveryScreenHeaderDelivery"
             >
               DELIVERY
             </Col>
           </Row>
           <Row>
-            <div>
-              {this.props.transaction.map((trans) => {
-                return (
-                  <DeliveryComponent
-                    orderId={trans.orderId}
-                    Id={trans.Id}
-                    products={trans.products[0].product}
-                    customer={trans.customer}
-                    location={trans.location}
-                    amount={trans.amount}
-                    delivery={trans.deliveryStatus}
-                    alteration={(c, I) => {
-                      this.handleAlteration(c, I);
-                    }}
-                  />
-                );
-              })}
-            </div>
+            {this.props.transaction.map((trans) => {
+              return (
+                <DeliveryComponent
+                  orderId={trans.orderId}
+                  Id={trans.Id}
+                  products={trans.products[0].product}
+                  customer={trans.customer}
+                  location={trans.location}
+                  amount={trans.amount}
+                  delivery={trans.deliveryStatus}
+                  alteration={(c, I) => {
+                    this.handleAlteration(c, I);
+                  }}
+                />
+              );
+            })}
           </Row>
-        </div>
+        </Container>
       );
     }
 
@@ -184,74 +159,74 @@ class DeliveryScreen extends React.Component {
           <title>Delivery - 3Wishesgh</title>
           <meta name="description" content="3Wishes Hookah Shop" />
         </Helmet>
-        <Row className="deliveryFilterSection">
-          <Col
-            xxl={8}
-            xl={8}
-            lg={7}
-            md={7}
-            sm={7}
-            xs={7}
-            className=" deliveryDateFilter"
-          >
-            <Row>
-              <Col xxl={5} xl={5} lg={8} md={8} sm={9} xs={9}>
-                <div>From</div>
-                <div>
-                  <DatePicker
-                    selected={this.state.date1}
-                    onChange={(date) => this.setState({ date1: date })}
-                    peekNextMonth
-                    showMonthDropdown
-                    showYearDropdown
-                    dropdownMode="select"
-                    dateFormat="dd/MM/yyyy"
-                  />
-                </div>
-              </Col>
-              <Col xxl={5} xl={5} lg={8} md={8} sm={9} xs={9}>
-                <div>To</div>
-                <div>
-                  <DatePicker
-                    selected={this.state.date2}
-                    onChange={(date) => this.setState({ date2: date })}
-                    peekNextMonth
-                    showMonthDropdown
-                    showYearDropdown
-                    dropdownMode="select"
-                    dateFormat="dd/MM/yyyy"
-                  />
-                </div>
-              </Col>
-
-              <Col className="deliveryFilterButtonContainer">
-                <button className="deliveryFilterButton">Filter</button>
-              </Col>
-            </Row>
-          </Col>
-          <Col
-            xxl={{ span: 1, offset: 3 }}
-            xl={{ span: 1, offset: 3 }}
-            lg={{ span: 2, offset: 3 }}
-            md={{ span: 2, offset: 3 }}
-            sm={{ span: 2, offset: 3 }}
-            sm={{ span: 2, offset: 3 }}
-            className="deliveryScreenBackButtonContainer"
-          >
-            <button
-              className="deliveryScreenBackButton"
-              onClick={() => {
-                this.setState({ orderDetails: "no", deliveries: "yes" });
-              }}
+        <Container fluid={true}>
+          <Row className="deliveryFilterSection">
+            <Col
+              xxl={8}
+              xl={8}
+              lg={7}
+              md={7}
+              sm={7}
+              xs={7}
+              className=" deliveryDateFilter"
             >
-              <MdKeyboardBackspace size="1.6em" />
-            </button>
-          </Col>
-        </Row>
+              <Row>
+                <Col xxl={5} xl={5} lg={8} md={8} sm={9} xs={9}>
+                  <div>From</div>
+                  <div>
+                    <DatePicker
+                      selected={this.state.date1}
+                      onChange={(date) => this.setState({ date1: date })}
+                      peekNextMonth
+                      showMonthDropdown
+                      showYearDropdown
+                      dropdownMode="select"
+                      dateFormat="dd/MM/yyyy"
+                    />
+                  </div>
+                </Col>
+                <Col xxl={5} xl={5} lg={8} md={8} sm={9} xs={9}>
+                  <div>To</div>
+                  <div>
+                    <DatePicker
+                      selected={this.state.date2}
+                      onChange={(date) => this.setState({ date2: date })}
+                      peekNextMonth
+                      showMonthDropdown
+                      showYearDropdown
+                      dropdownMode="select"
+                      dateFormat="dd/MM/yyyy"
+                    />
+                  </div>
+                </Col>
 
-        <Row>
-          <div className="">{this.handleShowComponent()}</div>
-        </Row>
+                <Col className="deliveryFilterButtonContainer">
+                  <button className="deliveryFilterButton">Filter</button>
+                </Col>
+              </Row>
+            </Col>
+            <Col
+              xxl={{ span: 1, offset: 3 }}
+              xl={{ span: 1, offset: 3 }}
+              lg={{ span: 2, offset: 3 }}
+              md={{ span: 2, offset: 3 }}
+              sm={{ span: 2, offset: 3 }}
+              sm={{ span: 2, offset: 3 }}
+              className="deliveryScreenBackButtonContainer"
+            >
+              <button
+                className="deliveryScreenBackButton"
+                onClick={() => {
+                  this.setState({ orderDetails: "no", deliveries: "yes" });
+                }}
+              >
+                <MdKeyboardBackspace size="1.6em" />
+              </button>
+            </Col>
+          </Row>
+
+          <Row>{this.handleShowComponent()}</Row>
+        </Container>
       </Container>
     );
   }

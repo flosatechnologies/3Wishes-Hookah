@@ -17,6 +17,7 @@ function ContactPage() {
       <div className="main-container">
         <Contact />
       </div>
+
       <FooterPage />
     </div>
   );

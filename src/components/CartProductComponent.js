@@ -42,23 +42,23 @@ class CartProductComponent extends React.Component {
           >
             <Row>
               <Col
-                xxl={4}
-                xl={4}
-                lg={4}
-                md={4}
-                sm={4}
-                xs={4}
+                xxl={2}
+                xl={2}
+                lg={2}
+                md={2}
+                sm={2}
+                xs={2}
                 className=" productImageBox"
               >
                 <img src={this.props.image} alt="" className="productImage" />
               </Col>
               <Col
-                xxl={8}
-                xl={8}
-                lg={8}
-                md={8}
-                sm={8}
-                xs={8}
+                xxl={{ span: 8, offset: 2 }}
+                xl={{ span: 8, offset: 2 }}
+                lg={{ span: 8, offset: 2 }}
+                md={{ span: 8, offset: 2 }}
+                sm={{ span: 8, offset: 2 }}
+                xs={{ span: 8, offset: 2 }}
                 className="productNameBox"
               >
                 <Row className="productName">

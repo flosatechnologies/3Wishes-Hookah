@@ -6,10 +6,10 @@ import { Component } from "react";
 import UserComponentDashboard from "../components/UserComponentDashboard";
 import { connect } from "react-redux";
 import { MdKeyboardBackspace } from "react-icons/md";
-// import { getAllUsers } from "../Store/usersActions.js";
 import profileImg from "../assets/images/userImage.png";
 import CreateAccountDashboard from "../components/CreateAccountDashboard.jsx";
 import EditAccountComponent from "../components/EditAccountComponent";
+import { Container, Row, Col } from "react-bootstrap";
 
 class UsersScreenDashboard extends Component {
   constructor(props) {
@@ -76,8 +76,8 @@ class UsersScreenDashboard extends Component {
       }
       if (this.state.button.addUser === "inactivebtn") {
         return (
-          <div className="container arrayOfUsers">
-            <div className="row">
+          <Container className=" arrayOfUsers">
+            <Row className="row">
               {filtered.map((users) => (
                 <UserComponentDashboard
                   image={profileImg}
@@ -90,15 +90,15 @@ class UsersScreenDashboard extends Component {
                   Delete={(id) => this.handleActivateDelete(id)}
                 />
               ))}
-            </div>
-          </div>
+            </Row>
+          </Container>
         );
       }
     };
     return (
-      <div className="container">
-        <div className="row filterSection">
-          <div className="col-lg-2">
+      <Container fluid={true}>
+        <Row className="filterSection">
+          <Col xxl={2} xl={2} lg={2} md={2} sm={2} xs={2} className="">
             <button
               onClick={() => {
                 this.setState({ button: { addUser: "activebtn" } });
@@ -108,8 +108,16 @@ class UsersScreenDashboard extends Component {
             >
               Create Account
             </button>
-          </div>
-          <div className="col-lg-10 userScreenBackButtonContainer">
+          </Col>
+          <Col
+            xxl={10}
+            xl={10}
+            lg={10}
+            md={10}
+            sm={10}
+            xs={10}
+            className=" userScreenBackButtonContainer"
+          >
             <button
               onClick={() => {
                 this.setState({ button: { addUser: "inactivebtn" } });
@@ -118,11 +126,11 @@ class UsersScreenDashboard extends Component {
             >
               <MdKeyboardBackspace size="1.6em" />
             </button>
-          </div>
-        </div>
+          </Col>
+        </Row>
 
-        <div className="usersContainer">{handleRenderScreen()}</div>
-      </div>
+        <Row className="usersContainer">{handleRenderScreen()}</Row>
+      </Container>
     );
   }
 }

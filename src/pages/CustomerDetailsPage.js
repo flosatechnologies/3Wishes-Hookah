@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "../css/CustomerDetails.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { AddCustomerInfo } from "./../Store/custDetailActions";
-import { Row, Col } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 
 import { connect } from "react-redux";
 
@@ -60,16 +60,13 @@ class CustomerDetails extends Component {
   };
   render() {
     return (
-      <div
+      <Container
+        fluid={true}
         style={{
           background: "#fff",
-          width: "90%",
+          width: "inherit",
           minHeight: "80vh",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
         }}
-        className="container-fluid"
       >
         <Row>
           <Col
@@ -82,28 +79,46 @@ class CustomerDetails extends Component {
             }}
             className=" wrapper"
           >
-            <div>
-              <div className="title">Delivery Information</div>
-            </div>
+            <Row>
+              <Col className="title">Delivery Information</Col>
+            </Row>
 
             <form onSubmit={this.handleSubmit}>
-              <div className="form-wrapper">
-                <div className="firstAndOtherNamesContainer">
-                  <div className="firstNameContainer-CustomerProfile">
-                    <div className="labels-CustomerProfile">First Name</div>
-                    <input
-                      className="firstNameInput-CustomerProfile"
-                      type="text"
-                      required={true}
-                      name="fullname"
-                      value={this.state.firstName}
-                      onChange={this.handleChange}
-                    />
-                  </div>
+              <Container className="form-wrapper">
+                <Row className="firstAndOtherNamesContainer">
+                  <Col
+                    xxl={6}
+                    xl={6}
+                    lg={6}
+                    md={12}
+                    sm={12}
+                    xs={12}
+                    className="firstNameContainer-CustomerProfile"
+                  >
+                    <Row className="labels-CustomerProfile">First Name</Row>
+                    <Row>
+                      <input
+                        className="firstNameInput-CustomerProfile"
+                        type="text"
+                        required={true}
+                        name="fullname"
+                        value={this.state.firstName}
+                        onChange={this.handleChange}
+                      />
+                    </Row>
+                  </Col>
 
-                  <div className="otherNamesContainer-CustomerProfile">
-                    <div className="labels-CustomerProfile">Other Names</div>
-                    <div className="otherNames_InputContainer">
+                  <Col
+                    xxl={6}
+                    xl={6}
+                    lg={6}
+                    md={12}
+                    sm={12}
+                    xs={12}
+                    className="otherNamesContainer-CustomerProfile"
+                  >
+                    <Row className="labels-CustomerProfile">Other Names</Row>
+                    <Row className="otherNames_InputContainer">
                       <input
                         className="otherNamesInput-CustomerProfile"
                         type="text"
@@ -112,108 +127,169 @@ class CustomerDetails extends Component {
                         value={this.state.otherNames}
                         onChange={this.handleChange}
                       />
-                    </div>
-                  </div>
-                </div>
+                    </Row>
+                  </Col>
+                </Row>
 
-                <div className="phoneNumberAndGhPostGpsContainer">
-                  <div className="phoneNumberContainer-CustomerProfile">
-                    <div className="labels-CustomerProfile">Phone Number</div>
-                    <input
-                      className="phoneNumberInput-CustomerProfile"
-                      type="tel"
-                      required={true}
-                      name="phoneNumber"
-                      value={this.state.phoneNumber}
-                      onChange={this.handleChange}
-                    />
-                  </div>
+                <Row className="phoneNumberAndGhPostGpsContainer">
+                  <Col
+                    xxl={6}
+                    xl={6}
+                    lg={6}
+                    md={12}
+                    sm={12}
+                    xs={12}
+                    className="phoneNumberContainer-CustomerProfile"
+                  >
+                    <Row className="labels-CustomerProfile">Phone Number</Row>
+                    <Row className="phoneNumberInputContainer-CustomerProfile">
+                      <input
+                        className="phoneNumberInput-CustomerProfile"
+                        type="tel"
+                        required={true}
+                        name="phoneNumber"
+                        value={this.state.phoneNumber}
+                        onChange={this.handleChange}
+                      />
+                    </Row>
+                  </Col>
 
-                  <div className="ghPostGPSContainer-CustomerProfile">
-                    <div className="labels-CustomerProfile">Ghana Post GPS</div>
-                    <input
-                      className="ghPostGpsInput-CustomerProfile"
-                      type="text"
-                      name="ghanaPostGps"
-                      value={this.state.ghanaPostGps}
-                      onChange={this.handleChange}
-                    />
-                  </div>
-                </div>
-                <div className="residentialAddressContainer-CustomerProfile">
-                  <div className="labels-CustomerProfile">
-                    Residential Address
-                  </div>
-                  <input
-                    className="residentialAddressInput-CustomerProfile"
-                    type="text"
-                    name="residentialAddress"
-                    value={this.state.residentialAddress}
-                    onChange={this.handleChange}
-                  />
-                </div>
+                  <Col
+                    xxl={6}
+                    xl={6}
+                    lg={6}
+                    md={12}
+                    sm={12}
+                    xs={12}
+                    className="ghPostGPSContainer-CustomerProfile"
+                  >
+                    <Row className="labels-CustomerProfile">Ghana Post GPS</Row>
+                    <Row>
+                      <input
+                        className="ghPostGpsInput-CustomerProfile"
+                        type="text"
+                        name="ghanaPostGps"
+                        value={this.state.ghanaPostGps}
+                        onChange={this.handleChange}
+                      />
+                    </Row>
+                  </Col>
+                </Row>
+                <Row className="residentialAddressMainContainer-CustomerProfile">
+                  <Col
+                    // xxl={12}
+                    // xl={12}
+                    // lg={12}
+                    // md={12}
+                    // sm={12}
+                    // xs={12}
+                    className="residentialAddressContainer-CustomerProfile"
+                  >
+                    <Row className="labels-CustomerProfile">
+                      Residential Address
+                    </Row>
+                    <Row>
+                      <input
+                        className="residentialAddressInput-CustomerProfile"
+                        type="text"
+                        name="residentialAddress"
+                        value={this.state.residentialAddress}
+                        onChange={this.handleChange}
+                      />
+                    </Row>
+                  </Col>
+                </Row>
+                <Row className="cityAndRegionContainer">
+                  <Col
+                    xxl={6}
+                    xl={6}
+                    lg={6}
+                    md={12}
+                    sm={12}
+                    xs={12}
+                    className="cityContainer-CustomerProfile"
+                  >
+                    <Row className="labels-CustomerProfile">Town/City</Row>
+                    <Row>
+                      <input
+                        className="cityInput-CustomerProfile"
+                        type="text"
+                        required={true}
+                        name="city"
+                        value={this.state.city}
+                        onChange={this.handleChange}
+                      />
+                    </Row>
+                  </Col>
 
-                <div className="cityAndRegionContainer">
-                  <div className="cityContainer-CustomerProfile">
-                    <div className="labels-CustomerProfile">Town/City</div>
-                    <input
-                      className="cityInput-CustomerProfile"
-                      type="text"
-                      required={true}
-                      name="city"
-                      value={this.state.city}
-                      onChange={this.handleChange}
-                    />
-                  </div>
+                  <Col
+                    xxl={6}
+                    xl={6}
+                    lg={6}
+                    md={12}
+                    sm={12}
+                    xs={12}
+                    className="regionContainer-CustomerProfile"
+                  >
+                    <Row className="labels-CustomerProfile">Region</Row>
+                    <Row>
+                      <select
+                        value={this.state.region}
+                        className="regionInput-CustomerProfile"
+                        required
+                        name="region"
+                        onChange={this.handleChange}
+                      >
+                        <option value="Greater Accra Region">
+                          Greater Accra Region
+                        </option>
+                        <option value="Central Region">Central Region</option>
+                        <option value="Western North Region">
+                          Western North Region
+                        </option>
+                        <option value="Western Region">Western Region </option>
+                        <option value="Bono Region">Bono Region</option>
+                        <option value="Bono East Region">
+                          Bono East Region
+                        </option>
+                        <option value="Ahafo Region">Ahafo Region</option>
+                        <option value="Upper East Region">
+                          Upper East Region
+                        </option>
+                        <option value="Upper West Region">
+                          Upper West Region
+                        </option>
+                        <option value="North East Region">
+                          North East Region
+                        </option>
+                        <option value="Northern Region">Northern Region</option>
+                        <option value="Savanna Region">Savanna Region</option>
+                        <option value="Eastern Region">Eastern Region</option>
+                        <option value="Ashanti Region">Ashanti Region</option>
+                        <option value="Oti Region">Oti Region</option>
+                        <option value="Volta Region">Volta Region</option>
+                      </select>
+                    </Row>
+                  </Col>
+                </Row>
 
-                  <div className="regionContainer-CustomerProfile">
-                    <div className="labels-CustomerProfile">Region</div>
-                    <select
-                      value={this.state.region}
-                      className="regionInput-CustomerProfile"
-                      required
-                      name="region"
-                      onChange={this.handleChange}
-                    >
-                      <option value="Greater Accra Region">
-                        Greater Accra Region
-                      </option>
-                      <option value="Central Region">Central Region</option>
-                      <option value="Western North Region">
-                        Western North Region
-                      </option>
-                      <option value="Western Region">Western Region </option>
-                      <option value="Bono Region">Bono Region</option>
-                      <option value="Bono East Region">Bono East Region</option>
-                      <option value="Ahafo Region">Ahafo Region</option>
-                      <option value="Upper East Region">
-                        Upper East Region
-                      </option>
-                      <option value="Upper West Region">
-                        Upper West Region
-                      </option>
-                      <option value="North East Region">
-                        North East Region
-                      </option>
-                      <option value="Northern Region">Northern Region</option>
-                      <option value="Savanna Region">Savanna Region</option>
-                      <option value="Eastern Region">Eastern Region</option>
-                      <option value="Ashanti Region">Ashanti Region</option>
-                      <option value="Oti Region">Oti Region</option>
-                      <option value="Volta Region">Volta Region</option>
-                    </select>
-                    {console.log(this.state.region)}
-                  </div>
-                </div>
-
-                <div>
-                  <button className="submit">save</button>
-                </div>
-              </div>
+                <Row>
+                  <Col
+                    xxl={{ offset: 5, span: 2 }}
+                    xl={{ offset: 5, span: 2 }}
+                    lg={{ offset: 5, span: 2 }}
+                    md={{ offset: 5, span: 2 }}
+                    sm={{ offset: 5, span: 2 }}
+                    xs={{ offset: 5, span: 2 }}
+                  >
+                    <button className="submit">save</button>
+                  </Col>
+                </Row>
+              </Container>
             </form>
           </Col>
         </Row>
-      </div>
+      </Container>
     );
   }
 }

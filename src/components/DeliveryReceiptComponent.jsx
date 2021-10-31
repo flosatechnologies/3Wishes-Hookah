@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Row, Col } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 import { connect } from "react-redux";
 import "../css/deliveryReceiptComponent.css";
 import DeliveryComponentCustomer from "./DeliveryComponentCustomer";
@@ -67,62 +67,78 @@ export class DeliveryReceiptComponent extends Component {
     console.log("theName: ", name);
 
     return (
-      <div className="deliveryHeaderContainer-customer">
-        <Row lg={12}>
-          <Col lg={2}>
-            <div style={{ fontSize: 15, fontWeight: "600" }}>ID</div>
-          </Col>
-          <Col lg={4}>
-            <div style={{ fontSize: 15, fontWeight: "600" }}>PRODUCT(S)</div>
-          </Col>
-
-          <Col lg={2}>
-            <div style={{ fontSize: 15, fontWeight: "600" }}>AMT.(GHS)</div>
-          </Col>
-
-          <Col lg={2}>
+      <Container fluid={true}>
+        <Row className="deliveryHeaderContainer-customer">
+          <Col xxl={2} xl={2} lg={2} md={2} sm={2} xs={2}>
             <div
+              className="idHeaderDeliveryComponent-Customer"
+              style={{ fontSize: "14px", fontWeight: "600" }}
+            >
+              ID
+            </div>
+          </Col>
+          <Col xxl={4} xl={4} lg={4} md={4} sm={4} xs={4}>
+            <div
+              className="productHeaderDeliveryComponent-Customer"
+              style={{ fontSize: "14px", fontWeight: "600" }}
+            >
+              PRODUCT(S)
+            </div>
+          </Col>
+
+          <Col xxl={2} xl={2} lg={2} md={2} sm={2} xs={2}>
+            <div
+              className="amountHeaderDeliveryComponent-Customer"
+              style={{ fontSize: "14px", fontWeight: "600" }}
+            >
+              AMT.(GHS)
+            </div>
+          </Col>
+
+          <Col xxl={2} xl={2} lg={2} md={2} sm={2} xs={2}>
+            <div
+              className="deliveryHeaderDeliveryComponent-Customer"
               style={{
-                fontSize: 15,
+                fontSize: "14px",
                 fontWeight: "600",
               }}
             >
               DELIVERY
             </div>
           </Col>
-          <Col lg={2}>
+          <Col xxl={2} xl={2} lg={2} md={2} sm={2} xs={2}>
             <div
               style={{
-                fontSize: 15,
+                fontSize: "14px",
                 fontWeight: "600",
               }}
             ></div>
           </Col>
         </Row>
-
-        {
-          (console.log("transact: ", this.props.transact),
-          this.props.transact.map((transa) => {
-            if (name === transa.customer) {
-              return (
-                <DeliveryComponentCustomer
-                  Id={transa.Id}
-                  orderId={transa.orderId}
-                  products={transa.products[0].product}
-                  amount={transa.amount}
-                  delivery={transa.deliveryStatus}
-                  receive={(y, d) => {
-                    this.handleReceipt(y, d);
-                  }}
-                />
-              );
-            }
-          }))
-        }
-
+        <Row>
+          {
+            (console.log("transact: ", this.props.transact),
+            this.props.transact.map((transa) => {
+              if (name === transa.customer) {
+                return (
+                  <DeliveryComponentCustomer
+                    Id={transa.Id}
+                    orderId={transa.orderId}
+                    products={transa.products[0].product}
+                    amount={transa.amount}
+                    delivery={transa.deliveryStatus}
+                    receive={(y, d) => {
+                      this.handleReceipt(y, d);
+                    }}
+                  />
+                );
+              }
+            }))
+          }
+        </Row>
         <Row className="row-three"></Row>
         <div>{this.handleRenderReceiptConfirmation()}</div>
-      </div>
+      </Container>
     );
   }
 }
