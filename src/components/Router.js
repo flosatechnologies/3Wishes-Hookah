@@ -23,7 +23,7 @@ import PaymentSuccessful from "../pages/PaymentSuccessful";
 function RouterComponent(props) {
   return (
     <div>
-      <Route path="/" component={CarouselPage} exact={true} />
+      <Route path="/" component={ShopPage} exact={true} />
       <Route path="/shop" component={ShopPage} />
       <Route path="/contact" component={ContactPage} />
       <Route path="/login" component={LogIn} />

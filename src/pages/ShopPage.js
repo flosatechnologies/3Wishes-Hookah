@@ -10,6 +10,8 @@ import { AddToCart } from "../Store/cartActions";
 import { connect } from "react-redux";
 import { Container, Col, Row } from "react-bootstrap";
 import { Helmet } from "react-helmet";
+import ProductAdd from "../components/ProductAdd";
+import Video from "../components/Video";
 
 class ShopPage extends React.Component {
   constructor(props) {
@@ -32,6 +34,8 @@ class ShopPage extends React.Component {
     return (
       <div>
         <HeaderPage />
+        <ProductAdd />
+        <Video />
         <Helmet>
           <title>Shop - 3Wishesgh</title>
           <meta name="description" content="3Wishes Hookah Shop" />
