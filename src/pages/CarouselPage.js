@@ -6,6 +6,7 @@ import image2 from "../assets/images/awesome.jpg";
 import image3 from "../assets/images/tobias-nii-kwatei-quartey.jpg";
 import image4 from "../assets/images/viktor1.jpg";
 import HeaderPage from "../components/HeaderPage";
+import FloatingWhatsApp from "../components/WhatsAppComponent";
 import FooterPage from "../components/FooterPage";
 import { connect } from "react-redux";
 
@@ -114,6 +115,7 @@ const CarouselPage = (props) => {
             >
               Top quality imported tobacco flavors
             </h3>
+
             {/*<h3>Forth slide label</h3>
             <p>
               Praesent commodo cursus magna, vel scelerisque nisl consectetur.
@@ -121,7 +123,9 @@ const CarouselPage = (props) => {
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>
+
       <FooterPage />
+      <FloatingWhatsApp />
     </div>
   );
 };
