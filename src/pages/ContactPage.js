@@ -4,7 +4,6 @@ import Contact from "../components/Contact";
 import FooterPage from "../components/FooterPage";
 import HeaderPage from "../components/HeaderPage";
 import { Helmet } from "react-helmet";
-import FloatingWhatsApp from "../components/WhatsAppComponent";
 
 function ContactPage() {
   // let bg = require("../assets/images/awesome.jpg");
@@ -18,7 +17,7 @@ function ContactPage() {
       <div className="main-container">
         <Contact />
       </div>
-      <FloatingWhatsApp />
+
       <FooterPage />
     </div>
   );

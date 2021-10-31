@@ -19,7 +19,7 @@ const CarouselPage = (props) => {
           <img
             overflow="hidden"
             object-fit="cover"
-            height="auto"
+            height="70vh"
             width="100%"
             className="d-block w-100 carouselImage"
             src={image1}
@@ -123,9 +123,8 @@ const CarouselPage = (props) => {
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>
-
-      <FooterPage />
       <FloatingWhatsApp />
+      <FooterPage />
     </div>
   );
 };

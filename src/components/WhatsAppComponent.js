@@ -8,9 +8,8 @@ export default function App() {
       phoneNumber="+233546835848"
       accountName="3wishes Support"
       avatar={logo1}
-      statusMessage="Qiuck replies"
-      chatMessage="Welcome to 3wishesgh! 
-      How may we help you?"
+      statusMessage="At your Service"
+      chatMessage="Welcome to 3wishesgh!   How may we help you?"
     />
   );
 }
