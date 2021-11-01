@@ -12,6 +12,7 @@ import { Container, Col, Row } from "react-bootstrap";
 import { Helmet } from "react-helmet";
 import ProductAdd from "../components/ProductAdd";
 import Video from "../components/Video";
+import Banner from "../components/Banner";
 
 class ShopPage extends React.Component {
   constructor(props) {
@@ -35,6 +36,7 @@ class ShopPage extends React.Component {
       <div>
         <HeaderPage />
         <ProductAdd />
+        <Banner />
         <Video />
         <Helmet>
           <title>Shop - 3Wishesgh</title>
