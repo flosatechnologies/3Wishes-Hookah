@@ -20,7 +20,7 @@ export class HeaderPage extends Component {
 
     return (
       <div>
-        <Navbar bg="dark" variant="dark" expand="lg">
+        <Navbar bg="danger" variant="dark" expand="lg">
           {/* <Container> */}
           <LinkContainer to="/" exact={true}>
             <Navbar.Brand>

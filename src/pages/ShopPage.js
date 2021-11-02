@@ -4,7 +4,7 @@ import Product from "../pages/Product";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import HeaderPage from "../components/HeaderPage";
-import FooterPage from "../components/FooterPage";
+import Footer from "../components/FooterComponent";
 import { getAllProducts } from "../Store/productActions";
 import { AddToCart } from "../Store/cartActions";
 import { connect } from "react-redux";
@@ -15,7 +15,6 @@ import ProductAdd from "../components/ProductAdd";
 import Video from "../components/Video";
 
 import FloatingWhatsApp from "../components/WhatsAppComponent";
-
 
 class ShopPage extends React.Component {
   constructor(props) {
@@ -99,7 +98,7 @@ class ShopPage extends React.Component {
           </Container>
         </div>
         <FloatingWhatsApp />
-        <FooterPage />
+        <Footer />
       </div>
     );
   }
