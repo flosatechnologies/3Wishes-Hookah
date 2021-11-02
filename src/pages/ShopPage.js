@@ -13,6 +13,7 @@ import { Helmet } from "react-helmet";
 
 import ProductAdd from "../components/ProductAdd";
 import Video from "../components/Video";
+import Banner from "../components/Banner";
 
 import FloatingWhatsApp from "../components/WhatsAppComponent";
 
@@ -39,6 +40,7 @@ class ShopPage extends React.Component {
       <div>
         <HeaderPage />
         <ProductAdd />
+        <Banner />
         <Video />
         <Helmet>
           <title>Shop - 3Wishesgh</title>

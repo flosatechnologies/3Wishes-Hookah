@@ -2,6 +2,7 @@ import React from "react";
 import { Helmet } from "react-helmet";
 import { BrowserRouter, Switch } from "react-router-dom";
 import RouterComponent from "./components/Router";
+import TopHeader from "./components/TopHeader";
 
 function App() {
   return (
@@ -17,7 +18,7 @@ function App() {
           content="3Wishes, Smoke, Hookah, Hookah Ghana, Bar, Shop, Hookah Lounge"
         />
       </Helmet>
-
+      <TopHeader />
       <BrowserRouter>
         <Switch>
           <RouterComponent />
