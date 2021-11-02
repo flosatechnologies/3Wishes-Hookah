@@ -4,6 +4,7 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { FaRegImage } from "react-icons/fa";
 import { EditProduct, EditTextOnly } from "../Store/productActions";
@@ -18,6 +19,7 @@ class Edit extends Component {
       name: "",
       price: "",
       quantity: "",
+      group: "",
       description: "",
       productId: this.props.Id,
       specificProduct: "",
@@ -43,6 +45,7 @@ class Edit extends Component {
       profileImg: specificProduct[0].image,
       refFile: specificProduct[0].image,
       quantity: specificProduct[0].quantity,
+      group: specificProduct[0].group,
       description: specificProduct[0].description,
       imageToFirestore: { name: "notImage.png" },
     });
@@ -66,6 +69,7 @@ class Edit extends Component {
         this.state.name,
         this.state.price,
         this.state.quantity,
+        this.state.group,
         this.state.description,
         this.state.refFile
       );
@@ -75,6 +79,7 @@ class Edit extends Component {
         this.state.name,
         this.state.price,
         this.state.quantity,
+        this.state.group,
         this.state.description,
         this.state.imageToFirestore,
         storageref.name
@@ -99,9 +104,17 @@ class Edit extends Component {
 
   render() {
     return (
-      <Container className="container-fluid editContainer">
+      <Container fluid={true} className="editContainer">
         <Row className="product-row">
-          <Col className="image-section">
+          <Col
+            xxl={6}
+            xl={6}
+            lg={6}
+            md={12}
+            sm={12}
+            xs={12}
+            className="image-section"
+          >
             <div className="image-heading">Product Image</div>
             <div className="productImageSection-EditProduct">
               <div className="image-holder">
@@ -118,7 +131,7 @@ class Edit extends Component {
                     <FaRegImage style={{ marginRight: "8px" }} />
                     select
                   </div>
-                  <input
+                  <Form.Control
                     type="file"
                     name="image-upload"
                     id="input-editProduct"
@@ -129,61 +142,103 @@ class Edit extends Component {
               </div>
             </div>
           </Col>
-          <Col className="form-input">
-            {/* <div className="col"> */}
-
-            <label className="editLabel" id="name">
-              Product Name
-            </label>
-            <input
-              type="text"
-              id="pname"
-              name="name"
-              className="editInput"
-              value={this.state.name}
-              onChange={this.handleChange}
-            />
-
-            <label className="editLabel" id="price">
-              Product Price GH{"\u20B5"}
-            </label>
-            <input
-              type="number"
-              name="price"
-              className="editInput"
-              value={Number(this.state.price)}
-              onChange={this.handleChange}
-            />
-
-            <label className="editLabel" id="quality">
-              Product Quantity
-            </label>
-            <input
-              type="number"
-              name="quantity"
-              className="editInput"
-              value={this.state.quantity}
-              onChange={this.handleChange}
-            />
-
-            <label className="editLabel" id="description">
-              Product Description
-            </label>
-            <textarea
-              className="editInput"
-              name="description"
-              value={this.state.description}
-              onChange={this.handleChange}
-            ></textarea>
-
-            {/* <Button id="btn-btn">Cancel</Button> */}
-            {/* </div> */}
+          <Col
+            xxl={6}
+            xl={6}
+            lg={6}
+            md={12}
+            sm={12}
+            xs={12}
+            className="form-input"
+          >
+            <Row>
+              <Col>
+                <Form.Group>
+                  <Form.Label className="editLabel" id="name">
+                    Product Name
+                  </Form.Label>
+                  <Form.Control
+                    type="text"
+                    id="pname"
+                    name="name"
+                    className="editInput"
+                    value={this.state.name}
+                    onChange={this.handleChange}
+                  />
+                </Form.Group>
+              </Col>
+            </Row>
+            <Row>
+              <Col>
+                <Form.Group>
+                  <Form.Label className="editLabel" id="price">
+                    Product Price GH{"\u20B5"}
+                  </Form.Label>
+                  <Form.Control
+                    type="number"
+                    name="price"
+                    className="editInput"
+                    value={Number(this.state.price)}
+                    onChange={this.handleChange}
+                  />
+                </Form.Group>
+              </Col>
+            </Row>
+            <Row>
+              <Col>
+                <Form.Label className="editLabel" id="quality">
+                  Product Quantity
+                </Form.Label>
+                <Form.Control
+                  type="number"
+                  name="quantity"
+                  className="editInput"
+                  value={this.state.quantity}
+                  onChange={this.handleChange}
+                />
+              </Col>
+            </Row>
+            <Row>
+              <Col>
+                <Form.Label className="editLabel" id="group">
+                  Product Group
+                </Form.Label>
+                <div>
+                  <select
+                    value={this.state.group}
+                    className="productGroupSelect"
+                    required
+                    id="product-group"
+                    onChange={(event) => {
+                      this.setState({ group: event.target.value });
+                    }}
+                  >
+                    <option value="subscribtion">subscribtion</option>
+                    <option value="regular">regular</option>
+                  </select>
+                </div>
+              </Col>
+            </Row>
+            <Row>
+              <Col>
+                <Form.Label className="editLabel" id="description">
+                  Product Description
+                </Form.Label>
+                <Form.Control
+                  as="textarea"
+                  className="editInput"
+                  name="description"
+                  value={this.state.description}
+                  onChange={this.handleChange}
+                />
+              </Col>
+            </Row>
           </Col>
         </Row>
-        <Row className="addButtonContainer">
-          <Button onClick={this.handleUpdateProduct} id="btn">
-            update
-          </Button>
+        <Row>
+          <Col>
+            <Button onClick={this.handleUpdateProduct}>update</Button>
+          </Col>
         </Row>
       </Container>
     );

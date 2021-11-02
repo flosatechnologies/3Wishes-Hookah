@@ -4,6 +4,7 @@ export const AddNewProduct = (
   price,
   quantity,
   description,
+  group,
   image
 ) => {
   return (dispatch, state, { getFirestore, getFirebase }) => {
@@ -35,6 +36,7 @@ export const AddNewProduct = (
                 product,
                 price,
                 quantity,
+                group,
                 description,
                 image: url,
               })
@@ -105,6 +107,7 @@ export const EditProduct = (
   product,
   price,
   quantity,
+  group,
   description,
   image,
   path
@@ -138,6 +141,7 @@ export const EditProduct = (
                 product,
                 price,
                 quantity,
+                group,
                 description,
                 image: url,
               })
@@ -170,6 +174,7 @@ export const EditTextOnly = (
   product,
   price,
   quantity,
+  group,
   description,
   image
 ) => {
@@ -182,6 +187,7 @@ export const EditTextOnly = (
         product,
         price,
         quantity,
+        group,
         description,
         image,
       })

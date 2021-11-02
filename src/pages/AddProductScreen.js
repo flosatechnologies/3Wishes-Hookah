@@ -4,12 +4,11 @@ import "../css/AddProductScreen.css";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-
+import Form from "react-bootstrap/Form";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { FaRegImage } from "react-icons/fa";
 import { v4 as uuid } from "uuid";
 import product from "../assets/images/productImage.png";
-
 import { AddNewProduct } from "../Store/productActions";
 import { connect } from "react-redux";
 
@@ -20,6 +19,7 @@ class AddProduct extends Component {
       product: "",
       price: "",
       quantity: "",
+      group: "",
       description: "",
       image: product,
       imageTofirestore: { name: "noImage.png" },
@@ -52,6 +52,7 @@ class AddProduct extends Component {
       let product = this.state.product;
       let price = this.state.price;
       let description = this.state.description;
+      let group = this.state.group;
       let quantity = this.state.quantity;
       var Id = uuid();
 
@@ -63,72 +64,123 @@ class AddProduct extends Component {
         product,
         price,
         quantity,
+        group,
         description,
         image
       );
     };
 
-    // const { profileImg } = this.state;
     return (
       <Container className="main-container">
         <Row className="form subContainer">
-          <Col className="inputSection">
-            {/* <h5>Details</h5> */}
-            <label className="labelName">Product Name</label>
-            <input
-              type="text"
-              id="product-name"
-              value={this.state.product}
-              onChange={(event) => {
-                this.setState({ product: event.target.value });
-              }}
-            />
+          <Col
+            xxl={6}
+            xl={6}
+            lg={6}
+            md={12}
+            sm={12}
+            xs={12}
+            className="inputSection"
+          >
+            <Form>
+              <Form.Group className="labelAndInputContainerProductAdd">
+                <Form.Label className="labelName">Product Name</Form.Label>
+                <Form.Control
+                  type="text"
+                  id="product-name"
+                  className="inputAddProduct"
+                  value={this.state.product}
+                  onChange={(event) => {
+                    this.setState({ product: event.target.value });
+                  }}
+                />
+              </Form.Group>
 
-            <label className="labelName">Product Price GH{"\u20B5"}</label>
-            <input
-              type="number"
-              id="product-price"
-              value={this.state.price}
-              onChange={(event) => {
-                this.setState({ price: event.target.value });
-              }}
-            />
+              <Form.Group className="labelAndInputContainerProductAdd">
+                <Form.Label className="labelName">
+                  Product Price GH{"\u20B5"}
+                </Form.Label>
+                <Form.Control
+                  type="number"
+                  id="product-price"
+                  className="inputAddProduct"
+                  value={this.state.price}
+                  onChange={(event) => {
+                    this.setState({ price: event.target.value });
+                  }}
+                />
+              </Form.Group>
 
-            <label className="labelName">Product Quantity</label>
-            <input
-              type="number"
-              id="product-quantity"
-              value={this.state.quantity}
-              onChange={(event) => {
-                this.setState({ quantity: event.target.value });
-              }}
-            />
+              <Form.Group className="labelAndInputContainerProductAdd">
+                <Form.Label className="labelName">Product Quantity</Form.Label>
+                <Form.Control
+                  type="number"
+                  id="product-quantity"
+                  className="inputAddProduct"
+                  value={this.state.quantity}
+                  onChange={(event) => {
+                    this.setState({ quantity: event.target.value });
+                  }}
+                />
+              </Form.Group>
 
-            <label className="labelName">Product Description</label>
-            <textarea
-              value={this.state.description}
-              onChange={(event) => {
-                this.setState({ description: event.target.value });
-              }}
-            ></textarea>
+              <Form.Group className="labelAndInputContainerProductAdd">
+                <Form.Label className="labelName">Product Group</Form.Label>
+                <div>
+                  <select
+                    value={this.state.group}
+                    className="productGroupSelect"
+                    required
+                    id="product-group"
+                    onChange={(event) => {
+                      this.setState({ group: event.target.value });
+                    }}
+                  >
+                    <option value="subscribtion">subscribtion</option>
+                    <option value="regular">regular</option>
+                  </select>
+                </div>
+              </Form.Group>
+              <Form.Group className="labelAndInputContainerProductAdd">
+                <Form.Label className="labelName">
+                  Product Description
+                </Form.Label>
+                <Form.Control
+                  as="textarea"
+                  className="inputAddProduct"
+                  value={this.state.description}
+                  onChange={(event) => {
+                    this.setState({ description: event.target.value });
+                  }}
+                />
+              </Form.Group>
+            </Form>
           </Col>
-          <Col className="imageContainer">
+
+          <Col
+            xxl={6}
+            xl={6}
+            lg={6}
+            md={12}
+            sm={12}
+            xs={12}
+            className="imageContainer"
+          >
             <div className="image-heading">Product Image</div>
             <div className="image-holder">
               <img
                 src={this.state.image}
                 alt="image"
-                // id=""
                 className="img-responsive"
               />
             </div>
 
-            <label htmlFor="input" className="image-upload">
+            <Form.Label htmlFor="input" className="image-upload">
               <div className="uploadButton">
                 <FaRegImage style={{ marginRight: "10px" }} />
                 Select
               </div>
-              <input
+              <Form.Control
                 type="file"
                 required="true"
                 name="image-upload"
@@ -136,7 +188,7 @@ class AddProduct extends Component {
                 accept="image/*"
                 onChange={this.imageHandler}
               />
-            </label>
+            </Form.Label>
           </Col>
         </Row>
         <Row className="addButtonContainer">

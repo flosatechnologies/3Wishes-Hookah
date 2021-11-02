@@ -6,7 +6,6 @@ import HeaderPage from "../components/HeaderPage";
 import { Helmet } from "react-helmet";
 
 function ContactPage() {
-  // let bg = require("../assets/images/awesome.jpg");
   return (
     <div>
       <HeaderPage />
