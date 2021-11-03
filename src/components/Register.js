@@ -9,7 +9,7 @@ import { connect } from "react-redux";
 import { userRegistration } from "../Store/authActions";
 import "../css/register.css";
 import HeaderPage from "./HeaderPage";
-import FooterPage from "./FooterPage";
+import Footer from "../components/FooterComponent";
 import { Helmet } from "react-helmet";
 
 class Register extends Component {
@@ -254,7 +254,7 @@ class Register extends Component {
             </Col>
           </Row>
         </Container>
-        <FooterPage />
+        <Footer />
       </div>
     );
   }

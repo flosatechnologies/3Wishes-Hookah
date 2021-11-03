@@ -12,7 +12,7 @@ h3.loginHeaderText {
 }
 
 .loginBackground {
-  background: linear-gradient(135deg, #98d8a6, #56be6c);
+  background: linear-gradient(135deg, #ccddd0, #f4f9fc);
   padding: 3%;
   min-height: 100vh;
 }

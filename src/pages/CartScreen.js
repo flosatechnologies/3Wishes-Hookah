@@ -1,5 +1,5 @@
 import React from "react";
-import FooterPage from "../components/FooterPage";
+import Footer from "../components/FooterComponent";
 import HeaderPage from "../components/HeaderPage";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Link } from "react-router-dom";
@@ -211,7 +211,7 @@ class CartScreen extends React.Component {
           </Row>
         </Container>
 
-        <FooterPage />
+        <Footer />
       </div>
     );
   }
