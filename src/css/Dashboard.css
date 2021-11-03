@@ -20,11 +20,9 @@
 }
 .menuBar {
   height: 12vh;
-  width: inherit;
   background-color: black;
 }
 .bodyArea {
-  width: inherit;
   min-height: 88vh;
   max-height: fit-content;
 }

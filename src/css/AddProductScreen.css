@@ -2,15 +2,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
 .main-container {
   font-family: "Roboto", sans-serif;
-  margin: 10px;
-  padding: 0;
+  margin: 5% 0%;
 }
 /************************INPUT FIELDS*******************************/
 .inputSection {
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
   background-color: #84f39c;
+  padding: 2%;
 }
 
 .imageContainer {
@@ -20,53 +17,59 @@
   justify-content: center;
 }
 .labelName {
-  font-size: 14px;
+  font-size: 12px;
   font-weight: bolder;
   margin-bottom: 0px;
 }
-.subContainer,
+
+.labelAndInputContainerProductAdd {
+  margin-bottom: 2%;
+}
 .addButtonContainer {
-  margin: 0px 50px;
+  padding: 2%;
+}
+.productGroupSelect {
+  width: 100%;
+  height: 5vh;
+  font-size: 12px;
 }
 #product-name,
 #product-price,
 #product-quantity,
-#product-description {
-  margin-bottom: 15px;
+#product-description,
+#product-group {
+  margin-bottom: 2%;
 }
 
-/* h3 {
-  color: blue;
-  margin-bottom: 10px;
-  font-weight: bold;
-} */
+#product-name,
+#product-price,
+#product-quantity,
+#product-description,
+#product-group {
+  padding: 0% 2%;
+  font-size: 12px;
+}
+
+.inputAddProduct {
+  width: 100%;
+}
+
 hr {
   border-color: #1bbc1b;
   border-bottom: 1rem;
 }
-/* h5 {
-  text-shadow: none;
-  color: blue;
-} */
-input[type="text"],
-[type="number"],
-textarea {
-  width: 15rem;
-  border-radius: 0.3rem;
-  /* margin-bottom: 0.1rem; */
-}
+
 /************************PRODUCT IMAGE*******************************/
 .img-responsive {
-  width: inherit;
-  height: inherit;
+  width: 24vw;
+  height: 24vw;
   /* object-fit: cover; */
 }
 
 .image-holder {
   margin: auto;
-  width: 250px;
-  height: 250px;
-
+  width: fit-content;
+  height: fit-content;
   border-radius: 5px;
   margin-top: 1rem;
 }
