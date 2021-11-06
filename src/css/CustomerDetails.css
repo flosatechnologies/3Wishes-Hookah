@@ -8,8 +8,8 @@
 .title {
   color: #0e0b0c;
   text-align: center;
-  font-size: 30px;
-  margin: 20px 0px;
+  font-size: 20px;
+  margin: 1vh 0vh;
   font-family: "Amita", cursive;
   text-transform: capitalize;
 }
@@ -19,7 +19,6 @@
 .phoneNumberAndGhPostGpsContainer,
 .residentialAddressMainContainer-CustomerProfile,
 .cityAndRegionContainer {
-  padding: 10px 0px;
 }
 
 /*GPS and location*/
@@ -27,41 +26,55 @@
 .firstNameContainer-CustomerProfile,
 .phoneNumberContainer-CustomerProfile,
 .cityContainer-CustomerProfile {
-  padding-right: 5px;
-  width: inherit;
 }
 .otherNamesContainer-CustomerProfile,
 .ghPostGpsContainer-CustomerProfile,
 .regionContainer-CustomerProfile {
-  width: inherit;
 }
 
-input.phoneNumberInput-CustomerProfile {
-  width: inherit;
-  padding-right: 5px;
+.phoneNumberInput-CustomerProfile {
 }
 
-input.residentialAddressInput-CustomerProfile {
-  width: inherit;
+.residentialAddressInput-CustomerProfile {
 }
-input.ghPostGpsInput-CustomerProfile,
-input.residentialAddressInput-CustomerProfile,
-input.cityInput-CustomerProfile,
-input.firstNameInput-CustomerProfile,
-input.otherNamesInput-CustomerProfile,
-input.phoneNumberInput-CustomerProfile,
-input.cityInput-CustomerProfile,
-select.regionInput-CustomerProfile {
+.ghPostGpsInput-CustomerProfile,
+.residentialAddressInput-CustomerProfile,
+.cityInput-CustomerProfile,
+.firstNameInput-CustomerProfile,
+.otherNamesInput-CustomerProfile,
+.phoneNumberInput-CustomerProfile,
+.cityInput-CustomerProfile {
   background-color: transparent;
   border-style: solid;
   border-width: 1px;
   border-color: black;
   border-radius: 3px;
+  color: black;
 
   /* width: inherit; */
 }
+
+select.regionInput-CustomerProfile {
+  background-color: transparent;
+  border-style: none;
+  border-width: 1px;
+  border-color: black;
+  border-radius: 3px;
+  outline: none;
+}
+
+.regionInputContainer-CustomerProfile {
+  text-align: center;
+  border-style: solid;
+  border-width: 1px;
+  border-color: black;
+  border-radius: 3px;
+  padding: 0.4vw 2vw;
+  outline: none;
+}
 .labels-CustomerProfile {
   color: white;
+  margin-bottom: 0vh;
 }
 
 .residentialAddressContainer-CustomerProfile {
@@ -71,22 +84,21 @@ select.regionInput-CustomerProfile {
 } */
 
 select.regionInput-CustomerProfile {
-  width: inherit;
   padding-top: 1.5px;
   padding-bottom: 1.5px;
 }
 .submit {
-  margin-top: 30px;
+  margin-top: 4vh;
   text-transform: uppercase;
+  text-align: center;
   font-size: 15px;
   border-radius: 5px;
   color: #fff;
   font-weight: bold;
-  padding: 10px 60px;
   background: linear-gradient(to right, #262927, #101310);
   box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
     rgba(0, 0, 0, 0.22) 0px 15px 12px;
-  /* margin: auto; */
+
   outline: none;
   border: none;
   cursor: pointer;

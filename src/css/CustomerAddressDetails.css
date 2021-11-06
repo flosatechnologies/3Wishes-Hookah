@@ -8,7 +8,7 @@
 .title-CustAddress {
   color: #0e0b0c;
   text-align: center;
-  font-size: 30px;
+  font-size: 25px;
   margin: 20px 0px;
   font-family: "Amita", cursive;
   text-transform: capitalize;
@@ -26,34 +26,31 @@
 .firstNameContainer-CustAddress,
 .phoneNumberContainer-CustAddress,
 .cityContainer-CustAddress {
-  padding-right: 20px;
 }
-div.ghPostGpsInput-CustAddress,
-div.residentialAddressInput-CustAddress,
-div.cityInput-CustAddress,
-div.firstNameInput-CustAddress,
-div.otherNamesInput-CustAddress,
-div.phoneNumberInput-CustAddress,
-div.cityInput-CustAddress,
-div.regionInput-CustAddress {
+.ghPostGpsInput-CustAddress,
+.residentialAddressInput-CustAddress,
+.cityInput-CustAddress,
+.firstNameInput-CustAddress,
+.otherNamesInput-CustAddress,
+.phoneNumberInput-CustAddress,
+.cityInput-CustAddress,
+.regionInput-CustAddress {
   border-top-style: solid;
   border-top-width: 1px;
   border-top-color: white;
-  width: inherit;
+  font-size: 18px;
   color: black;
 }
 .labels-CustAddress {
   color: white;
-  font-size: 20px;
+  font-size: 16px;
+  margin-bottom: 0px;
 }
 div.residentialAddressInput-CustAddress {
-  width: inherit;
 }
 div.phoneNumberInput-CustAddress {
-  width: inherit;
 }
-select.regionInput-CustAddress {
-  width: inherit;
+.regionInput-CustAddress {
   padding-top: 1.5px;
   padding-bottom: 1.5px;
 }

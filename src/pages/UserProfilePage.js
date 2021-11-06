@@ -76,121 +76,128 @@ class UserProfile extends Component {
     // const product = prod;
     // const total = tot;
     return (
-      <div>
-        <Container fluid={true} className="userProfileContainer">
-          <Row>
-            <Col
-              xxl={{ offset: 5, span: 3 }}
-              xl={{ offset: 5, span: 3 }}
-              lg={{ offset: 5, span: 3 }}
-              md={{ offset: 5, span: 3 }}
-              sm={{ offset: 5, span: 3 }}
-              xs={{ offset: 5, span: 3 }}
+      <Container fluid={true} className="userProfileContainer">
+        <Row>
+          <Col
+            xxl={{ offset: 2, span: 8 }}
+            xl={{ offset: 2, span: 8 }}
+            lg={{ offset: 2, span: 8 }}
+            md={{ offset: 2, span: 8 }}
+            sm={{ offset: 1, span: 9 }}
+            xs={{ offset: 1, span: 9 }}
+          >
+            <div className="welcomeTextAndUserContainer">
+              <span className="welcomeText">welcome, </span>
+              <span className="welcomeUser">
+                {this.props.allTheState.auth.displayName}
+              </span>
+            </div>
+          </Col>
+          <Col
+            xxl={2}
+            xl={2}
+            lg={2}
+            md={2}
+            sm={2}
+            xs={2}
+            style={{
+              textAlign: "right",
+            }}
+          >
+            <button
+              onClick={() => {
+                this.props.history.goBack();
+              }}
+              style={{
+                marginTop: "15px",
+                borderStyle: "none",
+                backgroundColor: "transparent",
+                textAlign: "right",
+              }}
             >
-              <h4 className="header">Your Profile</h4>
-            </Col>
-            <Col
-              xxl={{ offset: 3, span: 1 }}
-              xl={{ offset: 3, span: 1 }}
-              lg={{ offset: 3, span: 1 }}
-              md={{ offset: 3, span: 1 }}
-              sm={{ offset: 3, span: 1 }}
-              xs={{ offset: 3, span: 1 }}
-            >
-              <button
-                onClick={() => {
-                  this.props.history.goBack();
-                }}
-                style={{
-                  marginTop: "15px",
-                  borderStyle: "none",
-                  backgroundColor: "transparent",
-                }}
-              >
-                <MdKeyboardBackspace size="1.6em" />
-              </button>
-            </Col>
-            <hr />
-          </Row>
-          <Row>
-            <Col
-              xxl={{ offset: 4, span: 4 }}
-              xl={{ offset: 4, span: 4 }}
-              lg={{ offset: 3, span: 6 }}
-              md={{ offset: 2, span: 8 }}
-              sm={{ offset: 2, span: 8 }}
-              xs={{ offset: 1, span: 10 }}
-              className=" theButtonsMainContainer"
-            >
-              <Row className="theButtonsContainer">
-                <Col className="theProfileContainer">
-                  <button
-                    onClick={() => {
-                      this.setState({
-                        button: {
-                          profileBtn: "on",
-                          editProfileBtn: "off",
-                          deliveryBtn: "off",
-                        },
-                      });
-                    }}
-                    className="pro-edit"
-                    Id={this.state.button.profileBtn}
-                  >
-                    Profile
-                  </button>
-                </Col>
-                <Col className="theEditProfileContainer">
-                  <button
-                    onClick={() => {
-                      this.setState({
-                        button: {
-                          profileBtn: "off",
-                          editProfileBtn: "on",
-                          deliveryBtn: "off",
-                        },
-                      });
-                    }}
-                    className="pro-editt"
-                    Id={this.state.button.editProfileBtn}
-                  >
-                    Edit Profile
-                  </button>
-                </Col>
-                <Col className="theEditProfileContainer">
-                  <button
-                    onClick={() => {
-                      this.setState({
-                        button: {
-                          profileBtn: "off",
-                          editProfileBtn: "off",
-                          deliveryBtn: "on",
-                        },
-                      });
-                    }}
-                    className="pro-editt"
-                    Id={this.state.button.deliveryBtn}
-                  >
-                    Delivery
-                  </button>
-                </Col>
-              </Row>
-            </Col>
-          </Row>
-          <Row>
-            <Col
-              xxl={{ offset: 3, span: 6 }}
-              xl={{ offset: 3, span: 6 }}
-              lg={{ offset: 3, span: 6 }}
-              md={{ offset: 3, span: 6 }}
-              sm={12}
-              xs={12}
-            >
-              {this.renderComponent()}
-            </Col>
-          </Row>
-        </Container>
-      </div>
+              <MdKeyboardBackspace size="1.6em" />
+            </button>
+          </Col>
+          <hr />
+        </Row>
+        <Row>
+          <Col
+            xxl={{ offset: 4, span: 4 }}
+            xl={{ offset: 4, span: 4 }}
+            lg={{ offset: 3, span: 6 }}
+            md={{ offset: 2, span: 8 }}
+            sm={{ offset: 1, span: 10 }}
+            xs={{ offset: 1, span: 10 }}
+            className=" theButtonsMainContainer"
+          >
+            <Row className="theButtonsContainer">
+              <Col className="theProfileContainer">
+                <button
+                  onClick={() => {
+                    this.setState({
+                      button: {
+                        profileBtn: "on",
+                        editProfileBtn: "off",
+                        deliveryBtn: "off",
+                      },
+                    });
+                  }}
+                  className="pro-edit"
+                  Id={this.state.button.profileBtn}
+                >
+                  Profile
+                </button>
+              </Col>
+              <Col className="theEditProfileContainer">
+                <button
+                  onClick={() => {
+                    this.setState({
+                      button: {
+                        profileBtn: "off",
+                        editProfileBtn: "on",
+                        deliveryBtn: "off",
+                      },
+                    });
+                  }}
+                  className="pro-editt"
+                  Id={this.state.button.editProfileBtn}
+                >
+                  Edit Profile
+                </button>
+              </Col>
+              <Col className="theEditProfileContainer">
+                <button
+                  onClick={() => {
+                    this.setState({
+                      button: {
+                        profileBtn: "off",
+                        editProfileBtn: "off",
+                        deliveryBtn: "on",
+                      },
+                    });
+                  }}
+                  className="pro-editt"
+                  Id={this.state.button.deliveryBtn}
+                >
+                  Delivery
+                </button>
+              </Col>
+            </Row>
+          </Col>
+        </Row>
+        <Row>
+          <Col
+            xxl={{ offset: 3, span: 6 }}
+            xl={{ offset: 3, span: 6 }}
+            lg={{ offset: 3, span: 6 }}
+            md={{ offset: 3, span: 6 }}
+            sm={{ offset: 1, span: 10 }}
+            xs={{ offset: 1, span: 10 }}
+          >
+            {this.renderComponent()}
+          </Col>
+        </Row>
+      </Container>
     );
   }
 }
