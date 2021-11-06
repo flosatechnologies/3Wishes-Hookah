@@ -26,6 +26,7 @@ class Dashboard extends Component {
         payment: "inactive",
         delivery: "inactive",
         users: "inactive",
+        videos: "inactive",
         logout: "inactive",
       },
       adminFirstName: "",
@@ -68,6 +69,14 @@ class Dashboard extends Component {
         );
       }
       if (this.state.buttonState.users === "active") {
+        return (
+          <div>
+            <UsersScreenDashboard adminUsers={this.props.state.users.users} />
+          </div>
+        );
+      }
+
+      if (this.state.buttonState.videos === "active") {
         return (
           <div>
             <UsersScreenDashboard adminUsers={this.props.state.users.users} />
@@ -168,6 +177,7 @@ class Dashboard extends Component {
                       delivery: "inactive",
                       logout: "inactive",
                       product: "active",
+                      videos: "inactive",
                       users: "inactive",
                     },
                   });
@@ -188,6 +198,7 @@ class Dashboard extends Component {
                       logout: "inactive",
                       payment: "active",
                       users: "inactive",
+                      videos: "inactive",
                     },
                   });
                 }}
@@ -207,6 +218,7 @@ class Dashboard extends Component {
                       payment: "inactive",
                       logout: "inactive",
                       delivery: "active",
+                      videos: "inactive",
                       users: "inactive",
                     },
                   });
@@ -227,6 +239,7 @@ class Dashboard extends Component {
                       payment: "inactive",
                       delivery: "inactive",
                       logout: "inactive",
+                      videos: "inactive",
                       users: "active",
                     },
                   });
@@ -248,7 +261,31 @@ class Dashboard extends Component {
                       product: "inactive",
                       payment: "inactive",
                       delivery: "inactive",
+                      logout: "inactive",
                       users: "inactive",
+                      videos: "active",
+                    },
+                  });
+                  // this.props.logoutUser();
+                }}
+                id={this.state.buttonState.videos}
+                className="dashboardButtons"
+              >
+                <BsPerson style={{ marginRight: 8 }} />
+                Videos
+              </button>
+            </Row>
+
+            <Row>
+              <button
+                onClick={() => {
+                  this.setState({
+                    buttonState: {
+                      product: "inactive",
+                      payment: "inactive",
+                      delivery: "inactive",
+                      users: "inactive",
+                      videos: "inactive",
                       logout: "active",
                     },
                   });

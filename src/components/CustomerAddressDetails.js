@@ -1,7 +1,10 @@
 import React, { Component } from "react";
 import "../css/CustomerAddressDetails.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Container, Row, Col } from "react-bootstrap";
+import Form from "react-bootstrap/Form";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 import {
   getOtherCustomerInfo,
   getCustomerInfo,
@@ -60,26 +63,31 @@ class CustomerAddressDetails extends Component {
         style={{
           background: "#fff",
           width: "inherit",
-          minHeight: "80vh",
-          padding: "15px",
+          // minHeight: "100vh",
+          padding: "6vh 2vh",
         }}
       >
         <Row>
           <Col
+            xxl={6}
+            xl={12}
+            lg={12}
+            md={12}
+            sm={12}
+            xs={12}
             style={{
               background: "linear-gradient(to right, #64b375, #1bdd45)",
-              width: "max-content ",
+
               borderRadius: "5px",
-              height: "fit-content",
-              padding: "20px 10px",
+              padding: "5px 5px",
             }}
-            className=" wrapper"
+            // className=" wrapper"
           >
             <Row>
               <Col className="title-CustAddress">Delivery Information</Col>
             </Row>
 
-            <form onSubmit={this.handleSubmit}>
+            <Form onSubmit={this.handleSubmit}>
               <Container fluid={true} className="form-wrapper">
                 <Row className="firstAndOtherNamesContainer-CustAddress">
                   <Col
@@ -91,11 +99,14 @@ class CustomerAddressDetails extends Component {
                     xs={12}
                     className="firstNameContainer-CustAddress"
                   >
-                    <Row className="labels-CustAddress">First Name</Row>
-                    <Row className="firstNameInput-CustAddress">
-                      {" "}
-                      {this.state.firstName}
-                    </Row>
+                    <Form.Group>
+                      <Form.Label className="labels-CustAddress">
+                        First Name
+                      </Form.Label>
+                      <Form.Text className="firstNameInput-CustAddress">
+                        {this.state.firstName}
+                      </Form.Text>
+                    </Form.Group>
                   </Col>
 
                   <Col
@@ -107,10 +118,14 @@ class CustomerAddressDetails extends Component {
                     xs={12}
                     className="otherNamesContainer-CustAddress"
                   >
-                    <Row className="labels-CustAddress">Other Names</Row>
-                    <Row className="otherNamesInput-CustAddress">
-                      {this.state.otherNames}
-                    </Row>
+                    <Form.Group>
+                      <Form.Label className="labels-CustAddress">
+                        Other Names
+                      </Form.Label>
+                      <Form.Text className="otherNamesInput-CustAddress">
+                        {this.state.otherNames}
+                      </Form.Text>
+                    </Form.Group>
                   </Col>
                 </Row>
                 <Row className="phoneNumberAndGhPostGpsContainer-CustAddress">
@@ -123,10 +138,14 @@ class CustomerAddressDetails extends Component {
                     xs={12}
                     className="phoneNumberContainer-CustAddress"
                   >
-                    <Row className="labels-CustAddress">Phone Number</Row>
-                    <Row className="phoneNumberInput-CustAddress">
-                      {this.state.phoneNumber}{" "}
-                    </Row>
+                    <Form.Group>
+                      <Form.Label className="labels-CustAddress">
+                        Phone Number
+                      </Form.Label>
+                      <Form.Text className="phoneNumberInput-CustAddress">
+                        {this.state.phoneNumber}{" "}
+                      </Form.Text>
+                    </Form.Group>
                   </Col>
 
                   <Col
@@ -138,20 +157,22 @@ class CustomerAddressDetails extends Component {
                     xs={12}
                     className="ghPostGPSContainer-CustAddress"
                   >
-                    <Row className="labels-CustAddress">Ghana Post GPS</Row>
-                    <Row className="ghPostGpsInput-CustAddress">
+                    <Form.Label className="labels-CustAddress">
+                      Ghana Post GPS
+                    </Form.Label>
+                    <Form.Text className="ghPostGpsInput-CustAddress">
                       {this.state.ghanaPostGps}
-                    </Row>
+                    </Form.Text>
                   </Col>
                 </Row>
                 <Row>
                   <Col className="residentialAddressContainer-CustAddress">
-                    <Row className="labels-CustAddress">
+                    <Form.Label className="labels-CustAddress">
                       Residential Address
-                    </Row>
-                    <Row className="residentialAddressInput-CustAddress">
+                    </Form.Label>
+                    <Form.Text className="residentialAddressInput-CustAddress">
                       {this.state.residentialAddress}
-                    </Row>
+                    </Form.Text>
                   </Col>
                 </Row>
 
@@ -165,10 +186,12 @@ class CustomerAddressDetails extends Component {
                     xs={12}
                     className="cityContainer-CustAddress"
                   >
-                    <Row className="labels-CustAddress">Town/City</Row>
-                    <Row className="cityInput-CustAddress">
+                    <Form.Label className="labels-CustAddress">
+                      Town/City
+                    </Form.Label>
+                    <Form.Text className="cityInput-CustAddress">
                       {this.state.city}
-                    </Row>
+                    </Form.Text>
                   </Col>
 
                   <Col
@@ -180,14 +203,16 @@ class CustomerAddressDetails extends Component {
                     xs={12}
                     className="regionContainer-CustAddress"
                   >
-                    <Row className="labels-CustAddress">Region</Row>
-                    <Row className="regionInput-CustAddress">
+                    <Form.Label className="labels-CustAddress">
+                      Region
+                    </Form.Label>
+                    <Form.Text className="regionInput-CustAddress">
                       {this.state.region}{" "}
-                    </Row>
+                    </Form.Text>
                   </Col>
                 </Row>
               </Container>
-            </form>
+            </Form>
           </Col>
         </Row>
       </Container>
