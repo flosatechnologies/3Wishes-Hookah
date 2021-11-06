@@ -12,7 +12,7 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { Component } from "react";
 import HeaderPage from "./HeaderPage";
-import FooterPage from "./FooterPage";
+import Footer from "../components/FooterComponent";
 import { Helmet } from "react-helmet";
 
 class LogIn extends Component {
@@ -114,7 +114,7 @@ class LogIn extends Component {
             </Col>
           </Row>
         </Container>
-        <FooterPage />
+        <Footer />
       </div>
     );
   }

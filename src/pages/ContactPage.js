@@ -1,9 +1,9 @@
 import React from "react";
 import "../css/contact.scss";
 import Contact from "../components/Contact";
-import FooterPage from "../components/FooterPage";
 import HeaderPage from "../components/HeaderPage";
 import { Helmet } from "react-helmet";
+import Footer from "../components/FooterComponent";
 
 function ContactPage() {
   return (
@@ -17,7 +17,7 @@ function ContactPage() {
         <Contact />
       </div>
 
-      <FooterPage />
+      <Footer />
     </div>
   );
 }
