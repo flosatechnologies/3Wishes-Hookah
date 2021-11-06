@@ -7,6 +7,15 @@ import {
   FooterLink,
   Heading,
 } from "./FooterStyles";
+import {
+  ArrowRight,
+  Geo,
+  GeoAlt,
+  Phone,
+  Telephone,
+  Whatsapp,
+} from "react-bootstrap-icons";
+
 import "../css/FooterComponent.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Col } from "react-bootstrap";
@@ -42,6 +51,17 @@ const Footer = () => {
                 East Legon, Accra
               </span>
             </i>
+            <a
+              href="tel:+233500205795"
+              style={{
+                color: "white",
+                textDecoration: "none",
+                marginTop: "15px",
+              }}
+            >
+              <Phone color="white" size={20} />
+              +233 500 205 795
+            </a>
           </Column>
           <Column className="social-media">
             {/*<Heading>Payment Method</Heading>
