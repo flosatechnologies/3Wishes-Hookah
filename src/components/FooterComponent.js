@@ -11,6 +11,7 @@ import "../css/FooterComponent.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Col } from "react-bootstrap";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import logo from "../assets/images/logo.png";
 
 const Footer = () => {
   return (
@@ -18,10 +19,86 @@ const Footer = () => {
       <Container>
         <Row>
           <Column className="quick-links">
-            <Heading>Quick Links</Heading>
-            <FooterLink href="#">Shop</FooterLink>
-            <FooterLink href="#">Contact</FooterLink>
+            {/*<Heading>3wishes Lounge</Heading>*/}
+            <img
+              style={{ marginBottom: "10px" }}
+              alt=""
+              width="120"
+              height="120"
+              src={logo}
+            />
+            <i
+              class="fa fa-map-marker"
+              style={{ color: "#fff" }}
+              aria-hidden="true"
+            >
+              <span
+                style={{
+                  marginLeft: "10px",
+                  fontSize: "15px",
+                  fontFamily: "Roboto",
+                }}
+              >
+                East Legon, Accra
+              </span>
+            </i>
           </Column>
+          <Column className="social-media">
+            {/*<Heading>Payment Method</Heading>
+            <i
+              className="money"
+              style={{
+                color: "#fff",
+                fontSize: "15px",
+                fontFamily: "Roboto",
+                fontStyle: "normal",
+              }}
+              aria-hidden="true"
+            >
+              MTN MOMO
+            </i>
+            <FooterLink href="#"></FooterLink>
+            <i
+              className="money"
+              style={{
+                color: "#fff",
+                fontSize: "15px",
+                fontFamily: "Roboto",
+                fontStyle: "normal",
+              }}
+              aria-hidden="true"
+            >
+              Vodafone Cash
+            </i>
+            <FooterLink href="#"></FooterLink>
+            <i
+              className="money"
+              style={{
+                color: "#fff",
+                fontSize: "15px",
+                fontFamily: "Roboto",
+                fontStyle: "normal",
+              }}
+              aria-hidden="true"
+            >
+              AirtelTigo Cash
+            </i>
+            <FooterLink href="#"></FooterLink>
+            <i
+              class="money"
+              style={{
+                color: "#fff",
+                fontSize: "15px",
+                fontFamily: "Roboto",
+                fontStyle: "normal",
+              }}
+              aria-hidden="true"
+            >
+              Bitcoin
+            </i>
+            <FooterLink href="#"></FooterLink>*/}
+          </Column>
+
           <Column className="social-media">
             <Heading>Payment Method</Heading>
             <i
@@ -75,29 +152,6 @@ const Footer = () => {
             >
               Bitcoin
             </i>
-            <FooterLink href="#"></FooterLink>
-          </Column>
-
-          <Column className="social-media">
-            <Heading>Location</Heading>
-            <i
-              class="fa fa-map-marker"
-              style={{ color: "#fff" }}
-              aria-hidden="true"
-            >
-              <span
-                style={{
-                  marginLeft: "10px",
-                  fontSize: "15px",
-                  fontFamily: "Roboto",
-                }}
-              >
-                East Legon, Accra
-              </span>
-            </i>
-            <FooterLink href="#"></FooterLink>
-            <FooterLink href="#"></FooterLink>
-            <FooterLink href="#"></FooterLink>
             <FooterLink href="#"></FooterLink>
           </Column>
 
