@@ -6,7 +6,8 @@
 
 @media (max-width: 768px) {
   .addProductButton {
-    font-size: 10px;
+    font-size: 1.4vw;
+    padding: 0.2vw;
   }
 }
 
@@ -22,7 +23,6 @@
 .addProductButton,
 #inactivebtn {
   background-color: transparent;
-  line-height: 18px;
   border-style: solid;
   padding: 2% 3%;
   border-radius: 5px;

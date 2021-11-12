@@ -21,8 +21,8 @@ const Banner = () => {
           <BsGift size="70px" />
         </div>
         <div className="text-white fw-bold pt-2">
-          <h5 className="text-center text-white fw-bold">Free Delivery</h5>
-          <p className="text-center ">For Order GH{"\u20B5 "}200 & Above</p>
+          <h5 className="text-center text-white fw-bold">Safe Delivery</h5>
+          <p className="text-center ">well secured packaging and delivery</p>
         </div>
       </div>
 
@@ -31,8 +31,10 @@ const Banner = () => {
           <BsClockHistory size="70px" />
         </div>
         <div className="text-white fw-bold pt-2">
-          <h5 className="text-center text-white fw-bold">Free Delivery</h5>
-          <p className="text-center ">For Order GH{"\u20B5 "}200 & Above</p>
+          <h5 className="text-center text-white fw-bold">Timely Delivery</h5>
+          <p className="text-center ">
+            get delivery that is always within time
+          </p>
         </div>
       </div>
     </div>

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "../css/Dashboard.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BsArchive, BsCreditCard, BsPerson } from "react-icons/bs";
-import { RiTruckLine } from "react-icons/ri";
+import { RiTruckLine, RiVideoLine } from "react-icons/ri";
 import { AiOutlineLogout } from "react-icons/ai";
 import logo from "../assets/images/logo1.png";
 import userImage from "../assets/images/contact.jpg";
@@ -10,6 +10,7 @@ import { getAllUsers } from "../Store/usersActions.js";
 import PaymentScreen from "./PaymentScreen";
 import ProductsScreenDashboard from "./ProductsScreenDashboard";
 import DeliveryScreen from "./DeliveryScreen";
+import VideoScreenDashboard from "../components/VideoScreenDashboard";
 import { connect } from "react-redux";
 import { logoutUser } from "../Store/authActions";
 import { getAllProducts } from "../Store/productActions";
@@ -79,7 +80,7 @@ class Dashboard extends Component {
       if (this.state.buttonState.videos === "active") {
         return (
           <div>
-            <UsersScreenDashboard adminUsers={this.props.state.users.users} />
+            <VideoScreenDashboard />
           </div>
         );
       }
@@ -185,7 +186,11 @@ class Dashboard extends Component {
                 id={this.state.buttonState.product}
                 className="dashboardButtons"
               >
-                <BsArchive style={{ marginRight: 7 }} /> Product
+                <BsArchive
+                  className="dashboardBtnIcons"
+                  style={{ marginRight: 7 }}
+                />{" "}
+                Product
               </button>
             </Row>
             <Row>
@@ -205,7 +210,10 @@ class Dashboard extends Component {
                 id={this.state.buttonState.payment}
                 className="dashboardButtons"
               >
-                <BsCreditCard style={{ marginRight: 7 }} />
+                <BsCreditCard
+                  className="dashboardBtnIcons"
+                  style={{ marginRight: 7 }}
+                />
                 Payment
               </button>
             </Row>
@@ -226,7 +234,10 @@ class Dashboard extends Component {
                 id={this.state.buttonState.delivery}
                 className="dashboardButtons"
               >
-                <RiTruckLine style={{ marginRight: 8 }} />
+                <RiTruckLine
+                  className="dashboardBtnIcons"
+                  style={{ marginRight: 8 }}
+                />
                 Delivery
               </button>
             </Row>
@@ -248,7 +259,10 @@ class Dashboard extends Component {
                 id={this.state.buttonState.users}
                 className="dashboardButtons"
               >
-                <BsPerson style={{ marginRight: 8 }} />
+                <BsPerson
+                  className="dashboardBtnIcons"
+                  style={{ marginRight: 8 }}
+                />
                 Users
               </button>
             </Row>
@@ -271,7 +285,10 @@ class Dashboard extends Component {
                 id={this.state.buttonState.videos}
                 className="dashboardButtons"
               >
-                <BsPerson style={{ marginRight: 8 }} />
+                <RiVideoLine
+                  className="dashboardBtnIcons"
+                  style={{ marginRight: 8 }}
+                />
                 Videos
               </button>
             </Row>
@@ -293,7 +310,10 @@ class Dashboard extends Component {
                 id={this.state.buttonState.logout}
                 className="dashboardButtons"
               >
-                <AiOutlineLogout style={{ marginRight: 8 }} />
+                <AiOutlineLogout
+                  className="dashboardBtnIcons"
+                  style={{ marginRight: 8 }}
+                />
                 Logout
               </button>
             </Row>

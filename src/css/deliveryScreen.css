@@ -7,13 +7,13 @@
   div.deliveryScreenHeaderLocation,
   div.deliveryScreenHeaderAmount,
   div.deliveryScreenHeaderDelivery {
-    font-size: 4px;
+    font-size: 1vw;
   }
 }
 
-.container-fluid {
+/* .container-fluid {
   font-family: "Roboto", sans-serif;
-}
+} */
 
 #edit {
   text-transform: capitalize;
@@ -24,25 +24,25 @@
 }
 
 .deliveryScreenHeaderId {
-  font-size: 13px;
+  font-size: 1vw;
   font-weight: bolder;
   text-align: left;
 }
 
 .deliveryScreenHeaderProducts {
-  font-size: 13px;
+  font-size: 1vw;
   font-weight: bolder;
   text-align: left;
 }
 
 .deliveryScreenHeaderCustomer {
-  font-size: 13px;
+  font-size: 1vw;
   font-weight: bolder;
   text-align: left;
 }
 
 .deliveryScreenHeaderAmount {
-  font-size: 13px;
+  font-size: 1vw;
   font-weight: bolder;
   text-align: left;
 }

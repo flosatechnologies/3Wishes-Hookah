@@ -6,17 +6,16 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import HeaderPage from "../components/HeaderPage";
 import FooterPage from "../components/FooterPage";
 import { getAllProducts } from "../Store/productActions";
+import { getVideos } from "../Store/videoActions";
 import { AddToCart } from "../Store/cartActions";
 import { connect } from "react-redux";
 import { Container, Col, Row } from "react-bootstrap";
 import { Helmet } from "react-helmet";
-
 import ProductAdd from "../components/ProductAdd";
 import Video from "../components/Video";
 import Banner from "../components/Banner";
 
 import FloatingWhatsApp from "../components/WhatsAppComponent";
-
 
 class ShopPage extends React.Component {
   constructor(props) {
@@ -28,6 +27,7 @@ class ShopPage extends React.Component {
 
   componentDidMount() {
     this.props.getAllProducts();
+    this.props.getVideos();
   }
 
   handleSelecteId = (theId) => {
@@ -39,13 +39,19 @@ class ShopPage extends React.Component {
     return (
       <div>
         <HeaderPage />
-        <ProductAdd />
-        <Banner />
-        <Video />
         <Helmet>
           <title>Shop - 3Wishesgh</title>
           <meta name="description" content="3Wishes Hookah Shop" />
         </Helmet>
+        <ProductAdd />
+        <Banner />
+        <div>
+          {this.props.videos.videos.map((vid) => {
+            return <Video url={vid.url} />;
+          })}
+          <Video />
+        </div>
+
         <div className="container">
           <div className="row">
             <div
@@ -112,12 +118,14 @@ const mapStateToProps = (state) => {
   return {
     redata: state,
     products: state.products.products,
+    videos: state.videos,
   };
 };
 const mapDispatchToProps = () => {
   return {
     getAllProducts,
     AddToCart,
+    getVideos,
   };
 };
 

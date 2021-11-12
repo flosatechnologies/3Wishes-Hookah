@@ -1,4 +1,4 @@
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
   div.headerIndex,
   div.headerPaymentId,
   div.headerCustomer,
@@ -7,7 +7,7 @@
     font-size: 5px;
     padding-top: 5px;
   }
-}
+} */
 
 .filterSection {
   height: fit-content;
@@ -52,37 +52,33 @@ div.headerSection {
 }
 .headerIndex {
   font-weight: bold;
-  padding-right: 8px;
+
   text-align: left;
-  padding-left: 1px;
-  font-size: 14px;
+  font-size: 1.4vw;
 }
 .headerPaymentId {
   font-weight: bold;
-  font-size: 14px;
-  text-align: left;
+  font-size: 1.4vw;
 }
 
 .headerCustomer {
   font-weight: bold;
-  font-size: 14px;
-  width: inherit;
+  font-size: 1.4vw;
   text-overflow: ellipsis;
   overflow: hidden;
   text-align: left;
 }
 
-.headerAmount {
+div.headerAmount {
   font-weight: bold;
-  font-size: 14px;
-  width: inherit;
+  font-size: 1.4vw;
   text-overflow: ellipsis;
   overflow: hidden;
   text-align: left;
 }
-.headerTime {
+div.headerTime {
   font-weight: bold;
-  font-size: 14px;
+  font-size: 1.4vw;
 }
 .paymentScreenBackButton {
   background-color: transparent;

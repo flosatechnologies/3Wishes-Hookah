@@ -41,17 +41,17 @@ function PaymentComponent(props) {
         >
           {props.amountPaid}
         </Col>
-        <Col
-          xxl={4}
-          xl={4}
-          lg={4}
-          md={4}
-          sm={4}
-          xs={4}
-          className="Time-PayComponent"
-        >
+        <Col xxl={4} xl={4} lg={4} md={4} sm={4} xs={4}>
           <Row>
-            <Col xxl={8} xl={8} lg={8} md={8} sm={8} xs={8}>
+            <Col
+              className="Time-PayComponent"
+              xxl={8}
+              xl={8}
+              lg={8}
+              md={8}
+              sm={8}
+              xs={8}
+            >
               {props.time}
             </Col>
             <Col xxl={4} xl={4} lg={4} md={4} sm={4} xs={4}>
@@ -59,10 +59,9 @@ function PaymentComponent(props) {
                 onClick={() => {
                   props.Change("yes", props.Id);
                 }}
-                className="viewMore-PayComponent"
                 style={{ backgroundColor: "transparent", borderStyle: "none" }}
               >
-                <AiOutlineEye />
+                <AiOutlineEye className="viewMore-PayComponent" />
               </button>
             </Col>
           </Row>

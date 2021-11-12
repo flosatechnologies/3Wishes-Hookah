@@ -82,10 +82,9 @@ function DeliveryComponent(props) {
             onClick={() => {
               props.alteration("yes", props.Id);
             }}
-            className="viewMoreButton-deliveryComponent"
             style={{ backgroundColor: "transparent", borderStyle: "none" }}
           >
-            <AiOutlineEye size="12px" />
+            <AiOutlineEye className="viewMoreButton-deliveryComponent" />
           </button>
         </Col>
       </Row>
