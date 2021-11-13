@@ -36,9 +36,27 @@ export const addTransaction = (Id, transactionInfo) => {
         location: transactionInfo.location,
         time: transactionInfo.time,
         deliveryStatus: "pending",
+        deliveryInfo: "",
       })
       .then(() => {
         console.log("transaction saved successfully");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+};
+
+export const addDeliveryInfo = (Id, deliveryInfo) => {
+  return (dispatch, state, { getFirestore }) => {
+    getFirestore()
+      .collection("transaction")
+      .doc(Id)
+      .update({
+        deliveryInfo: deliveryInfo,
+      })
+      .then(() => {
+        console.log("transaction info added successfully");
       })
       .catch((err) => {
         console.log(err);

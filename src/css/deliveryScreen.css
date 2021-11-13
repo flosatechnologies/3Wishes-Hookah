@@ -27,26 +27,42 @@
   font-size: 1vw;
   font-weight: bolder;
   text-align: left;
+  padding: 0.2vw;
 }
 
 .deliveryScreenHeaderProducts {
   font-size: 1vw;
   font-weight: bolder;
   text-align: left;
+  padding: 0.2vw;
 }
 
 .deliveryScreenHeaderCustomer {
   font-size: 1vw;
   font-weight: bolder;
   text-align: left;
+  padding: 0.2vw;
 }
 
+.deliveryScreenHeaderLocation {
+  font-weight: bold;
+  font-size: 1vw;
+  text-align: left;
+  padding: 0.2vw;
+}
 .deliveryScreenHeaderAmount {
   font-size: 1vw;
   font-weight: bolder;
   text-align: left;
+  padding: 0.2vw;
 }
 
+.deliveryScreenHeaderDelivery {
+  font-weight: bold;
+  font-size: 1vw;
+  text-align: left;
+  padding: 0.2vw;
+}
 .deliveryFilterSection {
   height: fit-content;
   padding: 10px 2px;
@@ -114,30 +130,6 @@ div.filterButtonContainer {
   padding: 0px 12px;
 }
 
-.deliveryScreenHeaderLocation {
-  font-weight: bold;
-  font-size: 14px;
-  /* text-overflow: ellipsis;
-  overflow: hidden;
-  background-color: blue; */
-}
-
-.deliveryScreenHeaderDelivery {
-  font-weight: bold;
-  font-size: 14px;
-}
-
-.headerAmount {
-  font-weight: bold;
-  font-size: 14px;
-  /* width: inherit;
-  text-overflow: ellipsis;
-  overflow: hidden; */
-}
-.headerTime {
-  font-weight: bold;
-  font-size: 14px;
-}
 .paymentScreenBackButton {
   background-color: transparent;
   border-style: none;

@@ -18,12 +18,12 @@
 
 .orderId-deliveryComponent {
   font-size: 1vw;
-  padding: 0vw;
+  padding: 0.2vw;
 }
 
 .products-deliveryComponent {
   font-size: 1vw;
-  padding: 0vw;
+  padding: 0.2vw;
   text-overflow: ellipsis;
 
   overflow: hidden;
@@ -31,7 +31,7 @@
 
 .delivery-deliveryComponent {
   font-size: 1vw;
-  padding: 0vw;
+  padding: 0.2vw;
   color: forestgreen;
 
   /* text-overflow: ellipsis;
@@ -41,20 +41,17 @@
 
 .location-deliveryComponent {
   font-size: 1vw;
-  padding: 0vw;
-  text-overflow: ellipsis;
-
-  overflow: hidden;
+  padding: 0.2vw;
 }
 
 .customer-deliveryComponent {
   font-size: 1vw;
-  padding: 0vw;
+  padding: 0.2vw;
 }
 
 .amount-deliveryComponent {
   font-size: 1vw;
-  padding: 0vw;
+  padding: 0.2vw;
 }
 
 .viewMoreButton-deliveryComponent {
