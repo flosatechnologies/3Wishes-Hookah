@@ -64,6 +64,7 @@ class LogIn extends Component {
                 <h3 className="loginHeaderText">Login</h3>
               </Row>
               <Row>
+
                 <Form onSubmit={this.handleSubmit} className="form-wrapper">
                   <Form.Group className="labelAndInput-Login">
                     <Form.Label className="label-Login">Email</Form.Label>
