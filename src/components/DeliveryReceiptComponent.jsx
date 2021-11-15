@@ -1,5 +1,8 @@
 import React, { Component } from "react";
-import { Container, Row, Col } from "react-bootstrap";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import Form from "react-bootstrap/Form";
 import { connect } from "react-redux";
 import "../css/deliveryReceiptComponent.css";
 import DeliveryComponentCustomer from "./DeliveryComponentCustomer";
@@ -10,13 +13,18 @@ export class DeliveryReceiptComponent extends Component {
     super(props);
     this.state = {
       receive: "off",
+      deliveryInfo: "off",
       chosenId: "",
       // transactInfo: this.props.transacts,
     };
   }
 
-  handleReceipt = (yes, Id) => {
-    this.setState({ receive: yes, chosenId: Id });
+  handleReceipt = (d, Id) => {
+    if (d === "delivery") {
+      this.setState({ receive: "on", chosenId: Id });
+    } else {
+      this.setState({ deliveryInfo: "on", chosenId: Id });
+    }
   };
 
   handleRenderReceiptConfirmation = () => {
@@ -57,6 +65,42 @@ export class DeliveryReceiptComponent extends Component {
         </div>
       );
     }
+
+    if (this.state.deliveryInfo === "on") {
+      let transactionDeliveryInfo = this.props.transact.filter(
+        (transa) => this.state.chosenId === transa.Id
+      );
+
+      return (
+        <Container fluid={true} className="receiptConfirmationMainContainer">
+          <Row>
+            <Col>
+              <Form.Label>Delivery Information</Form.Label>
+
+              <Form.Control
+                as="textarea"
+                rows={5}
+                readOnly="true"
+                type="text"
+                value={transactionDeliveryInfo[0].deliveryInfo}
+              />
+              <button
+                style={{
+                  backgroundColor: "transparent",
+                  borderStyle: "none",
+                  outline: "none",
+                }}
+                onClick={() => {
+                  this.setState({ deliveryInfo: "off" });
+                }}
+              >
+                ok
+              </button>
+            </Col>
+          </Row>
+        </Container>
+      );
+    }
   };
 
   render() {
@@ -69,47 +113,60 @@ export class DeliveryReceiptComponent extends Component {
     return (
       <Container fluid={true}>
         <Row className="deliveryHeaderContainer-customer">
-          <Col xxl={2} xl={2} lg={2} md={2} sm={2} xs={2}>
-            <div
-              className="idHeaderDeliveryComponent-Customer"
-              style={{ fontSize: "14px", fontWeight: "600" }}
-            >
-              ID
-            </div>
+          <Col
+            xxl={2}
+            xl={2}
+            lg={2}
+            md={2}
+            sm={2}
+            xs={2}
+            className="idHeaderDeliveryComponent-Customer"
+            style={{ fontSize: "1vw", fontWeight: "600" }}
+          >
+            ID
           </Col>
-          <Col xxl={4} xl={4} lg={4} md={4} sm={4} xs={4}>
-            <div
-              className="productHeaderDeliveryComponent-Customer"
-              style={{ fontSize: "14px", fontWeight: "600" }}
-            >
-              PRODUCT(S)
-            </div>
+          <Col
+            xxl={4}
+            xl={4}
+            lg={4}
+            md={4}
+            sm={4}
+            xs={4}
+            className="productHeaderDeliveryComponent-Customer"
+            style={{ fontSize: "1vw", fontWeight: "600" }}
+          >
+            PRODUCT(S)
           </Col>
 
-          <Col xxl={2} xl={2} lg={2} md={2} sm={2} xs={2}>
-            <div
-              className="amountHeaderDeliveryComponent-Customer"
-              style={{ fontSize: "14px", fontWeight: "600" }}
-            >
-              AMT.(GHS)
-            </div>
+          <Col
+            className="amountHeaderDeliveryComponent-Customer"
+            style={{ fontSize: "1vw", fontWeight: "600" }}
+            xxl={2}
+            xl={2}
+            lg={2}
+            md={2}
+            sm={2}
+            xs={2}
+          >
+            AMT(GHS)
           </Col>
 
-          <Col xxl={2} xl={2} lg={2} md={2} sm={2} xs={2}>
-            <div
-              className="deliveryHeaderDeliveryComponent-Customer"
-              style={{
-                fontSize: "14px",
-                fontWeight: "600",
-              }}
-            >
-              DELIVERY
-            </div>
+          <Col
+            xxl={2}
+            xl={2}
+            lg={2}
+            md={2}
+            sm={2}
+            xs={2}
+            className="deliveryHeaderDeliveryComponent-Customer"
+            style={{ fontSize: "1vw", fontWeight: "600" }}
+          >
+            DELIVERY
           </Col>
           <Col xxl={2} xl={2} lg={2} md={2} sm={2} xs={2}>
             <div
               style={{
-                fontSize: "14px",
+                fontSize: "1vw",
                 fontWeight: "600",
               }}
             ></div>
@@ -127,8 +184,8 @@ export class DeliveryReceiptComponent extends Component {
                     products={transa.products[0].product}
                     amount={transa.amount}
                     delivery={transa.deliveryStatus}
-                    receive={(y, d) => {
-                      this.handleReceipt(y, d);
+                    receive={(d, i) => {
+                      this.handleReceipt(d, i);
                     }}
                   />
                 );

@@ -40,6 +40,7 @@ class PaymentScreen extends Component {
         <div>
           <PaymentDetialsComponent
             transactionId={this.state.selectedTrans[0].transactionId}
+            deliveryInfo={this.state.selectedTrans[0].deliveryInfo}
             mainTransId={this.state.transaction[0].Id}
             customer={this.state.selectedTrans[0].customer}
             date={

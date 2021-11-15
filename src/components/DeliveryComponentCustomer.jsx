@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import "../css/deliveryComponentCustomer.css";
 import { Container, Row, Col } from "react-bootstrap";
+import { CgGift } from "react-icons/cg";
+import { BiInfoCircle } from "react-icons/bi";
 
 export class DeliveryComponentCustomer extends Component {
   constructor(props) {
@@ -85,23 +87,45 @@ export class DeliveryComponentCustomer extends Component {
               {this.props.delivery}
             </div>
           </Col>
+
           <Col
-            xxl={2}
-            xl={2}
-            lg={2}
-            md={2}
-            sm={2}
-            xs={2}
+            xxl={1}
+            xl={1}
+            lg={1}
+            md={1}
+            sm={1}
+            xs={1}
             className="recieveButtonContainerDeliveryComponent-Customer"
           >
             <button
               disabled={status}
+              title="click to receive order"
               className="recieveButtonDeliveryComponent-Customer"
               onClick={() => {
-                this.props.receive("on", this.props.Id);
+                this.props.receive("delivery", this.props.Id);
               }}
             >
-              receive
+              <CgGift className="receiveProductButton" />
+            </button>
+          </Col>
+          <Col
+            xxl={1}
+            xl={1}
+            lg={1}
+            md={1}
+            sm={1}
+            xs={1}
+            className="recieveButtonContainerDeliveryComponent-Customer"
+          >
+            <button
+              disabled={status}
+              title="click to view delivery info"
+              className="recieveButtonDeliveryComponent-Customer"
+              onClick={() => {
+                this.props.receive("info", this.props.Id);
+              }}
+            >
+              <BiInfoCircle className="receiveProductButton" />
             </button>
           </Col>
         </Row>

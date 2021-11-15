@@ -3,6 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "../css/paymentDetailsComponent.css";
 import ReceiptComponent from "./ReceiptComponent";
 import { Container, Col, Row, Form } from "react-bootstrap";
+import { BiEdit } from "react-icons/bi";
 import { connect } from "react-redux";
 import { addDeliveryInfo } from "../Store/transactionAction";
 
@@ -11,9 +12,11 @@ export class PaymentDetailsComponent extends Component {
     super(props);
     this.state = {
       selected: this.props.filteredTrans,
-      addDeliveryInfo: "no",
+
       editDeliveryInfo: "no",
-      deliveryInfo: "",
+      displayDeliveryInfo: "yes",
+      deliveryInfo: this.props.deliveryInfo,
+      deliveryInfoInput: this.props.deliveryInfo,
       mainTransId: this.props.mainTransId,
     };
   }
@@ -28,54 +31,14 @@ export class PaymentDetailsComponent extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.addDeliveryInfo(this.state.mainTransId, this.state.deliveryInfo);
+    this.props.addDeliveryInfo(
+      this.state.mainTransId,
+      this.state.deliveryInfoInput
+    );
     console.log(this.state.mainTransId);
   }
 
   handleDeliveryForm = () => {
-    if (this.state.addDeliveryInfo === "yes") {
-      return (
-        <Container>
-          <Row>
-            <Col
-              xxl={{ span: 8, offset: 2 }}
-              xl={{ span: 8, offset: 2 }}
-              lg={{ span: 8, offset: 2 }}
-              md={{ span: 8, offset: 2 }}
-              sm={12}
-              xs={12}
-            >
-              <Form>
-                <Form.Group>
-                  <Form.Label>delivery information</Form.Label>
-                  <Form.Control
-                    as="textarea"
-                    rows={4}
-                    value={this.state.deliveryInfo}
-                    type="text"
-                    placeholder="input delivery note here"
-                    type="textarea"
-                    onChange={(Event) => {
-                      this.setState({ deliveryInfo: Event.target.value });
-                    }}
-                  />
-                </Form.Group>
-                <Form.Group>
-                  <Form.Control
-                    onClick={(Event) => {
-                      this.handleSubmit(Event);
-                    }}
-                    type="submit"
-                    value="add"
-                  />
-                </Form.Group>
-              </Form>
-            </Col>
-          </Row>
-        </Container>
-      );
-    }
-
     if (this.state.editDeliveryInfo === "yes") {
       return (
         <Container>
@@ -94,10 +57,12 @@ export class PaymentDetailsComponent extends Component {
                   <Form.Control
                     as="textarea"
                     rows={4}
+                    value={this.state.deliveryInfoInput}
                     type="text"
-                    value={this.state.deliveryInfo}
+                    placeholder="input delivery note here"
+                    type="textarea"
                     onChange={(Event) => {
-                      this.setState({ deliveryInfo: Event.target.value });
+                      this.setState({ deliveryInfoInput: Event.target.value });
                     }}
                   />
                 </Form.Group>
@@ -111,6 +76,50 @@ export class PaymentDetailsComponent extends Component {
                   />
                 </Form.Group>
               </Form>
+            </Col>
+          </Row>
+        </Container>
+      );
+    }
+
+    if (this.state.displayDeliveryInfo === "yes") {
+      return (
+        <Container>
+          <Row>
+            <Col
+            // xxl={{ span: 8, offset: 2 }}
+            // xl={{ span: 8, offset: 2 }}
+            // lg={{ span: 8, offset: 2 }}
+            // md={{ span: 8, offset: 2 }}
+            // sm={12}
+            // xs={12}
+            >
+              <div>Delivery Information</div>
+              <div>
+                <Form.Control
+                  as="textarea"
+                  rows={5}
+                  readOnly="true"
+                  type="text"
+                  value={this.state.deliveryInfo}
+                />
+              </div>
+              <Row>
+                <Col className="deliveryEditButtonContainer">
+                  <button
+                    title="edit delivery information"
+                    className="deliveryInfoEditButton"
+                    onClick={() => {
+                      this.setState({
+                        displayDeliveryInfo: "no",
+                        editDeliveryInfo: "yes",
+                      });
+                    }}
+                  >
+                    <BiEdit className="deliveryInfoEditIcon" />
+                  </button>
+                </Col>
+              </Row>
             </Col>
           </Row>
         </Container>
@@ -130,32 +139,6 @@ export class PaymentDetailsComponent extends Component {
             xs={12}
             className=" receiptSheet"
           >
-            <Row>
-              <Col>
-                <button
-                  onClick={() => {
-                    this.setState({
-                      addDeliveryInfo: "yes",
-                      editDeliveryInfo: "no",
-                    });
-                  }}
-                >
-                  add delivery Information
-                </button>
-              </Col>
-              <Col>
-                <button
-                  onClick={() => {
-                    this.setState({
-                      addDeliveryInfo: "no",
-                      editDeliveryInfo: "yes",
-                    });
-                  }}
-                >
-                  edit delivery Info
-                </button>
-              </Col>
-            </Row>
             <Row className="upperSection">
               <Col xxl={5} xl={5} lg={6} md={12} sm={12} xs={12} className="">
                 <Row>
@@ -285,6 +268,9 @@ export class PaymentDetailsComponent extends Component {
                   console.log(this.state.selected))
                 }
               </Col>
+            </Row>
+            <Row>
+              <Col></Col>
             </Row>
             <Row>
               <Col>{this.handleDeliveryForm()}</Col>
