@@ -154,7 +154,7 @@ class DeliveryScreen extends React.Component {
 
   render() {
     return (
-      <Container>
+      <Container fluid={true}>
         <Helmet>
           <title>Delivery - 3Wishesgh</title>
           <meta name="description" content="3Wishes Hookah Shop" />

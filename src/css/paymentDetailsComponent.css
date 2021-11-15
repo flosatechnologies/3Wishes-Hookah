@@ -28,6 +28,7 @@
   background-color: white;
   width: inherit;
   margin-top: 3%;
+  margin-bottom: 5vh;
   padding: 20px 15px;
   box-shadow: 5px 5px 5px rgba(12, 12, 12, 0.397);
 }
@@ -37,6 +38,7 @@ div.receiptHeader {
   padding: 5px 0px;
 
   border-top-style: solid;
+
   border-top-color: black;
   border-top-width: 1px;
   border-bottom-style: double;
@@ -50,7 +52,6 @@ div.receiptDateContainer {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
-  width: inherit;
 }
 
 div.receiptTransactionIdLabel,
@@ -82,4 +83,14 @@ div.receiptTransactionIdLabel,
 .receiptTotalLabel {
   font-weight: bolder;
   text-align: right;
+}
+
+.deliveryInfoEditButton {
+  background-color: transparent;
+  border-style: none;
+  outline: none;
+}
+.deliveryInfoEditIcon {
+  font-size: 1.7vw;
+  color: forestgreen;
 }

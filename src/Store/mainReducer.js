@@ -7,6 +7,7 @@ import { firestoreReducer } from "redux-firestore";
 import { combineReducers } from "redux";
 import customerDetailReducer from "./custDetailReducer.js";
 import transactionReducer from "./transactionReducer";
+import videoReducer from "./videoReducer";
 
 export default combineReducers({
   users: usersReducer,
@@ -17,4 +18,5 @@ export default combineReducers({
   cart: cartReducer,
   customerInfo: customerDetailReducer,
   transaction: transactionReducer,
+  videos: videoReducer,
 });
