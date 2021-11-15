@@ -30,7 +30,11 @@ class LogIn extends Component {
       this.props.history.push("/dashboard");
     }
     if (role === "customer") {
-      this.props.history.goBack();
+      if (this.props.location.state.from === "register") {
+        this.props.history.push("/cart");
+      } else {
+        this.props.history.goBack();
+      }
     }
   }
 
@@ -64,7 +68,6 @@ class LogIn extends Component {
                 <h3 className="loginHeaderText">Login</h3>
               </Row>
               <Row>
-
                 <Form onSubmit={this.handleSubmit} className="form-wrapper">
                   <Form.Group className="labelAndInput-Login">
                     <Form.Label className="label-Login">Email</Form.Label>

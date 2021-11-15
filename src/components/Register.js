@@ -243,7 +243,10 @@ class Register extends Component {
                           listStyle: "none",
                           fontSize: "13px",
                         }}
-                        to={"/login"}
+                        to={{
+                          pathname: "/login",
+                          state: { from: "register" },
+                        }}
                       >
                         Sign in
                       </Link>
