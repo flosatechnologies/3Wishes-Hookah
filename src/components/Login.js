@@ -97,7 +97,7 @@ class LogIn extends Component {
 
                   <Row className="forgotPasswordContainer">
                     <Link className="forgotPassLinkText" to={"/ForgotPassword"}>
-                      Forgot Password?{" "}
+                      Forgot Password?
                     </Link>
                   </Row>
                   <Row>
@@ -110,7 +110,9 @@ class LogIn extends Component {
                       }}
                     >
                       Don't have an account?
-                      <Link to={"/signup"}> Register </Link>
+                      <Link className="forgotPassLinkText" to={"/signup"}>
+                        Register
+                      </Link>
                     </Col>
                   </Row>
                 </Form>

@@ -18,9 +18,10 @@ h3.loginHeaderText {
 }
 
 .forgotPassLinkText {
-  text-decoration: none;
   text-align: center;
   font-size: 12px;
+  color: #0056b3;
+  text-decoration: none;
 }
 .loginFrame {
   background-color: rgb(44, 40, 40);
