@@ -5,6 +5,7 @@ import { userRegistration } from "../Store/authActions";
 import { connect } from "react-redux";
 import profileImg from "../assets/images/userImage.png";
 import { Container, Col, Row } from "react-bootstrap";
+import Form from "react-bootstrap/Form";
 
 class CreateAccountDashboard extends Component {
   constructor(props) {
@@ -16,7 +17,6 @@ class CreateAccountDashboard extends Component {
       email: "",
       role: "admin",
       password: "",
-
       confirmPassword: "",
       profileImg: "",
       profileImgDisplayVersion: profileImg,
@@ -50,13 +50,14 @@ class CreateAccountDashboard extends Component {
 
   render() {
     return (
-      <Container fluid={true}>
-        <Row className="firstLevelContainer">
+      <Container fluid={true} className="firstLevelContainer">
+        <Row>
+          <Col xxl={4} xl={4} lg={4} md={3} sm={0} sm={0}></Col>
           <Col
-            xxl={{ span: 4, offset: 4 }}
-            xl={{ span: 4, offset: 4 }}
-            lg={{ span: 4, offset: 4 }}
-            md={{ span: 6, offset: 3 }}
+            xxl={4}
+            xl={4}
+            lg={4}
+            md={6}
             sm={12}
             xs={12}
             className="theMainContainer"
@@ -79,9 +80,9 @@ class CreateAccountDashboard extends Component {
               </Col>
 
               <Col className="chooseImgButtonContainer">
-                <label htmlFor="profileImg" className="image-upload">
+                <Form.Label htmlFor="profileImg" className="image-upload">
                   <div className="chooseImgButton">Choose image</div>
-                  <input
+                  <Form.Control
                     type="file"
                     required="true"
                     name="profileImg"
@@ -89,57 +90,65 @@ class CreateAccountDashboard extends Component {
                     accept="image/*"
                     onChange={this.imageHandler}
                   />
-                </label>
+                </Form.Label>
               </Col>
             </Row>
             <Row>
-              <form onSubmit={this.handleSubmit}>
+              <Form onSubmit={this.handleSubmit}>
                 <Container fluid={true}>
                   <Row>
                     <Col className="accntInfoText">Account Information</Col>
                   </Row>
                   <Row className="firstAndOtherNamesContainer">
                     <Col className="firstNameContainer">
-                      <input
-                        className="firstNameInput"
-                        id="firstNameInputId"
-                        type="text"
-                        name="firstName"
-                        placeholder="First Name"
-                        onChange={this.handleChange}
-                      />
+                      <Form.Group>
+                        <Form.Control
+                          className="firstNameInput"
+                          id="firstNameInputId"
+                          type="text"
+                          name="firstName"
+                          placeholder="First Name"
+                          onChange={this.handleChange}
+                        />
+                      </Form.Group>
                     </Col>
                     <Col className="otherNamesContainer">
-                      <input
-                        className="otherNamesInput"
-                        id="otherNamesInputId"
-                        type="text"
-                        name="otherNames"
-                        placeholder="Other Names"
-                        onChange={this.handleChange}
-                      />
+                      <Form.Group>
+                        <Form.Control
+                          className="otherNamesInput"
+                          id="otherNamesInputId"
+                          type="text"
+                          name="otherNames"
+                          placeholder="Other Names"
+                          onChange={this.handleChange}
+                        />
+                      </Form.Group>
                     </Col>
                   </Row>
                   <Row className="emailAndPhoneNumberContainer">
                     <Col className="emailContainer">
-                      <input
-                        className="emailInput"
-                        id="emailInputId"
-                        type="email"
-                        name="email"
-                        placeholder="Email Address"
-                        onChange={this.handleChange}
-                      />
+                      <Form.Group>
+                        <Form.Control
+                          className="emailInput"
+                          id="emailInputId"
+                          type="email"
+                          name="email"
+                          placeholder="Email Address"
+                          onChange={this.handleChange}
+                        />
+                      </Form.Group>
                     </Col>
                     <Col className="phoneNumberContainer">
-                      <input
-                        className="phoneNumberInput"
-                        id="phoneNumberInputId"
-                        type="tel"
-                        name="phoneNumber"
-                        placeholder="Phone Number"
-                        onChange={this.handleChange}
-                      />
+                      <Form.Group>
+                        <Form.Control
+                          className="phoneNumberInput"
+                          id="phoneNumberInputId"
+                          type="number"
+                          name="phoneNumber"
+                          placeholder="Phone Number"
+                          onChange={this.handleChange}
+                        />
+                      </Form.Group>
                     </Col>
                   </Row>
                   <Row>
@@ -147,37 +156,43 @@ class CreateAccountDashboard extends Component {
                   </Row>
                   <Row>
                     <Col className="passwordContainer">
-                      <input
-                        className="passwordInput"
-                        type="password"
-                        name="password"
-                        placeholder="Password"
-                        onChange={this.handleChange}
-                      />
+                      <Form.Group>
+                        <Form.Control
+                          className="passwordInput"
+                          type="password"
+                          name="password"
+                          placeholder="Password"
+                          onChange={this.handleChange}
+                        />
+                      </Form.Group>
                     </Col>
                   </Row>
                   <Row>
                     <Col className="confirmPasswordContainer">
-                      <input
-                        className="confirmPasswordInput"
-                        type="password"
-                        name="confirmPassword"
-                        placeholder="Confirm Password"
-                        onChange={this.handleChange}
-                      />
+                      <Form.Group>
+                        <Form.Control
+                          className="confirmPasswordInput"
+                          type="password"
+                          name="confirmPassword"
+                          placeholder="Confirm Password"
+                          onChange={this.handleChange}
+                        />
+                      </Form.Group>
                     </Col>
                   </Row>
                   <Row>
                     <Col className="registerButtonContainer">
-                      <input
-                        className="registerButton"
-                        type="submit"
-                        value="Register"
-                      />
+                      <Form.Group>
+                        <Form.Control
+                          className="registerButton"
+                          type="submit"
+                          value="Register"
+                        />
+                      </Form.Group>
                     </Col>
                   </Row>
                 </Container>
-              </form>
+              </Form>
             </Row>
           </Col>
         </Row>

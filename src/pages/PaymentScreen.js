@@ -40,6 +40,8 @@ class PaymentScreen extends Component {
         <div>
           <PaymentDetialsComponent
             transactionId={this.state.selectedTrans[0].transactionId}
+            deliveryInfo={this.state.selectedTrans[0].deliveryInfo}
+            mainTransId={this.state.transaction[0].Id}
             customer={this.state.selectedTrans[0].customer}
             date={
               <Moment format="D MMM YYYY hh:mm a ">
@@ -190,7 +192,9 @@ class PaymentScreen extends Component {
           </Col>
         </Row>
 
-        <Row>{this.handleShowComponent()}</Row>
+        <Row>
+          <Col> {this.handleShowComponent()}</Col>
+        </Row>
       </Container>
     );
   }

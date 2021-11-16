@@ -4,7 +4,7 @@
   div.Customer-PayComponent,
   div.Amount-PayComponent,
   div.Time-PayComponent {
-    font-size: 6px;
+    font-size: 1.3vw;
   }
   button.viewMore-PayComponent {
     width: inherit;
@@ -34,6 +34,13 @@
   text-align: left;
 }
 
+.viewMore-PayComponent {
+  font-size: 1.3vw;
+}
+
+.Time-PayComponent {
+  font-size: 1.3vw;
+}
 .Customer-PayComponent {
 }
 

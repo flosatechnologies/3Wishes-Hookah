@@ -20,7 +20,7 @@ export class HeaderPage extends Component {
 
     return (
       <div>
-        <Navbar bg="dark" variant="dark" expand="lg">
+        <Navbar bg="danger" variant="dark" expand="lg">
           {/* <Container> */}
           <LinkContainer to="/" exact={true}>
             <Navbar.Brand>
@@ -34,7 +34,7 @@ export class HeaderPage extends Component {
           <Navbar.Collapse id="navbarScroll">
             <Nav
               className="ml-auto my-2 my-lg-0"
-              style={{ maxHeight: "100px" }}
+              style={{ minHeight: "100px" }}
               navbarScroll
             >
               <LinkContainer to="/" exact={true}>
@@ -78,7 +78,9 @@ export class HeaderPage extends Component {
               {!this.props.state.auth.login ||
               (this.props.state.auth.login &&
                 this.props.state.auth.role === "admin") ? (
-                <LinkContainer to="/login">
+                <LinkContainer
+                  to={{ pathname: "/login", state: { from: "menu" } }}
+                >
                   <Nav.Link className="mr-sm-5">Login</Nav.Link>
                 </LinkContainer>
               ) : (

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "../css/Dashboard.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BsArchive, BsCreditCard, BsPerson } from "react-icons/bs";
-import { RiTruckLine } from "react-icons/ri";
+import { RiTruckLine, RiVideoLine } from "react-icons/ri";
 import { AiOutlineLogout } from "react-icons/ai";
 import logo from "../assets/images/logo1.png";
 import userImage from "../assets/images/contact.jpg";
@@ -10,6 +10,7 @@ import { getAllUsers } from "../Store/usersActions.js";
 import PaymentScreen from "./PaymentScreen";
 import ProductsScreenDashboard from "./ProductsScreenDashboard";
 import DeliveryScreen from "./DeliveryScreen";
+import VideoScreenDashboard from "../components/VideoScreenDashboard";
 import { connect } from "react-redux";
 import { logoutUser } from "../Store/authActions";
 import { getAllProducts } from "../Store/productActions";
@@ -26,9 +27,11 @@ class Dashboard extends Component {
         payment: "inactive",
         delivery: "inactive",
         users: "inactive",
+        videos: "inactive",
         logout: "inactive",
       },
       adminFirstName: "",
+      render: 0,
     };
   }
 
@@ -37,13 +40,21 @@ class Dashboard extends Component {
     this.props.getAllUsers();
     this.props.getTransaction();
   }
+
+  renderParentCallback = (v) => {
+    this.setState({ render: v });
+  };
+
   render() {
     const handleRenderScreen = () => {
       // if (this.state.buttonState.payment === "active")
       if (this.state.buttonState.product === "active") {
         return (
           <div>
-            <ProductsScreenDashboard reduxData={this.props.products} />
+            <ProductsScreenDashboard
+              renderParent={(v) => this.renderParentCallback(v)}
+              reduxData={this.props.products}
+            />
           </div>
         );
       }
@@ -71,6 +82,14 @@ class Dashboard extends Component {
         return (
           <div>
             <UsersScreenDashboard adminUsers={this.props.state.users.users} />
+          </div>
+        );
+      }
+
+      if (this.state.buttonState.videos === "active") {
+        return (
+          <div>
+            <VideoScreenDashboard />
           </div>
         );
       }
@@ -168,6 +187,7 @@ class Dashboard extends Component {
                       delivery: "inactive",
                       logout: "inactive",
                       product: "active",
+                      videos: "inactive",
                       users: "inactive",
                     },
                   });
@@ -175,7 +195,11 @@ class Dashboard extends Component {
                 id={this.state.buttonState.product}
                 className="dashboardButtons"
               >
-                <BsArchive style={{ marginRight: 7 }} /> Product
+                <BsArchive
+                  className="dashboardBtnIcons"
+                  style={{ marginRight: 7 }}
+                />{" "}
+                Product
               </button>
             </Row>
             <Row>
@@ -188,13 +212,17 @@ class Dashboard extends Component {
                       logout: "inactive",
                       payment: "active",
                       users: "inactive",
+                      videos: "inactive",
                     },
                   });
                 }}
                 id={this.state.buttonState.payment}
                 className="dashboardButtons"
               >
-                <BsCreditCard style={{ marginRight: 7 }} />
+                <BsCreditCard
+                  className="dashboardBtnIcons"
+                  style={{ marginRight: 7 }}
+                />
                 Payment
               </button>
             </Row>
@@ -207,6 +235,7 @@ class Dashboard extends Component {
                       payment: "inactive",
                       logout: "inactive",
                       delivery: "active",
+                      videos: "inactive",
                       users: "inactive",
                     },
                   });
@@ -214,7 +243,10 @@ class Dashboard extends Component {
                 id={this.state.buttonState.delivery}
                 className="dashboardButtons"
               >
-                <RiTruckLine style={{ marginRight: 8 }} />
+                <RiTruckLine
+                  className="dashboardBtnIcons"
+                  style={{ marginRight: 8 }}
+                />
                 Delivery
               </button>
             </Row>
@@ -227,6 +259,7 @@ class Dashboard extends Component {
                       payment: "inactive",
                       delivery: "inactive",
                       logout: "inactive",
+                      videos: "inactive",
                       users: "active",
                     },
                   });
@@ -235,7 +268,10 @@ class Dashboard extends Component {
                 id={this.state.buttonState.users}
                 className="dashboardButtons"
               >
-                <BsPerson style={{ marginRight: 8 }} />
+                <BsPerson
+                  className="dashboardBtnIcons"
+                  style={{ marginRight: 8 }}
+                />
                 Users
               </button>
             </Row>
@@ -248,7 +284,34 @@ class Dashboard extends Component {
                       product: "inactive",
                       payment: "inactive",
                       delivery: "inactive",
+                      logout: "inactive",
                       users: "inactive",
+                      videos: "active",
+                    },
+                  });
+                  // this.props.logoutUser();
+                }}
+                id={this.state.buttonState.videos}
+                className="dashboardButtons"
+              >
+                <RiVideoLine
+                  className="dashboardBtnIcons"
+                  style={{ marginRight: 8 }}
+                />
+                Videos
+              </button>
+            </Row>
+
+            <Row>
+              <button
+                onClick={() => {
+                  this.setState({
+                    buttonState: {
+                      product: "inactive",
+                      payment: "inactive",
+                      delivery: "inactive",
+                      users: "inactive",
+                      videos: "inactive",
                       logout: "active",
                     },
                   });
@@ -256,7 +319,10 @@ class Dashboard extends Component {
                 id={this.state.buttonState.logout}
                 className="dashboardButtons"
               >
-                <AiOutlineLogout style={{ marginRight: 8 }} />
+                <AiOutlineLogout
+                  className="dashboardBtnIcons"
+                  style={{ marginRight: 8 }}
+                />
                 Logout
               </button>
             </Row>

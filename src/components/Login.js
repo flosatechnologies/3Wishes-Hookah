@@ -5,11 +5,14 @@ import "../css/login.css";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { loginWithEmail } from "../Store/authActions";
-import { Container, Row, Col } from "react-bootstrap";
-
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
 import { Component } from "react";
 import HeaderPage from "./HeaderPage";
-import FooterPage from "./FooterPage";
+import Footer from "../components/FooterComponent";
 import { Helmet } from "react-helmet";
 
 class LogIn extends Component {
@@ -27,7 +30,11 @@ class LogIn extends Component {
       this.props.history.push("/dashboard");
     }
     if (role === "customer") {
-      this.props.history.goBack();
+      if (this.props.location.state.from === "register") {
+        this.props.history.push("/cart");
+      } else {
+        this.props.history.goBack();
+      }
     }
   }
 
@@ -47,120 +54,88 @@ class LogIn extends Component {
           <meta name="description" content="3Wishes Hookah LogIn" />
         </Helmet>
         <Container fluid={true} className=" loginBackground">
-          <Row
-            style={{
-              padding: "10px 0px",
-            }}
-          >
-            <Col className="app-wrapper">
+          <Row>
+            <Col
+              xxl={{ span: 4, offset: 4 }}
+              xl={{ span: 4, offset: 4 }}
+              lg={{ span: 4, offset: 4 }}
+              md={{ span: 6, offset: 3 }}
+              sm={{ span: 8, offset: 2 }}
+              xs={{ span: 8, offset: 2 }}
+              className="loginFrame"
+            >
               <Row>
-                <h3
-                  style={{
-                    color: "#f80759",
-                    textAlign: "center",
-                    margin: "40px 0px 10px 0px",
-                  }}
-                  className="title"
-                >
-                  Login
-                </h3>
+                <h3 className="loginHeaderText">Login</h3>
               </Row>
               <Row>
-                <form onSubmit={this.handleSubmit} className="form-wrapper">
-                  <Container>
-                    <Row>
-                      <Col className="email">
-                        <div>
-                          <label className="label-Login">Email</label>
-                        </div>
-                        <input
-                          className="allInput-Login"
-                          type="email"
-                          name="email"
-                        />
-                      </Col>
-                    </Row>
-                    <Row>
-                      <Col className="password">
-                        <label className="label">Password</label>
-                        <input
-                          className="allInput-Login"
-                          type="password"
-                          name="password"
-                        />
-                      </Col>
-                    </Row>
-                    <Row>
-                      <Col
-                        xxl={{ span: 6, offset: 3 }}
-                        xl={{ span: 6, offset: 3 }}
-                        lg={{ span: 6, offset: 3 }}
-                        md={{ span: 6, offset: 3 }}
-                        sm={{ span: 6, offset: 3 }}
-                        xs={{ span: 6, offset: 3 }}
-                      >
-                        <button className="loginSubmit">Log In</button>
-                      </Col>
-                    </Row>
-                    <Row className="forgotPassword ">
-                      <button
-                        style={{
-                          color: "#f80759",
-                          marginTop: 10,
-                          textAlign: "center",
-                          fontSize: 12,
-                          backgroundColor: "transparent",
-                          borderStyle: "none",
-                        }}
-                      >
-                        <Link to={"/ForgotPassword"}>Forgot Password? </Link>
-                      </button>
-                    </Row>
-                    <Row
+                <Form onSubmit={this.handleSubmit} className="form-wrapper">
+                  <Form.Group className="labelAndInput-Login">
+                    <Form.Label className="label-Login">Email</Form.Label>
+                    <Form.Control
+                      className="allInput-Login"
+                      type="email"
+                      name="email"
+                    />
+                  </Form.Group>
+                  <Form.Group className="labelAndInput-Login">
+                    <Form.Label className="label-Login">Password</Form.Label>
+                    <Form.Control
+                      className="allInput-Login"
+                      type="password"
+                      name="password"
+                    />
+                  </Form.Group>
+
+                  <Form.Group className="theLoginButtonContainer">
+                    <Form.Control
+                      variant="primary"
+                      className="loginSubmit"
+                      type="submit"
+                      value="Log in"
+                    />
+                  </Form.Group>
+
+                  <Row className="forgotPasswordContainer">
+                    <Link
                       style={{
-                        marginTop: "13px",
+                        textDecoration: "none",
+                        color: "#0056b3",
+                        textAlign: "center",
+                        fontSize: "12px",
+                      }}
+                      to={"/ForgotPassword"}
+                    >
+                      Forgot Password?
+                    </Link>
+                  </Row>
+                  <Row>
+                    <Col
+                      style={{
+                        color: "white",
+                        fontSize: "12px",
+                        paddingTop: "5px",
+                        textAlign: "center",
                       }}
                     >
-                      <Col
-                        xxl={8}
-                        xl={8}
-                        lg={8}
-                        md={8}
-                        sm={8}
-                        xs={8}
+                      Don't have an account?
+                      <Link
                         style={{
-                          color: "white",
-                          fontSize: "12px",
-                          paddingTop: "4px",
-                          textAlign: "right",
+                          textDecoration: "none",
+                          color: "#0056b3;",
+                          paddingLeft: "0.4vw",
                         }}
+                        to={"/signup"}
                       >
-                        Don't have an account?
-                      </Col>
-                      <Col
-                        style={{
-                          textAlign: "left",
-                        }}
-                      >
-                        <button
-                          style={{
-                            color: "#f80759",
-                            backgroundColor: "transparent",
-                            borderStyle: "none",
-                            fontSize: "12px",
-                          }}
-                        >
-                          <Link to={"/signup"}>Register </Link>
-                        </button>
-                      </Col>
-                    </Row>
-                  </Container>
-                </form>
+                        Register
+                      </Link>
+                    </Col>
+                  </Row>
+                </Form>
               </Row>
             </Col>
           </Row>
         </Container>
-        <FooterPage />
+        <Footer />
       </div>
     );
   }

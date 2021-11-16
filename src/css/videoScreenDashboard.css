@@ -1,0 +1,58 @@
+.toolsbuttonSection {
+  height: fit-content;
+  padding: 1vh 1vh;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: black;
+}
+
+.addVideoButton,
+.editVideoButton {
+  font-size: 1.2vw;
+}
+.addVideoFormMainBox,
+.editVideoFormMainBox {
+  background-color: transparent;
+  position: relative;
+  bottom: 37vw;
+  height: 73vh;
+  padding: 10vh 1vh;
+}
+
+.editVideoFormSecondSubBox,
+.addVideoFormSecondSubBox {
+  padding: 2vw;
+  background-color: rgb(71, 212, 71);
+  border-radius: 1vw;
+}
+
+#inactivevidbtn {
+  background-color: transparent;
+  border-style: solid;
+  padding: 0.4vw;
+  border-radius: 0.5vw;
+  border-width: 0.2vw;
+  border-color: black;
+}
+
+#activevidbtn {
+  border-color: white;
+  border-style: solid;
+  border-width: 0.2vw;
+  padding: 0.4vw;
+  border-radius: 0.5vw;
+  color: white;
+  background-color: transparent;
+}
+.player-wrapper-videoDashboard {
+  position: relative !important;
+  padding-top: 46.25% !important; /* Player ratio: 100 / (1280 / 720) */
+}
+
+.react-player-videoDashboard {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 90% !important;
+}

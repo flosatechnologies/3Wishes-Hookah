@@ -2,7 +2,10 @@ import React, { Component } from "react";
 import "../css/CustomerDetails.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { AddCustomerInfo } from "./../Store/custDetailActions";
-import { Container, Row, Col } from "react-bootstrap";
+import Form from "react-bootstrap/Form";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 
 import { connect } from "react-redux";
 
@@ -64,8 +67,8 @@ class CustomerDetails extends Component {
         fluid={true}
         style={{
           background: "#fff",
-          width: "inherit",
-          minHeight: "80vh",
+          marginTop: "2vh",
+          marginBottom: "2vh",
         }}
       >
         <Row>
@@ -83,7 +86,7 @@ class CustomerDetails extends Component {
               <Col className="title">Delivery Information</Col>
             </Row>
 
-            <form onSubmit={this.handleSubmit}>
+            <Form onSubmit={this.handleSubmit}>
               <Container className="form-wrapper">
                 <Row className="firstAndOtherNamesContainer">
                   <Col
@@ -95,9 +98,11 @@ class CustomerDetails extends Component {
                     xs={12}
                     className="firstNameContainer-CustomerProfile"
                   >
-                    <Row className="labels-CustomerProfile">First Name</Row>
-                    <Row>
-                      <input
+                    <Form.Group>
+                      <Form.Label className="labels-CustomerProfile">
+                        First Name
+                      </Form.Label>
+                      <Form.Control
                         className="firstNameInput-CustomerProfile"
                         type="text"
                         required={true}
@@ -105,7 +110,7 @@ class CustomerDetails extends Component {
                         value={this.state.firstName}
                         onChange={this.handleChange}
                       />
-                    </Row>
+                    </Form.Group>
                   </Col>
 
                   <Col
@@ -117,9 +122,12 @@ class CustomerDetails extends Component {
                     xs={12}
                     className="otherNamesContainer-CustomerProfile"
                   >
-                    <Row className="labels-CustomerProfile">Other Names</Row>
-                    <Row className="otherNames_InputContainer">
-                      <input
+                    <Form.Group>
+                      <Form.Label className="labels-CustomerProfile">
+                        Other Names
+                      </Form.Label>
+                      <Form.Control
+                        className="otherNames_InputContainer"
                         className="otherNamesInput-CustomerProfile"
                         type="text"
                         required={true}
@@ -127,7 +135,7 @@ class CustomerDetails extends Component {
                         value={this.state.otherNames}
                         onChange={this.handleChange}
                       />
-                    </Row>
+                    </Form.Group>
                   </Col>
                 </Row>
 
@@ -141,17 +149,20 @@ class CustomerDetails extends Component {
                     xs={12}
                     className="phoneNumberContainer-CustomerProfile"
                   >
-                    <Row className="labels-CustomerProfile">Phone Number</Row>
-                    <Row className="phoneNumberInputContainer-CustomerProfile">
-                      <input
+                    <Form.Group>
+                      <Form.Label className="labels-CustomerProfile">
+                        Phone Number
+                      </Form.Label>
+                      <Form.Control
+                        className="phoneNumberInputContainer-CustomerProfile"
                         className="phoneNumberInput-CustomerProfile"
-                        type="tel"
+                        type="number"
                         required={true}
                         name="phoneNumber"
                         value={this.state.phoneNumber}
                         onChange={this.handleChange}
                       />
-                    </Row>
+                    </Form.Group>
                   </Col>
 
                   <Col
@@ -163,16 +174,18 @@ class CustomerDetails extends Component {
                     xs={12}
                     className="ghPostGPSContainer-CustomerProfile"
                   >
-                    <Row className="labels-CustomerProfile">Ghana Post GPS</Row>
-                    <Row>
-                      <input
+                    <Form.Group>
+                      <Form.Label className="labels-CustomerProfile">
+                        Ghana Post GPS
+                      </Form.Label>
+                      <Form.Control
                         className="ghPostGpsInput-CustomerProfile"
                         type="text"
                         name="ghanaPostGps"
                         value={this.state.ghanaPostGps}
                         onChange={this.handleChange}
                       />
-                    </Row>
+                    </Form.Group>
                   </Col>
                 </Row>
                 <Row className="residentialAddressMainContainer-CustomerProfile">
@@ -185,18 +198,18 @@ class CustomerDetails extends Component {
                     // xs={12}
                     className="residentialAddressContainer-CustomerProfile"
                   >
-                    <Row className="labels-CustomerProfile">
-                      Residential Address
-                    </Row>
-                    <Row>
-                      <input
+                    <Form.Group>
+                      <Form.Label className="labels-CustomerProfile">
+                        Residential Address
+                      </Form.Label>
+                      <Form.Control
                         className="residentialAddressInput-CustomerProfile"
                         type="text"
                         name="residentialAddress"
                         value={this.state.residentialAddress}
                         onChange={this.handleChange}
                       />
-                    </Row>
+                    </Form.Group>
                   </Col>
                 </Row>
                 <Row className="cityAndRegionContainer">
@@ -209,9 +222,11 @@ class CustomerDetails extends Component {
                     xs={12}
                     className="cityContainer-CustomerProfile"
                   >
-                    <Row className="labels-CustomerProfile">Town/City</Row>
-                    <Row>
-                      <input
+                    <Form.Group>
+                      <Form.Label className="labels-CustomerProfile">
+                        Town/City
+                      </Form.Label>
+                      <Form.Control
                         className="cityInput-CustomerProfile"
                         type="text"
                         required={true}
@@ -219,7 +234,7 @@ class CustomerDetails extends Component {
                         value={this.state.city}
                         onChange={this.handleChange}
                       />
-                    </Row>
+                    </Form.Group>
                   </Col>
 
                   <Col
@@ -231,62 +246,69 @@ class CustomerDetails extends Component {
                     xs={12}
                     className="regionContainer-CustomerProfile"
                   >
-                    <Row className="labels-CustomerProfile">Region</Row>
-                    <Row>
-                      <select
-                        value={this.state.region}
-                        className="regionInput-CustomerProfile"
-                        required
-                        name="region"
-                        onChange={this.handleChange}
-                      >
-                        <option value="Greater Accra Region">
-                          Greater Accra Region
-                        </option>
-                        <option value="Central Region">Central Region</option>
-                        <option value="Western North Region">
-                          Western North Region
-                        </option>
-                        <option value="Western Region">Western Region </option>
-                        <option value="Bono Region">Bono Region</option>
-                        <option value="Bono East Region">
-                          Bono East Region
-                        </option>
-                        <option value="Ahafo Region">Ahafo Region</option>
-                        <option value="Upper East Region">
-                          Upper East Region
-                        </option>
-                        <option value="Upper West Region">
-                          Upper West Region
-                        </option>
-                        <option value="North East Region">
-                          North East Region
-                        </option>
-                        <option value="Northern Region">Northern Region</option>
-                        <option value="Savanna Region">Savanna Region</option>
-                        <option value="Eastern Region">Eastern Region</option>
-                        <option value="Ashanti Region">Ashanti Region</option>
-                        <option value="Oti Region">Oti Region</option>
-                        <option value="Volta Region">Volta Region</option>
-                      </select>
-                    </Row>
+                    <Form.Group>
+                      <Form.Label className="labels-CustomerProfile">
+                        Region
+                      </Form.Label>
+                      <div className="regionInputContainer-CustomerProfile">
+                        <select
+                          value={this.state.region}
+                          className="regionInput-CustomerProfile"
+                          required
+                          name="region"
+                          onChange={this.handleChange}
+                        >
+                          <option value="Greater Accra Region">
+                            Greater Accra Region
+                          </option>
+                          <option value="Central Region">Central Region</option>
+                          <option value="Western North Region">
+                            Western North Region
+                          </option>
+                          <option value="Western Region">
+                            Western Region{" "}
+                          </option>
+                          <option value="Bono Region">Bono Region</option>
+                          <option value="Bono East Region">
+                            Bono East Region
+                          </option>
+                          <option value="Ahafo Region">Ahafo Region</option>
+                          <option value="Upper East Region">
+                            Upper East Region
+                          </option>
+                          <option value="Upper West Region">
+                            Upper West Region
+                          </option>
+                          <option value="North East Region">
+                            North East Region
+                          </option>
+                          <option value="Northern Region">
+                            Northern Region
+                          </option>
+                          <option value="Savanna Region">Savanna Region</option>
+                          <option value="Eastern Region">Eastern Region</option>
+                          <option value="Ashanti Region">Ashanti Region</option>
+                          <option value="Oti Region">Oti Region</option>
+                          <option value="Volta Region">Volta Region</option>
+                        </select>
+                      </div>
+                    </Form.Group>
                   </Col>
                 </Row>
 
                 <Row>
-                  <Col
-                    xxl={{ offset: 5, span: 2 }}
-                    xl={{ offset: 5, span: 2 }}
-                    lg={{ offset: 5, span: 2 }}
-                    md={{ offset: 5, span: 2 }}
-                    sm={{ offset: 5, span: 2 }}
-                    xs={{ offset: 5, span: 2 }}
-                  >
-                    <button className="submit">save</button>
+                  <Col xxl={12} xl={12} lg={12} md={12} sm={12} xs={12}>
+                    <Form.Group>
+                      <Form.Control
+                        className="submit"
+                        type="submit"
+                        value="submit"
+                      />
+                    </Form.Group>
                   </Col>
                 </Row>
               </Container>
-            </form>
+            </Form>
           </Col>
         </Row>
       </Container>

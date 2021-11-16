@@ -6,7 +6,8 @@ import image2 from "../assets/images/slide2.jpg";
 import image3 from "../assets/images/slide3.jpg";
 import image4 from "../assets/images/slide5.jpg";
 import HeaderPage from "../components/HeaderPage";
-import FooterPage from "../components/FooterPage";
+import FloatingWhatsApp from "../components/WhatsAppComponent";
+import Footer from "../components/FooterComponent";
 import { connect } from "react-redux";
 
 const CarouselPage = (props) => {
@@ -18,7 +19,7 @@ const CarouselPage = (props) => {
           <img
             overflow="hidden"
             object-fit="cover"
-            height="auto"
+            height="70vh"
             width="100%"
             className="d-block w-100 carouselImage"
             src={image1}
@@ -114,6 +115,7 @@ const CarouselPage = (props) => {
             >
               Top quality imported tobacco flavors
             </h3>
+            import Footer from './../components/FooterComponent';
             {/*<h3>Forth slide label</h3>
             <p>
               Praesent commodo cursus magna, vel scelerisque nisl consectetur.
@@ -121,7 +123,8 @@ const CarouselPage = (props) => {
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>
-      <FooterPage />
+      <FloatingWhatsApp />
+      <Footer />
     </div>
   );
 };

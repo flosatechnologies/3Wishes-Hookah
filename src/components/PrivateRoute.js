@@ -22,7 +22,9 @@ function PrivateRoute({ component: Component, login, role, ...rest }) {
     <Route
       {...rest}
       render={(props) => {
-        return <Redirect to={{ pathname: "/login" }} />;
+        return (
+          <Redirect to={{ pathname: "/login", state: { from: "private" } }} />
+        );
       }}
     />
   );

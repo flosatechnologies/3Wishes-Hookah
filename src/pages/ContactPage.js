@@ -1,12 +1,11 @@
 import React from "react";
 import "../css/contact.scss";
 import Contact from "../components/Contact";
-import FooterPage from "../components/FooterPage";
 import HeaderPage from "../components/HeaderPage";
 import { Helmet } from "react-helmet";
+import Footer from "../components/FooterComponent";
 
 function ContactPage() {
-  // let bg = require("../assets/images/awesome.jpg");
   return (
     <div>
       <HeaderPage />
@@ -17,7 +16,8 @@ function ContactPage() {
       <div className="main-container">
         <Contact />
       </div>
-      <FooterPage />
+
+      <Footer />
     </div>
   );
 }

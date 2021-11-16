@@ -1,27 +1,16 @@
 .editContainer {
   /* background: gray; */
-  align-items: center;
+
   margin-bottom: 3.5rem;
 }
 .image-section {
   background-color: #2d3551;
-  border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px;
 }
 .product-row {
-  margin: 30px;
+  margin: 5% 0%;
 }
 .form-input {
-  /* margin-top: 10px; */
   background: #84f39c;
-  border-top-right-radius: 10px;
-  border-bottom-right-radius: 10px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-
-  /* height: 29rem;
-  width: 23rem; */
 }
 .form-input[type="text"],
 [type="number"],
@@ -32,13 +21,15 @@ textarea {
   background: rgb(204, 188, 188);
 }
 .editLabel {
-  font-size: 14px;
+  font-size: 12px;
   font-weight: bolder;
   margin-bottom: 0px;
-  color: rgb(41, 8, 230);
+  color: black;
 }
 .editInput {
-  margin-bottom: 15px;
+  margin-bottom: 2%;
+  font-size: 12px;
+  padding: 1%;
 }
 
 .btn {

@@ -13,20 +13,14 @@
 .firstLevelContainer {
   /* position: absolute; */
   /* left: 25%; */
-  width: inherit;
+
   margin: 10px 0px;
 }
 .theMainContainer {
-  margin: 10px 0px;
-  padding: 10px;
+  padding: 0.7vw 0.4vw;
   background-color: white;
-  width: inherit;
 }
 .firstAndOtherNamesContainer {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  margin-bottom: 3%;
 }
 input.firstNameInput {
   border-style: solid;
@@ -34,9 +28,8 @@ input.firstNameInput {
   border-radius: 5px;
   border-width: 1px;
   padding: 2px 4px;
-  margin: 0px 5px 0px 0px;
+
   font-size: 15px;
-  width: 85px;
 }
 input.otherNamesInput {
   border-style: solid;
@@ -45,7 +38,6 @@ input.otherNamesInput {
   border-width: 1px;
   padding: 2px 4px;
   font-size: 15px;
-  width: 220px;
 }
 
 .emailInput,
@@ -61,23 +53,14 @@ input.otherNamesInput {
 }
 
 .emailAndPhoneNumberContainer {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  margin-bottom: 10%;
-  width: inherit;
 }
 
 .emailContainer {
   margin-right: 3%;
-  width: 47%;
 }
 #emailInputId {
-  width: 115%;
 }
 #phoneNumberInputId {
-  width: 68%;
-  margin-left: 12%;
 }
 .passwordContainer {
   margin-bottom: 2%;
@@ -117,7 +100,6 @@ input.otherNamesInput {
   font-size: 15px;
   text-align: center;
   border-radius: 5px;
-  width: inherit;
 }
 .chooseImgButton:hover {
   background: #1bbc1b;

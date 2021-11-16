@@ -20,11 +20,9 @@
 }
 .menuBar {
   height: 12vh;
-  width: inherit;
   background-color: black;
 }
 .bodyArea {
-  width: inherit;
   min-height: 88vh;
   max-height: fit-content;
 }
@@ -54,9 +52,13 @@ div.profileWelcomeMessage {
   /* padding-left: 15px; */
 }
 .userImage {
-  width: 50px;
-  height: 50px;
+  width: 5vw;
+  height: 5vw;
   border-radius: 35px;
+}
+
+.dashboardBtnIcons {
+  font-size: 1.6vw;
 }
 
 .dashboardButtons,
@@ -84,7 +86,6 @@ div.profileWelcomeMessage {
 
 .workspace {
   min-height: 88vh;
-  width: inherit;
   max-height: fit-content;
   background-color: #a7a7a7;
 }

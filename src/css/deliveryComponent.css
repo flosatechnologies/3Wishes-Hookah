@@ -5,10 +5,10 @@
   div.customer-deliveryComponent,
   div.amount-deliveryComponent,
   div.delivery-deliveryComponent {
-    font-size: 5px;
+    font-size: 0.8vw;
   }
-  button.viewMoreButton-deliveryComponent {
-    width: 10px;
+  .viewMoreButton-deliveryComponent {
+    font-size: 0.8vw;
   }
 }
 
@@ -17,45 +17,43 @@
 }
 
 .orderId-deliveryComponent {
-  font-size: 14px;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
+  font-size: 1vw;
+  padding: 0.2vw;
 }
 
 .products-deliveryComponent {
-  font-size: 14px;
+  font-size: 1vw;
+  padding: 0.2vw;
   text-overflow: ellipsis;
 
   overflow: hidden;
 }
 
 .delivery-deliveryComponent {
-  font-size: 14px;
+  font-size: 1vw;
+  padding: 0.2vw;
   color: forestgreen;
 
-  text-overflow: ellipsis;
+  /* text-overflow: ellipsis;
 
-  overflow: hidden;
+  overflow: hidden; */
 }
 
 .location-deliveryComponent {
-  font-size: 14px;
-  text-overflow: ellipsis;
-
-  overflow: hidden;
+  font-size: 1vw;
+  padding: 0.2vw;
 }
 
 .customer-deliveryComponent {
-  font-size: 14px;
+  font-size: 1vw;
+  padding: 0.2vw;
 }
 
 .amount-deliveryComponent {
-  font-size: 14px;
+  font-size: 1vw;
+  padding: 0.2vw;
 }
 
-button.viewMoreButton-deliveryComponent {
-  background-color: transparent;
-  border: none;
-  width: inherit;
+.viewMoreButton-deliveryComponent {
+  font-size: 1vw;
 }
