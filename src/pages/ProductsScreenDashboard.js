@@ -23,6 +23,7 @@ class ProductsScreenDashboard extends Component {
       },
 
       editId: "",
+      value: 0,
 
       storeProducts: this.props.reduxData,
     };
@@ -214,7 +215,12 @@ class ProductsScreenDashboard extends Component {
           >
             <button
               onClick={() => {
-                this.setState({ button: { addProduct: "inactivebtn" } });
+                this.setState({
+                  button: { addProduct: "inactivebtn" },
+                  value: this.state.value + 1,
+                });
+
+                this.props.renderParent(this.state.value);
               }}
               className="backButton"
             >

@@ -17,10 +17,12 @@ h3.loginHeaderText {
   min-height: 100vh;
 }
 
-.forgotPassLinkText {
-  text-decoration: none;
+.forgotPassLinkText,
+.registerLinkText {
   text-align: center;
   font-size: 12px;
+  color: #0056b3;
+  text-decoration: none;
 }
 .loginFrame {
   background-color: rgb(44, 40, 40);

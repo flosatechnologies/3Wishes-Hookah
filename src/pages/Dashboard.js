@@ -31,6 +31,7 @@ class Dashboard extends Component {
         logout: "inactive",
       },
       adminFirstName: "",
+      render: 0,
     };
   }
 
@@ -39,13 +40,21 @@ class Dashboard extends Component {
     this.props.getAllUsers();
     this.props.getTransaction();
   }
+
+  renderParentCallback = (v) => {
+    this.setState({ render: v });
+  };
+
   render() {
     const handleRenderScreen = () => {
       // if (this.state.buttonState.payment === "active")
       if (this.state.buttonState.product === "active") {
         return (
           <div>
-            <ProductsScreenDashboard reduxData={this.props.products} />
+            <ProductsScreenDashboard
+              renderParent={(v) => this.renderParentCallback(v)}
+              reduxData={this.props.products}
+            />
           </div>
         );
       }

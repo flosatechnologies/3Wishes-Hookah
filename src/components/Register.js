@@ -240,10 +240,14 @@ class Register extends Component {
                       <Link
                         style={{
                           textDecoration: "none",
-                          listStyle: "none",
                           fontSize: "13px",
+                          color: "#0056b3",
+                          textAlign: "center",
                         }}
-                        to={"/login"}
+                        to={{
+                          pathname: "/login",
+                          state: { from: "register" },
+                        }}
                       >
                         Sign in
                       </Link>
