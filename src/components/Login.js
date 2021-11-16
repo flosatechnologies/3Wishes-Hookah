@@ -96,7 +96,15 @@ class LogIn extends Component {
                   </Form.Group>
 
                   <Row className="forgotPasswordContainer">
-                    <Link className="forgotPassLinkText" to={"/ForgotPassword"}>
+                    <Link
+                      style={{
+                        textDecoration: "none",
+                        color: "#0056b3",
+                        textAlign: "center",
+                        fontSize: "12px",
+                      }}
+                      to={"/ForgotPassword"}
+                    >
                       Forgot Password?
                     </Link>
                   </Row>
@@ -110,7 +118,14 @@ class LogIn extends Component {
                       }}
                     >
                       Don't have an account?
-                      <Link className="forgotPassLinkText" to={"/signup"}>
+                      <Link
+                        style={{
+                          textDecoration: "none",
+                          color: "#0056b3;",
+                          paddingLeft: "0.4vw",
+                        }}
+                        to={"/signup"}
+                      >
                         Register
                       </Link>
                     </Col>
