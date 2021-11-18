@@ -1,35 +1,31 @@
 import React from "react";
-import imgcard from "../../assets/images/airpods.jpg";
 import { FaCheck } from "react-icons/fa";
 import "../../css/SpecialCard.css";
 
 const Card = (props) => {
   return (
-    <div className="card text-center">
+    <div className="card text-center shadow">
       <div className="overflow">
-        <img src={imgcard} alt="card" className="card-img-top" />
+        <img src={props.imgsrc} alt="card" className="card-img-top" />
         <div className="card-body text-dark">
-          <h4 className="card-title">Mystry Box</h4>
+          <h4 className="card-title">{props.title}</h4>
           <p className="card-text text-primary">
             <FaCheck className="fa" />
-            Hookah Flavours
+            {props.item}
           </p>
           <p className="card-text text-primary">
             <FaCheck className="fa" />
-            Hookah Grommets
+            {props.item1}
           </p>
           <p className="card-text text-primary">
             <FaCheck className="fa" />
-            Hookah Stems
+            {props.item2}
           </p>
           <p className="card-text text-primary">
             <FaCheck className="fa" />
-            Vanilla Flavour
+            {props.item3}
           </p>
-          <p className="card-text text-primary">
-            <FaCheck className="fa" />
-            Hookah Hoses
-          </p>
+
           <a href="/" className="btn btn-outline-success">
             Subscribe Product
           </a>
