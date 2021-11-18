@@ -14,8 +14,8 @@ import { Helmet } from "react-helmet";
 import ProductAdd from "../components/ProductAdd";
 import Video from "../components/Video";
 import Banner from "../components/Banner";
-
 import FloatingWhatsApp from "../components/WhatsAppComponent";
+import Cards from "./../components/Cards/cards";
 
 class ShopPage extends React.Component {
   constructor(props) {
@@ -51,7 +51,7 @@ class ShopPage extends React.Component {
           })}
           <Video />
         </div>
-
+        <Cards />
         <div className="container">
           <div className="row">
             <div
