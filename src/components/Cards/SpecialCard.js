@@ -4,7 +4,7 @@ import "../../css/SpecialCard.css";
 
 const Card = (props) => {
   return (
-    <div className="card text-center shadow">
+    <div className="card text-center shadow ">
       <div className="overflow">
         <img src={props.imgsrc} alt="card" className="card-img-top" />
         <div className="card-body text-dark">
