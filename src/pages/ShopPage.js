@@ -49,10 +49,9 @@ class ShopPage extends React.Component {
           {this.props.videos.videos.map((vid) => {
             return <Video url={vid.url} />;
           })}
-          <Video />
         </div>
         <Cards />
-        <div className="container">
+        <div className="container pt-5 mb-5">
           <div className="row">
             <div
               style={{

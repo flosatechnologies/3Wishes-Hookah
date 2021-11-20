@@ -6,8 +6,8 @@ import cardimg1 from "../../assets/images/slide5.jpg";
 class Cards extends Component {
   render() {
     return (
-      <div className="container-fluid d-flex justify-content-center">
-        <div className="row">
+      <div className="container-fluid d-flex justify-content-center pt-5">
+        <div className="row pt-5">
           <div className="col-md-6">
             <Card
               imgsrc={cardimg}
