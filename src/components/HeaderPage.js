@@ -25,7 +25,7 @@ export class HeaderPage extends Component {
           <LinkContainer to="/" exact={true}>
             <Navbar.Brand>
               <img alt="" width="50" height="50" src={logo} />
-              <Navbar.Text className="text-light font-weight-bold ">
+              <Navbar.Text className="text-success font-weight-bold ">
                 3Wishes Hookah
               </Navbar.Text>
             </Navbar.Brand>

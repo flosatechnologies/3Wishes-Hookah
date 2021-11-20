@@ -8,7 +8,7 @@ const Card = (props) => {
       <div className="overflow">
         <img src={props.imgsrc} alt="card" className="card-img-top" />
         <div className="card-body text-dark">
-          <h4 className="card-title">{props.title}</h4>
+          <h4 className="card-title text-success">{props.title}</h4>
           <p className="card-text text-primary">
             <FaCheck className="fa" />
             {props.item}
@@ -26,7 +26,7 @@ const Card = (props) => {
             {props.item3}
           </p>
 
-          <a href="/" className="btn btn-outline-success">
+          <a href="tel:+233546835848" className="btn btn-outline-danger">
             Subscribe Product
           </a>
         </div>
