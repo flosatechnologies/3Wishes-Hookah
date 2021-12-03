@@ -278,7 +278,7 @@ const Footer = () => {
             xxl={12}
             style={{ textAlign: "right" }}
           >
-            <Link style={{ color: "#fff" }} to="#">
+            <Link style={{ color: "#fff" }} to="termsAndConditions">
               Term and Conditions
             </Link>
           </Col>

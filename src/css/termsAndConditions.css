@@ -1,0 +1,21 @@
+h1.heading1-tandc {
+  font-size: 1.6vw;
+}
+
+h2.heading2-tandc {
+  font-size: 1.1vw;
+  font-weight: bolder;
+  text-decoration: underline;
+}
+
+.tandcImmediateBox {
+  margin-top: 1.5vw;
+  margin-bottom: 1.5vw;
+}
+
+button.closeButton {
+  background-color: transparent;
+  border-style: none;
+
+  outline: none;
+}

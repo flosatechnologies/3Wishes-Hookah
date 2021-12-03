@@ -19,7 +19,7 @@ class AddProduct extends Component {
       product: "",
       price: "",
       quantity: "",
-      group: "",
+      group: "regular",
       description: "",
       image: product,
       imageTofirestore: { name: "noImage.png" },
@@ -68,6 +68,9 @@ class AddProduct extends Component {
         description,
         image
       );
+
+      console.log("group ", group);
+      console.log("description ", description);
     };
 
     return (
@@ -136,7 +139,7 @@ class AddProduct extends Component {
                       this.setState({ group: event.target.value });
                     }}
                   >
-                    <option value="subscribtion">subscribtion</option>
+                    <option value="subscription">subscription</option>
                     <option value="regular">regular</option>
                   </select>
                 </div>

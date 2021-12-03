@@ -241,7 +241,7 @@ class Register extends Component {
                         style={{
                           textDecoration: "none",
                           fontSize: "13px",
-                          color: "#0056b3",
+                          color: "#1AE8E8",
                           textAlign: "center",
                         }}
                         to={{

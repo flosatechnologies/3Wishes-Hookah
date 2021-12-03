@@ -99,7 +99,7 @@ class LogIn extends Component {
                     <Link
                       style={{
                         textDecoration: "none",
-                        color: "#0056b3",
+                        color: "#1AE8E8",
                         textAlign: "center",
                         fontSize: "12px",
                       }}
@@ -120,9 +120,9 @@ class LogIn extends Component {
                       Don't have an account?
                       <Link
                         style={{
-                          textDecoration: "none",
-                          color: "#0056b3;",
+                          color: "#1AE8E8",
                           paddingLeft: "0.4vw",
+                          textDecoration: "none",
                         }}
                         to={"/signup"}
                       >

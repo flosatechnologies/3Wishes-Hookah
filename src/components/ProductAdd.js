@@ -8,14 +8,11 @@ const ProductAdd = () => {
       <div className="pt-5 ">
         <div className="d-sm-flex align-items-center justify-content-between">
           <div className=" pt-5 ">
-            <h4 className="fw-bold pt-5  titles">SHOP GIFT BUNDLES</h4>
+            <h4 className="fw-bold pt-5  titles">SHOP SUBSCRIPTION PACKS</h4>
             <div className="px-5">
               <h2 className="p-2 title1 pt-3 ">Mystery Box</h2>
             </div>
-            <Button
-              variant="dark"
-              href="https://hakunasupply.com/product/stoner-mystery-stash-box/"
-            >
+            <Button variant="dark" href="#">
               SHOP HERE
             </Button>{" "}
           </div>

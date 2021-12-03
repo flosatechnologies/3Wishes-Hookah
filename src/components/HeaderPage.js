@@ -25,7 +25,7 @@ export class HeaderPage extends Component {
           <LinkContainer to="/" exact={true}>
             <Navbar.Brand>
               <img alt="" width="50" height="50" src={logo} />
-              <Navbar.Text className="text-light font-weight-bold">
+              <Navbar.Text className="text-success font-weight-bold ">
                 3Wishes Hookah
               </Navbar.Text>
             </Navbar.Brand>
@@ -34,15 +34,15 @@ export class HeaderPage extends Component {
           <Navbar.Collapse id="navbarScroll">
             <Nav
               className="ml-auto my-2 my-lg-0"
-              style={{ minHeight: "100px" }}
+              //style={{ minHeight: "100px" }}
               navbarScroll
             >
               <LinkContainer to="/" exact={true}>
                 <Nav.Link className="mr-sm-5">Home</Nav.Link>
               </LinkContainer>
-              <LinkContainer to="/shop">
+              {/* <LinkContainer to="/shop">
                 <Nav.Link className="mr-sm-5">Shop</Nav.Link>
-              </LinkContainer>
+              </LinkContainer> */}
 
               <LinkContainer to="/contact">
                 <Nav.Link className="mr-sm-5">Contact</Nav.Link>

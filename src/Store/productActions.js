@@ -3,8 +3,8 @@ export const AddNewProduct = (
   product,
   price,
   quantity,
-  description,
   group,
+  description,
   image
 ) => {
   return (dispatch, state, { getFirestore, getFirebase }) => {
@@ -42,6 +42,8 @@ export const AddNewProduct = (
               })
               .then(() => {
                 alert("Product added successfully");
+                console.log("group-redux", group);
+                console.log("description-redux", description);
               })
               .catch((error) => {
                 console.log(error);

@@ -19,6 +19,7 @@ import { connect } from "react-redux";
 import UserProfile from "../pages/UserProfilePage";
 import ForgotPassword from "../pages/ForgotPassword";
 import PaymentSuccessful from "../pages/PaymentSuccessful";
+import termsAndConditions from "./termsAndConditions";
 
 function RouterComponent(props) {
   return (
@@ -38,6 +39,7 @@ function RouterComponent(props) {
       <Route path="/userProfile" component={UserProfile} />
       <Route path="/payment" component={PaymentSuccessful} />
       <Route path="/forgotPassword" component={ForgotPassword} />
+      <Route path="/termsAndConditions" component={termsAndConditions} />
       <ProtectedRoute path="/dashboard" component={Dashboard} />
     </div>
   );
