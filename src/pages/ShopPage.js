@@ -15,7 +15,8 @@ import ProductAdd from "../components/ProductAdd";
 import Video from "../components/Video";
 import Banner from "../components/Banner";
 import FloatingWhatsApp from "../components/WhatsAppComponent";
-import Cards from "./../components/Cards/cards";
+import SpecialCard from "../components/SpecialCard";
+import "../css/shopPage.css";
 
 class ShopPage extends React.Component {
   constructor(props) {
@@ -36,6 +37,16 @@ class ShopPage extends React.Component {
   };
 
   render() {
+    let regularProducts = [];
+    regularProducts = this.props.products.filter(
+      (product) => product.group === "regular"
+    );
+
+    let subscription = [];
+    subscription = this.props.products.filter(
+      (product) => product.group === "subscription"
+    );
+    console.log("subscriptionProduct: ", subscription);
     return (
       <div>
         <HeaderPage />
@@ -50,7 +61,33 @@ class ShopPage extends React.Component {
             return <Video url={vid.url} />;
           })}
         </div>
-        <Cards />
+        <Container fluid={true} style={{ marginTop: "3 0px" }}>
+          <Row className="subscriptionTextMainContainer">
+            <Col className="subscriptionTextContainer">
+              <h2 className="subscriptionText" Id="subscriptionTextId">
+                {" "}
+                Subscription Packages
+              </h2>
+            </Col>
+          </Row>
+
+          <Container>
+            <Row>
+              {subscription.map((prod) => {
+                return (
+                  <Col>
+                    <SpecialCard
+                      imgsrc={prod.image}
+                      title={prod.product}
+                      description={prod.description}
+                    />
+                  </Col>
+                );
+              })}
+            </Row>
+          </Container>
+        </Container>
+
         <div className="container pt-5 mb-5">
           <div className="row">
             <div
@@ -84,24 +121,31 @@ class ShopPage extends React.Component {
             </div>
           </div>
           <Container>
+            <Row className="wishesProductsTextMainContainer">
+              <Col className="wishesProductsTextContainer">
+                <h2 className="wishesProductsText">Products</h2>
+              </Col>
+            </Row>
             <Row>
-              {this.props.products.map((product) => (
-                <Col xs={12} sm={12} md={6} lg={3} xl={3} xxl={3}>
-                  <Helmet>
+              {regularProducts.map((product) => {
+                return (
+                  <Col xs={12} sm={12} md={6} lg={3} xl={3} xxl={3}>
+                    {/* <Helmet>
                     <title>{product.name}</title>
                     <meta name="description" content="3Wishes Hookah Shop" />
-                  </Helmet>
+                  </Helmet> */}
 
-                  <Product
-                    name={product.product}
-                    image={product.image}
-                    price={product.price}
-                    Id={product.Id}
-                    theProducts={this.props.products}
-                    key={product.Id}
-                  />
-                </Col>
-              ))}
+                    <Product
+                      name={product.product}
+                      image={product.image}
+                      price={product.price}
+                      Id={product.Id}
+                      theProducts={this.props.products}
+                      key={product.Id}
+                    />
+                  </Col>
+                );
+              })}
             </Row>
           </Container>
         </div>

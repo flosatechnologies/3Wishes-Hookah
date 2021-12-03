@@ -1,0 +1,20 @@
+.subscriptionTextMainContainer {
+  margin-top: 7vw;
+}
+
+.wishesProductsTextMainContainer {
+  margin-top: 4.5vw;
+}
+
+.subscriptionTextContainer {
+  text-align: center;
+  margin-bottom: 2vw;
+}
+.wishesProductsTextContainer {
+  text-align: center;
+}
+
+h2.subscriptionText,
+h2.wishesProductsText {
+  text-transform: capitalize;
+}
