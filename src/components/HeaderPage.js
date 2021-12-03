@@ -40,9 +40,9 @@ export class HeaderPage extends Component {
               <LinkContainer to="/" exact={true}>
                 <Nav.Link className="mr-sm-5">Home</Nav.Link>
               </LinkContainer>
-              <LinkContainer to="/shop">
+              {/* <LinkContainer to="/shop">
                 <Nav.Link className="mr-sm-5">Shop</Nav.Link>
-              </LinkContainer>
+              </LinkContainer> */}
 
               <LinkContainer to="/contact">
                 <Nav.Link className="mr-sm-5">Contact</Nav.Link>

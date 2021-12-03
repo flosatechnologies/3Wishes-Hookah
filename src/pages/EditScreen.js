@@ -213,7 +213,7 @@ class Edit extends Component {
                       this.setState({ group: event.target.value });
                     }}
                   >
-                    <option value="subscribtion">subscribtion</option>
+                    <option value="subscription">subscription</option>
                     <option value="regular">regular</option>
                   </select>
                 </div>
