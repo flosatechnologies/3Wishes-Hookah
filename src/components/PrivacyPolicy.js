@@ -6,9 +6,7 @@ import "../css/termsAndConditions.css";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 
 export class PrivacyPolicy extends Component {
-  constructor(props) {
-    super(props);
-  }
+
 
   render() {
     return (
