@@ -20,6 +20,7 @@ import UserProfile from "../pages/UserProfilePage";
 import ForgotPassword from "../pages/ForgotPassword";
 import PaymentSuccessful from "../pages/PaymentSuccessful";
 import termsAndConditions from "./termsAndConditions";
+import PrivacyPolicy from "./PrivacyPolicy";
 
 function RouterComponent(props) {
   return (
@@ -40,6 +41,7 @@ function RouterComponent(props) {
       <Route path="/payment" component={PaymentSuccessful} />
       <Route path="/forgotPassword" component={ForgotPassword} />
       <Route path="/termsAndConditions" component={termsAndConditions} />
+      <Route path="/privacypolicy" component={PrivacyPolicy} />
       <ProtectedRoute path="/dashboard" component={Dashboard} />
     </div>
   );

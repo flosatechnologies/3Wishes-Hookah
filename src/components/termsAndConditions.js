@@ -80,34 +80,12 @@ export class termsAndConditions extends Component {
             </p>
             <h2 className="heading2-tandc">Payment Policy</h2>
             <p className="paragraph-tandc">
-              We accept the following: Visa, Mastercard, airteltigo cash, mtn
-              momo, Vodafone cash. We do not offer any other payment methods
+              We accept the following: Airteltigo cash, MTN
+              MOMO, Vodafone cash, Bitcoin. We do not offer any other payment methods
               currently. Please contact us if you have any questions regarding
               payments.
             </p>
-            <h2 className="heading2-tandc">Credit Card Security</h2>
-            <p className="paragraph-tandc">
-              We do not store you credit card information on our site. We use
-              the Plug N Pay secured gateway to process credit card transactions
-              that is encrypted through the Payment Card Industry Data Security
-              Standard (PCI-DSS). Your purchase transaction data is stored only
-              as long as is necessary to complete your purchase transaction.
-              After that is complete, your purchase transaction information is
-              deleted. To protect your personal information, we take reasonable
-              precautions and follow industry best practices to make sure it is
-              not inappropriately lost, misused, accessed, disclosed, altered or
-              destroyed. All direct payment gateways adhere to the standards set
-              by PCI-DSS as managed by the PCI Security Standards Council, which
-              is a joint effort of brands like Visa, MasterCard, American
-              Express and Discover. PCI-DSS requirements help ensure the secure
-              handling of credit card information by our store and its service
-              providers. If you provide us with your credit card information,
-              the information is encrypted using secure socket layer technology
-              (SSL) and stored with a AES-256 encryption. Although no method of
-              transmission over the Internet or electronic storage is 100%
-              secure, we follow all PCI-DSS requirements and implement
-              additional generally accepted industry standards.
-            </p>
+            
             <h2 className="heading2-tandc">Refund Policy</h2>
             <p className="paragraph-tandc">
               Your satisfaction is our paramount concern. We offer an
@@ -120,21 +98,7 @@ export class termsAndConditions extends Component {
               customer service for instructions for shipping the merchandise
               back to our company.
             </p>
-            <h2 className="heading2-tandc">Privacy Policy</h2>
-            <p className="paragraph-tandc">
-              3 wishes lounge, (“owner, we, us or our”) understands the
-              importance of protecting the information you provide and
-              protecting your privacy is our priority. Our Privacy Policy
-              (“policy”) describes the type of information we collect, how we
-              use this information, with whom we share it and finally how we
-              protect your personal information. You can read our privacy policy
-              here. By using our site, you are accepting the practices described
-              in this policy. We may change or add to this policy without prior
-              notification, so we encourage you to review it periodically.
-              Please note, that the practices described herein refer to the use
-              of this site only. If you link to other websites, please review
-              the privacy policies posted on those sites respectively.
-            </p>
+            
             <h2 className="heading2-tandc">Cookies </h2>
             <p className="paragraph-tandc">
               The site may use cookies and tracking technology depending on the
@@ -237,7 +201,7 @@ export class termsAndConditions extends Component {
               In order to sign up for our Affiliate Program, you will first be
               asked to submit an Affiliate Application to join. The Affiliate
               Application may be found at the following website:
-              www.hakunasupplycbd.com/affiliate-application. Submitting an
+              www.3wishesgh.com/affiliate-application. Submitting an
               Affiliate Application does not guarantee inclusion in the
               Affiliate Program. We evaluate each and every application and are
               the sole and exclusive decision-makers on Affiliate acceptance. If
@@ -335,35 +299,8 @@ export class termsAndConditions extends Component {
                 customer any coupons or discounts;
               </li>
             </ol>
-            <h2 className="heading2-tandc"> 7) PAYOUT INFORMATION </h2>{" "}
-            <p>
-              Payouts will only be available when the Company has your current
-              address information as well as accounting and tax documentation.
-              You will be asked to submit a W8/W9 tax form. Accounting
-              information may include the routing and account number of a bank
-              where you wish to post a direct deposit or may include an email
-              address for an online method of payment. Currently, the Company
-              employs the following methods of payout:
-            </p>
-            <ol>
-              <li>Paypal</li> <li>Check</li>
-            </ol>
-            <p>
-              {" "}
-              For any changes in your address or accounting information, you
-              must notify us immediately and we will endeavor to make the
-              changes to your payout information as soon as possible. Payouts
-              will be available the month or period after they accrue. For
-              example, if payouts are made every 15 days, an entire 15 day
-              period must finish for the payout of that period to be available
-              in the following period. We explicitly reserve the right to change
-              payout information in our sole and exclusive discretion. If we do
-              so, you will be notified. For any disputes as to payout, the
-              Company must be notified within thirty days of your receipt of the
-              payout. We will review each dispute notification as well as the
-              underlying payout transaction to which it is related. Disputes
-              filed after thirty days of payout will not be addressed.
-            </p>{" "}
+            
+            
             <h2 className="heading2-tandc"> 8) REPORTS</h2>
             <p>
               You may log into your account with us to review reports related to
@@ -415,14 +352,14 @@ export class termsAndConditions extends Component {
               confusingly similar variation of the Company IP without our
               express prior written permission. This includes a restriction on
               using the Company IP in any domain or website name, in any
-              keywords or advertising, in any metatags or code, or in any way
+              keywords or advertising, in any meta tags or code, or in any way
               that is likely to cause consumer confusion. Please be advised that
               your unauthorized use of any Company IP shall constitute unlawful
               infringement and we reserve all of our rights, including the right
               to pursue an infringement suit against you in federal court. You
               may be obligated to pay monetary damages or legal fees and costs.
               You hereby provide us a non-exclusive license to use your name,
-              trademarks and servicemarks if applicable and other business
+              trademarks and service marks if applicable and other business
               intellectual property to advertise our Affiliate Program.
             </p>
             <h2 className="heading2-tandc"> 11) MODIFICATION & VARIATION</h2>{" "}
@@ -718,7 +655,7 @@ export class termsAndConditions extends Component {
                 communications are permitted to both Parties under this
                 Agreement, including e-mail or fax. For any questions or
                 concerns, please email us at the following address:
-                sales@hakunasupply.com.
+                info@3wishesgh.com.
               </li>
             </ol>
           </Col>
