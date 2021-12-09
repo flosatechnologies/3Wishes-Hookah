@@ -292,7 +292,7 @@ const Footer = () => {
             xxl={12}
             style={{ textAlign: "right" }}
           >
-            <Link style={{ color: "#fff" }} to="#">
+            <Link style={{ color: "#fff" }} to="PrivacyPolicy">
               Privacy Policy
             </Link>
           </Col>
