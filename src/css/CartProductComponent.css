@@ -8,6 +8,9 @@
     font-size: 11px;
     text-align: right;
   }
+  .productNameText {
+    font-weight: 700;
+  }
   .removeButton {
     font-size: 11px;
     margin-bottom: 0px;

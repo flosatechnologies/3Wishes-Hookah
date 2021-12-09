@@ -32,7 +32,9 @@ const SpecialCard = (props) => {
               borderStyle: "none",
               outline: "none",
               fontSize: "18px",
+              textAlign: "center",
             }}
+            disabled={true}
           >
             {props.description}
           </textarea>

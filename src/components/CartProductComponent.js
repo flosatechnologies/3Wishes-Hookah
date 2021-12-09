@@ -62,7 +62,15 @@ class CartProductComponent extends React.Component {
                 className="productNameBox"
               >
                 <Row className="productName">
-                  <Col xxl={12} xl={12} lg={12} md={12} sm={12} xs={12}>
+                  <Col
+                    xxl={12}
+                    xl={12}
+                    lg={12}
+                    md={12}
+                    sm={12}
+                    xs={12}
+                    className="productNameText"
+                  >
                     {this.props.productName}
                   </Col>
                 </Row>
