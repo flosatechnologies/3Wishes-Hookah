@@ -8,12 +8,12 @@ const ProductAdd = () => {
       <div className="pt-5 ">
         <div className="d-sm-flex align-items-center justify-content-between">
           <div className=" pt-5 ">
-            <h4 className="fw-bold pt-5  titles">SHOP SUBSCRIPTION PACKS</h4>
+            <h4 className="fw-bold pt-5  titles">SPECIAL SUBSCRIPTION PACKS</h4>
             <div className="px-5">
-              <h2 className="p-2 title1 pt-3 ">Mystery Box</h2>
+              <h2 className="p-2 title1 pt-3 ">fOR YOU</h2>
             </div>
             <Button variant="dark" href="#subscriptionTextId">
-              SHOP HERE
+              SHOP NOW
             </Button>{" "}
           </div>
           <div className="py-3">
