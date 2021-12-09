@@ -7,36 +7,38 @@ import { logoutUser } from "../Store/authActions";
 import { BsPerson } from "react-icons/bs";
 
 export class HeaderPage extends Component {
-  // constructor(props) {
-  //   super(props);
-  // }
-  // componentDidUpdate() {
-
-  // }
-
   render() {
-    // const login = JSON.parse(localStorage.getItem("login"));
-    // const role = JSON.parse(localStorage.getItem("role"));
-
     return (
       <div>
-        <Navbar bg="danger" variant="dark" expand="lg">
+        <Navbar bg="danger" variant="dark" expand="md">
           {/* <Container> */}
           <LinkContainer to="/" exact={true}>
             <Navbar.Brand>
               <img alt="" width="50" height="50" src={logo} />
-              <Navbar.Text className="text-success font-weight-bold ">
+              <Navbar.Text
+                className="text-success font-weight-bold"
+                style={{
+                  fontSize: "17px",
+                }}
+              >
                 3Wishes Hookah
               </Navbar.Text>
             </Navbar.Brand>
           </LinkContainer>
-          <Navbar.Toggle aria-controls="navbarScroll" />
-          <Navbar.Collapse id="navbarScroll">
-            <Nav
-              className="ml-auto my-2 my-lg-0"
-              //style={{ minHeight: "100px" }}
-              navbarScroll
-            >
+          <Navbar.Toggle
+            aria-controls="basic-navbar-nav"
+            style={{
+              outline: "none",
+              padding: "0",
+              borderStyle: "none",
+              borderColor: "transparent",
+            }}
+          />
+          <Navbar.Collapse
+            id="navbarScroll"
+            className="navigationToggle justify-content-end"
+          >
+            <Nav>
               <LinkContainer to="/" exact={true}>
                 <Nav.Link className="mr-sm-5">Home</Nav.Link>
               </LinkContainer>

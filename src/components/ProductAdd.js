@@ -12,7 +12,7 @@ const ProductAdd = () => {
             <div className="px-5">
               <h2 className="p-2 title1 pt-3 ">Mystery Box</h2>
             </div>
-            <Button variant="dark" href="#">
+            <Button variant="dark" href="#subscriptionTextId">
               SHOP HERE
             </Button>{" "}
           </div>

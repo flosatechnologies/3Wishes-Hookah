@@ -1,7 +1,5 @@
 import React from "react";
-
 import Product from "../pages/Product";
-
 import "bootstrap/dist/css/bootstrap.min.css";
 import HeaderPage from "../components/HeaderPage";
 import Footer from "../components/FooterComponent";
@@ -65,7 +63,6 @@ class ShopPage extends React.Component {
           <Row className="subscriptionTextMainContainer">
             <Col className="subscriptionTextContainer">
               <h2 className="subscriptionText" Id="subscriptionTextId">
-                {" "}
                 Subscription Packages
               </h2>
             </Col>
@@ -75,7 +72,7 @@ class ShopPage extends React.Component {
             <Row>
               {subscription.map((prod) => {
                 return (
-                  <Col>
+                  <Col style={{ marginTop: "10px", marginBottom: "10px" }}>
                     <SpecialCard
                       imgsrc={prod.image}
                       title={prod.product}

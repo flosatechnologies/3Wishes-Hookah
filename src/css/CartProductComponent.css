@@ -4,13 +4,19 @@
   .productQuantityInput {
     font-size: 11px;
   }
-  .productName,
+  .productName {
+    font-size: 11px;
+    text-align: right;
+  }
   .removeButton {
     font-size: 11px;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
   }
   .productImage {
-    width: 60px;
-    height: 60px;
+    width: 11vw;
+    height: 11vw;
+    justify-content: left;
   }
 }
 
@@ -80,9 +86,11 @@ div.productQtyContainer {
 }
 .productNameBox {
   padding-left: 15px;
+  padding-top: 0px;
+  margin-top: 0px;
 }
 div.productImageBox {
-  text-align: left;
+  justify-content: flex-start;
 }
 .removeButton {
   color: #ff0000;
@@ -96,6 +104,6 @@ div.productImageBox {
   margin-top: 35px;
 }
 .removeButtonContainer {
-  margin-top: 20px;
+  margin-top: 10px;
   text-align: center;
 }

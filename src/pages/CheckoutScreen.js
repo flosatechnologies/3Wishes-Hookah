@@ -12,6 +12,7 @@ import {
   getCustomerInfo,
   getOtherCustomerInfo,
 } from "../Store/custDetailActions";
+import Footer from "../components/FooterComponent";
 
 class CheckoutScreen extends React.Component {
   constructor(props) {
@@ -407,7 +408,7 @@ class CheckoutScreen extends React.Component {
             </Col>
           </Row>
         </Container>
-        <FooterPage />
+        <Footer />
       </div>
     );
   }
