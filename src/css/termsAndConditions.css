@@ -1,9 +1,10 @@
 h1.heading1-tandc {
-  font-size: 1.6vw;
+  font-size: 1.1em;
+  font-weight: 800;
 }
 
 h2.heading2-tandc {
-  font-size: 1.1vw;
+  font-size: 1em;
   font-weight: bolder;
   text-decoration: underline;
 }
