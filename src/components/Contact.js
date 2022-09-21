@@ -123,7 +123,7 @@ export default class Contact extends Component {
 
             <div className="icon-text">
               <FaMapMarkerAlt className="Fa" />
-              <span>Koforidua, Ghana</span>
+              <span>Accra, Ghana</span>
             </div>
 
             <div className="social-media">
